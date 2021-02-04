@@ -16,7 +16,7 @@ let
            [ (flip appendConfigureFlags [ "-f" "watchServer" "-f" "previewServer" ])
            ];
 
-      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.stdenv.lib.cleanSource ./.) { };
+      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.stdenv.lib.cleanSource ./haskell) { };
     };
   };
 
@@ -31,7 +31,7 @@ in
 
   shell = haskellPackages.shellFor {
     packages = p: with p; [
-      project
+      haskell-foundation
     ];
     buildInputs = with haskellPackages; [
       ghcid

@@ -1,12 +1,20 @@
 {-# Language OverloadedStrings #-}
 {-# Language TemplateHaskell #-}
 
+import Control.Monad (when)
 import Data.Monoid (mappend)
 import Hakyll
+import System.Directory
 import System.Which
+import System.FilePath.Posix (takeBaseName)
 
 main :: IO ()
-main = hakyll $ do
+main = do
+  do
+    d <- getCurrentDirectory
+    when (takeBaseName d == "haskell") $
+      setCurrentDirectory "../site"
+  hakyll $ do
     match "static/*" $ do
         route   idRoute
         compile copyFileCompiler
