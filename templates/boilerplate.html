@@ -12,29 +12,20 @@
 </head>
 <body>
 
-{% block extras %}
-  <!-- 
-    'extras' block:
-    Stuff can go here that is positioned independantly, like modals, slide-overs, tooptips, etc.
-    Only stuff that is not in the document flow.
-  -->
-{% endblock %}
-
 <!-- This is the mobile fly-out menu - outside document flow. -->
-{# {% include "partials/mobile-nav-flyout.njk" %} #}
+$partial("templates/mobile-nav-flyout.html")$
 
 <!-- Document flow begins here -->
 <div class="min-h-screen flex flex-col">
   <div>
-    {% include "partials/nav.njk" %}
+    $partial("templates/nav.html")$
   </div>
 
   <div class="flex-grow">
-    {% block body %}
-    {% endblock %}
+    $body$
   </div>
   
-  {% include "partials/footer.njk" %}
+  $partial("templates/footer.html")$
 </div>
 
 </body>
