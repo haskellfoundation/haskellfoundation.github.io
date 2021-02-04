@@ -11,5 +11,5 @@ nix-build
 To run the local development server:
 
 ```bash
-$(nix-build)/bin/site watch
+./watch.sh
 ```

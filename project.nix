@@ -1,11 +1,12 @@
 { compiler ? "ghc865"
 , system ? builtins.currentSystem
-, pkgs ? import (import ./nixpkgs.nix) { inherit system; }
+, pkgs ? import (import ./dep/nixpkgs.nix) { inherit system; }
 }:
 
 let
   inherit (pkgs.lib.trivial) flip pipe;
-  inherit (pkgs.haskell.lib) appendPatch appendConfigureFlags;
+  inherit (pkgs.haskell.lib) appendPatch appendConfigureFlags overrideCabal;
+  nodePkgs = (pkgs.callPackage ./dep/node { inherit pkgs; nodejs = pkgs.nodejs-12_x; }).shell.nodeDependencies;
 
   haskellPackages = pkgs.haskell.packages.${compiler}.override {
     overrides = hpNew: hpOld: {
@@ -15,11 +16,15 @@ let
            [ (flip appendConfigureFlags [ "-f" "watchServer" "-f" "previewServer" ])
            ];
 
-      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" ./. { };
+      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.stdenv.lib.cleanSource ./.) { };
     };
   };
 
-  project = haskellPackages.haskell-foundation;
+  project = overrideCabal (haskellPackages.haskell-foundation) (drv: {
+    executableToolDepends = (drv.executableToolDepends or []) ++ [
+      nodePkgs
+    ];
+  });
 in
 {
   project = project;
@@ -31,7 +36,9 @@ in
     buildInputs = with haskellPackages; [
       ghcid
       hlint
+      nodePkgs
     ];
+    NODE_PATH = "${nodePkgs}/lib/node_modules";
     withHoogle = true;
   };
 }

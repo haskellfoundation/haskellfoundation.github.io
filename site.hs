@@ -1,10 +1,10 @@
---------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
-import           Hakyll
+{-# Language OverloadedStrings #-}
+{-# Language TemplateHaskell #-}
 
+import Data.Monoid (mappend)
+import Hakyll
+import System.Which
 
---------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -13,7 +13,7 @@ main = hakyll $ do
 
     match "css/*" $ do
         route   idRoute
-        compile compressCssCompiler
+        compile postcss
 
     match (fromList ["about.rst", "contact.markdown"]) $ do
         route   $ setExtension "html"
@@ -60,8 +60,11 @@ main = hakyll $ do
     match "templates/*" $ compile templateBodyCompiler
 
 
---------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+postcss :: Compiler (Item String)
+postcss =
+  getResourceString >>= withItemBody (unixFilter $(staticWhich "postcss") [])
