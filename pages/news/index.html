@@ -1,0 +1,25 @@
+{% macro newsItem(title, content) %}
+<div>
+  <h3>{{title}}</h3>
+  <p>{{content}}</p>
+</div>
+{% endmacro %}
+
+{% extends "boilerplate.njk" %}
+{% block body %}
+
+<h1>News</h1>
+
+{% include "partials/follow-hf-developments.njk" %}
+
+<h2>November 5, 2020</h2>
+
+<div>
+  
+  {% for item in pages.news.articles %}
+    {{ newsItem(item.title, item.content) }}
+  {% endfor %}
+
+</div>
+
+{% endblock %}

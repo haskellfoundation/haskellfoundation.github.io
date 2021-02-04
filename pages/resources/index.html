@@ -1,0 +1,18 @@
+{% extends "boilerplate.njk" %}
+{% block body %}
+
+<h1>Resources</h1>
+
+<div>
+  {% for resource in pages.resources.resources %}
+    <div>
+      <h2>{{resource.title}}</h2>
+      <p>
+        {{resource.description}}
+      </p>
+      <a href="">{{resource.linkTitle}}</a>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

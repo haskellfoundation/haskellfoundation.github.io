@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr="" name="viewport">
+  <title></title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+{% block extras %}
+  <!-- 
+    'extras' block:
+    Stuff can go here that is positioned independantly, like modals, slide-overs, tooptips, etc.
+    Only stuff that is not in the document flow.
+  -->
+{% endblock %}
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+{# {% include "partials/mobile-nav-flyout.njk" %} #}
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    {% include "partials/nav.njk" %}
+  </div>
+
+  <div class="flex-grow">
+    {% block body %}
+    {% endblock %}
+  </div>
+  
+  {% include "partials/footer.njk" %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% extends "boilerplate.njk" %}
+{% block body %}
+
+<div class="max-w-screen-xl mx-auto">
+  <div class="border border-purple-500 p-1 lg:p-3">
+    <div class="border border-purple-400 p-1 lg:p-3">
+      <div class="border border-purple-300 p-1 lg:p-3">
+        <div class="border border-purple-200 p-1 lg:p-3">
+          <div class="border border-purple-100 p-1 lg:p-3">
+            <div class="border border-purple-50 p-16 flex flex-col items-center text-center">
+              <h1 class="mb-4 text-3xl-6xl font-w-800">The Haskell Foundation (HF)</h1>
+              <div class="text-gray-500">An independent, non-profit organization dedicated to broadening the adoption of Haskell, by supporting its ecosystem of tools, libraries, education, and research.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative bg-white mt-24 lg:w-2/3">
+    <div class="absolute -z-10 left-0 top-0 right-6 bottom-6 border-3 border-purple-700"></div>
+    <div class="absolute -z-10 left-6 top-6 right-0 bottom-0 border-3 border-purple-700"></div>
+    <div class="p-3">
+      <div class="bg-white relative border-3 border-purple-700 px-6 sm:px-12 lg:px-16 pb-12">
+        <div class="lg:absolute lg:left-full lg:w-2/3 lg:-ml-36 lg:top-1/2 lg:transform lg:-translate-y-1/2">
+          <div class="youtube-video -mt-12 lg:mt-0">
+            <iframe class="absolute w-full h-full left-0 top-0 rounded shadow-md" src="https://www.youtube.com/embed/MEmRarBL9kw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="mt-8 space-y-6 lg:pr-32">
+          <h1 class="text-4xl-6xl font-normal">We're getting started!</h1>
+          <p>
+            Watch Simon Peyton Jones announce the Haskell Foundation (HF) at the Haskell eXchange conference on November 4, 2020.
+          </p>
+          <p>
+            In this talk, Simon talks about why we are launching this new organization and its goals. At the end, he is joined by a panel of HF volunteers to take questions from the audience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-trueGray-900 mt-24">
+  <div class="max-w-screen-xl mx-auto px-6 sm:px-12 lg:px-16 py-16 md:py-24 py-20 md:py-28 xl:py-32">
+    <h1 class="text-trueGray-200 text-3xl-5xl">not “just another programming language”</h1>
+    <p class="mt-12 text-trueGray-400 max-w-3xl">
+      Haskell is not “just another programming language”: it embodies a radical and elegant attack on the entire enterprise of writing software. It profoundly influences the world of software for the better.
+    </p>
+    <div class="mt-12 block">
+      <a class="arrow-link light" href="">>> Learn About Haskell</a>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+  {% include "partials/section.njk" %}
+  <div class="text-center pt-12">
+    <h1 class="text-3xl-5xl">Our Ethos</h1>
+    <p class="mt-4 text-gray-500">Ideas that guide our every decision</p>
+  </div>
+
+  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid lg:grid-cols-2 xl:grid-cols-3 gap-8 text-center">
+    {% macro ethosItem(icon, title, description) %}
+      <div class="border-3 border-purple-600 rounded py-8 px-6 sm:px-12"> 
+        <span class="{{icon}} text-purple-600 text-2xl"></span>
+        <h3 class="mt-6 font-semibold text-xl">{{title}}</h3>
+        <p class="mt-6 text-gray-500">{{description}}</p>
+      </div>
+    {% endmacro %}
+    {% for item in pages.home.ethos %}
+      {{ ethosItem(item.icon, item.title, item.description) }}
+    {% endfor %}
+  </div>
+</div>
+
+{% include "partials/follow-hf-developments.njk" %}
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 text-center">
+  
+  <div class="rounded bg-purple-800 shadow-md p-3 xl:hidden">
+    <div class="rounded bg-white shadow-md py-8 px-6 sm:px-12">
+      <div class="max-w-4xl mx-auto">
+        <span class="fas fa-bullhorn text-3xl"></span>
+        <h1 class="text-2xl-5xl mt-8">Haskell Foundation Board Of Directors Call For Nominations</h1>
+        <p class="mt-8">
+          The Haskell Foundation has issued a call for nominations to the Board of Directors. Nominations will remain open until January 11, 2021. New Board members will be selected by the interim members of the Board of Directors.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden xl:block rounded bg-purple-800 shadow-lg shadow shadow-sm shadow-md p-3">
+    <div class="rounded bg-purple-800 shadow-lg shadow shadow-sm shadow-md p-4">
+      <div class="rounded bg-purple-800 shadow-lg shadow shadow-sm shadow-md p-4">
+        <div class="rounded bg-purple-800 shadow-lg shadow shadow-sm shadow-md p-4">
+          <div class="rounded bg-white shadow-lg shadow shadow-sm shadow-md py-8 px-6 sm:px-12">
+            <div class="max-w-4xl mx-auto">
+              <span class="fas fa-bullhorn text-3xl"></span>
+              <h1 class="text-2xl-5xl mt-8">Haskell Foundation Board Of Directors Call For Nominations</h1>
+              <p class="mt-8">
+                The Haskell Foundation has issued a call for nominations to the Board of Directors. Nominations will remain open until January 11, 2021. New Board members will be selected by the interim members of the Board of Directors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="arrow-link mt-12 inline-block" href="">>> More News</a>
+
+</div>
+
+{% endblock %}
+  

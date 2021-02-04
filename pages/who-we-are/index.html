@@ -1,0 +1,37 @@
+{% extends "boilerplate.njk" %}
+{% block body %}
+  
+<h1>Who We Are</h1>  
+
+<div>
+  <h2>The HF Interim Board Of Directors</h2>
+  <p>
+    The Haskell Foundation board of directors are responsible for managing and setting the direction of the Haskell Foundation. HF's current board will serve on an interim basis during the launch phase and will manage the establishment of the first full board in early 2021.
+  </p>
+</div>
+  
+<div>
+  {% for profile in pages.whoWeAre.profiles %}
+
+    <div>
+      <div>
+        <img src="{{profile.image}}" alt="">
+        <div>
+          <h3>{{profile.name}}</h3>
+          <div>{{profile.position}}</div>
+        </div>
+      </div>
+      <p>
+        {{profile.bio}}
+      </p>
+      <h4>Committees</h4>
+      <p>
+        {{profile.committees}}
+      </p>
+      <a href="mailto">{{profile.email}}</a>
+    </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
