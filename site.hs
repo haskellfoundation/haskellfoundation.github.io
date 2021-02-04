@@ -7,7 +7,7 @@ import System.Which
 
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
+    match "static/*" $ do
         route   idRoute
         compile copyFileCompiler
 
