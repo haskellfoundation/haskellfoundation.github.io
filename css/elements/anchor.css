@@ -1,0 +1,12 @@
+a {
+  @apply text-purple-600 hover:text-purple-700 cursor-pointer;
+}
+
+.arrow-link {
+  @apply pb-1 border-b-3 border-purple-700;
+  font-family: "Fira Code";
+}
+
+.arrow-link.light {
+  @apply text-white border-white;
+}

@@ -1,0 +1,24 @@
+@layer utilities {
+	@variants responsive {
+		.font-w-400 {
+			font-weight: 400;
+			font-variation-settings: 'wght' 400;
+		}
+		.font-w-500 {
+			font-weight: 500;
+			font-variation-settings: 'wght' 500;
+		}
+		.font-w-600 {
+			font-weight: 600;
+			font-variation-settings: 'wght' 600;
+		}
+		.font-w-700 {
+			font-weight: 700;
+			font-variation-settings: 'wght' 700;
+		}
+		.font-w-800 {
+			font-weight: 800;
+			font-variation-settings: 'wght' 800;
+		}
+	}
+}

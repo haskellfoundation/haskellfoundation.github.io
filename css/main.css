@@ -1,0 +1,21 @@
+/* Fonts */
+
+/* Tailwind */
+@import './tailwind/base.css';
+@import './tailwind/components.css';
+@import './tailwind/utilities.css';
+@import './tailwind/font-weight.css';
+
+/* Custom CSS */
+@import "./elements/anchor.css";
+@import "./elements/button.css";
+@import "./elements/input.css";
+@import "./elements/heading.css";
+@import "./elements/paragraph.css";
+
+.youtube-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}

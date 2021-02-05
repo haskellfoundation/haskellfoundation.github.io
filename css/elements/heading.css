@@ -1,0 +1,39 @@
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display font-bold;
+}
+
+.text-xl-2xl {
+  @apply text-xl sm:text-2xl
+}
+
+.text-xl-3xl {
+  @apply text-xl sm:text-2xl md:text-3xl;
+}
+
+.text-2xl-5xl {
+  @apply text-2xl sm:text-4xl md:text-5xl leading-snug sm:leading-tight md:leading-tight;
+}
+
+.text-3xl-5xl {
+  @apply text-3xl sm:text-4xl md:text-5xl leading-snug sm:leading-tight md:leading-tight;
+}
+
+.text-3xl-6xl {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug sm:leading-tight md:leading-tight;
+}
+
+.text-4xl-5xl {
+  @apply text-4xl sm:text-5xl leading-snug sm:leading-tight;
+}
+
+.text-4xl-6xl {
+  @apply text-4xl sm:text-6xl leading-snug sm:leading-tight;
+}
+
+.text-4xl-7xl {
+  @apply text-4xl sm:text-6xl lg:text-7xl leading-snug sm:leading-tight lg:leading-tight;
+}
+
+.text-5xl-6xl {
+  @apply text-5xl sm:text-6xl leading-tight sm:leading-tight;
+}
