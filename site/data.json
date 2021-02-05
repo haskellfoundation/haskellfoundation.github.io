@@ -1,0 +1,213 @@
+{
+  "pages": {
+    "home": {
+      "ethos": [
+        {
+          "icon": "fas fa-heart",
+          "title": "Faithfulness to Haskell’s founding design principles.",
+          "description": "Haskell’s design puts principle ahead of expediency by cleaving closely to the principles of purely functional programming."
+        },
+        {
+          "icon": "fas fa-lock-open",
+          "title": "Open source.",
+          "description": "All Haskell Foundation efforts are open source."
+        },
+        {
+          "icon": "fas fa-user-friends",
+          "title": "Empowering the community.",
+          "description": "HF sees itself as a means to augment, celebrate, and coordinate the contributions and leadership of Haskell’s vibrant community."
+        },
+        {
+          "icon": "fas fa-cubes",
+          "title": "Openness, friendliness, and diversity.",
+          "description": "For many, Haskell is more a way of life than a programming language. All are welcome, all can contribute. To this end we have adopted the Haskell Guidelines For Respectful Communication."
+        },
+        {
+          "icon": "fas fa-eye",
+          "title": "Transparency.",
+          "description": "All technical decisions related to HF’s open source projects will be transparent."
+        }
+      ]
+    },
+    "whoWeAre": {
+      "profiles": [
+        {
+          "name": "Simon Peyton Jones",
+          "image": "/images/board-members/spj.png",
+          "position": "Chair",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Chris Dornan",
+          "image": "/images/board-members/cd.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Gabriele Keller",
+          "image": "/images/board-members/gk.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Jasper Van Der Jeugt",
+          "image": "/images/board-members/jv.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Edward Kmett",
+          "image": "/images/board-members/ed.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Stephanie Weirich",
+          "image": "/images/board-members/sw.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Simon Marlow",
+          "image": "/images/board-members/sm.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        },
+        {
+          "name": "Lennart Augustsson",
+          "image": "/images/board-members/la.png",
+          "position": "Interim Board Member",
+          "bio": "Bio short description placeholder.",
+          "committees": ["Committee One, Committee Two"],
+          "email": "email@address.com"
+        }
+      ]
+    },
+    "affiliates": {
+      "affiliated": [
+        {
+          "name": "Haskell IDE Team",
+          "url": "github.com/haskell/haskell-language-server"
+        },
+        {
+          "name": "GHC Steering Committee",
+          "url": "github.com/ghc-proposals/ghc-proposals"
+        },
+        {
+          "name": "Haskell Weekly",
+          "url": "haskellweekly.news/"
+        }
+      ],
+      "pending": [
+        {
+          "name": "Core Libraries Committee",
+          "url": "github.com/haskell/haskell-language-server"
+        },
+        {
+          "name": "Haskell.org Committee",
+          "url": "github.com/ghc-proposals/ghc-proposals"
+        },
+        {
+          "name": "The Haskell Admins",
+          "url": "haskellweekly.news/"
+        },
+        {
+          "name": "Cabal",
+          "url": "haskellweekly.news/"
+        }
+      ]
+    },
+    "news": {
+      "articles": [
+        {
+          "title": "Haskell Foundation Announced",
+          "content": "Today Simon Peyton-Jones announced the formation of The Haskell Foundation, a non-profit organization focused on increasing adoption of the Haskell programming language. Watch the announcemnt here."
+        },
+        {
+          "title": "Haskell Foundation Board Of Directors Call For Nominations",
+          "content": "The Haskell Foundation has issued a call for nominations to the Board of Directors. Nominations will remain open until January 11, 2021. New Board members will be selected by the interim members of the Board of Directors."
+        }
+      ]
+    },
+    "sponsorship": {
+      "tiers": [
+        {
+          "stars": [1],
+          "name": "Functor",
+          "amount": "10k / year",
+          "description": "Receive ongoing acknowledgements on social media channels and have a small logo displayed on the HF website."
+        },
+        {
+          "stars": [1, 1],
+          "name": "Applicative",
+          "amount": "25k / year",
+          "description": "Have your logo and story featured in the Supporter Spotlight on the website and newsletter, a medium- sized logo displayed on the HF website, and receive ongoing recognition on our social media pages."
+        },
+        {
+          "stars": [1, 1, 1],
+          "name": "Monad",
+          "amount": "50k / year",
+          "description": "All of the benefits of Functor and Applicative memberships, with the addition of a full interview for the Haskell Foundation blog, as well as having your logo prominently displayed on the HF website."
+        }
+      ]
+    },
+    "resources": {
+      "resources": [
+        {
+          "title": "Guidelines For Respectful Communication",
+          "description": "The guidelines for respectful communication guide how the we aim to comport ourselves and act with respect in the community. We do not seek to impose these guidelines on members of the Haskell community generally. Rather it is a signal that we seek high standards of discourse in the Haskell community, and are willing to publicly hold ourselves to that standard, in the hope that others may voluntarily follow suit.",
+          "linkTitle": ">> Guidelines for Respectful Communication"
+        },
+        {
+          "title": "More On Affiliation",
+          "description": "Prospective affiliates can find more information on what affiliating with the Haskell Foundation entails here.",
+          "linkTitle": ">> HF Affiliates"
+        },
+        {
+          "title": "Whitepaper",
+          "description": "The Haskell Foundation began with a conversation about the goals and and context for HF that changed as the conversation grew ever wider. As we resolved to launch HF this whitepaper is a snapshot of that conversation.",
+          "linkTitle": ">> Read the HF Whitepaper"
+        },
+        {
+          "title": "Governance",
+          "description": "This page provides an overview of how we expect the Board to operate and its near term work and agenda.",
+          "linkTitle": ">> HF Governance"
+        }
+      ]
+    },
+    "faq": {
+      "questions": [
+        {
+          "question": "How Do Projects Or Teams Affiliate With The Haskell Foundation?",
+          "answer": ["Organizations and committees can review the Haskell Foundation Affiliation Documents to learn more about how you can become affiliated with the Haskell Foundation. Please email contact@haskell.foundation for more information."]
+        },
+        {
+          "question": "What Is The Relationship Between HF And Haskell.Org?",
+          "answer": ["The Haskell.org committee has voted to affiliate with the Haskell Foundation, however the haskell.org committee remains an independent 501-3 (c) nonprofit organization. The haskell.org committee will continue to operate the haskell.org website and provide resources for Haskell infrastructure such as Hackage and the haskell mailing lists. Several members of haskell.org have helped launch HF."]
+        },
+        {
+          "question": "Who’s Involved?",
+          "answer": ["The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."]
+        },
+        {
+          "question": "What Is The Relationship Between HF And The Community, Industry, Etc.",
+          "answer": ["The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."]
+        }
+      ]
+    }
+  }
+}
