@@ -3,6 +3,7 @@
 
 import Control.Monad (when)
 import Data.Monoid (mappend)
+import Data.ByteString.Lazy (ByteString)
 import Hakyll
 import System.Directory
 import System.Which
@@ -12,14 +13,16 @@ main :: IO ()
 main = do
   do
     d <- getCurrentDirectory
-    when (takeBaseName d == "haskell") $
-      setCurrentDirectory "../site"
+    if takeBaseName d == "haskell"
+      then setCurrentDirectory "../site"
+      else when (takeBaseName d /= "site") $
+        setCurrentDirectory "./site"
   hakyll $ do
     match "static/*" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
+    match "css/main.css" $ do
         route   idRoute
         compile postcss
 
@@ -73,6 +76,6 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
-postcss :: Compiler (Item String)
+postcss :: Compiler (Item ByteString)
 postcss =
-  getResourceString >>= withItemBody (unixFilter $(staticWhich "postcss") [])
+  getResourceLBS >>= withItemBody (unixFilterLBS $(staticWhich "postcss") [])

@@ -1,17 +1,17 @@
 /* Fonts */
 
 /* Tailwind */
-@import './tailwind/base.css';
-@import './tailwind/components.css';
-@import './tailwind/utilities.css';
-@import './tailwind/font-weight.css';
+@import 'tailwind/base.css';
+@import 'tailwind/components.css';
+@import 'tailwind/utilities.css';
+@import 'tailwind/font-weight.css';
 
 /* Custom CSS */
-@import "./elements/anchor.css";
-@import "./elements/button.css";
-@import "./elements/input.css";
-@import "./elements/heading.css";
-@import "./elements/paragraph.css";
+@import "elements/anchor.css";
+@import "elements/button.css";
+@import "elements/input.css";
+@import "elements/heading.css";
+@import "elements/paragraph.css";
 
 .youtube-video {
   position: relative;
