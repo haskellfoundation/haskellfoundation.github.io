@@ -54,7 +54,7 @@ main = do
     --             >>= relativizeUrls
 
 
-    match "index.html" $ do
+    match "**.html" $ do
         route idRoute
         compile $ do
             --posts <- recentFirst =<< loadAll "posts/*"
