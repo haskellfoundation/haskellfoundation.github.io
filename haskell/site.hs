@@ -1,13 +1,122 @@
+{-# Language DeriveGeneric #-}
+{-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language TemplateHaskell #-}
 
 import Control.Monad (when)
+import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.TH as Aeson
+import Data.Binary (Binary)
+import qualified Data.Binary as Binary
+import Data.Maybe (fromMaybe)
 import Data.Monoid (mappend)
 import Data.ByteString.Lazy (ByteString)
+import qualified Data.ByteString.Lazy as LBS
+import Data.Map (Map)
+import qualified Data.Map as Map
+import Data.Text (Text)
+import GHC.Generics
 import Hakyll
 import System.Directory
 import System.Which
 import System.FilePath.Posix (takeBaseName)
+
+import System.IO.Unsafe
+
+data TemplateData = TemplateData
+  { templateData_pages :: TemplateData
+  , templateData_whoWeAre :: WhoWeAreData
+  , templateData_affiliates :: AffiliatesData
+  , templateData_resources :: ResourcesData
+  , templateData_faq :: FaqData
+  } deriving Generic
+
+data HomeData = HomeData
+  { homeData_ethos :: HomeData
+  } deriving Generic
+
+data Ethos = Ethos
+  { ethos_icon :: String
+  , ethos_title :: String
+  , ethos_description :: String
+  } deriving Generic
+
+data WhoWeAreData = WhoWeAreData
+  { whoWeAreData_profiles :: [Profile]
+  } deriving Generic
+
+data Profile = Profile
+  { profile_name :: String
+  , profile_image :: String
+  , profile_position :: String
+  , profile_bio :: String
+  , profile_comittees :: [String]
+  , profile_email :: String
+  } deriving Generic
+
+profileCtx :: Context Profile
+profileCtx = mconcat
+  [ field "name" (pure . profile_name . itemBody)
+  ]
+
+data AffiliatesData = AffiliatesData
+  { affiliates_affiliated :: [Affiliate]
+  , affiliates_pending :: [Affiliate]
+  } deriving Generic
+
+data Affiliate = Affiliate
+  { affiliate_name :: String
+  , affiliate_url :: String
+  } deriving Generic
+
+data ResourcesData = ResourcesData
+  { resources_resourced :: [Resource]
+  , resources_pending :: [Resource]
+  } deriving Generic
+
+data Resource = Resource
+  { resource_title :: String
+  , resource_description :: String
+  , resource_linkTitle :: String
+  } deriving Generic
+
+data FaqData = FaqData
+  { faqData_questions :: [Question]
+  } deriving Generic
+
+data Question = Question
+  { question_question :: String
+  , question_answer :: String
+  } deriving Generic
+
+fmap concat $ traverse (Aeson.deriveJSON Aeson.defaultOptions)
+  [ ''TemplateData
+  , ''HomeData
+  , ''Ethos
+  , ''WhoWeAreData
+  , ''Profile
+  , ''AffiliatesData
+  , ''Affiliate
+  , ''ResourcesData
+  , ''Resource
+  , ''FaqData
+  , ''Question
+  ]
+
+instance Binary TemplateData
+instance Binary HomeData
+instance Binary Ethos
+instance Binary WhoWeAreData
+instance Binary Profile
+instance Binary AffiliatesData
+instance Binary Affiliate
+instance Binary ResourcesData
+instance Binary Resource
+instance Binary FaqData
+instance Binary Question
+
+instance Writable TemplateData where
+  write p = LBS.writeFile p . Binary.encode . itemBody
 
 main :: IO ()
 main = do
@@ -53,15 +162,26 @@ main = do
     --             >>= loadAndApplyTemplate "templates/default.html" archiveCtx
     --             >>= relativizeUrls
 
+    match "data.json" $ do
+      compile $ do
+        () <- pure $ unsafePerformIO $ print "asdf 1"
+        dataString <- getResourceLBS
+        () <- pure $ unsafePerformIO $ print "asdf 3x"
+        let dat :: Item TemplateData =
+              fromMaybe (error "bad data") . Aeson.decode <$> dataString
+        () <- pure $ unsafePerformIO $ print "asdf 2"
+        pure dat
 
     match "**.html" $ do
         route idRoute
         compile $ do
-            --posts <- recentFirst =<< loadAll "posts/*"
-            let indexCtx =
-            --        listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
-                    defaultContext
+            dat :: Item TemplateData <- load "data.json"
+            let indexCtx = mconcat
+                  [ listField "profiles" profileCtx
+                      (pure $ sequence $ whoWeAreData_profiles . templateData_whoWeAre <$> dat)
+                  , constField "title" "Home"
+                  , defaultContext
+                  ]
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
@@ -69,12 +189,6 @@ main = do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
-
-
-postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
 
 postcss :: Compiler (Item ByteString)
 postcss =

@@ -6,10 +6,15 @@ cabal-version:      >= 1.10
 executable site
   main-is:          site.hs
   build-depends:    base == 4.*
+                  , aeson
+                  , binary
                   , bytestring
+                  , containers
                   , directory
                   , filepath
                   , hakyll == 4.13.*
                   , which
+                  , text
+                  , unordered-containers
   ghc-options:      -threaded
   default-language: Haskell2010
