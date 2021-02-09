@@ -6,8 +6,6 @@
 import Control.Monad (when)
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.TH as Aeson
-import Data.Binary (Binary)
-import qualified Data.Binary as Binary
 import Data.Maybe (fromMaybe)
 import Data.Monoid (mappend)
 import Data.ByteString.Lazy (ByteString)
@@ -20,8 +18,6 @@ import Hakyll
 import System.Directory
 import System.Which
 import System.FilePath.Posix (takeBaseName)
-
-import System.IO.Unsafe
 
 data TemplateData = TemplateData
   { templateData_pages :: TemplateData
@@ -103,21 +99,6 @@ fmap concat $ traverse (Aeson.deriveJSON Aeson.defaultOptions)
   , ''Question
   ]
 
-instance Binary TemplateData
-instance Binary HomeData
-instance Binary Ethos
-instance Binary WhoWeAreData
-instance Binary Profile
-instance Binary AffiliatesData
-instance Binary Affiliate
-instance Binary ResourcesData
-instance Binary Resource
-instance Binary FaqData
-instance Binary Question
-
-instance Writable TemplateData where
-  write p = LBS.writeFile p . Binary.encode . itemBody
-
 main :: IO ()
 main = do
   do
@@ -162,20 +143,14 @@ main = do
     --             >>= loadAndApplyTemplate "templates/default.html" archiveCtx
     --             >>= relativizeUrls
 
-    match "data.json" $ do
-      compile $ do
-        () <- pure $ unsafePerformIO $ print "asdf 1"
-        dataString <- getResourceLBS
-        () <- pure $ unsafePerformIO $ print "asdf 3x"
-        let dat :: Item TemplateData =
-              fromMaybe (error "bad data") . Aeson.decode <$> dataString
-        () <- pure $ unsafePerformIO $ print "asdf 2"
-        pure dat
+    match "data.json" $ compile $ getResourceLBS
 
-    match "**.html" $ do
+    match "*index.html" $ do
         route idRoute
         compile $ do
-            dat :: Item TemplateData <- load "data.json"
+            dataString :: Item ByteString <- load "data.json"
+            let dat :: Item TemplateData =
+                  fromMaybe (error "bad data") . Aeson.decode <$> dataString
             let indexCtx = mconcat
                   [ listField "profiles" profileCtx
                       (pure $ sequence $ whoWeAreData_profiles . templateData_whoWeAre <$> dat)
