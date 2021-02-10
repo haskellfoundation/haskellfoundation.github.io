@@ -4,7 +4,7 @@
   "author": "Obsidian Systems, LLC",
   "dependencies": {
     "@tailwindcss/ui": "^0.7.2",
-    "@tailwindcss/typography": "^0.3.0",
+    "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.1.0",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",

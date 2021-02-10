@@ -1,21 +1,19 @@
+{% import "partials/components.njk" as components %}
+
 {% extends "boilerplate.njk" %}
 {% block body %}
 
-<h1>Contact</h1>
+{{ components.simpleSection("Contact") }}
 
-<div>
-  <div>
-    <h2>General Information</h2>
-    <p>For general information or volunteer opportunites, please email us:</p>
-    <a href="">>> contact@haskell.foundation</a>
-  </div>
-  <div>
-    <h2>Sponsorship</h2>
-    <p>Does your company use Haskell? Email us to join the conversation with other enterprise users of Haskell.</p>
-    <a href="">>> sponsorship@haskell.foundation</a>
+<div class="max-w-screen-xl mx-auto">
+  <div class="grid gap-8 lg:grid-cols-2">
+    {{ components.grayBoxSimple("General Information", "For general information or volunteer opportunites, please email us:", ">> contact@haskell.foundation", "mailto:contact@haskell.foundation") }}
+    {{ components.grayBoxSimple("Sponsorship", "Does your company use Haskell? Email us to join the conversation with other enterprise users of Haskell.", ">> sponsorship@haskell.foundation", "mailto:sponsorship@haskell.foundation") }}
   </div>
 </div>
 
-{% include "partials/follow-hf-developments.njk" %}
+<div class="mt-12">
+  {% include "partials/follow-alternate.njk" %}
+</div>
   
 {% endblock %}

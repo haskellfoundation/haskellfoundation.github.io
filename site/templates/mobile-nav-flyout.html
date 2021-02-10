@@ -1,28 +1,29 @@
-<div class="absolute z-10 top-0 right-0 w-full sm:w-1/2 p-2 transition lg:hidden">
-  <div class="rounded-lg shadow-lg">
-    <div class="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-100">
-      <div class="pt-5 pb-6 px-5 space-y-6">
-        <div class="flex items-center justify-between">
-          <div>
-            <img class="h-3 w-auto" src="/images/ObsidianSystemsLogo.svg" alt="Obsidian.Systems">
-          </div>
-          <div class="-mr-2">
-            <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div>
-          <nav class="grid gap-y-8">
-            <a href="/" class="-m-3 p-3 flex items-center space-x-3 rounded-md text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition ease-in-out duration-150">
-              <span class="icon-house-2 text-2xl"></span>
-              <div class="text-base leading-6 font-medium">Home</div>
-            </a>
-          </nav>
-        </div>
-      </div>
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+  
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="/static/images/haskell-foundation-logo.svg" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation (HF)</div>
     </div>
+
+    <div class="">
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-700 shadow-lg">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
   </div>
+
+  <div class="mt-6">
+    <a href="/" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+    {% for item in navigation.items %}
+      <a href="{{item.href}}" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">{{item.name}}</a>
+    {% endfor %}
+  </div>
+
 </div>

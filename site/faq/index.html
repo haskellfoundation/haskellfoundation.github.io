@@ -1,17 +1,14 @@
+{% import "partials/components.njk" as components %}
+
 {% extends "boilerplate.njk" %}
 {% block body %}
 
-<h1>FAQ</h1>
+{{ components.simpleSection("FAQ") }}
 
-{% for item in pages.faq.questions %}
-  <div>
-    <h3>{{item.question}}</h3>
-    {% for paragraph in item.answer %}
-      <p>
-        {{paragraph}}
-      </p>
-    {% endfor %}
-  </div>
-{% endfor %}
+<div class="max-w-screen-md mx-auto grid gap-8">
+	{% for item in pages.faq.questions %}
+		{{ components.faqItem(item.question, item.answer) }}
+	{% endfor %}
+</div>
 
 {% endblock %}

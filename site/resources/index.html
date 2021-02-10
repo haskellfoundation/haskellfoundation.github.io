@@ -1,17 +1,13 @@
+{% import "partials/components.njk" as components %}
+
 {% extends "boilerplate.njk" %}
 {% block body %}
 
-<h1>Resources</h1>
+{{ components.simpleSection("Resources") }}
 
-<div>
+<div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2">
   {% for resource in pages.resources.resources %}
-    <div>
-      <h2>{{resource.title}}</h2>
-      <p>
-        {{resource.description}}
-      </p>
-      <a href="">{{resource.linkTitle}}</a>
-    </div>
+	{{ components.grayBoxSimple(resource.title, resource.description, resource.linkTitle, resource.linkHref) }}
   {% endfor %}
 </div>
 

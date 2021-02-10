@@ -1,4 +1,36 @@
 {
+  "navigation": {
+    "items": [
+      {
+        "name": "Who We Are",
+        "href": "https://haskell.foundation/en/who-we-are/"
+      },
+      {
+        "name": "Affiliates",
+        "href": "https://haskell.foundation/en/affiliates/"
+      },
+      {
+        "name": "Contact",
+        "href": "https://haskell.foundation/en/contact/"
+      },
+      {
+        "name": "News",
+        "href": "https://haskell.foundation/en/news/"
+      },
+      {
+        "name": "Sponsorship",
+        "href": "https://haskell.foundation/en/donations/"
+      },
+      {
+        "name": "Resources",
+        "href": "https://haskell.foundation/en/resources/"
+      },
+      {
+        "name": "FAQ",
+        "href": "https://haskell.foundation/en/faq/"
+      }
+    ]
+  },
   "pages": {
     "home": {
       "ethos": [
@@ -33,7 +65,7 @@
       "profiles": [
         {
           "name": "Simon Peyton Jones",
-          "image": "/images/board-members/spj.png",
+          "image": "/static/images/board-members/spj.png",
           "position": "Chair",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -41,7 +73,7 @@
         },
         {
           "name": "Chris Dornan",
-          "image": "/images/board-members/cd.png",
+          "image": "/static/images/board-members/cd.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -49,7 +81,7 @@
         },
         {
           "name": "Gabriele Keller",
-          "image": "/images/board-members/gk.png",
+          "image": "/static/images/board-members/gk.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -57,7 +89,7 @@
         },
         {
           "name": "Jasper Van Der Jeugt",
-          "image": "/images/board-members/jv.png",
+          "image": "/static/images/board-members/jv.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -65,7 +97,7 @@
         },
         {
           "name": "Edward Kmett",
-          "image": "/images/board-members/ed.png",
+          "image": "/static/images/board-members/ek.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -73,7 +105,7 @@
         },
         {
           "name": "Stephanie Weirich",
-          "image": "/images/board-members/sw.png",
+          "image": "/static/images/board-members/sw.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -81,7 +113,7 @@
         },
         {
           "name": "Simon Marlow",
-          "image": "/images/board-members/sm.png",
+          "image": "/static/images/board-members/sm.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -89,7 +121,7 @@
         },
         {
           "name": "Lennart Augustsson",
-          "image": "/images/board-members/la.png",
+          "image": "/static/images/board-members/la.png",
           "position": "Interim Board Member",
           "bio": "Bio short description placeholder.",
           "committees": ["Committee One, Committee Two"],
@@ -115,19 +147,19 @@
       "pending": [
         {
           "name": "Core Libraries Committee",
-          "url": "github.com/haskell/haskell-language-server"
+          "url": "wiki.haskell.org/Core_Libraries_Committee"
         },
         {
           "name": "Haskell.org Committee",
-          "url": "github.com/ghc-proposals/ghc-proposals"
+          "url": "www.haskell.org/haskell-org-committee"
         },
         {
           "name": "The Haskell Admins",
-          "url": "haskellweekly.news/"
+          "url": ""
         },
         {
           "name": "Cabal",
-          "url": "haskellweekly.news/"
+          "url": "www.haskell.org/cabal/"
         }
       ]
     },
@@ -135,11 +167,11 @@
       "articles": [
         {
           "title": "Haskell Foundation Announced",
-          "content": "Today Simon Peyton-Jones announced the formation of The Haskell Foundation, a non-profit organization focused on increasing adoption of the Haskell programming language. Watch the announcemnt here."
+          "content": "Today Simon Peyton-Jones announced the formation of The Haskell Foundation, a non-profit organization focused on increasing adoption of the Haskell programming language. Watch the announcemnt <a href='https://youtu.be/MEmRarBL9kw' target='_blank'>here.</a>"
         },
         {
           "title": "Haskell Foundation Board Of Directors Call For Nominations",
-          "content": "The Haskell Foundation has issued a call for nominations to the Board of Directors. Nominations will remain open until January 11, 2021. New Board members will be selected by the interim members of the Board of Directors."
+          "content": "The Haskell Foundation has issued a <a href='https://haskell.foundation/board-nominations'>call for nominations to the Board of Directors</a>. Nominations will remain open until January 11, 2021. New Board members will be selected by the interim members of the <a href='https://haskell.foundation/who-we-are'>Board of Directors</a>."
         }
       ]
     },
@@ -170,22 +202,26 @@
         {
           "title": "Guidelines For Respectful Communication",
           "description": "The guidelines for respectful communication guide how the we aim to comport ourselves and act with respect in the community. We do not seek to impose these guidelines on members of the Haskell community generally. Rather it is a signal that we seek high standards of discourse in the Haskell community, and are willing to publicly hold ourselves to that standard, in the hope that others may voluntarily follow suit.",
-          "linkTitle": ">> Guidelines for Respectful Communication"
+          "linkTitle": ">> Guidelines for Respectful Communication",
+          "linkHref": "https://haskell.foundation/guidelines-for-respectful-communication"
         },
         {
           "title": "More On Affiliation",
           "description": "Prospective affiliates can find more information on what affiliating with the Haskell Foundation entails here.",
-          "linkTitle": ">> HF Affiliates"
+          "linkTitle": ">> HF Affiliates",
+          "linkHref": "https://haskell.foundation/affiliates"
         },
         {
           "title": "Whitepaper",
           "description": "The Haskell Foundation began with a conversation about the goals and and context for HF that changed as the conversation grew ever wider. As we resolved to launch HF this whitepaper is a snapshot of that conversation.",
-          "linkTitle": ">> Read the HF Whitepaper"
+          "linkTitle": ">> Read the HF Whitepaper",
+          "linkHref": "https://haskell.foundation/whitepaper"
         },
         {
           "title": "Governance",
           "description": "This page provides an overview of how we expect the Board to operate and its near term work and agenda.",
-          "linkTitle": ">> HF Governance"
+          "linkTitle": ">> HF Governance",
+          "linkHref": "https://haskell.foundation/governance"
         }
       ]
     },
@@ -193,7 +229,7 @@
       "questions": [
         {
           "question": "How Do Projects Or Teams Affiliate With The Haskell Foundation?",
-          "answer": ["Organizations and committees can review the Haskell Foundation Affiliation Documents to learn more about how you can become affiliated with the Haskell Foundation. Please email contact@haskell.foundation for more information."]
+          "answer": ["Organizations and committees can review the <a href='https://docs.google.com/document/d/1sL0Nw3VEvxLT39WOkKhtR2_sOUctwVSZ_A4GDZV_mvU/edit' target='_blank'>Haskell Foundation Affiliation Documents</a> to learn more about how you can become affiliated with the Haskell Foundation. Please email <a href='contact@haskell.foundation'>contact@haskell.foundation</a> for more information."]
         },
         {
           "question": "What Is The Relationship Between HF And Haskell.Org?",

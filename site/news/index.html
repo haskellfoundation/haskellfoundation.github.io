@@ -1,25 +1,29 @@
-{% macro newsItem(title, content) %}
-<div>
-  <h3>{{title}}</h3>
-  <p>{{content}}</p>
-</div>
-{% endmacro %}
+{% import "partials/components.njk" as components %}
 
 {% extends "boilerplate.njk" %}
 {% block body %}
 
-<h1>News</h1>
+{{ components.simpleSection("News") }}
 
-{% include "partials/follow-hf-developments.njk" %}
+{% include "partials/follow-alternate.njk" %}
 
-<h2>November 5, 2020</h2>
+<div class="max-w-screen-xl mx-auto py-16 md:py-24">
+	<h2 class="text-2xl-4xl font-normal text-center">November 5, 2020</h2>
 
-<div>
-  
-  {% for item in pages.news.articles %}
-    {{ newsItem(item.title, item.content) }}
-  {% endfor %}
-
+	<div class="grid gap-12 lg:grid-cols-2 mt-10 md:mt-12 lg:mt-16 xl:mt-20">
+		{% for item in pages.news.articles %}
+			<div>
+				{% call components.threeBorderBox() %}
+					<div class="py-8 px-6 sm:px-12">
+						<h2 class="text-2xl-4xl font-normal">{{item.title}}</h2>
+						<p class="mt-8">
+							{{item.content|safe}}
+						</p>
+					</div>
+					{% endcall %}
+			</div>
+		{% endfor %}
+	</div>
 </div>
 
 {% endblock %}

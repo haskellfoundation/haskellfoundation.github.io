@@ -1,24 +1,22 @@
-<nav class="max-w-screen-xl mx-auto px-4 py-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+<nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="/">
-      <img src="/images/haskell-foundation-logo.svg" />
+      <img src="/static/images/haskell-foundation-logo.svg" />
       <div class="text-sm mt-2 text-gray-500">The Haskell Foundation (HF)</div>
     </a>
   </div>
 
-  <ul class="hidden lg:flex space-x-12 text-purple-600">
-    <li><a href="/who-we-are">Who we are</a></li>
-    <li><a href="/affiliates">Affiliates</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/news">News</a></li>
-    <li><a href="/sponsorship">Sponsorship</a></li>
-    <li><a href="/resources">Resrouces</a></li>
-    <li><a href="/faq">FAQ</a></li>
-  </ul>
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-12">
+      {% for item in navigation.items %}
+        <li><a href="{{item.href}}">{{item.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
 
-  <div class="absolute right-0 lg:hidden">
-    <button type="button" class="flex items-center justify-center p-2 rounded-md text-gray-400 
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded-md text-gray-400 
       hover:text-gray-500 hover:bg-gray-100 
       focus:outline-none focus:bg-gray-100 focus:text-gray-500 
       transition duration-150 ease-in-out" 

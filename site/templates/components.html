@@ -1,0 +1,73 @@
+{% macro simpleSection(title, subtitle) %}
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      {% include "partials/section.njk" %}
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">{{title}}</h1>
+      {% if subtitle %}
+        <p class="mt-4 text-gray-500">{{subtitle|safe}}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro threeBorderBox() %}
+<div class="relative bg-white">
+  <div class="absolute -z-10 left-0 top-0 right-6 bottom-6 border-3 border-purple-700"></div>
+  <div class="absolute -z-10 left-6 top-6 right-0 bottom-0 border-3 border-purple-700"></div>
+  <div class="p-3">
+    <div class="relative bg-white border-3 border-purple-700">
+      {{ caller() }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro grayBoxSimple(title, description, linkTitle, linkHref) %}
+  <div class="bg-gray-100 px-6 sm:px-12 space-y-4 py-12">
+    <h2 class="font-normal text-2xl-4xl">{{title}}</h2>
+    <p>{{description}}</p>
+    {% if linkTitle %}
+      <div class="text-sm sm:text-base">
+        <a class="arrow-link" href="{{linkHref}}">{{linkTitle}}</a>
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro faqItem(title, paragraphs) %}
+  <div class="bg-gray-100 px-6 sm:px-12 space-y-4 py-12">
+    <h2 class="font-normal text-xl-2xl">{{title}}</h2>
+    {% for paragraph in paragraphs %}
+      <p>
+        {{paragraph|safe}}
+      </p>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro blackBoxWithTitle(title) %}
+  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+    <div class="bg-black shadow-lg shadow-xl shadow-md shadow-sm text-center px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+      <h2 class="text-gray-50 font-normal text-3xl-4xl">{{title}}</h2>
+      <p class="mt-10 lg:text-xl text-gray-400 leading-relaxed">
+        {{ caller() }}
+      </p>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro blackBox() %}
+  <div class="max-w-screen-xl mx-auto bg-black shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    {{ caller() }}
+  </div>
+{% endmacro %}
+
+{% macro articleContent() %}
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      {{ caller() }}
+    </div>
+  </div>
+{% endmacro %}

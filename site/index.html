@@ -1,13 +1,15 @@
+{% import "partials/components.njk" as components %}
+
 {% extends "boilerplate.njk" %}
 {% block body %}
 
-<div class="max-w-screen-xl mx-auto">
+<div class="max-w-screen-xl mx-auto mt-6 sm:mt-12">
   <div class="border border-purple-500 p-1 lg:p-3">
     <div class="border border-purple-400 p-1 lg:p-3">
       <div class="border border-purple-300 p-1 lg:p-3">
         <div class="border border-purple-200 p-1 lg:p-3">
           <div class="border border-purple-100 p-1 lg:p-3">
-            <div class="border border-purple-50 p-16 flex flex-col items-center text-center">
+            <div class="border border-purple-50 p-16 sm:py-24 md:py-32 flex flex-col items-center text-center">
               <h1 class="mb-4 text-3xl-6xl font-w-800">The Haskell Foundation (HF)</h1>
               <div class="text-gray-500">An independent, non-profit organization dedicated to broadening the adoption of Haskell, by supporting its ecosystem of tools, libraries, education, and research.</div>
             </div>
@@ -48,36 +50,30 @@
       Haskell is not “just another programming language”: it embodies a radical and elegant attack on the entire enterprise of writing software. It profoundly influences the world of software for the better.
     </p>
     <div class="mt-12 block">
-      <a class="arrow-link light" href="">>> Learn About Haskell</a>
+      <a class="arrow-link light" href="https://www.haskell.org/" target="_blank">>> Learn About Haskell</a>
     </div>
   </div>
 </div>
 
-<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
-  {% include "partials/section.njk" %}
-  <div class="text-center pt-12">
-    <h1 class="text-3xl-5xl">Our Ethos</h1>
-    <p class="mt-4 text-gray-500">Ideas that guide our every decision</p>
-  </div>
-
-  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid lg:grid-cols-2 xl:grid-cols-3 gap-8 text-center">
-    {% macro ethosItem(icon, title, description) %}
-      <div class="border-3 border-purple-600 rounded py-8 px-6 sm:px-12"> 
-        <span class="{{icon}} text-purple-600 text-2xl"></span>
-        <h3 class="mt-6 font-semibold text-xl">{{title}}</h3>
-        <p class="mt-6 text-gray-500">{{description}}</p>
-      </div>
-    {% endmacro %}
+{{ components.simpleSection("Our Ethos", "Ideas that guide our every decision") }}
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16">
+  <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 text-center">
     {% for item in pages.home.ethos %}
-      {{ ethosItem(item.icon, item.title, item.description) }}
+      <div class="border-3 border-purple-700 rounded py-8 px-6 sm:px-12"> 
+        <span class="{{item.icon}} text-purple-700 text-2xl"></span>
+        <h3 class="mt-6 font-semibold text-xl">{{item.title}}</h3>
+        <p class="mt-6 text-gray-500">{{item.description}}</p>
+      </div>
     {% endfor %}
   </div>
 </div>
 
-{% include "partials/follow-hf-developments.njk" %}
+{{ components.simpleSection("Follow HF Developments", 'Follow us on <a class="fab fa-twitter text-2xl px-2 align-middle" href="https://twitter.com/haskellfound" target="_blank"></a> or join a mailing list') }}
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16">
+  {% include "partials/follow-content.njk" %}
+</div>
 
-<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 text-center">
-  
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 text-center mt-16 md:mt-24">
   <div class="rounded bg-purple-800 shadow-md p-3 xl:hidden">
     <div class="rounded bg-white shadow-md py-8 px-6 sm:px-12">
       <div class="max-w-4xl mx-auto">

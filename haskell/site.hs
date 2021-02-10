@@ -121,7 +121,7 @@ main = do
       else when (takeBaseName d /= "site") $
         setCurrentDirectory "./site"
   hakyll $ do
-    match "static/*" $ do
+    match "static/**" $ do
         route   idRoute
         compile copyFileCompiler
 
@@ -129,11 +129,11 @@ main = do
         route   idRoute
         compile postcss
 
-    match (fromList ["about.rst", "contact.markdown"]) $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-            >>= relativizeUrls
+    -- match (fromList ["about.rst", "contact.markdown"]) $ do
+    --     route   $ setExtension "html"
+    --     compile $ pandocCompiler
+    --         >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
+    --         >>= relativizeUrls
 
     -- match "posts/*" $ do
     --     route $ setExtension "html"

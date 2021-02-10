@@ -2,10 +2,8 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
-    enabled: false,
-    // mode: 'all', Due to this issue we can't use 'all' https://github.com/FullHuman/purgecss/issues/392
     content: [
-      './templates/*.html'
+      './**/*.html'
     ],
   },
   theme: {

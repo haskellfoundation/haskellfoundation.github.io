@@ -1,12 +1,16 @@
 a {
-  @apply text-purple-600 hover:text-purple-700 cursor-pointer;
+  @apply text-purple-700 hover:text-purple-500 cursor-pointer hover:underline;
+}
+
+a:visited {
+  @apply text-purple-500;
 }
 
 .arrow-link {
-  @apply pb-1 border-b-3 border-purple-700;
+  @apply pb-1 border-b-3 border-purple-700 hover:no-underline hover:border-purple-500;
   font-family: "Fira Code";
 }
 
 .arrow-link.light {
-  @apply text-white border-white;
+  @apply text-white border-white hover:text-gray-400 hover:border-gray-400;
 }

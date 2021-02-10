@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-2xl sm:text-4xl md:text-5xl leading-snug sm:leading-tight md:leading-tight;
 }
 
+.text-2xl-4xl {
+  @apply text-2xl md:text-4xl leading-snug md:leading-tight;
+}
+
+.text-3xl-4xl {
+  @apply text-3xl md:text-4xl leading-snug md:leading-tight;
+}
+
 .text-3xl-5xl {
   @apply text-3xl sm:text-4xl md:text-5xl leading-snug sm:leading-tight md:leading-tight;
 }

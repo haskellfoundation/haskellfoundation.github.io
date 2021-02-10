@@ -1,37 +1,45 @@
+{% import "partials/components.njk" as components %}
+
 {% extends "boilerplate.njk" %}
 {% block body %}
+  
+{{ components.simpleSection("Who We Are") }}
 
-<h1>Who We Are</h1>
-
-<div>
-  <h2>The HF Interim Board Of Directors</h2>
-  <p>
-    The Haskell Foundation board of directors are responsible for managing and setting the direction of the Haskell Foundation. HF's current board will serve on an interim basis during the launch phase and will manage the establishment of the first full board in early 2021.
-  </p>
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-black shadow-lg shadow-xl shadow-md shadow-sm text-center px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl">The HF Interim Board Of Directors</h2>
+    <p class="mt-10 lg:text-xl text-gray-400 leading-relaxed">
+      The Haskell Foundation board of directors are responsible for managing and setting the direction of the Haskell Foundation. HF's current board will serve on an interim basis during the launch phase and will manage the establishment of the first full board in early 2021.
+    </p>
+  </div>
 </div>
 
-<div>
-  $for(profiles)$
-
-    <div>
-      <div>
-        <img src="$image$" alt="">
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+    $for(profiles)$
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">$name$</h3>
+            <div class="uppercase text-lg font-medium">$position$</div>
+          </div>
+        </div>
+        <p>
+          $bio$
+        </p>
         <div>
-          <h3>$name$</h3>
-          <div>$position$</div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            $committees$
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto:$email$">>> $email$</a>
         </div>
       </div>
-      <p>
-        $bio$
-      </p>
-      <h4>Committees</h4>
-      <p>
-        $committees$
-      </p>
-      <a href="mailto">$email$</a>
-    </div>
-
-  $endfor$
+    $endfor$
+  </div>
 </div>
 
 {% endblock %}
