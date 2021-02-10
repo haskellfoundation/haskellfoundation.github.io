@@ -33,10 +33,11 @@ in
     packages = p: with p; [
       haskell-foundation
     ];
-    buildInputs = with haskellPackages; [
+    nativeBuildInputs = with haskellPackages.buildHaskellPackages; [
       ghcid
       hlint
       nodePkgs
+      cabal-install
     ];
     NODE_PATH = "${nodePkgs}/lib/node_modules";
     withHoogle = true;
