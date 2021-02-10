@@ -20,15 +20,21 @@ import System.Which
 import System.FilePath.Posix (takeBaseName)
 
 data TemplateData = TemplateData
-  { templateData_pages :: TemplateData
-  , templateData_whoWeAre :: WhoWeAreData
-  , templateData_affiliates :: AffiliatesData
-  , templateData_resources :: ResourcesData
-  , templateData_faq :: FaqData
+  { templateData_pages :: PagesData
+  } deriving Generic
+
+data PagesData = PagesData
+  { pagesData_home :: HomeData
+  , pagesData_whoWeAre :: WhoWeAreData
+  --, pagesData_affiliates :: AffiliatesData
+  ----, pagesData_news :: NewsData
+  ----, pagesData_sponsorship :: SponshorshipData
+  --, pagesData_resources :: ResourcesData
+  --, pagesData_faq :: FaqData
   } deriving Generic
 
 data HomeData = HomeData
-  { homeData_ethos :: HomeData
+  { homeData_ethos :: [Ethos]
   } deriving Generic
 
 data Ethos = Ethos
@@ -46,13 +52,18 @@ data Profile = Profile
   , profile_image :: String
   , profile_position :: String
   , profile_bio :: String
-  , profile_comittees :: [String]
+  , profile_committees :: [String]
   , profile_email :: String
   } deriving Generic
 
 profileCtx :: Context Profile
 profileCtx = mconcat
   [ field "name" (pure . profile_name . itemBody)
+  , field "image" (pure . profile_image . itemBody)
+  , field "position" (pure . profile_position . itemBody)
+  , field "bio" (pure . profile_bio . itemBody)
+  , field "committees" (pure . unwords . profile_committees . itemBody)
+  , field "email" (pure . profile_email . itemBody)
   ]
 
 data AffiliatesData = AffiliatesData
@@ -66,8 +77,7 @@ data Affiliate = Affiliate
   } deriving Generic
 
 data ResourcesData = ResourcesData
-  { resources_resourced :: [Resource]
-  , resources_pending :: [Resource]
+  { resources_resources :: [Resource]
   } deriving Generic
 
 data Resource = Resource
@@ -85,8 +95,11 @@ data Question = Question
   , question_answer :: String
   } deriving Generic
 
-fmap concat $ traverse (Aeson.deriveJSON Aeson.defaultOptions)
+fmap concat $ traverse
+  (Aeson.deriveJSON $ Aeson.defaultOptions
+    { Aeson.fieldLabelModifier = drop 1 . dropWhile (/= '_') })
   [ ''TemplateData
+  , ''PagesData
   , ''HomeData
   , ''Ethos
   , ''WhoWeAreData
@@ -145,15 +158,21 @@ main = do
 
     match "data.json" $ compile $ getResourceLBS
 
-    match "*index.html" $ do
+    match "index.html" $ do
         route idRoute
         compile $ do
-            dataString :: Item ByteString <- load "data.json"
-            let dat :: Item TemplateData =
-                  fromMaybe (error "bad data") . Aeson.decode <$> dataString
+            getResourceBody
+                >>= applyAsTemplate defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
+                >>= relativizeUrls
+
+    match "*/index.html" $ do
+        route idRoute
+        compile $ do
+            dat <- getData
             let indexCtx = mconcat
                   [ listField "profiles" profileCtx
-                      (pure $ sequence $ whoWeAreData_profiles . templateData_whoWeAre <$> dat)
+                      (pure $ sequence $ whoWeAreData_profiles . pagesData_whoWeAre . templateData_pages <$> dat)
                   , constField "title" "Home"
                   , defaultContext
                   ]
@@ -164,6 +183,11 @@ main = do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
+
+getData :: Compiler (Item TemplateData)
+getData = do
+  dataString :: Item ByteString <- load "data.json"
+  pure $ fromMaybe (error "bad data") . Aeson.decode <$> dataString
 
 postcss :: Compiler (Item ByteString)
 postcss =

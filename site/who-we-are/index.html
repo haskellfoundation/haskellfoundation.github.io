@@ -11,27 +11,27 @@
 </div>
 
 <div>
-  {% for profile in pages.whoWeAre.profiles %}
+  $for(profiles)$
 
     <div>
       <div>
-        <img src="{{profile.image}}" alt="">
+        <img src="$image$" alt="">
         <div>
-          <h3>{{profile.name}}</h3>
-          <div>{{profile.position}}</div>
+          <h3>$name$</h3>
+          <div>$position$</div>
         </div>
       </div>
       <p>
-        {{profile.bio}}
+        $bio$
       </p>
       <h4>Committees</h4>
       <p>
-        {{profile.committees}}
+        $committees$
       </p>
-      <a href="mailto">{{profile.email}}</a>
+      <a href="mailto">$email$</a>
     </div>
 
-  {% endfor %}
+  $endfor$
 </div>
 
 {% endblock %}
