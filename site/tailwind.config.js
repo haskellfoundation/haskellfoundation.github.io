@@ -2,9 +2,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
-    content: [
-      './**/*.html'
-    ],
+    content: ['./**/*.html'],
   },
   theme: {
     fontFamily: {
@@ -12,30 +10,30 @@ module.exports = {
       display: ['Playfair Display', 'serif'],
       body: ['Maven Pro', 'sans-serif'],
     },
-    typography: {
-      default: {
-        css: {
-          p: {
-            fontFamily: 'Lato, sans-serif'
-          },
-          ul: {
-            fontFamily: 'Lato, sans-serif'
-          },
-          li: {
-            fontFamily: 'Lato, sans-serif'
-          },
-          blockquote: {
-            borderColor: '#A282E8'
-          },
-          pre: {
-            background: '#F7F7F7',
-            color: 'black',
-            borderRadius: '0'
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              fontWeight: '400'
+            },
+            p: {
+              color: colors.gray['700']
+            },
+            li: {
+              color: colors.gray['700']
+            },
+            'ul > li::before': {
+              backgroundColor: colors.purple['700']
+            },
+            a: {
+              color: colors.purple['700'],
+              textDecoration: 'none',
+              fontWeight: 'regular'
+            }
           }
         }
-      }
-    },
-    extend: {
+      },
       borderRadius: {
         'xl': '1rem',
         '2xl': '1.5rem',
@@ -75,5 +73,6 @@ module.exports = {
   variants: {
   },
   plugins: [
+    require('@tailwindcss/typography')
   ],
 }

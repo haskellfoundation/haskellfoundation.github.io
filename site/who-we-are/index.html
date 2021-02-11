@@ -1,9 +1,40 @@
-{% import "partials/components.njk" as components %}
 
-{% extends "boilerplate.njk" %}
-{% block body %}
   
-{{ components.simpleSection("Who We Are") }}
+
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">Who We Are</h1>
+      
+    </div>
+  </div>
+
 
 <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
   <div class="bg-black shadow-lg shadow-xl shadow-md shadow-sm text-center px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
@@ -16,30 +47,190 @@
 
 <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
   <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
-    $for(profiles)$
+    
       <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
         <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/spj.png" alt="">
           <div class="">
-            <h3 class="text-xl font-semibold">$name$</h3>
-            <div class="uppercase text-lg font-medium">$position$</div>
+            <h3 class="text-xl font-semibold">Simon Peyton Jones</h3>
+            <div class="uppercase text-lg font-medium">Chair</div>
           </div>
         </div>
         <p>
-          $bio$
+          Bio short description placeholder.
         </p>
         <div>
           <div class="font-bold text-gray-600">Committees</div>
           <p>
-            $committees$
+            Committee One, Committee Two
           </p>
         </div>
         <div>
-          <a class="arrow-link" href="mailto:$email$">>> $email$</a>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
         </div>
       </div>
-    $endfor$
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/cd.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Chris Dornan</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/gk.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Gabriele Keller</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/jv.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Jasper Van Der Jeugt</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/ek.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Edward Kmett</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/sw.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Stephanie Weirich</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/sm.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Simon Marlow</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
+      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+        <div class="sm:flex md:block xl:flex items-center">
+          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="/static/images/board-members/la.png" alt="">
+          <div class="">
+            <h3 class="text-xl font-semibold">Lennart Augustsson</h3>
+            <div class="uppercase text-lg font-medium">Interim Board Member</div>
+          </div>
+        </div>
+        <p>
+          Bio short description placeholder.
+        </p>
+        <div>
+          <div class="font-bold text-gray-600">Committees</div>
+          <p>
+            Committee One, Committee Two
+          </p>
+        </div>
+        <div>
+          <a class="arrow-link" href="mailto">>> email@address.com</a>
+        </div>
+      </div>
+
+    
   </div>
 </div>
-
-{% endblock %}

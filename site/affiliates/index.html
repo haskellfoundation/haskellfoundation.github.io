@@ -1,9 +1,40 @@
-{% import "partials/components.njk" as components %}
 
-{% extends "boilerplate.njk" %}
-{% block body %}
 
-{{ components.simpleSection("Affiliates") }}
+
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">Affiliates</h1>
+      
+    </div>
+  </div>
+
 
 <div class="md:px-12">
   <div class="bg-black shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20 grid gap-8 lg:grid-cols-2 lg:gap-16">
@@ -11,7 +42,7 @@
       We invite existing Haskell projects, committees and communities to explicitly affiliate and align themselves with the Haskell Foundation. Affiliation means that the group supports the goals of the Haskell Foundation, and that the Haskell Foundation in turn supports this group. 
     </p>
     <p class="lg:text-xl text-gray-400 leading-relaxed">
-      We require affiliated groups to adhere to guidelines around transparency, being open to new members, and follow the <a href="https://haskell.foundation/guidelines-for-respectful-communication" target="_blank">Haskell committee guidelines for respectful communication</a>. We believe that this will help us grow towards being a more open and welcoming community.
+      We require affiliated groups to adhere to guidelines around transparency, being open to new members, and follow the <a href="/guidelines-for-respectful-communication" target="_blank">Haskell committee guidelines for respectful communication</a>. We believe that this will help us grow towards being a more open and welcoming community.
     </p>
   </div>
 </div>
@@ -25,12 +56,22 @@
   </div>
 
   <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4 my-6 md:my-8 lg:my-10 grid lg:grid-cols-2 py-4 md:py-8 gap-4 md:gap-8">
-    {% for affiliate in pages.affiliates.affiliated %}
-      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://{{affiliate.url}}" target="_blank">
-        <div class="font-medium">{{affiliate.name}}</div>
-        <div class="text-gray-600">{{affiliate.url}}</div>
+    
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/haskell/haskell-language-server" target="_blank">
+        <div class="font-medium">Haskell IDE Team</div>
+        <div class="text-gray-600">github.com/haskell/haskell-language-server</div>
       </a>
-    {% endfor %}
+    
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/ghc-proposals/ghc-proposals" target="_blank">
+        <div class="font-medium">GHC Steering Committee</div>
+        <div class="text-gray-600">github.com/ghc-proposals/ghc-proposals</div>
+      </a>
+    
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://haskellweekly.news/" target="_blank">
+        <div class="font-medium">Haskell Weekly</div>
+        <div class="text-gray-600">haskellweekly.news/</div>
+      </a>
+    
   </div>
 
   <div class="flex items-center space-x-4">
@@ -41,19 +82,35 @@
   </div>
 
   <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4 my-6 md:my-8 lg:my-10 grid lg:grid-cols-2 py-4 md:py-8 gap-4 md:gap-8">
-    {% for affiliate in pages.affiliates.pending %}
-      {% if affiliate.url %}
-        <a class="block border-l-3 border-gray-400 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://{{affiliate.url}}" target="_blank">
-          <div class="font-medium">{{affiliate.name}}</div>
-          <div class="text-gray-600">{{affiliate.url}}</div>
+    
+      
+        <a class="block border-l-3 border-gray-400 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://wiki.haskell.org/Core_Libraries_Committee" target="_blank">
+          <div class="font-medium">Core Libraries Committee</div>
+          <div class="text-gray-600">wiki.haskell.org/Core_Libraries_Committee</div>
         </a>
-      {% else %}
-        <div class="block border-l-3 border-gray-400 shadow-lg px-4 py-2 md:py-4" href="https://{{affiliate.url}}" target="_blank">
-          <div class="font-medium">{{affiliate.name}}</div>
-          <div class="text-gray-600">{{affiliate.url}}</div>
+      
+    
+      
+        <a class="block border-l-3 border-gray-400 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://www.haskell.org/haskell-org-committee" target="_blank">
+          <div class="font-medium">Haskell.org Committee</div>
+          <div class="text-gray-600">www.haskell.org/haskell-org-committee</div>
+        </a>
+      
+    
+      
+        <div class="block border-l-3 border-gray-400 shadow-lg px-4 py-2 md:py-4" href="https://" target="_blank">
+          <div class="font-medium">The Haskell Admins</div>
+          <div class="text-gray-600"></div>
         </div>
-      {% endif %}
-    {% endfor %}
+      
+    
+      
+        <a class="block border-l-3 border-gray-400 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://www.haskell.org/cabal/" target="_blank">
+          <div class="font-medium">Cabal</div>
+          <div class="text-gray-600">www.haskell.org/cabal/</div>
+        </a>
+      
+    
   </div>
 
   <div class="flex items-center space-x-4">
@@ -68,15 +125,51 @@
       This is not a closed list! We very much want the Haskell Foundation to be something by all of us. Please contact us if you are interested in joining us in our quest to make Haskell better for everyone.
     </p>
     <div class="mt-4">
-      <a class="arrow-link" href="https://haskell.foundation/en/contact/">>> Contact Us</a>
+      <a class="arrow-link" href="/contact/">>> Contact Us</a>
     </div>
   </div>
 
 </div>
 
-{{ components.simpleSection("What Does Affiliation Entail?") }}
 
-{% call components.blackBox() %}
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">What Does Affiliation Entail?</h1>
+      
+    </div>
+  </div>
+
+
+
+  <div class="max-w-screen-xl mx-auto bg-black shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    
   <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:text-xl text-gray-400 leading-relaxed">
     <div class="space-y-8">
       <p>
@@ -95,10 +188,15 @@
       </p>
     </div>
   </div>
-{% endcall %}
+
+  </div>
+
 
 <div class="mt-16 md:mt-24">
-{% call components.articleContent() %}
+
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      
   <h2>Affiliated Committees</h2>
 
   <h3>Transparency</h3>
@@ -180,7 +278,7 @@
 
   <h3>CODE OF CONDUCT</h3>
   <p>
-    Groups must adopt the <a href="https://haskell.foundation/guidelines-for-respectful-communication">Guidelines for Respectful Communication</a>. Groups may additionally adopt other guidelines & CoCs that are stronger; as long as they do not conflict with the GRC.
+    Groups must adopt the <a href="/guidelines-for-respectful-communication">Guidelines for Respectful Communication</a>. Groups may additionally adopt other guidelines & CoCs that are stronger; as long as they do not conflict with the GRC.
   </p>
   <p>
     Why make a code of conduct as part of HF affiliation?
@@ -223,10 +321,11 @@
     </li>
     <li>
       <p>
-        Just like committees, the project must adopt the <a href="https://haskell.foundation/guidelines-for-respectful-communication">Guidelines for Respectful Communication</a> as a code of conduct.
+        Just like committees, the project must adopt the <a href="/guidelines-for-respectful-communication">Guidelines for Respectful Communication</a> as a code of conduct.
       </p>
     </li>
   </ul>
-{% endcall %}
 
-{% endblock %}
+    </div>
+  </div>
+
