@@ -30,7 +30,7 @@ data PagesData = PagesData
   ----, pagesData_news :: NewsData
   ----, pagesData_sponsorship :: SponshorshipData
   --, pagesData_resources :: ResourcesData
-  --, pagesData_faq :: FaqData
+  , pagesData_faq :: FaqData
   } deriving Generic
 
 data HomeData = HomeData
@@ -94,6 +94,12 @@ data Question = Question
   { question_question :: String
   , question_answer :: String
   } deriving Generic
+
+questionCtx :: Context Question
+questionCtx = mconcat
+  [ field "question" (pure . question_question . itemBody)
+  , field "answer" (pure . question_answer . itemBody)
+  ]
 
 fmap concat $ traverse
   (Aeson.deriveJSON $ Aeson.defaultOptions
@@ -173,6 +179,8 @@ main = do
             let indexCtx = mconcat
                   [ listField "profiles" profileCtx
                       (pure $ sequence $ whoWeAreData_profiles . pagesData_whoWeAre . templateData_pages <$> dat)
+                  , listField "faq" questionCtx
+                      (pure $ sequence $ faqData_questions . pagesData_faq . templateData_pages <$> dat)
                   , constField "title" "Home"
                   , defaultContext
                   ]

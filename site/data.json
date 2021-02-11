@@ -229,19 +229,19 @@
       "questions": [
         {
           "question": "How Do Projects Or Teams Affiliate With The Haskell Foundation?",
-          "answer": ["Organizations and committees can review the <a href='https://docs.google.com/document/d/1sL0Nw3VEvxLT39WOkKhtR2_sOUctwVSZ_A4GDZV_mvU/edit' target='_blank'>Haskell Foundation Affiliation Documents</a> to learn more about how you can become affiliated with the Haskell Foundation. Please email <a href='contact@haskell.foundation'>contact@haskell.foundation</a> for more information."]
+          "answer": "Organizations and committees can review the <a href='https://docs.google.com/document/d/1sL0Nw3VEvxLT39WOkKhtR2_sOUctwVSZ_A4GDZV_mvU/edit' target='_blank'>Haskell Foundation Affiliation Documents</a> to learn more about how you can become affiliated with the Haskell Foundation. Please email <a href='contact@haskell.foundation'>contact@haskell.foundation</a> for more information."
         },
         {
           "question": "What Is The Relationship Between HF And Haskell.Org?",
-          "answer": ["The Haskell.org committee has voted to affiliate with the Haskell Foundation, however the haskell.org committee remains an independent 501-3 (c) nonprofit organization. The haskell.org committee will continue to operate the haskell.org website and provide resources for Haskell infrastructure such as Hackage and the haskell mailing lists. Several members of haskell.org have helped launch HF."]
+          "answer": "The Haskell.org committee has voted to affiliate with the Haskell Foundation, however the haskell.org committee remains an independent 501-3 (c) nonprofit organization. The haskell.org committee will continue to operate the haskell.org website and provide resources for Haskell infrastructure such as Hackage and the haskell mailing lists. Several members of haskell.org have helped launch HF."
         },
         {
           "question": "Who’s Involved?",
-          "answer": ["The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."]
+          "answer": "The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."
         },
         {
           "question": "What Is The Relationship Between HF And The Community, Industry, Etc.",
-          "answer": ["The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."]
+          "answer": "The Haskell Foundation was founded by members of the Haskell community, with help and input from existing Haskell users, committees, and industrial users. Our sponsors page includes information about the organizations who have generously provided support for the Haskell Foundation."
         }
       ]
     }
