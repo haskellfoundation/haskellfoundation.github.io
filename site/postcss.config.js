@@ -5,9 +5,9 @@ module.exports = {
     }),
     require('tailwindcss'),
     require('postcss-nested'),
-    //require('autoprefixer'),
-    //require('cssnano')({
-    //    preset: 'default',
-    //})
+    require('autoprefixer'),
+    require('cssnano')({
+       preset: 'default',
+    })
   ]
 }
