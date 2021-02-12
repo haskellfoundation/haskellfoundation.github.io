@@ -16,7 +16,6 @@ import Data.Text (Text)
 import GHC.Generics
 import Hakyll
 import System.Directory
-import System.Which
 import System.FilePath.Posix (takeBaseName)
 
 data TemplateData = TemplateData
@@ -199,4 +198,4 @@ getData = do
 
 postcss :: Compiler (Item ByteString)
 postcss =
-  getResourceLBS >>= withItemBody (unixFilterLBS $(staticWhich "postcss") [])
+  getResourceLBS >>= withItemBody (unixFilterLBS "postcss" [])
