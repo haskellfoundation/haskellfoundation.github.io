@@ -29,6 +29,7 @@ in
     nativeBuildInputs = [ nodePkgs project ];
   } ''
     cp --no-preserve=mode -r ${./site} site
+    export LANG=en_US.UTF-8
     cd site
     site build
   '';
