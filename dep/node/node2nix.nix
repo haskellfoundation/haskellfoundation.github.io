@@ -1,1 +1,1 @@
-(import ./nixpkgs.nix).nodePackages.node2nix
+(import (import ../nixpkgs.nix) {}).nodePackages.node2nix
