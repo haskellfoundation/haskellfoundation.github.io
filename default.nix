@@ -4,6 +4,7 @@
 }:
 
 let
+  inherit (pkgs) lib;
   inherit (pkgs.lib.trivial) flip pipe;
   inherit (pkgs.haskell.lib) appendPatch appendConfigureFlags overrideCabal;
   nodePkgs = (pkgs.callPackage ./dep/node { inherit pkgs; nodejs = pkgs.nodejs-12_x; }).shell.nodeDependencies;
@@ -27,11 +28,19 @@ in
 
   site = pkgs.runCommand "haskell-foundation" {
     nativeBuildInputs = [ nodePkgs project ];
+
+    NODE_PATH = "${nodePkgs}/lib/node_modules";
+
+    LOCALE_ARCHIVE = lib.optionalString
+      (pkgs.stdenv.hostPlatform.libc == "glibc")
+      "${pkgs.buildPackages.glibcLocales}/lib/locale/locale-archive";
+    LANG = "en_US.UTF-8";
   } ''
     cp --no-preserve=mode -r ${./site} site
-    export LANG=en_US.UTF-8
+    echo $LOCALE_ARCHIVE
     cd site
     site build
+    mv _site $out
   '';
 
   shell = haskellPackages.shellFor {
