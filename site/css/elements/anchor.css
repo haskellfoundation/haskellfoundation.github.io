@@ -7,7 +7,7 @@ a:visited {
 }
 
 .arrow-link {
-  @apply pb-1 border-b-3 border-purple-700 hover:no-underline hover:border-purple-500;
+  @apply pb-1 border-b-3 border-purple-700 hover:no-underline hover:border-purple-500 leading-9;
   font-family: "Fira Code";
 }
 
