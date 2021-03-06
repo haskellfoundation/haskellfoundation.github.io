@@ -61,6 +61,7 @@ module.exports = {
         '40': '10rem'
       },
       colors: {
+        gray: colors.gray,
         trueGray: colors.trueGray
       },
       fontSize: {
