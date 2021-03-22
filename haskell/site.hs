@@ -171,7 +171,7 @@ main = do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
                 >>= relativizeUrls
 
-    match "*/index.html" $ do
+    match "**/index.html" $ do
         route idRoute
         compile $ do
             dat <- getData
