@@ -1,6 +1,6 @@
-{ compiler ? "ghc865"
+{ compiler ? "ghc8104"
 , system ? builtins.currentSystem
-, pkgs ? import (import ./dep/nixpkgs.nix) { inherit system; }
+, pkgs ? import ./dep/nixpkgs { inherit system; }
 }:
 
 let
