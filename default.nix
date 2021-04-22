@@ -1,4 +1,4 @@
-{ compiler ? "ghc8104"
+{ compiler ? "ghc884"
 , system ? builtins.currentSystem
 , pkgs ? import ./dep/nixpkgs { inherit system; }
 }:
