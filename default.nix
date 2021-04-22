@@ -9,15 +9,35 @@ let
   inherit (pkgs.haskell.lib) appendPatch appendConfigureFlags overrideCabal;
   nodePkgs = (pkgs.callPackage ./dep/node { inherit pkgs; nodejs = pkgs.nodejs-12_x; }).shell.nodeDependencies;
 
+    
   haskellPackages = pkgs.haskell.packages.${compiler}.override {
-    overrides = hpNew: hpOld: {
-      hakyll =
-        pipe
-           hpOld.hakyll
-           [ (flip appendConfigureFlags [ "-f" "watchServer" "-f" "previewServer" ])
-           ];
+    overrides = hpNew: hpOld: rec {
+      mkDerivation = args: hpOld.mkDerivation (args // {
+        doCheck = false;
+        doHaddock = false;
+        enableLibraryProfiling = false;
+        enableExecutableProfiling = false;
+        jailbreak = true;
+      });
+
 
       haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.stdenv.lib.cleanSource ./haskell) { };
+      
+      hakyll =
+        pipe
+          hpOld.hakyll
+          [ (flip appendConfigureFlags [ "-f" "watchServer" "-f" "previewServer" ])
+          ];
+      
+      ListLike = pkgs.haskell.lib.overrideCabal hpOld.ListLike {
+        version = "4.7.3";
+	sha256 = "1vk5mbpxzwzcnc4cgw3hvqn0g0pcq97hw4f3i2ki3hn3svap535a";
+        doCheck = false;
+        doHaddock = false;
+        enableLibraryProfiling = false;
+        enableExecutableProfiling = false;
+	jailbreak = true;
+      };  
     };
   };
 
