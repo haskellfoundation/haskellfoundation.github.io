@@ -9,64 +9,76 @@
 
   <nav class="hidden lg:block">
     <ul class="flex space-x-8 xl:space-x-12">
-      
+
         <li class="relative">
-          <a href="/who-we-are" id="">Who We Are</a>
-          
+          <a href="/who-we-are" id="affiliates-nav-item">Who We Are</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="/who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="/who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+            </div>
+
         </li>
-      
+
         <li class="relative">
           <a href="/projects" id="">Projects</a>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/affiliates" id="affiliates-nav-item">Affiliates</a>
-          
+
             <div class="pt-2 absolute top-full w-44 bg-white shadow-md hidden" id="affiliates-nav-item-menu">
-              
+
                 <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="/affiliates">
                   Affiliates
                 </a>
-              
+
                 <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="/affiliates/about">
                   About Affiliating
                 </a>
-              
+
             </div>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/contact" id="">Contact</a>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/news" id="">News</a>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/donations" id="">Sponsorship</a>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/resources" id="">Resources</a>
-          
+
         </li>
-      
+
         <li class="relative">
           <a href="/faq" id="">FAQ</a>
-          
+
         </li>
-      
+
     </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
-    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" 
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none"
       aria-label="Main menu" aria-haspopup="true">
       <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

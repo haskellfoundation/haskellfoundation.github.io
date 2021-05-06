@@ -4,3 +4,7 @@ result
 # Hakyll
 _cache/
 _site/
+
+# Node
+node_modules*
+package-lock*
