@@ -18,6 +18,11 @@ import Hakyll
 import System.Directory
 import System.FilePath.Posix (takeBaseName)
 
+config :: Configuration
+config = defaultConfiguration
+ { destinationDirectory = "../docs"
+ }
+
 main :: IO ()
 main = do
   do
@@ -26,7 +31,7 @@ main = do
       then setCurrentDirectory "../site"
       else when (takeBaseName d /= "site") $
         setCurrentDirectory "./site"
-  hakyll $ do
+  hakyllWith config $ do
     match "static/**" $ do
         route   idRoute
         compile copyFileCompiler

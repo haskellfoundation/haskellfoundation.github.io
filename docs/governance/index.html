@@ -1,0 +1,419 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>Haskell Foundation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../static/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../static/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../static/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../static/js/main.js" defer></script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../static/images/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+
+        <div href="../who-we-are" class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Who We Are</div>
+
+        <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+
+        <a href="../affiliates/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+
+        <a href="../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+
+
+        <div href="../affiliates" class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+
+          <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+
+          <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+
+
+        <a href="../contact" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+
+
+
+        <a href="../news" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+
+
+
+        <a href="../press" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+
+
+        <a href="../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+
+
+        <a href="../resources" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+
+
+
+        <a href="../faq" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+
+  </div>
+
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../">
+      <img src="../static/images/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+        <li class="relative">
+          <a href="../who-we-are" id="affiliates-nav-item">Who We Are</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+            </div>
+
+        </li>
+
+        <li class="relative">
+          <a href="../projects" id>Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 border-purple-800 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+        <li class="relative">
+          <a href="../contact" id>Contact</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../news" id>News</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../press" id>Press</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../donations" id>Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../resources" id>Resources</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../faq" id>FAQ</a>
+
+        </li>
+
+    </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+    
+
+
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">Haskell Foundation Governance</h1>
+      
+    </div>
+  </div>
+
+
+
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      
+  <p>The Haskell Foundation needs a strong, effective, and legitimate board. This note describes how we plan to bootstrap the governance structure of the Foundation.</p>
+
+  <h2>Interim Board</h2>
+  <p>We propose to appoint a small Interim Board, with the following mission:</p>
+
+  <ul>
+    <li>Appoint permanent Foundation Board
+      <ul>
+        <li>Establish terms of reference for the permanent Foundation Board (including criteria for membership, term lengths, quorums, voting etc)</li>
+        <li>Seek open nominations for membership of the Board</li>
+        <li>Select members of the Board, based on the criteria and nominations</li>
+      </ul>
+    </li>
+    <li>Appoint Executive Director
+      <ul>
+        <li>Agree on a job description for the Executive Director</li>
+        <li>Advertise the post and seek applications</li>
+        <li>Interview, and appoint</li>
+      </ul>
+    </li>
+    <li>Manage Interim Finances as trustees for the Foundation Board</li>
+    <li>Take any other necessary decisions meanwhile : For example, if the Foundation has sufficient funds, it may start some funded projects, against an agreed technical agenda.</li>
+  </ul>
+  <p>The Interim Board</p>
+
+  <ul>
+    <li>Should consist of trusted individuals</li>
+    <li>Can be small e.g. around six</li>
+    <li>Has a limited lifetime, say 6-12 months. Its goal is to complete its mission and hand over the mantle to the permanent Board.</li>
+  </ul>
+  <p>The idea is that the entire membership of the permanent Board is filled through open nominations evaluated against written criteria. Members of the Interim Board can be nominated to the Foundation Board, but obviously their nomination should be judged by the other members.</p>
+
+  <h2>The Foundation Board</h2>
+  <p>It is up to the Interim Board to draft the terms of reference for the permanent Foundation Board, and it is up to the Foundation Board to maintain and refine those terms of reference. But here are some ideas as a starting point.</p>
+
+  <h3>Remit Of The Board</h3>
+  <p>The Board provides the strategic leadership for the Foundation. More specifically</p>
+  <ul>
+    <li>Governance: leadership and direction - set strategy, provide guidance</li>
+    <li>Staff: appoint senior members of Foundation staff</li>
+    <li>Define, curate and track Foundation goals</li>
+    <li>Seek out opportunities to further the goals of the Foundation</li>
+    <li>Represent the community: Liaise with sponsors, public bodies (ACM, standards committees) etc</li>
+    <li>Ensure success and long-term continuity of the Foundation</li>
+    <li>Receive and review financial accounts</li>
+  </ul>
+  <h3>Membership</h3>
+  <p>Being a member of the Board is not an honorary post; it involves real work . There will typically be ad-hoc or permanent working groups, on which Board members are expected to serve or chair.</p>
+
+  <ul>
+    <li>The Board needs to be big enough to have a breadth of expertise and representation, but small enough to be effective. Maybe around 12 members.</li>
+    <li>Vacancies should be filled via open nominations against written criteria. The board itself chooses its new members.</li>
+    <li>Once appointed, board members should act in the best interests of the Foundation and the entire Haskell community; they are not appointed to represent the interests of a particular group .</li>
+    <li>Members should have fixed terms, to ensure a steady turnover of members. There is a balance here: it’s a pity to lose strong, well-qualified members too quickly. Something like: three or four year terms, but with the possibility of being renewed once, and the possibility of returning after a gap.</li>
+    <li>Terms should be staggered so that a similar number of members reach the end of their term at regular intervals. To bootstrap this process the Interim Board might invite some members to serve for shorter initial terms. “Regular intervals” might mean annually or every two years; again there is a balance between providing a regular “way in” and the overheads of nomination, selection, and onboarding.</li>
+  </ul>
+  <p>The Executive Director reports to the board, attends all board meetings, but does not vote.</p>
+
+  <h3>Key Roles</h3>
+  <ul>
+    <li>Chair (elected annually by the Foundation Board members)</li>
+    <li>Treasurer</li>
+    <li>Secretary</li>
+  </ul>
+  <h3>Criteria For Membership</h3>
+  <p>Taken collectively, the board should</p>
+
+  <ul>
+    <li>Include individuals with skills, expertise and experience (e.g. technical, legal, organisational, community-building) that the Board needs.</li>
+    <li>Reflect the diversity (e.g. of age, gender, geographical spread) that is in the Haskell community.</li>
+    <li>Include individuals who are well-equipped to reflect the priorities of Haskell’s various constituencies, including
+      <ul>
+        <li>Companies that use Haskell in production, and Haskell consultancies; giving this group a stronger voice is one of the HF’s main goals.</li>
+        <li>Users of Haskell. That might include companies, but also includes the broader open-source community, hobbyists, etc.</li>
+        <li>Sponsors: companies (or even individuals) who are funding the Foundation.</li>
+        <li>People who build and run the infrastructure of the Haskell ecosystem: compilers, libraries, packaging and distribution, IDEs etc.</li>
+        <li>Educators, including school, university, and commercial training courses.</li>
+        <li>Functional programming researchers who build on and/or develop Haskell.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>NB: nominations are also welcome from individuals who meet other criteria but do not represent any particular constituency.</p>
+
+  <p>Additionally, no two members should be paid employees of the same organisation</p>
+
+  <p>Simultaneously hitting all these criteria is nigh impossible. In particular, we do not want to tie the Board’s hands by specifying numbers of slots for the different constituencies described above. But these (after due process of refinement) are the criteria against which the Board can evaluate nominations, and each round of nominations is a fresh chance to rectify any imbalances. As such, the board’s composition should not be determined directly by representation of various constituencies, but rather by the ability of individuals, whatever their direct background, to understand and reflect the needs and priorities of these constituencies.</p>
+
+  <h3>Transparency</h3>
+  <p>The Board should conduct its business as transparently as possible. Specifically:</p>
+
+  <ul>
+    <li>It should publish public minutes of meetings and decisions.</li>
+    <li>It should be open about its finances: where money comes from, and what it is spent on.</li>
+    <li>It should conduct most conversations on a publicly-readable mailing list.</li>
+  </ul>
+  <p>In all cases there may be some aspects of the Board’s work that should properly be private, e.g. relating to security, staff, or money. The Board will have to make judgements about this, but the strong default is to work in public.</p>
+
+  <h3>Sponsors</h3>
+  <p>Sponsors (individuals and companies that make support the Foundation financially) play a key role; without them the Foundation is just another well-intentioned bunch of volunteers. So we propose to allocate three seats on the Board for sponsors. The exact number may change in the light of experience, but the underlying message is: sponsors are crucial, but not dominant. We hope to have lots of sponsors, so it’s impractical for them all to have a seat on the Board. It will be up to the sponsors (in consultation with the Board) to identify three people to serve on the board.</p>
+
+  <h2>Teams</h2>
+  <p>Most of the real work will get done by</p>
+
+  <ul>
+    <li>The existing Haskell community groups (GHC team, Hackage, Stackage, Cabal, Core Libraries, Haddock, etc)</li>
+    <li>Teams, or working groups, formed by the Haskell Foundation for particular purposes.</li>
+  </ul>
+  <p>The HF teams might, for example, include</p>
+
+  <ul>
+    <li>Funding (i.e. looking for sponsors)</li>
+    <li>Web site</li>
+    <li>Technical advice and strategy</li>
+    <li>Infrastructure</li>
+    <li>Sponsors (i.e. coordinating with all the current sponsors, who may want to talk to each other directly)</li>
+  </ul>
+  <p>It is not the purpose of this document to specify what these are, and in any case they may come and go. ​ These teams are expected to be overseen by the HF, but to be clear, they may and will necessarily include many individuals not on the board, who can provide particular skills and expertise.</p>
+
+  <p>We considered establishing a formal Industrial Advisory Group, or Community Forum, but concluded that was too heavyweight for now. Maybe we’ll want that in the future.</p>
+
+    </div>
+  </div>
+
+
+  </div>
+  
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap justify-center">
+    <a href="https://github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="../static/images/sponsors/github/github-683.png" srcset="
+      /static/images/sponsors/github/github-200.png 200w,
+      /static/images/sponsors/github/github-400.png 400w,
+      /static/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="Input | Output" src="../static/images/sponsors/iohk/iohk-683.png" srcset="
+      /static/images/sponsors/iohk/iohk-200.png 200w,
+      /static/images/sponsors/iohk/iohk-400.png 400w,
+      /static/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="TWEAG" src="../static/images/sponsors/tweag/tweag-683.png" srcset="
+      /static/images/sponsors/tweag/tweag-200.png 200w,
+      /static/images/sponsors/tweag/tweag-400.png 400w,
+      /static/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../static/images/sponsors/well-typed/well-typed-683.png" srcset="
+      /static/images/sponsors/well-typed/well-typed-200.png 200w,
+      /static/images/sponsors/well-typed/well-typed-400.png 400w,
+      /static/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../static/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="
+      /static/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w,
+      /static/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w,
+      /static/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="http://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FLIPSTONE" src="../static/images/sponsors/flipstone/flipstone-683.png" srcset="
+      /static/images/sponsors/flipstone/flipstone-200.png 200w,
+      /static/images/sponsors/flipstone/flipstone-400.png 400w,
+      /static/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="http://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury Bank" src="../static/images/sponsors/mercury/mercury.png" srcset="
+      /static/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../static/images/sponsors/emq/emq.png" srcset="
+      /static/images/sponsors/emq/emq.png"></a>
+
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-center text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+      <div class="flex justify-center space-x-6">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col space-y-4 lg:flex-row lg:space-x-8 lg:space-y-0">
+      <img src="../static/images/haskell-foundation-logo-gray.svg" class="h-8" />
+      <div class="font-medium">2020 © Haskell Foundation</div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
