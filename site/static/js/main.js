@@ -23,6 +23,38 @@ backdrop.addEventListener('click', closeNav);
 
 // Desktop nav dropdown functionality
 
+// Who we are
+const whoWeAreButton = document.getElementById('who-we-are-nav-item');
+const whoWeAreMenu = document.getElementById('who-we-are-nav-item-menu');
+
+
+let whoWeAreButtonTimeout = null;
+let whoWeAreMenuTimeout = null;
+
+whoWeAreButton.addEventListener('mouseover', () => {
+  clearTimeout(whoWeAreMenuTimeout);
+  whoWeAreMenu.classList.remove('hidden');
+});
+whoWeAreButton.addEventListener('mouseout', () => {
+  whoWeAreButtonTimeout = setTimeout(() => {
+	whoWeAreMenu.classList.add('hidden');
+  }, 200);
+});
+
+whoWeAreMenu.addEventListener('mouseover', () => {
+  clearTimeout(whoWeAreButtonTimeout);
+});
+whoWeAreMenu.addEventListener('mouseout', function(event) {
+  var e = event.toElement || event.relatedTarget;
+  if (e.parentNode == this || e == this) {
+	 return;
+  }
+  whoWeAreMenuTimeout = setTimeout(() => {
+	whoWeAreMenu.classList.add('hidden');
+  }, 200);
+}, true);
+
+// Affiliation
 const affiliatesButton = document.getElementById('affiliates-nav-item');
 const affiliatesMenu = document.getElementById('affiliates-nav-item-menu');
 
