@@ -23,32 +23,32 @@ backdrop.addEventListener('click', closeNav);
 
 // Desktop nav dropdown functionality
 
-const affiliatesButton = document.getElementById('affiliates-nav-item');
-const affiliatesMenu = document.getElementById('affiliates-nav-item-menu');
+const dropdownButton = document.getElementById('dropdown-nav-item');
+const dropdownMenu = document.getElementById('dropdown-nav-item-menu');
 
 
-let affiliatesButtonTimeout = null;
-let affiliatesMenuTimeout = null;
+let dropdownButtonTimeout = null;
+let dropdownMenuTimeout = null;
 
-affiliatesButton.addEventListener('mouseover', () => {
-  clearTimeout(affiliatesMenuTimeout);
-  affiliatesMenu.classList.remove('hidden');
+dropdownButton.addEventListener('mouseover', () => {
+  clearTimeout(dropdownMenuTimeout);
+  dropdownMenu.classList.remove('hidden');
 });
-affiliatesButton.addEventListener('mouseout', () => {
-  affiliatesButtonTimeout = setTimeout(() => {
-	affiliatesMenu.classList.add('hidden');
+dropdownButton.addEventListener('mouseout', () => {
+  dropdownButtonTimeout = setTimeout(() => {
+	dropdownMenu.classList.add('hidden');
   }, 200);
 });
 
-affiliatesMenu.addEventListener('mouseover', () => {
-  clearTimeout(affiliatesButtonTimeout);
+dropdownMenu.addEventListener('mouseover', () => {
+  clearTimeout(dropdownButtonTimeout);
 });
-affiliatesMenu.addEventListener('mouseout', function(event) {
+dropdownMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
 	 return;
   }
-  affiliatesMenuTimeout = setTimeout(() => {
-	affiliatesMenu.classList.add('hidden');
+  dropdownMenuTimeout = setTimeout(() => {
+	dropdownMenu.classList.add('hidden');
   }, 200);
 }, true);
