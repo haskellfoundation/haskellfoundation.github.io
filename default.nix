@@ -40,7 +40,7 @@ in
     echo $LOCALE_ARCHIVE
     cd site
     site build
-    mv _site $out
+    mv ../docs $out
   '';
 
   shell = haskellPackages.shellFor {
