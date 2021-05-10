@@ -23,32 +23,64 @@ backdrop.addEventListener('click', closeNav);
 
 // Desktop nav dropdown functionality
 
-const dropdownButton = document.getElementById('dropdown-nav-item');
-const dropdownMenu = document.getElementById('dropdown-nav-item-menu');
+// Who we are
+const whoWeAreButton = document.getElementById('who-we-are-nav-item');
+const whoWeAreMenu = document.getElementById('who-we-are-nav-item-menu');
 
 
-let dropdownButtonTimeout = null;
-let dropdownMenuTimeout = null;
+let whoWeAreButtonTimeout = null;
+let whoWeAreMenuTimeout = null;
 
-dropdownButton.addEventListener('mouseover', () => {
-  clearTimeout(dropdownMenuTimeout);
-  dropdownMenu.classList.remove('hidden');
+whoWeAreButton.addEventListener('mouseover', () => {
+  clearTimeout(whoWeAreMenuTimeout);
+  whoWeAreMenu.classList.remove('hidden');
 });
-dropdownButton.addEventListener('mouseout', () => {
-  dropdownButtonTimeout = setTimeout(() => {
-	dropdownMenu.classList.add('hidden');
+whoWeAreButton.addEventListener('mouseout', () => {
+  whoWeAreButtonTimeout = setTimeout(() => {
+	whoWeAreMenu.classList.add('hidden');
   }, 200);
 });
 
-dropdownMenu.addEventListener('mouseover', () => {
-  clearTimeout(dropdownButtonTimeout);
+whoWeAreMenu.addEventListener('mouseover', () => {
+  clearTimeout(whoWeAreButtonTimeout);
 });
-dropdownMenu.addEventListener('mouseout', function(event) {
+whoWeAreMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
 	 return;
   }
-  dropdownMenuTimeout = setTimeout(() => {
-	dropdownMenu.classList.add('hidden');
+  whoWeAreMenuTimeout = setTimeout(() => {
+	whoWeAreMenu.classList.add('hidden');
+  }, 200);
+}, true);
+
+// Affiliation
+const affiliatesButton = document.getElementById('affiliates-nav-item');
+const affiliatesMenu = document.getElementById('affiliates-nav-item-menu');
+
+
+let affiliatesButtonTimeout = null;
+let affiliatesMenuTimeout = null;
+
+affiliatesButton.addEventListener('mouseover', () => {
+  clearTimeout(affiliatesMenuTimeout);
+  affiliatesMenu.classList.remove('hidden');
+});
+affiliatesButton.addEventListener('mouseout', () => {
+  affiliatesButtonTimeout = setTimeout(() => {
+	affiliatesMenu.classList.add('hidden');
+  }, 200);
+});
+
+affiliatesMenu.addEventListener('mouseover', () => {
+  clearTimeout(affiliatesButtonTimeout);
+});
+affiliatesMenu.addEventListener('mouseout', function(event) {
+  var e = event.toElement || event.relatedTarget;
+  if (e.parentNode == this || e == this) {
+	 return;
+  }
+  affiliatesMenuTimeout = setTimeout(() => {
+	affiliatesMenu.classList.add('hidden');
   }, 200);
 }, true);
