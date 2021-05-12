@@ -86,33 +86,33 @@ affiliatesMenu.addEventListener('mouseout', function(event) {
 }, true);
 
 
-// Contact
-const contactButton = document.getElementById('contact-nav-item');
-const contactMenu = document.getElementById('contact-nav-item-menu');
+// News
+const newsButton = document.getElementById('news-nav-item');
+const newsMenu = document.getElementById('news-nav-item-menu');
 
 
-let contactButtonTimeout = null;
-let contactMenuTimeout = null;
+let newsButtonTimeout = null;
+let newsMenuTimeout = null;
 
-contactButton.addEventListener('mouseover', () => {
-  clearTimeout(contactMenuTimeout);
-  contactMenu.classList.remove('hidden');
+newsButton.addEventListener('mouseover', () => {
+  clearTimeout(newsMenuTimeout);
+  newsMenu.classList.remove('hidden');
 });
-contactButton.addEventListener('mouseout', () => {
-  contactButtonTimeout = setTimeout(() => {
-	contactMenu.classList.add('hidden');
+newsButton.addEventListener('mouseout', () => {
+  newsButtonTimeout = setTimeout(() => {
+	newsMenu.classList.add('hidden');
   }, 200);
 });
 
-contactMenu.addEventListener('mouseover', () => {
-  clearTimeout(contactButtonTimeout);
+newsMenu.addEventListener('mouseover', () => {
+  clearTimeout(newsButtonTimeout);
 });
-contactMenu.addEventListener('mouseout', function(event) {
+newsMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
 	 return;
   }
-  contactMenuTimeout = setTimeout(() => {
-	contactMenu.classList.add('hidden');
+  newsMenuTimeout = setTimeout(() => {
+	newsMenu.classList.add('hidden');
   }, 200);
 }, true);
