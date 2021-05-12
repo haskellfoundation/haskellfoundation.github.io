@@ -84,3 +84,35 @@ affiliatesMenu.addEventListener('mouseout', function(event) {
 	affiliatesMenu.classList.add('hidden');
   }, 200);
 }, true);
+
+
+// Contact
+const contactButton = document.getElementById('contact-nav-item');
+const contactMenu = document.getElementById('contact-nav-item-menu');
+
+
+let contactButtonTimeout = null;
+let contactMenuTimeout = null;
+
+contactButton.addEventListener('mouseover', () => {
+  clearTimeout(contactMenuTimeout);
+  contactMenu.classList.remove('hidden');
+});
+contactButton.addEventListener('mouseout', () => {
+  contactButtonTimeout = setTimeout(() => {
+	contactMenu.classList.add('hidden');
+  }, 200);
+});
+
+contactMenu.addEventListener('mouseover', () => {
+  clearTimeout(contactButtonTimeout);
+});
+contactMenu.addEventListener('mouseout', function(event) {
+  var e = event.toElement || event.relatedTarget;
+  if (e.parentNode == this || e == this) {
+	 return;
+  }
+  contactMenuTimeout = setTimeout(() => {
+	contactMenu.classList.add('hidden');
+  }, 200);
+}, true);
