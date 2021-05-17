@@ -54,3 +54,7 @@ cabal run haskell-foundation -- watch
 ```
 
 Or the stack equivalent.
+
+## License
+
+This site is open source, and covered under the Apache 2.0 license.
