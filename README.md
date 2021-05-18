@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://haskellfoundation.github.io/static/images/logos/hf-logo-alpha.png" width="400" height="322" alt="Haskell Foundation" title="Haskell Foundation">
+<img src="https://haskellfoundation.github.io/static/images/logos/hf-logo-alpha.png" width="300" height="242" alt="Haskell Foundation" title="Haskell Foundation">
 </p>
 
 # The Haskell Foundation Website
