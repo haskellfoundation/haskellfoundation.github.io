@@ -4,7 +4,7 @@
 
 # The Haskell Foundation Website
 
-[![Hackage](https://img.shields.io/badge/affiliate-Haskell%20Foundation-purple.svg)](https://haskell.foundation)
+[![Hackage](https://img.shields.io/badge/Haskell%20Foundation-official-purple.svg)](https://haskell.foundation)
 
 This repository is for the [haskell.foundation](https://haskell.foundation) website. It is a proud, Hakyll-based site, built as an in-kind contribution from [Obsidian Systems](https://obsidian.systems), and maintained by the Haskell Foundation and its volunteers. If you would like to get started with a merge request, please consult the documentation below.
 
