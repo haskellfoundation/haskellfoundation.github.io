@@ -53,7 +53,7 @@ The site can be built locally with Cabal and Stack if the 3rd party dependencies
 cabal run haskell-foundation -- watch
 ```
 
-Or the stack equivalent.
+Or the stack equivalent. For further information, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) at the root of this project.
 
 ## License
 
