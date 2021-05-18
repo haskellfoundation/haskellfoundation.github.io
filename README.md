@@ -2,9 +2,8 @@
 <img src="https://haskellfoundation.github.io/static/images/logos/hf-logo-alpha.png" width="350" height="282" alt="Haskell Foundation" title="Haskell Foundation">
 </p>
 
-<p align="center">
-  # The Haskell Foundation Website
-</p>
+# The Haskell Foundation Website
+
 [![Hackage](https://img.shields.io/static/v1?label=Haskell%20Foundation&message=official&color=purple&style=for-the-badge)](https://haskell.foundation)
 
 This repository is for the [haskell.foundation](https://haskell.foundation) website. It is a proud, Hakyll-based site, built as an in-kind contribution from [Obsidian Systems](https://obsidian.systems), and maintained by the Haskell Foundation and its volunteers. If you would like to get started with a merge request, please consult the documentation below.
