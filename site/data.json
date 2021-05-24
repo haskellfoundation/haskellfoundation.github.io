@@ -2,32 +2,40 @@
   "navigation": {
     "items": [
       {
+        "name": "Vision",
+        "href": "https://haskell.foundation/vision/"
+      },
+      {
         "name": "Who We Are",
-        "href": "https://haskell.foundation/en/who-we-are/"
+        "href": "https://haskell.foundation/who-we-are/"
+      },
+      {
+        "name": "Projects",
+        "href": "https://haskell.foundation/projects/"
       },
       {
         "name": "Affiliates",
-        "href": "https://haskell.foundation/en/affiliates/"
-      },
-      {
-        "name": "Contact",
-        "href": "https://haskell.foundation/en/contact/"
+        "href": "https://haskell.foundation/affiliates/"
       },
       {
         "name": "News",
-        "href": "https://haskell.foundation/en/news/"
+        "href": "https://haskell.foundation/news/"
+      },
+      {
+        "name": "Contact",
+        "href": "https://haskell.foundation/contact/"
       },
       {
         "name": "Sponsorship",
-        "href": "https://haskell.foundation/en/donations/"
+        "href": "https://haskell.foundation/donations/"
       },
       {
         "name": "Resources",
-        "href": "https://haskell.foundation/en/resources/"
+        "href": "https://haskell.foundation/resources/"
       },
       {
         "name": "FAQ",
-        "href": "https://haskell.foundation/en/faq/"
+        "href": "https://haskell.foundation/faq/"
       }
     ]
   },
