@@ -6,10 +6,10 @@
     <itunes:author>$authorName$</itunes:author>
     <itunes:subtitle>$description$</itunes:subtitle>
     <link>$root$</link>
-    <language>en_US</language>
-    <lastBuildDate>$publicationDate$</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>#publicationDate#</lastBuildDate>
     <itunes:category text="Technology"/>
-    <itunes:image href="$artworkUrl$"/>
+    <itunes:image href="#artworkUrl#"/>
     <itunes:explicit>no</itunes:explicit>
     <itunes:owner>
       <itunes:name>$authorName$</itunes:name>
@@ -17,8 +17,6 @@
     </itunes:owner>
     <copyright>#copyright#</copyright>
     <itunes:copyright>#copyright#</itunes:copyright>
-      $for(items)$
-        $body$
-      $endfor$
+    $body$
   </channel>
 </rss>

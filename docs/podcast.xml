@@ -1,21 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
     <title>Haskell Interlude</title>
-    <link href="https://haskell.foundation/podcast/podcast.xml" rel="self" />
-    <link href="https://haskell.foundation/podcast" />
-    <id>https://haskell.foundation/podcast/podcast.xml</id>
-    <author>
-        <name>The Haskell Foundation</name>
-        <email>example@com</email>
-    </author>
-    <updated>2021-07-16T00:00:00Z</updated>
-    <entry>
-    <title>Episode 0: Teaser</title>
-    <link href="https://haskell.foundation/podcast/podcast/2021-07-16-episode-0-teaser.html" />
-    <id>https://haskell.foundation/podcast/podcast/2021-07-16-episode-0-teaser.html</id>
-    <published>2021-07-16T00:00:00Z</published>
-    <updated>2021-07-16T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="max-w-screen-xl mx-auto">
+    <description>The Haskell Foundation Podcast</description>
+    <itunes:author>The Haskell Foundation</itunes:author>
+    <itunes:subtitle>The Haskell Foundation Podcast</itunes:subtitle>
+    <link>https://haskell.foundation/podcast</link>
+    <language>en-us</language>
+    <lastBuildDate>#publicationDate#</lastBuildDate>
+    <itunes:category text="Technology"/>
+    <itunes:image href="#artworkUrl#"/>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:owner>
+      <itunes:name>The Haskell Foundation</itunes:name>
+      <itunes:email>#contact#</itunes:email>
+    </itunes:owner>
+    <copyright>#copyright#</copyright>
+    <itunes:copyright>#copyright#</itunes:copyright>
+    
+    <item>
+        <guid isPermaLink="false">Episode 0: Teaser+0
+        </guid>
+        <pubDate>#date#
+        </pubDate>
+        <title>Episode 0: Teaser
+        </title>
+        <itunes:title>Episode 0: Teaser
+        </itunes:title>
+        <itunes:episode>0
+        </itunes:episode>
+        <itunes:author>The Haskell Foundation
+        </itunes:author>
+        <itunes:subtitle>Sub title
+        </itunes:subtitle>
+        <itunes:duration>00:05:55
+        </itunes:duration>
+        <enclosure url="https://www.buzzsprout.com/1817535/8849953-00-teaser.mp3" length="355" type="audio/mpeg" />
+        <link>#link#
+        </link>
+        <description>
+          <![CDATA[
+            <div class="max-w-screen-xl mx-auto">
   <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-12 lg:py-24">
     <h2 class="text-center text-2xl-4xl font-normal">Episode 0: Teaser</h2>
     <div class="mt-8  space-y-8 max-w-2xl mx-auto">
@@ -30,7 +55,10 @@
     </div>
   </div>
 </div>
-]]></summary>
-</entry>
 
-</feed>
+          ]]>
+        </description>
+    </item>
+
+  </channel>
+</rss>

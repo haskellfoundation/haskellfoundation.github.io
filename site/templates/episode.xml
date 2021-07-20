@@ -1,24 +1,27 @@
-<item>
-  <guid isPermaLink="false">wxlpwjftwutfdejc
-  </guid>
-  <pubDate>$date$
-  </pubDate>
-  <title>$title$
-  </title>
-  <itunes:title>$title$
-  </itunes:title>
-  <itunes:episode>$episodeNumber$
-  </itunes:episode>
-  <itunes:author>$author$
-  </itunes:author>
-  <itunes:subtitle>$subtitle$
-  </itunes:subtitle>
-  <itunes:duration>$duration$
-  </itunes:duration>
-  <enclosure url="$enclosure$" length="$length$" type="audio/mpeg"/>
-  <link>#link#
-  </link>
-  <description>
-    $body$
-  </description>
-</item>
+
+    <item>
+        <guid isPermaLink="false">$title$+$episodeNumber$
+        </guid>
+        <pubDate>#date#
+        </pubDate>
+        <title>$title$
+        </title>
+        <itunes:title>$title$
+        </itunes:title>
+        <itunes:episode>$episodeNumber$
+        </itunes:episode>
+        <itunes:author>$authorName$
+        </itunes:author>
+        <itunes:subtitle>$subtitle$
+        </itunes:subtitle>
+        <itunes:duration>$duration$
+        </itunes:duration>
+        <enclosure url="$enclosure$" length="$length$" type="audio/mpeg" />
+        <link>#link#
+        </link>
+        <description>
+          <![CDATA[
+            $body$
+          ]]>
+        </description>
+    </item>

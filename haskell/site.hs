@@ -47,7 +47,7 @@ main = do
           >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
           >>= relativizeUrls
 
-    match "**/index.html" $ do
+    match nonRSSIndices $ do
       route idRoute
       compile $ do
         getResourceBody
@@ -55,18 +55,19 @@ main = do
           >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
           >>= relativizeUrls
 
-    match "podcast/*" $ do
+    match podcastEpisodes $ do
       route idRoute
       compile
         $   getResourceBody
-                -- >>= applyAsTemplate podcastContext
-        >>= saveSnapshot "content"
+        >>= saveSnapshot "rss"
+        >>= applyAsTemplate defaultContext
+        >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
         >>= relativizeUrls
 
-    match "podcast.html" $ do
+    match podcastIndex $ do
       route idRoute
       compile $ do
-        episodes <- recentFirst =<< loadAll "podcast/**"
+        episodes <- recentFirst =<< loadAll podcastEpisodes
         let indexContext =
               listField "episodes" podcastContext (pure episodes)
                 `mappend` defaultContext
@@ -80,18 +81,38 @@ main = do
 
     create ["podcast.xml"] $ do
       route idRoute
-      let feedContext = podcastContext <> bodyField "description"
       compile $ do
-        posts <- fmap (take 20) .   recentFirst
-          =<< loadAllSnapshots "podcast/*" "content"
-        posts' <- loadAndApplyTemplate "templates/episode.xml" podcastContext <$> posts
-        renderAtom feedConfiguration feedContext posts'
+        episodes <- recentFirst
+          =<< loadAllSnapshots podcastEpisodes "rss"
 
-postcss :: Compiler (Item ByteString)
-postcss = getResourceLBS >>= withItemBody (unixFilterLBS "postcss" [])
+        podcastTemplate <- loadBody "templates/podcast.xml"
+        episodeTemplate <- loadBody "templates/episode.xml"
+
+        renderRssWithTemplates podcastTemplate
+                               episodeTemplate
+                               feedConfiguration
+                               podcastContext
+                               episodes
 
 
 -------------------------
+
+podcastIndex :: Pattern
+podcastIndex = ("podcast/index.html" .||. "podcast/episodes/index.html")
+
+podcastEpisodes :: Pattern
+podcastEpisodes =
+  "podcast/episodes/*" .&&. complement "podcast/episodes/index.html"
+
+-- exlucude podcast index from this rule, it has its own rules, because of RSS
+-- TODO: add news to this list, once news also issues RSS.
+nonRSSIndices :: Pattern
+nonRSSIndices =
+  "**/index.html" .&&. complement "podcast/index.html" .&&. complement
+    "podcast/episodes/index.html"
+
+postcss :: Compiler (Item ByteString)
+postcss = getResourceLBS >>= withItemBody (unixFilterLBS "postcss" [])
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
