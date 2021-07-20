@@ -7,21 +7,21 @@
     <itunes:subtitle>The Haskell Foundation Podcast</itunes:subtitle>
     <link>https://haskell.foundation/podcast</link>
     <language>en-us</language>
-    <lastBuildDate>#publicationDate#</lastBuildDate>
+    <lastBuildDate>Fri, 16 Jul 2021 00:00:00 UT</lastBuildDate>
     <itunes:category text="Technology"/>
-    <itunes:image href="#artworkUrl#"/>
+    <itunes:image href="https://haskell.foundation/static/images/logos/hf-logo-600px-alpha.png"/>
     <itunes:explicit>no</itunes:explicit>
     <itunes:owner>
-      <itunes:name>The Haskell Foundation</itunes:name>
-      <itunes:email>#contact#</itunes:email>
+      <itunes:name>Haskell Foundation</itunes:name>
+      <itunes:email>interlude@haskell.foundation</itunes:email>
     </itunes:owner>
-    <copyright>#copyright#</copyright>
-    <itunes:copyright>#copyright#</itunes:copyright>
+    <copyright>2021 © Haskell Foundation</copyright>
+    <itunes:copyright>2021 © Haskell Foundation</itunes:copyright>
     
     <item>
         <guid isPermaLink="false">Episode 0: Teaser+0
         </guid>
-        <pubDate>#date#
+        <pubDate>July 16, 2021
         </pubDate>
         <title>Episode 0: Teaser
         </title>
@@ -36,7 +36,7 @@
         <itunes:duration>00:05:55
         </itunes:duration>
         <enclosure url="https://www.buzzsprout.com/1817535/8849953-00-teaser.mp3" length="355" type="audio/mpeg" />
-        <link>#link#
+        <link>https://haskell.foundation/podcast/episodes/2021-07-16-episode-0-teaser.html
         </link>
         <description>
           <![CDATA[

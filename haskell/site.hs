@@ -11,8 +11,10 @@ import qualified Data.ByteString.Lazy          as LBS
 import           Data.Map                       ( Map )
 import qualified Data.Map                      as Map
 import           Data.Maybe                     ( fromMaybe )
-import           Data.Monoid                    ( mappend )
+import           Data.Monoid                    ( (<>) )
 import           Data.Text                      ( Text )
+import           Data.Time.Clock                ( getCurrentTime )
+import           Data.Time.Format.ISO8601       ( iso8601Show )
 import           GHC.Generics
 import           Hakyll
 import           System.Directory
@@ -28,6 +30,7 @@ main = do
     if takeBaseName d == "haskell"
       then setCurrentDirectory "../site"
       else when (takeBaseName d /= "site") $ setCurrentDirectory "./site"
+  now <- getCurrentTime
   hakyllWith config $ do
     match "static/**" $ do
       route idRoute
@@ -70,7 +73,7 @@ main = do
         episodes <- recentFirst =<< loadAll podcastEpisodes
         let indexContext =
               listField "episodes" podcastContext (pure episodes)
-                `mappend` defaultContext
+                <> defaultContext
 
         getResourceBody
           >>= applyAsTemplate indexContext
@@ -82,8 +85,7 @@ main = do
     create ["podcast.xml"] $ do
       route idRoute
       compile $ do
-        episodes <- recentFirst
-          =<< loadAllSnapshots podcastEpisodes "rss"
+        episodes <- recentFirst =<< loadAllSnapshots podcastEpisodes "rss"
 
         podcastTemplate <- loadBody "templates/podcast.xml"
         episodeTemplate <- loadBody "templates/episode.xml"
@@ -124,4 +126,4 @@ feedConfiguration = FeedConfiguration
   }
 
 podcastContext :: Context String
-podcastContext = dateField "date" "%B %e, %Y" `mappend` defaultContext
+podcastContext = dateField "date" "%B %e, %Y" <> defaultContext

@@ -2,7 +2,7 @@
     <item>
         <guid isPermaLink="false">$title$+$episodeNumber$
         </guid>
-        <pubDate>#date#
+        <pubDate>$date$
         </pubDate>
         <title>$title$
         </title>
@@ -17,7 +17,7 @@
         <itunes:duration>$duration$
         </itunes:duration>
         <enclosure url="$enclosure$" length="$length$" type="audio/mpeg" />
-        <link>#link#
+        <link>$link$
         </link>
         <description>
           <![CDATA[
