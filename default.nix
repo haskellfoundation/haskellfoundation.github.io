@@ -1,4 +1,4 @@
-{ compiler ? "ghc884"
+{ compiler ? "ghc8104"
 , system ? builtins.currentSystem
 , pkgs ? import ./dep/nixpkgs { inherit system; }
 }:
@@ -7,7 +7,7 @@ let
   inherit (pkgs) lib;
   inherit (pkgs.lib.trivial) flip pipe;
   inherit (pkgs.haskell.lib) appendPatch appendConfigureFlags overrideCabal;
-  nodePkgs = (pkgs.callPackage ./dep/node { inherit pkgs; nodejs = pkgs.nodejs-12_x; }).shell.nodeDependencies;
+  nodePkgs = (pkgs.callPackage ./dep/node { inherit pkgs; nodejs = pkgs.nodejs; }).shell.nodeDependencies;
 
   haskellPackages = pkgs.haskell.packages.${compiler}.override {
     overrides = hpNew: hpOld: {
@@ -17,7 +17,7 @@ let
            [ (flip appendConfigureFlags [ "-f" "watchServer" "-f" "previewServer" ])
            ];
 
-      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.stdenv.lib.cleanSource ./haskell) { };
+      haskell-foundation = hpNew.callCabal2nix "haskell-foundation" (pkgs.lib.cleanSource ./haskell) { };
     };
   };
 
