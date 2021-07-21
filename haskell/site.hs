@@ -76,7 +76,6 @@ main = do
                 <> defaultContext
 
         getResourceBody
-          >>= applyAsTemplate indexContext
           >>= loadAndApplyTemplate "templates/boilerplate.html" indexContext
           >>= relativizeUrls
 
