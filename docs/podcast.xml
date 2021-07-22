@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
-    <title>Haskell Interlude</title>
-    <description>The Haskell Foundation Podcast</description>
+    <title>The Haskell Interlude</title>
+    <description>A Haskell-focused podcast where we interview guests from the community.
+The hosts are Niki Vazou, Joachim Breitner, Andres Löh, Alejandro Serrano and Wouter Swierstra.
+</description>
     <itunes:author>The Haskell Foundation</itunes:author>
-    <itunes:subtitle>The Haskell Foundation Podcast</itunes:subtitle>
+    <itunes:subtitle>A Haskell-focused podcast where we interview guests from the community.
+The hosts are Niki Vazou, Joachim Breitner, Andres Löh, Alejandro Serrano and Wouter Swierstra.
+</itunes:subtitle>
     <link>https://haskell.foundation/podcast</link>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Jul 2021 00:00:00 UT</lastBuildDate>
