@@ -117,10 +117,14 @@ postcss = getResourceLBS >>= withItemBody (unixFilterLBS "postcss" [])
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
-  { feedTitle       = "Haskell Interlude"
-  , feedDescription = "The Haskell Foundation Podcast"
+  { feedTitle       = "The Haskell Interlude"
+  , feedDescription = unlines
+    [
+      "A Haskell-focused podcast where we interview guests from the community."
+    , "The hosts are Niki Vazou, Joachim Breitner, Andres Löh, Alejandro Serrano and Wouter Swierstra."
+    ]
   , feedAuthorName  = "The Haskell Foundation"
-  , feedAuthorEmail = "example@com"
+  , feedAuthorEmail = "podcast@haskell.foundation"
   , feedRoot        = "https://haskell.foundation/podcast"
   }
 
