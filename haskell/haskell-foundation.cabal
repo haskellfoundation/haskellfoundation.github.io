@@ -12,7 +12,7 @@ executable site
                   , containers
                   , directory
                   , filepath
-                  , hakyll == 4.13.*
+                  , hakyll == 4.14.*
                   , text
                   , unordered-containers
   ghc-options:      -threaded
