@@ -8,3 +8,6 @@ _site/
 # Node
 node_modules*
 package-lock*
+
+# Cabal
+dist-newstyle/
