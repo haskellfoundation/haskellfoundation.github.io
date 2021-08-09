@@ -1,0 +1,420 @@
+<html lang="en">
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../../static/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../../static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>Haskell Foundation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../../static/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../../../static/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../../../static/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../../../static/js/main.js" defer></script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../../../static/images/logos/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+      <a href="../../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+      <a href="../../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+      <a href="../../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+      <a href="../../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+
+    <a href="../../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../../../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+      <a href="../../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+      <a href="../../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+      <a href="../../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+      <a href="../../../news/press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+      <a href="../../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+      <a href="../../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../../../">
+      <img src="../../../static/images/logos/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+        <li class="relative">
+          <a href="../../../who-we-are" id="who-we-are-nav-item">About</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../contact">Contact</a>
+
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../vision">Vision</a>
+            </div>
+
+        </li>
+
+	<li class="relative">
+	  <a href="../../../podcast">Podcast</a>
+	</li>
+
+        <li class="relative">
+          <a href="../../../projects">Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../../donations">Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+       <li class="relative">
+          <a href="../../../news" id="news-nav-item">News and Info</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../news">
+                  News
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../news/press">
+                  Press
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../resources">Resources</a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../../faq">FAQ</a>
+            </div>
+
+        </li>
+
+    </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+      <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+        <h1 class="text-2xl-5xl">Episode 1: Emily Pillmore &ndash; Transcript</h1>
+      </div>
+    </div>
+  </div>
+
+<div class="max-w-screen-xl mx-auto">
+<div class="mt-16 md:mt-24">
+<div class="mx-auto prose md:prose-lg">
+
+<h3 id="introduction">Introduction</h3>
+<p>AS: Welcome to the Haskell Interlude, I am Alejandro Serrano and alongside my co-host Andres Löh we’ve interviewed Emily Pillmore, the CTO of the Haskell Foundation. We’ve talked with her about the role of the Foundation and all the projects around it. But we also have time for other cool topics like optics. I hope you enjoy the show.</p>
+<p>AS: So, welcome Emily.</p>
+<p>EP: Thank you, it’s good to be here. This is one this is only my second podcast.</p>
+<p>AS: Good. OK, you’re better off than us because this is our first podcast.</p>
+<p>AL: What was your first?</p>
+<p>EP: Um, I believe it was one for blockchain where I got to talk about formal verification for 45 minutes. That was pretty fun but I forgot the name of it sorry.</p>
+<h3 id="About Emily">About Emily</h3>
+<p>AS: I think that’s the kind of things that our audience would look like so we’ll ask you later so we can add this to to some kind of notes. But, yeah, before we start talking about from verification and foundation, can you tell us a bit about yourself?</p>
+<p>EP: OK, so I’m Emily. I started the Haskell or helped start the Haskell Foundation sometime early last year as one of their first volunteers, and fundraisers, and general organizers. Eventually moved on to doing all of the organization as the first working board chair, and eventually I guess everyone thought I did an okay enough job to kind of step up and start managing more people. So sometime in February we finally took the dive as a like full-time employee of the Foundation. I’ve just been organizing all the technical and sort of volunteer onboarding stuff since.</p>
+<p>AS: I’m actually wondering, even before the Haskell Foundation you’ve been quite active in the in the community. I mean, I remember seeing you doing talks and and explaining things, usually with with complicated Greek words. So I was wondering how did your relation with Haskell start? Even more so, how did you get into programming? How did you get into, well, all this magical world of computers?</p>
+<p>EP: That’s a good question, I like telling that story. I was not a tech kid, right? I actually went to school for sports in high school, for winter sports actually. So I was like, I did a special school where I was like doing school during the summer and doing an accelerated program and eventually get six months off for winter sports and that kind of thing. So I was really heavily into skiing and ski racing and that kind of thing. I also didn’t have a computer in my house until 16 years old, so I’m not an early coder by any means. And when I went to university eventually, to the University of Utah, I didn’t know what I wanted to do, but eventually I got into, I took by chance a Java course and I found it was kind of interesting. And I just kind of kept with it and tinkered around. But it wasn’t until like algorithms and data structures that I was really like “oh man, this is actually pretty cool, I should try learning this stuff”. But I hated Java, so I tried teaching myself Perl, this was some sometime in 2010, 2011. And through Perl actually, and through finding different sort of better ways of developing I found that there were actually a lot of similarities with this language called Haskell, and there were some blog posts at the time comparing like the quicksort in Perl versus the quicksort in Haskell and showing that “hey, look! you know? the primitives that Perl supplies in <code>map</code> and <code>grep</code> are almost the exact same sort of functions that you would see in in Haskell in terms like <code>map</code> and <code>filter</code>”, and also the recursion principles actually look almost identical for that one example. So Haskell kind of entered into my periphery sometime around then and I tried it and I tried learning from “Learn You a Haskell” and bounced off. I couldn’t understand it at all having no base whatsoever in computers and eventually got into math as a proxy because I still liked doing sort of interesting programming-like things and I found proofs to be something similar. So I eventually did my degree in topology and geometry and exited university with a degree and a job in finance, right, doing model validation.</p>
+<p>AS: So you need, I mean I find it quite interesting because I’m the kind of person who has to write a quick script and turns into Haskell or whatever, but never touched Perl that much. So I find it quite interesting that there are actually similarities. To me, I guess, Pearl looks what Haskell looks to many people, like with short names for me, all the dollars and weird symbols.</p>
+<p>EP: Yeah, it’s cryptic, it gets really cryptic. But Haskell is really cryptic too, so it was kind of like easy transition in a lot of cases. Although I remember I didn’t really understand the concept of a type, that that was the hardest part for me.</p>
+<p>AL: So you got into mathematics via like your interest for computers or computer programming, is that correct?</p>
+<p>EP: Yeah, yeah. So I like the theoretical foundations that I got in my discrete mathematics courses which were kind of prepped for the algorithms data structures part of things. And they also covered a lot of the same stuff, so like propositional logic and sort of like set theory and that kind of thing. I’m trying to remember back because it was like eight years ago when I took it. But I remember that book: it was like set theory, it was a little bit of complexity theory, a little bit of everything. But only like a few weeks and whatever stuck to the wall for you was kind of like your path in life, right? But eventually um I kind of just forgot about programming altogether until 2015, 2016. It was late 2015 when I turned my model validation job into a programming job, just by way of being totally over finance and not wanting to deal with them whatsoever, mostly because I was scared to death by some of the projects that I was working on. Where, for instance, in one case I was working for Barclays at one point reverse engineering some C++ models and they happened to be real estate models that they had acquired from Lehman Brothers who just went out of business in the crash and they were using them to value something like 12 billion dollars in real estate assets, and didn’t know what they did! And I was like “it’s so scary” like. The QA departments, some of them are incredibly good, some of them are really bad but that scared me, I wanted to do something else, I found Scala actually was the closest thing I could come to which was like Haskell but I could still find a job. And also used a bit of my mathiness because I could translate papers and Haskell relatively easy to Scala at the time, without actually knowing what the Haskell actually meant.</p>
+<p>AS: How was your experience with Scala? Actually I’ve heard good stories, I’ve heard bad stories about it. Most of my colleagues nowadays use Scala so now I tend to hear what good stories but I’ve heard stories like back in the days when everything started it was kind of also an interesting technology.</p>
+<p>EP: Yeah, so I think of it as a mix and I remember really really disliking it at the time, but in retrospect like it wasn’t that bad! Learning functional programming through Scala was actually really helpful because there are a lot of tools that are available that you can use to to really help your understanding along the way. But I really benefited from a good culture, I think, in the Scalaz folks, or at least it was the culture that I needed at the time, where it was more like: this is how you’re supposed to do things, and here’s the subset that you should try working in consistently, and like try and get as close to Haskell as possible, and here’re the principles that should guide you.</p>
+<p>AS: So did that lead you to do some Haskell on your own or you were also using… You know, how did you get then into into Haskell again?</p>
+<p>EP: So the nice part about Scala and Scalaz was that it was almost one to one with Haskell at the time in terms of names, and method of construction, and the way that functions were aligned, and all that kind of thing. So actually through that the syntax became clear, and once I was able to roll with the syntax the entire world opened up because I had already learned that stuff, right? I’d already committed the entire sort of standard library to memory. And from then the jump to Haskell was relatively simple, and it was just a matter of at some point I felt like I was ready so I went out and tried to find a Haskell job and found a blockchain place, right? And that was sometime in 2017, actually. And that that company ended up being a place called Kadena, which ended up having a really great team including some folks who like, you know, everyone kind of knows in Haskell like <code>mightybyte</code>, Doug Beardsley who did Snap, and he was a real mentor along with Stuart Popejoy, who ran JP Morgan’s Haskell division and then left to do that as a startup. So in them I think they kind of taught me how to do not just Haskell but how actually how to produce things and sort of do Haskell in production. And once I sort of got the hang of it, I just kind of ran with it and I have ideas so you know I committed like 40 of those to to code and uploaded them and like just ran with the whole Hackage / package maintainer thing. And here we are, right?</p>
+<p>AS: This is something that always amazes me. Like, it seems that Haskell is a very small community, there are not not that many people talking and so on. But then you go to some place and you find 20 developers or 10 developers who you never knew they were doing Haskell. So I find this… I mean, actually but by doing this podcast I would like that we could take all those people and see what they are doing and how they’re using Haskell in those places.</p>
+<h3 id="the-haskell-foundation">The Haskell Foundation</h3>
+<p>AS: But yeah, so… after all of that you became, as we said at the beginning the CTO of the Haskell Foundation. So I think that one question that well – we’ve been chatting before this so you already told us a bit about it – but maybe for the audience: what is exactly? What do you do in the Haskell Foundation? And even more so what is the goal of this new Foundation?</p>
+<p>EP: That’s a good question, I’ll answer the first one first, or actually the second one first and then I’ll get around to what I actually do. The point of the Haskell Foundation is to promote Haskell and its industry, adoption, its communities, its libraries. Basically what is Haskell good for and why aren’t you using it, right? So it’s a combination of trying to figure out how we can best highlight Haskell, figuring out what it needs in terms of direction and support, and then trying to offer solutions in those spaces. And this is mostly volunteer driven, so it’s kind of us identifying “hey look we’re missing, this, this, this”, “it’d be really nice to have you know xyz”, “can we organize someone to actually help develop this, or if not do we need to pay someone?”, “do we need to get some contributions from industry?” and so on. And that kind of leads into what I do: I help organize all this stuff. So I’m sitting down with the GHC team and various folks from like HLS and from industry and saying: okay what do you guys need? can I help you in any way? can I organize something, are you missing something that maybe nobody really knows how to do, that we need to kind of figure out who actually knows something in this area? and we can point them towards this? or other things in that same thing… so yeah, that’s the gist of it.</p>
+<p>AL: can I ask a little bit more about sort of… I mean to to a newcomer perhaps the Haskell Foundation is a little bit overwhelming at first because there is, like, so much going on at the moment, I think. So there is already in the organizational structure, I think ,there is the board and then there is you – the CTO – and then there is the ED. But then there are all these working groups, I think, and there are multiple channels of discussion. And I don’t know… I mean… I’m just an outsider but perhaps you can, for someone who’s coming new to this, what’s the big picture? And who’s doing what and how does your role differ from the role of the others?</p>
+<p>EP: So I suppose it would be useful to describe how a non-profit works first. In the United States, at least, a board is the governing body of the foundation itself, it’s kind of like the brain, right? You have in our case 14 members on the board from various places and different sort of industry backgrounds and academic backgrounds, and they’re the ones who set the plan that we are going to follow, they set sort of bylaws for the Foundation and working policies and budget and that kind of thing. The Executive Director and the Chief Technical Officer, the CTO,report to the board; we are sort of the arms and legs of the brain. Whatever they want to do in terms of a plan,they delegate to us, and we are the ones that try and figure out how to get those things done. So f the broad plan is “hey, we would like to improve the professional state of Haskell’s technologies”, it would be up to the CTO – in this case myself – to come up with a plan for how we would meet those goals, and if the metric is “we want to have more industry adoption” which is measured by number of Haskell jobs that we see on a daily basis, then I’ve got to figure out how to do that. And if we want to meet certain fundraising goals or certain sort of volunteer counts or metrics then maybe Andrew, the Executive Director would do that too. So we do this by establishing working groups, and these working groups are specialized groups of people who will solve a particular problem. So in the case of the current Haskell Foundation we have a whole bunch of these; we have folks that work on the budgetary committee, we have folks that work on the documentation for the Foundation or for other things that maybe need it like GHC, we have the Technical Agenda Foundation, sorry, the Technical Agenda working group which sets the technical agenda that will meet the goals that are dictated to myself, and we basically allocate tasks to them on the basis of whether or not they’re going to help us achieve those goals. So currently for example – I know that was a lot of stuff – but currently, for example, we want to fix the state of the core libraries because that has been a primary complaint from a whole bunch of people ranging from industry to community users. And we identify three or four things for the technical agenda like the “UTF-8 <code>text</code> encoding” project which makes UTF-8 default encoding for <code>text</code> that have been stalled for a long time, that people really want, and we organize everyone around that, we organize the maintainers, and anyone who wants to sort of contribute sort of the code labor towards it, and we make sure that those are on a plan and we get them done, right? So things that basically just require organization and require maybe a little bit of funding like GHC’s CI work, we we can step in and we can just organize a task that will get that done.</p>
+<p>AS: So do you have the feeling that this kind of things were stale because there was this organization missing?</p>
+<p>EP: Yeah!</p>
+<p>AS: Like I’ve been hearing for the utf-8 for ages and I’m so happy that it’s finally happening, and it seems that like: great! Haskell foundation has already been great because this is going to be solved at some point.</p>
+<p>EP: Thank you, yes. I think this this points to a broader sort of theme and Haskell, right? I haven’t been around long enough to really confirm this but my suspicions have been that we have so many individuals who are contributing so much time that when something really complicated comes up that requires a lot of moving parts and they don’t have someone to manage the project on a sort of broader scale things tend to get dropped, and Haskell has had not necessarily a problem but a tendency to sort of consolidate these issues on the backs of only a few individuals. So, for example, just to you know call someone by name like Herbert Valerio Riedel – sorry if I’m pronouncing his name wrong – took on something like 100 packages on his back and he’s expected to kind of maintain all of this infrastructure and do this on a volunteer basis and it’s just unsustainable, and it hurts everyone involved because he can’t do it, it doesn’t scale, and people get angry and things don’t happen. So in the case of <code>text</code> UTF-8, for example, he had all the work done four years ago, but it never got merged because he didn’t have time, and then it fell out of sync with the rest of the libraries, and then it was a huge task to get it up to date, and he couldn’t do it… and by the time he got to it was like impossible to do without starting over. And before then it was like Jasper van der Jeugt who had done it before and it was denied. And these problems all come up because we don’t really have great organization for any of our sort of critical processes and that’s what we’re here to solve for the most part, and I think it will result in a a healthier community. We’re not out to take over anything or or sort of do it ourselves, right? We’re here to just organize things in such a way that things actually get unstalled.</p>
+<p>AL: Yeah, it seems like that is working so far. I actually I find that a little bit miraculous, but it’s also really nice to see because it’s almost like this has just been missing, right? I mean, lots of people have been trying this before to some extent, but then perhaps they didn’t have the authority. Somehow the Haskell Foundation seems to be in the right place at the right time, so that everything is going well, but I imagine that it is also due to you doing things somehow in the right way. So perhaps we can talk again a little bit about how… when did you realize that becoming the CTO of the Haskell Foundation is something that you would actually like to do, or that you think you would be good at?</p>
+<p>EP: That’s a good question.</p>
+<p>AL: Because you’ve been doing technical work before mostly, right, and this is more… I guess your your work day now is mostly talking or is… I don’t know if I’m wrong</p>
+<p><em>Laughter</em></p>
+<p>EP: It’s not 10 meetings a day. It’s okay, it’s okay, because I don’t… I’m sort of “idea blocked” right now in Haskell so I don’t have too much interesting stuff going on. I can trace back when I thought I might be an okay candidate sometime in December, right? And actually it was a Herbert related problem: he sort of got hit really badly by the pandemic, and he had a whole bunch of things going on, and a lot of packages got dropped and as soon as GHC 9.0 was released there was a major roadblock in Cabal and all of its upstream dependencies, and I sort of made it like my life’s mission, because I wasn’t working at the time. I was doing the Haskell stuff kind of full-time or, sorry the hassle, Foundation stuff full-time, and I sort of took it on myself to write up all the issues that needed to, you know, like “this requires this”, and “this requires this and this”, and basically unstick the community from this this roadblock that was created just with regular GHC release. And we managed to, I think, get the bounds in, or pull requests in a matter of something like a month and a half for something like 23 packages. And at that point, and that was just sort of like asking folks around like “hey can you bump this?” “can you submit this PR? blah blah”, everyone was really helpful and extremely nice about doing this, and also it seemed like everyone was eager to jump in and actually help with the package load that was sitting in sort of Herbert’s corner, right? And that’s when I realized everyone is still really enthusiastic about Haskell, they just kind of been deposed and disenfranchised by the fact that we put all of the work on individuals. But the moment we start saying “hey look you do this” we’re like “if you want to own this go on this” everyone gets extremely enthusiastic again. So I think the enthusiasm is still there in the community, if it feels like there was a little bit of a lull, I think, it was still there, but we weren’t giving people enough to chew on on a day-to-day basis. It’s been really satisfying to see as we ask for volunteers we’ve got like hundreds of volunteers just because we say “hey look, there might be work that you can do for us or for Haskell in the next month or something.” So a lot of it’s basically just realizing: “hey, look, community’s still here and it’s doing great”, and the more stuff we give them everyone seems to rise to the occasion. So as long as I can kind of keep an even keel and keep the work coming and directing people it’s going to work out fine. There’s no real special magic on my part.</p>
+<p>AS: Oh too bad… I was expecting a story about how, you know, you sometimes woke up at 2 am and started contributing a GHC patch.</p>
+<p>EP: I mean, I do that anyway, we’ve been doing that for a year!</p>
+<h3 id="on-neutrality-and-navigating-controversies">On neutrality and navigating controversies</h3>
+<p>AL: Do you sometimes have though, I mean, as you describe it it all seems to be just going naturally. I can imagine that with the Haskell community not being completely free of certain controversies and the past, that being in a position such as you are now… like you you’re basically supposed to be neutral, but you probably have an opinion of your own on certain matters, is it difficult for you to do this kind of facilitation or reaching consensus, or is that just something that comes natural to you?</p>
+<p>EP: That’s an interesting question because I am very opinionated, but I think over the past year or so my thinking has changed on a lot of the historical controversy in Haskell. I think I don’t particularly care which side wins over another – wins in heavy quotation, right? – I care more about actually getting things done that are helpful to people. And I don’t think it’s a useful attitude to take one side or another because I think both sides are the answer, and that’s why it’s been relatively easy to work with folks like Snoyman and Ed in the same room, right? I think Michael has a lot of good ideas to contribute and he’s gotten a lot of things right: so for example, the way Stack installs itself on Windows came up recently. It’s perhaps not the most perfect technically solution but it is the easiest to maintain over a long term, and he’s been able to do that really successfully, and because of that stack is the only thing you can really recommend aside from Chocolatey at this point for installing GHC on Windows. Taking the good parts of what he did, and maybe you know if there are parts that I don’t like, we’ll discuss it, we’ll figure it out, we’ll talk with more people, and they’ll weigh in. But for the most part a lot of people have done a lot of things right, and I’m focused on extracting those good things, and smashing them together, and forgetting the rest. I’m the first to admit – because I maintain Cabal at this point along with Francesco and Mikolaj – that Cabal does a lot of things wrong, right? it’s not superior; but I’ve also used Stack and I know that Stack does a lot of things right, but it’s not perfect in and of itself. What are the things that would make… what are the things I can grab from Cabal, what are the things that I can grab from Stack that are actually good, and can we squish them together? can we just have that? I think thinking about the controversy is perpetuating poor features in both both sides, as opposed to consolidating all the good things. So that’s where I’m focused on, and then that’s why we’ve been able to to work with folks from both sides and say: okay what are the good things you bring? what are the good things that you bring? and really hone in on that.</p>
+<p>AL: so does that mean that you would be liking to see, say, Stackage snapshot support in Cabal and Backpack support in Stack?</p>
+<p>EP: that’s actually two things we’ve been talking about, and we’ve been talking about how do we get Stackage to be the default and Hackage to be opt-in. Like if I’m a beginner I don’t really know how to work with bounds properly and maybe I should go to Stackage first and once I’ve sort of got my feet and I want sort of finer grain dependency management maybe I want to move to Hackage. That idea is on the table. In the same way that if you want to provide Backpack support for Stack Michael has said “yes, get someone to implement it” I wash my hands of the thing, but they’re open to it. And we could really unblock all of these things just by saying “hey” yes, you you have the go-ahead to do this this thing, and here’s how you do it" and organizing all the volunteers around actually getting that done.</p>
+<p>AL: so your feeling is that finding the volunteers is the easy part or…?</p>
+<p>EP: yeah, yeah. I was checking in on the slack recently, and just in the tech track we’ve got, what, 240 people now; and more people who aren’t sitting in the slack who have offered their volunteer services.</p>
+<p>AS: well, that’s very good. This is all the way from code to infrastructure, all the all the things that community requires, I guess?</p>
+<p>EP: yeah! So in terms of future plans you can think big, you know? What do we really really want out of this not just what can we get, but what do we want in the future? And do we want like a stable GHC API? Do we want like better performance tooling? All this stuff is sort of on the table, and it’s not a case of if, for instance, Well-Typed or Obsidian wanted to pick something up, only they would touch it. If they need someone to help implement something we’ll provide it. We can provide people to help so hopefully this gets everything done.</p>
+<h3 id="haskell-installation">Haskell installation</h3>
+<p>AL: Perhaps we can highlight a couple more of the things that you’re currently working on already. I think you mentioned kind of this installation effort; there is, I think ,an effort to sort of unify the installation between different platforms, is that right?</p>
+<p>EP: Yeah, and largely <code>ghcup</code> based. So thanks to Julian Ospald providing a lot of input on how he manages GHCs on different operating systems. We’ve been able to kind of get Michael Snoyman and Julian together to discuss how we can make <code>ghcup</code> one of the standard tools for managing GHCs on a wide variety of platforms. So there will still be folks like Tamar’s Chocolatey repository, that that’s a slightly different use case we’re targeting, sort of manual GHC management for people who aren’t really using it in industry, for example. If you want to do that you would download <code>ghcup</code> and you could use it, and if you wanted to use it on Mac you could download <code>ghcup</code>, you could use it.</p>
+<p>AL: So <code>ghcup</code> will get Windows support, do I understand that correctly; or has Windows support already?</p>
+<p>EP: This… I believe we just released a candidate for Windows support; but it works on Windows, and on Mac, and on Linux, and we’re working on FreeBSD as well. So this installer is supposed to be the first stop that you would take on your Haskell journey on whatever operating system, and this is sort of the blessed.</p>
+<p>AL: That’s going to make my life significantly easier because every time I’m teaching Haskell anywhere, I always… the most dreaded aspect is the installation instructions.</p>
+<p>EP: Yeah.</p>
+<p>AL: And in particular if I have to say… if you’re on Windows then everything’s difficult.</p>
+<p>AS: I think that then you’re already in the in the good way. I find a lot of people saying “I tried this” and then you see something from 10 years ago, it’s like “oh my god, this is going to be so weird”, then load your own Cabal and compile it from source that’s gonna do something.</p>
+<p>EP: Bootstrap Cabal and then bootstrap GHC.</p>
+<p>AS: It’s not that long ago that that’s how people would uh install Linux, right, like bootstrap your thing…</p>
+<p>AL: Okay, so <code>ghcup</code> will work on Windows, or or even does work on Windows already, that’s fantastic! And <code>ghcup</code> will also be able to install more tools directly, or something? I think at the moment that can install GHC and Cabal and Haskell Language Server, actually.</p>
+<p>EP: Yeah.</p>
+<p>AL: But will it also be able to install Stack?</p>
+<p>EP: I believe there was talk about that, yeah… I would have to consult with Julian to see where we are on that, but I did see that that would be a thing. Mmm… don’t quote me on that, though I believe so.</p>
+<p>AS: It’s recorded.</p>
+<p>EP: It really depends on – don’t quote me on, it’s recorded – I do think that Julian is headed that way,and I think with with some help, and with some more people you know contributing to ghcup I think that’ll definitely be a possibility in the future. Which would be nice, it would be nice to have a one-stop shop for all of this stuff.</p>
+<h3 id="more-about-the-haskell-foundation">More about the Haskell Foundation</h3>
+<p>AS: I’m also wondering, talking about the Foundation, it seems that in the last five years or so there’s been a lot of similar foundations. Now you have a Scala Center and now you and.. like OCaml got its foundation and so on. So do you have a clue why people suddenly started to, it seems to me, that suddenly started to organize in these foundations, and how do you see this this kind of ecosystem of foundations of languages that is emerging?</p>
+<p>EP: That’s a question I haven’t thought about. I have heard this before in one other place when we were trying to figure out what hospital on hardware actually looks like. It seems like there’s a push to kind of consolidate all of the disparate open source foundation groups that they have in hardware, but I have… once I was on those calls I kind of did notice: yeah, wait a minute! Everyone has a foundation and I honestly have no idea why. Maybe it’s the most effective sort of means of centralizing work and direction on languages and technologies; maybe it’s the only way to really, I don’t know, consistently fund projects. I don’t know for sure, I know it’s been incredibly useful for both Rust and R and Haskell in terms of organizing volunteers and getting projects finished, at this point. So maybe that’s just the secret: it’s, you know, officially organizing is good, I guess.</p>
+<p>AL: Yeah, so you mentioned that like finding volunteers at the moment is easy, but nevertheless I guess we can never really have enough; and let’s be optimistic and perhaps through this podcast we’ll reach some people who hear about the Foundation for the first time, or who now become enthusiastic about it even though they haven’t been before. What would you say is the best way to get involved or to start contributing somehow?</p>
+<p>EP: So on <code>haskell.foundation</code>, the website, there are two places that we pipe people. One is the Slack instance which we have, which is open for anybody to join, which is where we do all of our sort of day-to-day informal asynchronous communication. So if you want to just say hi, and maybe peek in on a discussion, or ask some simple questions, that’s probably the most appropriate place. And also if you want to get involved you can message a coordinator, or any one of the board members, or myself, or Andrew and we’ll respond, and we’ll give you an answer about what you want to do. Other than that there is a Discourse instance which is <code>discourse.haskell.org</code>, sort of piggybacking on <code>haskell.org</code> Discourse instance, which is the forum by which we publish all of our more formal goings-on. So if you want to see, for instance, proposal sneak peeks, or agenda items that maybe need public commentary in a more persistent forum style context, that’s the word, – sorry, then go to Discourse, and maybe weigh in on some of the things that we post there for Haskell Foundation under the “Haskell Foundation” tag topic tag. Other than that we’re all reachable via email, we have Google Groups set up for the board if you want to talk to the board directly, or you can always pull myself or any of the board members aside on different venues. For instance I’m on Discord a lot, I’m also on the IRCs and Libera chat under the nickname <code>tapas</code>, so feel free to just send me a message.</p>
+<p>AL: Yeah, we’ll try to add some links in the end to this recording, so that people can easily click on all these things. So perhaps one final question about the Haskell Foundation, it would be that you said that basically we’re in a situation now where we can think big, and well, if you if you were to think big, what are your likes or personal goals? what would you like to see the Haskell Foundation achieve, not within the next month, or even the next six months, but within the next two years or something like that, or five years?</p>
+<p>EP: In two years…</p>
+<p>AL: Well, don’t take the time period too seriously, but just in the longer term, right?</p>
+<p>EP: Right, longer term… so the broad vision for Haskell is something I agree with. I do think, at least in my experience, it is the best and simplest language to describe most anything, but in particular I find it extremely useful for modeling functional domains, and concurrent programming, and general sort of data processing stuff. I would love to see Haskell be the first mainstream language to adopt dependent types, and make them usable in production; I think that would be extremely fun. I would also like to see us match some of our language – I don’t want to say competitors – but some of our sister languages like Java has some incredibly cool tools like YourKit where I can just break into everything in the compiler, and monitor it, and know exactly what my program is doing. In two years I want to know exactly what a Haskell service is doing. Let’s see what else? I would like to see a stable GHC API, I would like to see the number of Haskell jobs double, I would love to see people reaching for Haskell as a first choice when it comes to a functional language instead of, for instance, Scala or perhaps Rust. Yeah… so these are all sort of like pipe dreams, right, with the exception of the first two I haven’t thought about it too much beyond that. Actually Andrew is more of the long-term-vision person, I’m more of the “what do I actually want” kind of person.</p>
+<p>AL: I think that’s entirely fine, and probably also adequate because I guess the ultimate success or failure of the Haskell Foundation will be influenced most significantly by what you can achieve in the short-term, right? I think if the first few projects are successes, then it’s very likely that people, that the momentum keeps going, and that people get more and more enthusiastic, and that we can take on bigger projects. So I guess it’s nice to be able to dream, but it’s also important to stay focused on the short-term goals, right?</p>
+<p>EP: So there’s lots of interesting stuff coming.</p>
+<h3 id="theory-and-practice-in-the-haskell-community">Theory and practice in the Haskell community</h3>
+<p>AS: maybe a bit of topic, I think during during the conversation up to now, we’ve mentioned at the same time words like topology, I think that’s what you mentioned about… you did your degree on something like this; but you also mentioned very practical things. So this points to be to something which is not really the Foundation, but it’s… I find it always like a tension in the community: you have the people who say “oh, we need to make Haskell more practical” and other people to look at the more, let’s say, categorical - mathematical view of this. So how did you see that in the community, and how, what, where are you there?</p>
+<p>EP: Where am I? Naturally, I sit more on the academic side of things, I think. I do love the theory side of Haskell, and I do really like the fact that Haskell is still pushing the boundaries in a lot of cases, in terms of implementing dependent types, and all the profunctor optic work that we’ve done, and especially Well-Typed is done with <code>optics</code>, and all the cool people you get to meet who are working on various things. Wingman comes to mind, <code>isovector</code>, and reads tactics programming integrated with HLS. I think no other language has these cool features that are so useful for day-to-day development. I definitely think <em>that</em> is the differentiator for Haskell compared to other languages. Otherwise it’s, you know, a nice subset of Scala with some better syntax, right? But I do see a kind of imbalance in terms of what people are actually doing in order to… I think it’s kind of a give and take with this stuff. It’s nice to come up with new things, it’s nice to come up with interesting new ideas, but at some point they do need to be applied, and when they’re applied that’s kind of the litmus test of a good idea, right? in most cases, at least. And if you lose balance with any one of those, then things get skewed and the language becomes less useful. So, for instance, just to bring up the buzzword term like Simple or Boring Haskell, I don’t buy into simple or boring, though I do know the person who created <code>simplehaskell.com</code>, he sat right next to me. I share a lot of the… what is it… the grievances that that kind of… I think those people who are proponents of it kind of propose, right? I think it’s probably a fool’s errand to say: you should only work in this subset, with these extensions, with these tools, and so on and so forth. I think more to the point what we’re trying to teach people is how to use good judgment – with Haskell – and work within the correct sort of domain for modeling your problem, as opposed to getting sidetracked by shiny things. And that’s more of a cultural issue. And that that points to the imbalance that I was talking about before, where there’s a lot of people who don’t have that discipline, who aren’t taught that discipline. There’s something wrong with what we’re teaching people in the sense that we’re not teaching people to work within the correct subset that models their problem, or the principle of least power, whatever you want to call it.</p>
+<p>AL: The costs of certain features are just not known sometimes, I guess. I think that you’re saying correctly that basically it’s nice that Haskell has all these cool and shiny things, but you have to know when and why to use them, and what to use them for, right? And also that there is a certain price tag attached to them. Not… sometimes in terms of compile times going up, sometimes in terms of runtimes going up, sometimes in terms of technical debt piling up, and fewer people being able to understand the code. And I guess you you have to teach better what exactly the trade-off of these things is, right? And where they can be used to good purpose, and where they can’t.</p>
+<p>EP: Exactly. So the problem that I see isn’t so much that people are doing things wrong, it’s that we’re not teaching people how to do things right. And this came up when we were doing a lot of fundraising and stuff, we were asking people “what’s your you know main grievance” and, you know, it started piling up that six, or seven, or eight of the companies that we went to were actually saying “hey, oh no, I’m trying to hire Haskellers because at one point somebody came in and built this amazing type level monolith for our web services and now we don’t know how to change it”, right? “we don’t know how to modify the tightly coupled model that they came up with for our REST service”. And the only thing that I came out with when when talking to these people was “wow, did they not think like three or four months ahead when they were writing this stuff?”, “what was actually going through their heads when they were doing this?”. It couldn’t all be “I want to use the shiny thing”, it must have been something else. And as we sort of saw more and more of these cases it kind of dawned on the rest of us, too, that people don’t realize how to write services that that well in Haskell, people aren’t really aware of all the things that you need to do to, for instance, instrument, or add telemetry, or you know all the sort of things that you would see in production in other languages. And by not having to worry about those concerns they were able to come up with tighter models for their programs; but as soon as you start considering those problems, you can’t do the type level thing as easily; so maybe it’s a case of just not knowing or not having these concerns, and not knowing how to really think in a sort of forward progressive manner about your services. And this was echoed by a few different companies where we said, you know, we asked the same thing “what are you missing?” and you know everyone said “oh yeah, Haskell people are incredibly smart and really know what they’re doing from a computer science perspective”, but we’re a little bit lost in terms of the day-to-day production oriented stuff: writing services, writing CRUD apps, writing sort of CLI apps, networking was a big one…</p>
+<p>AS: I totally agree. Something that I found really interesting when I took some time to dive into Elixir a few months ago was that, for some reason, that community found incredibly amazing to talk about instrumentation of code; which i think in a in a Haskell conference you usually wouldn’t have found that thing, or would be like “oh, how to do this not being boring”, so like the boring is implicit on there. So it’s interesting how the different communities, being essentially a very similar functional language, put the emphasis on on one part of the system or the other. I could imagine why you may maybe want to to do that type level monolith because, you know, what we put the emphasis on our communities is that everything should be very well typed. So it feels like the more types you can put, the better, right?</p>
+<p>EP: Right… until a month later, and then you have to add…</p>
+<p>AS: But it’s… I guess it’s hard, also maybe because there are not that many super big projects outside that people kind of study to figure out what what’s the right point. I’ve been trying to do this myself with some open source thing, and sometimes I know that we’ve gone too far, and then we had to roll back and undo all the typing thing; and it felt wrong both doing it and undoing it, I don’t know why, for some reason.</p>
+<p>EP: Yeah… so um you mentioned not having examples, and that’s one of the things that we’ve identified as well. It’s really hard to find completed working examples of production ready code, in Haskell. It’s not the case for everyone else, and it would really be helpful to to aggregate these kinds of resources in one place. And one of the things that we’re working on aside from tech, aside from fundraising, aside from volunteer, onboarding, and stuff, is also education and trying to figure out how can we actually fill the niche that we clearly have with respect to professional training. Aggregating sort of production-ready resources is one example of things that we probably need to do for the community. Another would be to provide resources which bridge the gap between, you know, beginner and professional; sort of like asking industry what do you need and then creating a curriculum surrounding that. But also maybe explaining in sort of concrete detail what these more abstract extensions might be doing, and how to use them for explicit domain modeling. This is something that we’re going to get into probably later this year, maybe early next year – obviously time and volunteers permitting – but we would like to help bridge this gap, so we will be asking for volunteers in the future to help us address this.</p>
+<p>AL: Yeah, I think I already said in the past that I’m quite interested in that aspect myself.</p>
+<p>EP: Well-Typed and a few other folks are very keen on doing this as well. I think SimSpace was another one, and it could be a really interesting collaboration there, because they do sort of virtual environments for developers, and combined with the right content I could see something immersive, and like really really interesting from an educational standpoint. So it could be good.</p>
+<h3 id="haskell-libraries-and-hackage">Haskell libraries and Hackage</h3>
+<p>AL: I always it difficult actually, so that’s… perhaps it’s not a good question, but that’s still something to discuss. So Haskell has this culture of like <em>n</em> different libraries for one domain, right? There are many different web frameworks, there are many different database libraries, there are many different optics libraries, there are many different transformers / effects libraries, and so on and so forth; just pick a domain and there are always many. And many of these are not necessarily production ready, or at least not production ready if you really push it beyond a certain minimum set. At the same time I feel this is very much what makes Haskell Haskell, it is part of the culture of what Haskell is, and to that people are not satisfied with something that is just working… but I have a better idea so I have to explore it, so I have to try it, I have to publish it, and I don’t know how to really get out of this. I mean, it’s because on one hand it is clear that like we need to consolidate, and we need to like tell people that it’s worth finishing libraries, and maintaining them, and keeping them production ready; and at the same time I feel that we want to continue striving always for like even better approaches, and not discouraging the diversity of efforts, and so on. So do you have a viewpoint on this?</p>
+<p>EP: Yeah, I’ve noticed the same thing more recently with a few libraries that I was actually trying to pick up because they weren’t maintained for a while. Yeah, I like the competition, I think competition is good. There are a few things though that probably shouldn’t be split; so for example <code>text</code> kind of comes to mind, or the http frameworks that we use. If I look at something like Rust or like Scala they’ll have maybe one or two competitors, but most people are working on them full time trying to really make them fast because they benefit everybody, and fractionalization doesn’t really contribute to a better situation in that respect. But for other things; so, for instance, JSON or YAML or TOML or any of these sort of peripheral libraries that aren’t perhaps performance sensitive, or extremely necessary – I don’t want to say necessary because it’s necessary to someone – but like extremely production critical; I would say fractionalization is good. I think we need a better way of organizing it, which isn’t necessarily the best situation right now on Hackage.</p>
+<p>AS: Yeah, that’s indeed the case: sometimes it feels if you know what is the boring choice, well you need to be in the community. When I do JSON, you would… now each of us would say well do Aeson and then you won’t be wrong, that’s a good choice. But for somebody who comes to the community, what they see is maybe a package called <code>json</code>, which is not what you should use, and then <code>json-extras</code> and <code>my-json</code> and whatever, right?</p>
+<p>EP: Yeah but that that’s a problem of name spacing on Hackage, right? Somebody has the <code>json</code> namespace and they didn’t do much with it, and it’s the first thing that you type when you say “I want a JSON package on Hackage”, that’s the first thing that comes up. However if Hackage were to have something like a blessed namespace, where it would put all of the sort of most up-to-date production-ready tools, and just provide a list of those, leaving the sort of peripheral alternatives to maybe named namespaces, so for instance like <code>emily/wargonaut</code> or something. I maintain an alternative JSON library, it’s great, you should use it, but it’s definitely not going to overtake <code>aeson</code> any time soon. Then you leave people the choice to play with these new things, but for the most part you’re piping people to the correct subset of libraries that everyone kind of agrees you should use, you know, within reason. I think Hackage should consider something like that because the namespace problem, where you know the first person to to claim a name wins, and usually it’s the canonical name for the thing you’re looking for, is a really unhelpful pattern in a lot of cases. Especially because the older Haskellers from the early 2000s got all the best names, and now we have to deal with them having disappeared for 10 years. It’s not the first time that something like JSON has happened, right?</p>
+<p>AL: I think something like a two-level namespace for Hackage might work well. I mean, that is working well for for things like GitHub, and other other sites, so… And then we could have a foundation / something or namespace where… But on the other hand, of course, that raises the question like “how is this decision being made?”, and “is there clear consensus on these kind of things?”, and what gets promoted to the blessed namespace and what doesn’t.</p>
+<p>AS: Nowadays at least the number of downloads thing, at least for me, it’s a very good way to know that at least people are using this. If you type “json” then you order by number of downloads you might get a good approximation of what is the usual one. Maybe not the best one, but at least the most commonly used one.</p>
+<p>EP: So that’s that’s kind of what other languages do. For example, thinking of Sonatype, or something, or Maven for uh for Java, right? they do it by whichever is the most active, and every package is namespaced, so I would have something like <code>com</code> or <code>foundation.haskell.</code> whatever my package name is, and that seems to work fine. It doesn’t solve the problem of needing community input as far as what is the best package to use for x use case. Maybe the existence of the Foundation and the fact that the Foundation is the Foundation could be that indicator that it is a good subset of Haskell packages to use, I don’t know. We actually don’t work that closely with the Hackage folks because they don’t have a way of onboarding and that kind of thing, we have many of them working with us, but we technically were not completely affiliated at this point. But we would like to work with them more in the future to actually figure out what this landscape might look like. I’ve pitched independently – not as a Haskell Foundation employee – that maybe this should be a thing in the future. Maybe we should try and figure out what an overlay might look like, or a namespace might look like for Hackage, but we haven’t really gone that deeply into those discussions yet.</p>
+<h3 id="Affiliating with the Haskell Foundation">Affiliating with the Haskell Foundation</h3>
+<p>AL: You just mentioned “affiliated”. I know that this is getting us back to the Haskell Foundation somehow, but what does that mean exactly? A project affiliates with the Haskell foundation, what does that entail?</p>
+<p>EP: yeah, so that’s that’s a good question too. “Affiliation” just means that you’re asking to be recognized by the Foundation as maintainers who want to be respectful of the Haskell community, that you want to provide a way of onboarding people onto your project if you want help volunteers, or you want you know more community involvement, and it allows us to basically say “okay, you’re on our radar, if you need help and you ask us we know you, we know what you’re doing, and we can direct people to your project if we find appropriate people”. So really there’s no real commitment on anyone’s part; for the most part most people are probably doing this already, but basically the only things we really require are to have a way of onboarding users, have a contributing page, have a “ways of working” page on your your repo or something, have good maintenance practice, be respectful of each other, and we’ll help you out, that’s it. So, for instance, HLS: they do great work in terms of onboarding volunteers. If they ever need people, if anyone asks “what can I do to help HLS?” we can pipe them to the correct maintainers, and we can set them up with all the documentation that they need in order to help themselves, and they can start contributing.</p>
+<p>AL: so is this something you would only advise for large projects, or would you encourage even sort of relatively small library maintainers to seek out this affiliation status?</p>
+<p>EP: if you want to affiliate, you can, OK? It’s not a saddest thing… it’s just… it’s more of a yes, you buy into the mode of respectful communication that we we offer, or that we expect people to engage in, and you want help from time to time, so if you raise the flag “I need help, I’m going to be out for six months, can someone please help me with xyz PR?”, we’re happy to help, that’s it.</p>
+<h3 id="optics">Optics</h3>
+<p>AS: I have a completely unrelated question to any of these, but I wanted to ask this for some time. So i know you’ve been doing work in optics…</p>
+<p>EP: yes.</p>
+<p>AS: …and, you know, I’ve been using optics for a long time and it always amazes me that there is still work being done on optics. So I haven’t had time to look a lot at your particular work, but I don’t know if you could give us like an overview of what’s going on in the world of optics, what kind of things you are researching or doing work there. Every every few months there is somebody else coming with some new ideas on optics, so as I said amazes me, because I thought this is like getter and a setter or something like this, but no! there are new things coming out.</p>
+<p>EP: yeah, this is work that I was fortunate enough to be able to work on through the Adjoint School for Applied Category Theory in 2019. It was led By bartosz Milewski and Derek Elkins, and we got together a group of really great people to kind of work on this topic, which was basically… at the time when we actually started the thing I was like “how do traversals actually work from a categorical perspective?” because we kind of had a good idea in some papers that had come out at the time from Mitchell Riley in “compiling…” not “compiling categories”… “categories of optics” where he found a really nice representation theorem in terms of monoidal functors where basically if I had a nice functor that worked in this sort of concatenative way, and it had a unit, right? a manoidal functor; then if I looked at a particular construction I would get optics which corresponded with that functor. So, for example, if I had like a list functor, or the identity functor, or, you know, choose a monoidal functor, then you would have an optic just pop out of this. And the thing that Bartosz noticed was that these monoidal functors acted a lot like a family of algebraic structures that you can put on profunctors called Tambara modules; and these Tambara modules are sort of like modules for profunctors from the sense that they add a kind of monoidal action to your profunctor, and satisfy some coherence conditions surrounding it. Basically, to cut things short without going in too much depth, what we found with was a nice representation theorem which tied together this categories of optics approach with monoidal functors, and profunctor and Tambara modules for profunctors which basically said “you’re talking about the same thing”. So what we came up with by the end of it was a way of generally constructing optics by constructing Tambara modules for profunctors, and it turned out that anytime you can provide a coherent Tambara module for your profunctor, then you end up with an optic, which opens up the door to how we construct optics. We can kind of say: okay, this is going to be an optic, because so and so and so conditions hold, and it’s going to compose nicely with other optics and so on. And then we generalize to 2-enriched categories. So we ended up writing this really long, like 30, 40 page paper, on basically the zoo of optics, writing down the functors that described the optics in totality, and providing this nice representation theorem that tied all of them together. And it’s kind of served as a Rosetta stone for a lot of the optics work that’s come out of the Applied Category Theory community, in the sense that it kind of characterizes all optics that you can you can write, but also how to think about all the existing Haskell optics and so on. The one thing that we didn’t really get to was how composition works in its very specific terms, but we did enough to say: here’s how optics work, go with it, and do what you will.</p>
+<p>AL: nice. Are there any obvious consequences for the implementation side of things, like new flavors to add that you have discovered that nobody has considered so far? or…</p>
+<p>EP: yeah</p>
+<p>AL: … changing in their presentation?</p>
+<p>EP: So we actually came up with, I think, three or four or five actually new optics as a result of this that maybe we skipped over, which actually pointed out some deficiencies in the way that they’re written in, like the <code>lens</code> library, for example. So for instance, if you think about traversal it’s like “for all <code>f</code> applicative f… and then <code>p a b -&gt; p s t</code>” or something like that. So basically give it… oh no! it’s <code>(a -&gt; f b) -&gt; s -&gt; f t</code>, sorry, getting myself mixed up. That in itself can be viewed as a traversal if certain hidden invariants hold, namely you can’t change the size of the functor and you need it to satisfy certain distributivity conditions with respect to traversable functors. But if you look at the action of the free applicative in terms of just the optic that the applicative brings, it’s actually different than the traversal that is written down in the <code>lens</code> library. Basically what the paper did for us is reveal all of these sort of implicit invariants that are going in to the existing libraries that would be good to catalog. So, for example, traversals are actually more like <code>Vec n</code> for some <code>n</code> of <code>a</code>s a functor, instead of applicative, where you sort of have <code>n</code> many fixed shapes, and you must map to <code>n</code> many fixed shapes in the output target type, which isn’t captured in the actual type signature that you write down for a traversal. What else…? We invented things that are nice for sampling. We have a good understanding of how algebraic optics work now; so, for instance, if I wanted to just work with them in a monoid… I’m going to stop there, actually I don’t remember enough of the paper at this point, I need to refresh… But the gist of it is we figured out kind of exactly what we’re talking about, we figured out how to relate profunctor optics with the existing encodings and the sort of concrete optics approach of category of optics, and we have a general formula for creating and composing.</p>
+<h3 id="ending">Ending</h3>
+<p>AS: so I think this is a high point to to stop here after discussing objects and I think all of us have a lot of uh reading to do tonight. So… well, thanks Emily for sharing both your knowledge about optics, and all the nice work you are doing uh for the Haskell community, thanks.</p>
+<p>AL: yeah, thanks very much.</p>
+<p>EP: thank you.</p>
+
+</div>
+</div>
+</div>
+
+  </div>
+
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap justify-center">
+    <a href="https://github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="../../../static/images/sponsors/github/github-683.png" srcset="
+      /static/images/sponsors/github/github-200.png 200w,
+      /static/images/sponsors/github/github-400.png 400w,
+      /static/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="Input | Output" src="../../../static/images/sponsors/iohk/iohk-683.png" srcset="
+      /static/images/sponsors/iohk/iohk-200.png 200w,
+      /static/images/sponsors/iohk/iohk-400.png 400w,
+      /static/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-36 m-4"><img alt="Digital Asset" src="../../../static/images/sponsors/digital-asset/digital-asset-logo-light.png" srcset="../../../static/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="TWEAG" src="../../../static/images/sponsors/tweag/tweag-683.png" srcset="
+      /static/images/sponsors/tweag/tweag-200.png 200w,
+      /static/images/sponsors/tweag/tweag-400.png 400w,
+      /static/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../../static/images/sponsors/well-typed/well-typed-683.png" srcset="
+      /static/images/sponsors/well-typed/well-typed-200.png 200w,
+      /static/images/sponsors/well-typed/well-typed-400.png 400w,
+      /static/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../../static/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="
+      /static/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w,
+      /static/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w,
+      /static/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../../static/images/sponsors/emq/emq.png" srcset="
+      /static/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../../static/images/sponsors/exfreight/exfreight.png" srcset="
+      /static/images/sponsors/exfreight/exfreight.png"></a>
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    <a href="https://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FLIPSTONE" src="../../../static/images/sponsors/flipstone/flipstone-683.png" srcset="
+      /static/images/sponsors/flipstone/flipstone-200.png 200w,
+      /static/images/sponsors/flipstone/flipstone-400.png 400w,
+      /static/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury Bank" src="../../../static/images/sponsors/mercury/mercury.png" srcset="
+      /static/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-36 m-4"><img alt="TripShot" src="../../../static/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../../../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+
+      <div class="flex space-x-4 w-44">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../../../static/images/haskell-foundation-logo-gray.svg" class="h-8" />
+        <div class="font-medium">2021 © Haskell Foundation</div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
