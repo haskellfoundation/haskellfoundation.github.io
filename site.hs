@@ -15,9 +15,13 @@ config = defaultConfiguration
 
 main :: IO ()
 main = hakyll $ do
-    match "css/main.css" $ do
+    match "assets/css/main.css" $ do
         route   idRoute
         compile compressCssCompiler
+
+    match "assets/**" $ do
+        route idRoute
+        compile copyFileCompiler
 
     match "index.html" $ do
         route idRoute
