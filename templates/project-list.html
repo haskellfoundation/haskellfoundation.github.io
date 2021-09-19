@@ -1,0 +1,145 @@
+<div class="mt-16 md:mt-24">
+  <div class="text-2xl-5xl text-center md:px-12">Ideation</div>
+  <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
+    $for(ideas)$
+    <div class="bg-gray-100 px-6 sm:px-12 py-12">
+      <div class="space-y-4">
+        <h2 class="font-normal text-2xl-4xl">$title$</h2>
+        <p>$summary$</p>
+        <div class="text-sm sm:text-base">
+          <a class="arrow-link" href="$link$" target="_blank">>> $link-text$</a>
+        </div>
+        <div class="uppercase font-medium text-gray-500 pt-4">$subtitle$</div>
+      </div>
+      <div class="divide-y-2">
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/bg.png" alt="Ben Gamari">
+          </div>
+          <div>
+            <div class="font-medium">Ben Gamari</div>
+            <a class="block" href="mailto:bgamari@gmail.com">bgamari@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/ma.png" alt="Moritz Angermann">
+          </div>
+          <div>
+            <div class="font-medium">Moritz Angermann</div>
+            <a class="block" href="mailto:moritz.angermann@gmail.com">moritz.angermann@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    $endfor$
+  </div>
+
+  <div class="text-2xl-5xl text-center md:px-12">Proposed</div>
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
+      $for(proposals)$
+      <div class="bg-gray-100 px-6 sm:px-12 py-12">
+        <div class="space-y-4">
+          <h2 class="font-normal text-2xl-4xl">$title$</h2>
+          <p>$summary$</p>
+          <div class="text-sm sm:text-base">
+            <a class="arrow-link" href="$link$" target="_blank">>> $link-text$</a>
+          </div>
+          <div class="uppercase font-medium text-gray-500 pt-4">$subtitle$</div>
+        </div>
+        <div class="divide-y-2">
+          <div class="flex items-center py-4 space-x-6">
+            <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+                <img src="/static/images/project-leads/bg.png" alt="Ben Gamari">
+            </div>
+            <div>
+              <div class="font-medium">Ben Gamari</div>
+              <a class="block" href="mailto:bgamari@gmail.com">bgamari@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-center py-4 space-x-6">
+            <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+                <img src="/static/images/project-leads/ma.png" alt="Moritz Angermann">
+            </div>
+            <div>
+              <div class="font-medium">Moritz Angermann</div>
+              <a class="block" href="mailto:moritz.angermann@gmail.com">moritz.angermann@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      $endfor$
+  </div>
+
+  <div class="text-2xl-5xl text-center md:px-12">In Progress</div>
+  <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
+    $for(inprogress)$
+    <div class="bg-gray-100 px-6 sm:px-12 py-12">
+      <div class="space-y-4">
+        <h2 class="font-normal text-2xl-4xl">$title$</h2>
+        <p>$summary$</p>
+        <div class="text-sm sm:text-base">
+          <a class="arrow-link" href="$link$" target="_blank">>> $link-text$</a>
+        </div>
+        <div class="uppercase font-medium text-gray-500 pt-4">$subtitle$</div>
+      </div>
+      <div class="divide-y-2">
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/bg.png" alt="Ben Gamari">
+          </div>
+          <div>
+            <div class="font-medium">Ben Gamari</div>
+            <a class="block" href="mailto:bgamari@gmail.com">bgamari@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/ma.png" alt="Moritz Angermann">
+          </div>
+          <div>
+            <div class="font-medium">Moritz Angermann</div>
+            <a class="block" href="mailto:moritz.angermann@gmail.com">moritz.angermann@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    $endfor$
+  </div>
+
+  <div class="text-2xl-5xl text-center md:px-12">Completed</div>
+  <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
+    $for(completed)$
+    <div class="bg-gray-100 px-6 sm:px-12 py-12">
+      <div class="space-y-4">
+        <h2 class="font-normal text-2xl-4xl">$title$</h2>
+        <p>$summary$</p>
+        <div class="text-sm sm:text-base">
+          <a class="arrow-link" href="$link$" target="_blank">>> $link-text$</a>
+        </div>
+        <div class="uppercase font-medium text-gray-500 pt-4">$subtitle$</div>
+      </div>
+      <div class="divide-y-2">
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/bg.png" alt="Ben Gamari">
+          </div>
+          <div>
+            <div class="font-medium">Ben Gamari</div>
+            <a class="block" href="mailto:bgamari@gmail.com">bgamari@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex items-center py-4 space-x-6">
+          <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <img src="/static/images/project-leads/ma.png" alt="Moritz Angermann">
+          </div>
+          <div>
+            <div class="font-medium">Moritz Angermann</div>
+            <a class="block" href="mailto:moritz.angermann@gmail.com">moritz.angermann@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    $endfor$
+  </div>
+</div>
