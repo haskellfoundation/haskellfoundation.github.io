@@ -47,6 +47,22 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" ctx
                 >>= relativizeUrls
 
+    match "projects/*.markdown" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
+            >>= relativizeUrls
+
+    create [fromFilePath "projects/index.html"] $ do
+        route idRoute
+        compile $ do
+            ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/project.html"       ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
+                >>= relativizeUrls
+
     match "templates/*" $ compile templateBodyCompiler
 
 -- | Partition affiliates into affiliates and pending
@@ -54,6 +70,15 @@ affiliatesCtx :: [Item String] -> Context String
 affiliatesCtx tuts =
     listField "affiliated" defaultContext (ofStatus "affiliated" tuts) <>
     listField "pending" defaultContext (ofStatus "pending" tuts) <>
+    defaultContext
+
+-- | Partition projects into Ideation | Proposed | In Progress | Completed
+projectsCtx :: [Item String] -> Context String
+projectsCtx p =
+    listField "ideas" defaultContext (ofStatus "ideation" p) <>
+    listField "proposals" defaultContext (ofStatus "proposed" p) <>
+    listField "inprogress" defaultContext (ofStatus "inprogress" p) <>
+    listField "completed" defaultContext (ofStatus "completed" p) <>
     defaultContext
 
 ofStatus :: String -> [Item String] -> Compiler [Item String]
