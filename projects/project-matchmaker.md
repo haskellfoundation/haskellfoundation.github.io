@@ -1,7 +1,7 @@
 ---
 status: In Progress
 title: Project Matchmaker
-summuray: A common framework for linking Haskell maintainers to prospective contributors.
+summary: A common framework for linking Haskell maintainers to prospective contributors.
 link: https://github.com/haskellfoundation/matchmaker
 link-text: github.com/haskellfoundation/matchmaker
 subtitle: Project Leaders/Advisors

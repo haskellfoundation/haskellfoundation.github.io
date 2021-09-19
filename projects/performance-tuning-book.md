@@ -1,7 +1,7 @@
 ---
 status: Ideation
 title: Performance Tuning Book
-summuray: A community-led book-writing effort that captures the general wisdom for how to make Haskell programs go fast.
+summary: A community-led book-writing effort that captures the general wisdom for how to make Haskell programs go fast.
 link: https://github.com/haskellfoundation/gotta-go-fast
 link-text: haskellfoundation/gotta-go-fast
 subtitle: Project Leaders/Advisors

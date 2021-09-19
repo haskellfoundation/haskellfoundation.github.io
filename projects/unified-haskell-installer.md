@@ -1,7 +1,7 @@
 ---
 status: Proposed
 title: Unified Haskell Installer
-summuray: Building a universal installer for Haskell toolchains. This effort brings together the Stack and GHCup teams to help build a single installer that will allow HLS, Cabal, Stack, and GHC installations on all major platforms from a single tool.
+summary: Building a universal installer for Haskell toolchains. This effort brings together the Stack and GHCup teams to help build a single installer that will allow HLS, Cabal, Stack, and GHC installations on all major platforms from a single tool.
 link: https://gitlab.haskell.org/haskell/ghcup-hs
 link-text: haskell/ghcup-hs
 subtitle: Project Leaders/Advisors
