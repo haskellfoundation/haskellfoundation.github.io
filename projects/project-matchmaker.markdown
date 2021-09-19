@@ -1,5 +1,5 @@
 ---
-status: In Progress
+status: inprogress
 title: Project Matchmaker
 summary: A common framework for linking Haskell maintainers to prospective contributors.
 link: https://github.com/haskellfoundation/matchmaker

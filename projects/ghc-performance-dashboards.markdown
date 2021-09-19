@@ -1,5 +1,5 @@
 ---
-status: Ideation
+status: ideation
 title: GHC Performance Dashboards
 summary: The Haskell Foundation is working with the GHC team to help provide dashboard monitors for Haskell critical libraries (e.g. Aeson, Text, Bytestring).
 link: https://gitlab.haskell.org/ghc/ghc

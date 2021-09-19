@@ -1,5 +1,5 @@
 ---
-status: In Progress
+status: inprogress
 title: Text-UTF8 Migration
 summary: The UTF-8 character set encoding is the industry standard. Haskell Foundation is driving the effort behind the migration of the core text libraries to use UTF-8 as a default. This will have a positive effect on text performance of many Haskell programs.
 link: https://github.com/haskell/text
