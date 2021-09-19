@@ -5,7 +5,7 @@
 
 import Hakyll
 import Control.Monad (filterM)
-import Data.List (sortBy)
+import Data.List (sortOn)
 import Data.Ord (comparing)
 
 config :: Configuration
@@ -25,11 +25,10 @@ main = hakyll $ do
 
     match "index.html" $ do
         route idRoute
-        compile $ do
-            getResourceBody
-                >>= applyAsTemplate defaultContext
-                >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-                >>= relativizeUrls
+        compile $ getResourceBody
+            >>= applyAsTemplate defaultContext
+            >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
+            >>= relativizeUrls
 
     match "affiliates/*.markdown" $ do
         route $ setExtension "html"
@@ -41,31 +40,24 @@ main = hakyll $ do
     match "affiliates/index.html" $ do
         route idRoute
         compile $ do
-            ctx <- affiliatesCtx <$>
-                sortBy (comparing itemIdentifier) <$> loadAll "affiliates/*.markdown"
+            ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
 
             getResourceBody
                 >>= applyAsTemplate ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html" ctx
                 >>= relativizeUrls
 
-    -- match "**/index.html" $ do
-    --     route idRoute
-    --     compile $ do
-    --         getResourceBody
-    --             >>= applyAsTemplate defaultContext
-    --             >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-    --             >>= relativizeUrls
-
     match "templates/*" $ compile templateBodyCompiler
 
 -- | Partition affiliates into affiliates and pending
 affiliatesCtx :: [Item String] -> Context String
 affiliatesCtx tuts =
-    listField "affiliated" defaultContext (ofStatus "affiliated") <>
-    listField "pending" defaultContext (ofStatus "pending") <>
+    listField "affiliated" defaultContext (ofStatus "affiliated" tuts) <>
+    listField "pending" defaultContext (ofStatus "pending" tuts) <>
     defaultContext
-  where
-    ofStatus ty = filterM (\item -> do
+
+ofStatus :: String -> [Item String] -> Compiler [Item String]
+ofStatus v = filterM
+    (\item -> do
         mbStatus <- getMetadataField (itemIdentifier item) "status"
-        return $ Just ty == mbStatus) tuts
+        return $ Just v == mbStatus)
