@@ -5,5 +5,10 @@ summary: The UTF-8 character set encoding is the industry standard. Haskell Foun
 link: https://github.com/haskell/text
 link-text: https://github.com/haskell/text
 subtitle: Project Leaders
-leaders: Andrew Lelechenko,/static/images/board-members/al.png,andrew.lelechenko@gmail.com;Emily Pillmore,/static/images/exec-team/ep.png,emily@haskell.foundation
+leader0name: Andrew Lelechenko
+leader0img: /assets/images/board-members/al.png
+leader0mail: andrew.lelechenko@gmail.com
+leader1name: Emily Pillmore
+leader1img: /assets/images/exec-team/ep.png
+leader1mail: emily@haskell.foundation
 ---

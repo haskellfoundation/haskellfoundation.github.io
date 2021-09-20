@@ -5,5 +5,10 @@ summary: A community-led book-writing effort that captures the general wisdom fo
 link: https://github.com/haskellfoundation/gotta-go-fast
 link-text: haskellfoundation/gotta-go-fast
 subtitle: Project Leaders/Advisors
-leaders: Gil Mizrahi,/static/images/project-leads/gm.png,gilmi@posteo.net;Emily Pillmore,/static/images/exec-team/ep.png,emily@haskell.foundation
+leader0name: Gil Mizrahi
+leader0img: /assets/images/project-leads/gm.png
+leader0mail: gilmi@posteo.net
+leader1name: Emily Pillmore
+leader1img: /assets/images/exec-team/ep.png
+leader1mail: emily@haskell.foundation
 ---

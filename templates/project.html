@@ -8,24 +8,41 @@
       <div class="uppercase font-medium text-gray-500 pt-4">$subtitle$</div>
     </div>
     <div class="divide-y-2">
-      <div>$leaders$</div>
-      <!-- <div class="flex items-center py-4 space-x-6">
+    <div class="flex items-center py-4 space-x-6">
+      $if(leader0name)$
         <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
-            <img src="/assets/images/project-leads/bg.png" alt="Ben Gamari">
+            <img src="$leader0img$" alt="$leader0name$">
         </div>
         <div>
-          <div class="font-medium">Ben Gamari</div>
-          <a class="block" href="mailto:bgamari@gmail.com">bgamari@gmail.com</a>
+          <div class="font-medium">$leader0name$</div>
+          <a class="block" href="mailto:$leader0mail$">$leader0mail$</a>
         </div>
-      </div>
-      <div class="flex items-center py-4 space-x-6">
+      $else$
         <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
-            <img src="/assets/images/project-leads/ma.png" alt="Moritz Angermann">
+          <div class="fas fa-user text-gray-400 text-3xl"></div>
         </div>
         <div>
-          <div class="font-medium">Moritz Angermann</div>
-          <a class="block" href="mailto:moritz.angermann@gmail.com">moritz.angermann@gmail.com</a>
+          <div class="font-medium">In Need of a Leader!</div>
+          <a class="block" href="mailto:volunteer@haskell.foundation">volunteer@haskell.foundation</a>
         </div>
-      </div> -->
+      $endif$
+      $if(leader1name)$
+        <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+          <img src="$leader1img$" alt="$leader1name$">
+        </div>
+        <div>
+          <div class="font-medium">$leader1name$</div>
+          <a class="block" href="mailto:$leader1mail$">$leader1mail$</a>
+        </div>
+      $endif$
+      $if(leader2name)$
+        <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+          <img src="$leader2img$" alt="$leader2name$">
+        </div>
+        <div>
+          <div class="font-medium">$leader2name$</div>
+          <a class="block" href="mailto:$leader2mail$">$leader2mail$</a>
+        </div>
+      $endif$
     </div>
   </div>

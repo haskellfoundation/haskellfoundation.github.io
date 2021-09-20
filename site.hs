@@ -59,7 +59,8 @@ main = hakyll $ do
             ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/project.html"       ctx
+                >>= loadAndApplyTemplate "templates/project-list.html"  ctx
+                >>= loadAndApplyTemplate "templates/projects.html"      ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
                 >>= relativizeUrls
 
@@ -72,7 +73,7 @@ affiliatesCtx tuts =
     listField "pending" defaultContext (ofStatus "pending" tuts) <>
     defaultContext
 
--- | Partition projects into Ideation | Proposed | In Progress | Completed
+-- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
 projectsCtx p =
     listField "ideas" defaultContext (ofStatus "ideation" p) <>
@@ -82,7 +83,7 @@ projectsCtx p =
     defaultContext
 
 ofStatus :: String -> [Item String] -> Compiler [Item String]
-ofStatus v = filterM
-    (\item -> do
+ofStatus v = filterM (\item -> do
         mbStatus <- getMetadataField (itemIdentifier item) "status"
-        return $ Just v == mbStatus)
+        return $ Just v == mbStatus
+    )

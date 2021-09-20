@@ -5,5 +5,7 @@ summary: A proposal for providing a common fusion framework and underlying primi
 link: https://www.snoyman.com/blog/2021/03/haskell-base-proposal/
 link-text: vector types proposal
 subtitle: Project Leaders
-leaders: Michael Snoyman,/static/images/board-members/ms.png,michael@snoyman.com
+leader0name: Michael Snoyman
+leader0img: /assets/images/board-members/ms.png
+leader0mail: michael@snoyman.com
 ---

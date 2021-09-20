@@ -5,5 +5,13 @@ summary: Building a universal installer for Haskell toolchains. This effort brin
 link: https://gitlab.haskell.org/haskell/ghcup-hs
 link-text: haskell/ghcup-hs
 subtitle: Project Leaders/Advisors
-leaders: Chris Dornan,/static/images/board-members/cd.png,chris@chrisdornan.com;Julian Ospald,/static/images/project-leads/jo.png,hasufell@posteo.de;Michael Snoyman,/static/images/board-members/ms.png,michael@snoyman.com
+leader0name: Chris Dornan
+leader0img: /assets/images/board-members/cd.png
+leader0mail: chris@chrisdornan.com
+leader1name: Julian Ospald
+leader1img: /assets/images/project-leads/jo.png
+leader1mail: hasufell@posteo.de
+leader2name: Michael Snoyman
+leader2img: /assets/images/board-members/ms.png
+leader2mail: michael@snoyman.com
 ---
