@@ -9,12 +9,10 @@ import Data.List (sortBy)
 import Data.Ord (comparing)
 
 config :: Configuration
-config = defaultConfiguration
- { destinationDirectory = "../docs"
- }
+config = defaultConfiguration { destinationDirectory = "docs" }
 
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     match "assets/css/main.css" $ do
         route   idRoute
         compile compressCssCompiler
