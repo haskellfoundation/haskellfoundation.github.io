@@ -6,12 +6,12 @@ link: https://gitlab.haskell.org/haskell/ghcup-hs
 link-text: haskell/ghcup-hs
 subtitle: Project Leaders/Advisors
 leader0name: Chris Dornan
-leader0img: /assets/images/board-members/cd.png
+leader0img: board-members/cd.png
 leader0mail: chris@chrisdornan.com
 leader1name: Julian Ospald
-leader1img: /assets/images/project-leads/jo.png
+leader1img: project-leads/jo.png
 leader1mail: hasufell@posteo.de
 leader2name: Michael Snoyman
-leader2img: /assets/images/board-members/ms.png
+leader2img: board-members/ms.png
 leader2mail: michael@snoyman.com
 ---

@@ -6,6 +6,6 @@ link: https://www.snoyman.com/blog/2021/03/haskell-base-proposal/
 link-text: vector types proposal
 subtitle: Project Leaders
 leader0name: Michael Snoyman
-leader0img: /assets/images/board-members/ms.png
+leader0img: board-members/ms.png
 leader0mail: michael@snoyman.com
 ---

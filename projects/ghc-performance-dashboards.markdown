@@ -6,9 +6,9 @@ link: https://gitlab.haskell.org/ghc/ghc
 link-text: https://gitlab.haskell.org/ghc/ghc
 subtitle: Project Leaders
 leader0name: Ben Gamari
-leader0img: /assets/images/project-leads/bg.png
+leader0img: project-leads/bg.png
 leader0mail: bgamari@gmail.com
 leader1name: Matthew Pickering
-leader1img: /assets/images/project-leads/mp.png
+leader1img: project-leads/mp.png
 leader1mail: matthewtpickering@gmail.com
 ---

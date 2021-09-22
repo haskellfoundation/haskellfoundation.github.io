@@ -6,9 +6,9 @@ link: https://github.com/haskell/text
 link-text: https://github.com/haskell/text
 subtitle: Project Leaders
 leader0name: Andrew Lelechenko
-leader0img: /assets/images/board-members/al.png
+leader0img: board-members/al.png
 leader0mail: andrew.lelechenko@gmail.com
 leader1name: Emily Pillmore
-leader1img: /assets/images/exec-team/ep.png
+leader1img: exec-team/ep.png
 leader1mail: emily@haskell.foundation
 ---
