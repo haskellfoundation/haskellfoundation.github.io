@@ -47,10 +47,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" ctx
                 >>= relativizeUrls
 
-    match "projects/*.markdown" $ 
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-            >>= relativizeUrls
+    match "projects/*.markdown" $ compile pandocCompiler
 
     create ["projects/index.html"] $ do
         route idRoute
