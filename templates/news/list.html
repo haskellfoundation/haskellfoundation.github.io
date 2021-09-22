@@ -42,7 +42,7 @@
     <h1 class="text-2xl-5xl">News</h1>
   </div>
 </div>
-
+<!-- 
 <div class="max-w-screen-xl mx-auto py-16 md:py-24">
   <h2 class="text-2xl-4xl font-normal text-center">July 30, 2021</h2>
   $partial("templates/news/tile.html")$
@@ -80,14 +80,13 @@
 <div class="max-w-screen-xl mx-auto py-16 md:py-24">
   <h2 class="text-2xl-4xl font-normal text-center">December 7, 2020</h2>
   $partial("templates/news/tile.html")$
-</div>
-
+</div> -->
+$for(news)$
 <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">November 5, 2020</h2>
+  <h2 class="text-2xl-4xl font-normal text-center">$date$</h2>
 
   <div class="grid gap-12 lg:grid-cols-2">
-    $for(novembers)$
-      $partial("templates/news/tile.html")$
-    $endfor$
+    $partial("templates/news/tile.html")$
   </div>
 </div>
+$endfor$

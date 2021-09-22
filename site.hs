@@ -67,6 +67,19 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+    match "news/*.markdown" $ compile pandocCompiler
+
+    create ["news/index.html"] $ do
+        route idRoute
+        compile $ do
+            let ctx = listField "news" newsCtx (recentFirst =<< loadAll "news/*.markdown") <> defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/news/list.html"     ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
+                >>= relativizeUrls
+
+    match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
 
 -- | Partition affiliates into affiliates and pending
