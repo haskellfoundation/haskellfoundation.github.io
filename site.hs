@@ -52,18 +52,18 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
             >>= relativizeUrls
 
-    create [fromFilePath "projects/index.html"] $ do
+    create ["projects/index.html"] $ do
         route idRoute
         compile $ do
             ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/project-list.html"  ctx
-                >>= loadAndApplyTemplate "templates/projects.html"      ctx
+                >>= loadAndApplyTemplate "templates/projects/list.html"  ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
                 >>= relativizeUrls
 
-    match "templates/*" $ compile templateBodyCompiler
+    match "templates/**" $ compile templateBodyCompiler
+    -- match "templates/**/*" $ compile templateBodyCompiler
 
 -- | Partition affiliates into affiliates and pending
 affiliatesCtx :: [Item String] -> Context String
