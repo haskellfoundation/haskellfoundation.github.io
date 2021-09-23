@@ -1,7 +1,6 @@
 /* Fonts */
 
 /* Tailwind */
-@import 'tailwind.css'; /* workaround until tailwind and postCSS are setup (no plugin (no color, no typo) loaded) */
 @import 'tailwind/base.css';
 @import 'tailwind/components.css';
 @import 'tailwind/utilities.css';
