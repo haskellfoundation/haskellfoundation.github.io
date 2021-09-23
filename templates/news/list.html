@@ -42,48 +42,4 @@
     <h1 class="text-2xl-5xl">News</h1>
   </div>
 </div>
-<!-- 
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">July 30, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">June 30, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">May 28, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">April 29, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">March 19, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">February 9, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">February 1, 2021</h2>
-  $partial("templates/news/tile.html")$
-</div>
-
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">December 7, 2020</h2>
-  $partial("templates/news/tile.html")$
-</div> -->
-$for(news)$
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <h2 class="text-2xl-4xl font-normal text-center">$date$</h2>
-    $partial("templates/news/tile.html")$
-</div>
-$endfor$
+$partial("templates/news/category-list.html")$
