@@ -73,20 +73,22 @@ main = hakyllWith config $ do
 
     tagsRules categories $ \category catId ->  compile $ do
         news <- recentFirst =<< loadAll catId
-        let newsCtx =
-                listField "news" (newCtxWithCategories categories) (pure news) <>
+        let ctx =
+                listField "news" (newsWithCategoriesCtx categories) (pure news) <>
                 constField "category" category <>
                 defaultContext
 
         makeItem ""
-            >>= loadAndApplyTemplate "templates/news/tile.html" newsCtx
+            >>= loadAndApplyTemplate "templates/news/tile.html" ctx
             >>= relativizeUrls
 
     create ["news/index.html"] $ do
         route idRoute
         compile $ do
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
-            let ctx = listField "categories" defaultContext (return newsWithCategories) <> defaultContext
+            let ctx =
+                    listField "categories" defaultContext (return newsWithCategories) <>
+                    defaultContext
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/news/list.html"     ctx
@@ -135,27 +137,31 @@ sponsorsCtx ctx sponsors =
         return $ Just ty == mbLevel) sponsors
 
 buildNewsCtx :: Tags -> Context String
-buildNewsCtx categories = tagsField "categories" categories <> defaultContext
+buildNewsCtx categories =
+    tagsField "categories" categories <>
+    defaultContext
 
 -- | build group of news inside date of publishing (category)
-newCtxWithCategories :: Tags -> Context String
-newCtxWithCategories categories = listField "categories" categoryCtx getAllCategories <> defaultContext
-    where
-        getAllCategories :: Compiler [Item (String, [Identifier])]
-        getAllCategories = pure . map mkItem $ tagsMap categories
-            where
-                mkItem :: (String, [Identifier]) -> Item (String, [Identifier])
-                mkItem x@(t, _) = Item (tagsMakeId categories t) x
-        categoryCtx :: Context (String, [Identifier])
-        categoryCtx =
-            listFieldWith "news" newsCtx getNews <>
-            metadataField                               <>
-            urlField "url"                              <>
-            pathField "path"                            <>
-            titleField "title"                          <>
-            missingField
-            where
-                getNews:: Item (String, [Identifier]) -> Compiler [Item String]
-                getNews (itemBody -> (_, is)) = mapM load is
-                newsCtx :: Context String
-                newsCtx = newCtxWithCategories categories
+newsWithCategoriesCtx :: Tags -> Context String
+newsWithCategoriesCtx categories =
+    listField "categories" categoryCtx getAllCategories <>
+    defaultContext
+        where
+            getAllCategories :: Compiler [Item (String, [Identifier])]
+            getAllCategories = pure . map buildItemFromTag $ tagsMap categories
+                where
+                    buildItemFromTag :: (String, [Identifier]) -> Item (String, [Identifier])
+                    buildItemFromTag c@(name, _) = Item (tagsMakeId categories name) c
+            categoryCtx :: Context (String, [Identifier])
+            categoryCtx =
+                listFieldWith "news" newsCtx getNews        <>
+                metadataField                               <>
+                urlField "url"                              <>
+                pathField "path"                            <>
+                titleField "title"                          <>
+                missingField
+                    where
+                        getNews:: Item (String, [Identifier]) -> Compiler [Item String]
+                        getNews (itemBody -> (_, ids)) = mapM load ids
+                        newsCtx :: Context String
+                        newsCtx = newsWithCategoriesCtx categories
