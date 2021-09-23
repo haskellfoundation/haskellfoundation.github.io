@@ -5,7 +5,7 @@
 
 import Hakyll
 import Control.Monad (filterM)
-import Data.List (sortBy)
+import Data.List (sortOn)
 import Data.Ord (comparing)
 
 config :: Configuration
@@ -26,36 +26,37 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
+            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             getResourceBody
-                >>= applyAsTemplate defaultContext
-                >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
     match "affiliates/*.markdown" $ do
-        route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-            >>= relativizeUrls
+        compile pandocCompiler
 
+    match "donations/sponsors/*.markdown" $ do
+        compile pandocCompiler
 
     match "affiliates/index.html" $ do
         route idRoute
         compile $ do
-            ctx <- affiliatesCtx <$>
-                sortBy (comparing itemIdentifier) <$> loadAll "affiliates/*.markdown"
+            affils <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
+            sponsors <- sponsorsCtx affils . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
 
             getResourceBody
-                >>= applyAsTemplate ctx
-                >>= loadAndApplyTemplate "templates/boilerplate.html" ctx
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
-    -- match "**/index.html" $ do
-    --     route idRoute
-    --     compile $ do
-    --         getResourceBody
-    --             >>= applyAsTemplate defaultContext
-    --             >>= loadAndApplyTemplate "templates/boilerplate.html" defaultContext
-    --             >>= relativizeUrls
+    match "**/index.html" $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            getResourceBody
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -69,3 +70,15 @@ affiliatesCtx tuts =
     ofStatus ty = filterM (\item -> do
         mbStatus <- getMetadataField (itemIdentifier item) "status"
         return $ Just ty == mbStatus) tuts
+
+-- | Partition sponsors into by level: monad, applicative, and functor
+sponsorsCtx :: Context String -> [Item String] -> Context String
+sponsorsCtx ctx sponsors =
+    listField "monads" defaultContext (ofLevel "Monad") <>
+    listField "applicatives" defaultContext (ofLevel "Applicative") <>
+    listField "functors" defaultContext (ofLevel "Functor") <>
+    ctx
+  where
+    ofLevel ty = filterM (\item -> do
+        mbLevel <- getMetadataField (itemIdentifier item) "level"
+        return $ Just ty == mbLevel) sponsors

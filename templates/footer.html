@@ -1,46 +1,33 @@
 <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap justify-center">
-    <a href="https://github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="/assets/images/sponsors/github/github-683.png" srcset="
-      /assets/images/sponsors/github/github-200.png 200w,
-      /assets/images/sponsors/github/github-400.png 400w,
-      /assets/images/sponsors/github/github-683.png 683w"></a>
-    <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="Input | Output" src="/assets/images/sponsors/iohk/iohk-683.png" srcset="
-      /assets/images/sponsors/iohk/iohk-200.png 200w,
-      /assets/images/sponsors/iohk/iohk-400.png 400w,
-      /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
-    <a href="https://digitalasset.com/" target="_blank" class="block w-36 m-4"><img alt="Digital Asset" src="/assets/images/sponsors/digital-asset/digital-asset-logo-light.png" srcset="/assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    $for(monads)$
+      <a href="$externalUrl$" target="_blank" class="block w-36 m-4"><img alt="$title$" src="$logo$"
+        $if(srcset)$
+          srcset="$srcset$"
+        $endif$
+        ></a>
+    $endfor$
   </div>
 
   <div class="mt-16 flex flex-wrap justify-center">
-    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="TWEAG" src="/assets/images/sponsors/tweag/tweag-683.png" srcset="
-      /assets/images/sponsors/tweag/tweag-200.png 200w,
-      /assets/images/sponsors/tweag/tweag-400.png 400w,
-      /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
-    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="/assets/images/sponsors/well-typed/well-typed-683.png" srcset="
-      /assets/images/sponsors/well-typed/well-typed-200.png 200w,
-      /assets/images/sponsors/well-typed/well-typed-400.png 400w,
-      /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
-    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="/assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="
-      /assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w,
-      /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w,
-      /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
-    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="/assets/images/sponsors/emq/emq.png" srcset="
-      /assets/images/sponsors/emq/emq.png"></a>
-    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="/assets/images/sponsors/exfreight/exfreight.png" srcset="
-      /assets/images/sponsors/exfreight/exfreight.png"></a>
-    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="/assets/images/sponsors/carboncloud/vertical3x.png" srcset="/assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    $for(applicatives)$
+      <a href="$externalUrl$" target="_blank" class="block w-36 m-4"><img alt="$title$" src="$logo$"
+        $if(srcset)$
+          srcset="$srcset$"
+        $endif$
+        ></a>
+    $endfor$
   </div>
 
   <div class="mt-16 flex flex-wrap justify-center">
-    <a href="https://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FLIPSTONE" src="/assets/images/sponsors/flipstone/flipstone-683.png" srcset="
-      /assets/images/sponsors/flipstone/flipstone-200.png 200w,
-      /assets/images/sponsors/flipstone/flipstone-400.png 400w,
-      /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
-    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury Bank" src="/assets/images/sponsors/mercury/mercury.png" srcset="
-      /assets/images/sponsors/mercury/mercury.png"></a>
-    <a href="https://tripshot.com/" target="_blank" class="block w-36 m-4"><img alt="TripShot" src="/assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
-    <a href="https://herp.co.jp/" target="_blank" class="black w-36 m-4"><img alt="HERP" src="/assets/images/sponsors/herp/black.png"></a>
+    $for(functors)$
+      <a href="$externalUrl$" target="_blank" class="block w-36 m-4"><img alt="$title$" src="$logo$"
+        $if(srcset)$
+          srcset="$srcset$"
+        $endif$
+        ></a>
+    $endfor$
   </div>
 </div>
 
