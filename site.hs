@@ -79,13 +79,19 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
                 >>= relativizeUrls
 
-    match "news/**.markdown" $ do
-        route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/news/tile.html"    defaultContext
-            >>= relativizeUrls
+    match "news/**.markdown" $ compile pandocCompiler
+    categories <- buildCategories "news/**.markdown" (fromCapture "news/**.html")
+    tagsRules categories $ \category c -> do
+        route idRoute
+        compile $ do
+            news <- recentFirst =<< loadAll c
+            let ctx =
+                    listField "news" defaultContext (return news) <>
+                    defaultContext
 
-    
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/news/category.html" ctx
+                >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
@@ -127,3 +133,6 @@ sponsorsCtx ctx sponsors =
     ofLevel ty = filterM (\item -> do
         mbLevel <- getMetadataField (itemIdentifier item) "level"
         return $ Just ty == mbLevel) sponsors
+
+newsCtx :: Context String
+newsCtx = defaultContext 
