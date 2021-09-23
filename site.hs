@@ -68,18 +68,6 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
-    match "news/*.markdown" $ compile pandocCompiler
-
-    create ["news/index.html"] $ do
-        route idRoute
-        compile $ do
-            let ctx = listField "news" newsCtx (recentFirst =<< loadAll "news/*.markdown") <> defaultContext
-
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/news/list.html"     ctx
-                >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
-                >>= relativizeUrls
-
     match "news/**.markdown" $ compile pandocCompiler
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
 
@@ -101,7 +89,7 @@ main = hakyllWith config $ do
             let ctx = listField "categories" defaultContext (return newsWithCategories) <> defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/news/list.html" ctx
+                >>= loadAndApplyTemplate "templates/news/list.html"     ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   defaultContext
                 >>= relativizeUrls
 
@@ -111,17 +99,17 @@ main = hakyllWith config $ do
 -- | Partition affiliates into affiliates and pending
 affiliatesCtx :: [Item String] -> Context String
 affiliatesCtx tuts =
-    listField "affiliated" defaultContext (ofStatus "affiliated" tuts) <>
-    listField "pending" defaultContext (ofStatus "pending" tuts) <>
+    listField "affiliated" defaultContext (ofStatus "affiliated" tuts)  <>
+    listField "pending" defaultContext (ofStatus "pending" tuts)        <>
     defaultContext
 
 -- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
 projectsCtx p =
-    listField "ideas" defaultContext (ofStatus "ideation" p) <>
-    listField "proposals" defaultContext (ofStatus "proposed" p) <>
+    listField "ideas" defaultContext (ofStatus "ideation" p)        <>
+    listField "proposals" defaultContext (ofStatus "proposed" p)    <>
     listField "inprogress" defaultContext (ofStatus "inprogress" p) <>
-    listField "completed" defaultContext (ofStatus "completed" p) <>
+    listField "completed" defaultContext (ofStatus "completed" p)   <>
     defaultContext
 
 ofStatus :: String -> [Item String] -> Compiler [Item String]
@@ -137,9 +125,9 @@ ofStatus v = filterM (\item -> do
 -- context it is in.
 sponsorsCtx :: Context String -> [Item String] -> Context String
 sponsorsCtx ctx sponsors =
-    listField "monads" defaultContext (ofLevel "Monad") <>
+    listField "monads" defaultContext (ofLevel "Monad")             <>
     listField "applicatives" defaultContext (ofLevel "Applicative") <>
-    listField "functors" defaultContext (ofLevel "Functor") <>
+    listField "functors" defaultContext (ofLevel "Functor")         <>
     ctx
   where
     ofLevel ty = filterM (\item -> do
