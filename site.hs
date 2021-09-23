@@ -2,6 +2,7 @@
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language TemplateHaskell #-}
+{-# Language ViewPatterns #-}
 
 import Hakyll
 import Control.Monad (filterM)
@@ -80,17 +81,28 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
 
     match "news/**.markdown" $ compile pandocCompiler
-    categories <- buildCategories "news/**.markdown" (fromCapture "news/**.html")
-    tagsRules categories $ \category c -> do
+    categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
+
+    tagsRules categories $ \category catId ->  compile $ do
+        news <- recentFirst =<< loadAll catId
+        let newsCtx =
+                listField "news" (newCtxWithCategories categories) (pure news) <>
+                constField "category" category <>
+                defaultContext
+
+        makeItem ""
+            >>= loadAndApplyTemplate "templates/news/tile.html" newsCtx
+            >>= relativizeUrls
+
+    create ["news/index.html"] $ do
         route idRoute
         compile $ do
-            news <- recentFirst =<< loadAll c
-            let ctx =
-                    listField "news" defaultContext (return news) <>
-                    defaultContext
+            newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
+            let ctx = listField "categories" defaultContext (return newsWithCategories) <> defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/news/category.html" ctx
+                >>= loadAndApplyTemplate "templates/news/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   defaultContext
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
@@ -134,5 +146,28 @@ sponsorsCtx ctx sponsors =
         mbLevel <- getMetadataField (itemIdentifier item) "level"
         return $ Just ty == mbLevel) sponsors
 
-newsCtx :: Context String
-newsCtx = defaultContext 
+buildNewsCtx :: Tags -> Context String
+buildNewsCtx categories = tagsField "categories" categories <> defaultContext
+
+-- | build group of news inside date of publishing (category)
+newCtxWithCategories :: Tags -> Context String
+newCtxWithCategories categories = listField "categories" categoryCtx getAllCategories <> defaultContext
+    where
+        getAllCategories :: Compiler [Item (String, [Identifier])]
+        getAllCategories = pure . map mkItem $ tagsMap categories
+            where
+                mkItem :: (String, [Identifier]) -> Item (String, [Identifier])
+                mkItem x@(t, _) = Item (tagsMakeId categories t) x
+        categoryCtx :: Context (String, [Identifier])
+        categoryCtx =
+            listFieldWith "news" newsCtx getNews <>
+            metadataField                               <>
+            urlField "url"                              <>
+            pathField "path"                            <>
+            titleField "title"                          <>
+            missingField
+            where
+                getNews:: Item (String, [Identifier]) -> Compiler [Item String]
+                getNews (itemBody -> (_, is)) = mapM load is
+                newsCtx :: Context String
+                newsCtx = newCtxWithCategories categories
