@@ -79,6 +79,14 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   ctx
                 >>= relativizeUrls
 
+    match "news/**.markdown" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/news/tile.html"    defaultContext
+            >>= relativizeUrls
+
+    
+
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
 
