@@ -102,9 +102,7 @@ main = hakyll $ do
 -- sponsors --------------------------------------------------------------------------------------------
 -- | Partition sponsors into by level: monad, applicative, and functor
 -- Sponsors are listed in the footer template, which means we need this
--- context for most pages. The first argument is another context so
--- we can compose them together, and the usage site can pass in the
--- context it is in.
+-- context for most pages.
 sponsorsCtx :: [Item String] -> Context String
 sponsorsCtx sponsors =
     listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
