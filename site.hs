@@ -7,11 +7,8 @@ import Control.Monad (filterM)
 import Data.List (sortOn)
 import Data.Ord (comparing)
 
-config :: Configuration
-config = defaultConfiguration
-
 main :: IO ()
-main = hakyllWith config $ do
+main = hakyll $ do
     match "assets/css/main.css" $ do
         route   idRoute
         compile compressCssCompiler
