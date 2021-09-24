@@ -7,13 +7,12 @@ import Control.Monad (filterM)
 import Data.List (sortOn)
 import Data.Ord (comparing)
 
+--------------------------------------------------------------------------------------------------------
+-- MAIN GENERATION -------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-
---------------------------------------------------------------------------------------------------------
--- STATICS ---------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-
+-- statics ---------------------------------------------------------------------------------------------
     match "assets/css/main.css" $ do
         route   idRoute
         compile compressCssCompiler
@@ -22,74 +21,54 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
---------------------------------------------------------------------------------------------------------
--- HOME ------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-
+-- home ------------------------------------------------------------------------------------------------
     match "index.html" $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
+-- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
-    match "**/index.html" $ do
-        route idRoute
-        compile $ do
-            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
-            getResourceBody
-                >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
 
---------------------------------------------------------------------------------------------------------
--- AFFILIATES ------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-
+-- affiliates ------------------------------------------------------------------------------------------
     match "affiliates/*.markdown" $ compile pandocCompiler
-    match "affiliates/index.html" $ do
+    create ["affiliates/index.html"] $ do
         route idRoute
         compile $ do
-            affils <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
-            sponsors <- sponsorsCtx affils . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
 
-            getResourceBody
-                >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/affiliates/list.html"   ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"       sponsors
                 >>= relativizeUrls
 
---------------------------------------------------------------------------------------------------------
--- PROJECTS --------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-
+-- projects --------------------------------------------------------------------------------------------
     match "projects/*.markdown" $ compile pandocCompiler
-
     create ["projects/index.html"] $ do
         route idRoute
         compile $ do
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
-            sponsors <- sponsorsCtx ctx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/projects/list.html" sponsors
+                >>= loadAndApplyTemplate "templates/projects/list.html" ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+-- news ------------------------------------------------------------------------------------------------
     match "news/**.markdown" $ compile pandocCompiler
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
-
---------------------------------------------------------------------------------------------------------
--- NEWS ------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
 
     tagsRules categories $ \category catId ->  compile $ do
         news <- recentFirst =<< loadAll catId
         let ctx =
                 listField "news" (newsWithCategoriesCtx categories) (pure news) <>
-                constField "category" category <>
+                constField "category" category                                  <>
                 defaultContext
 
         makeItem ""
@@ -99,8 +78,9 @@ main = hakyll $ do
     create ["news/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
+            
             let ctx =
                     listField "categories" defaultContext (return newsWithCategories) <>
                     defaultContext
@@ -110,27 +90,37 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
---------------------------------------------------------------------------------------------------------
--- TEMPLATES -------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
-
+-- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
 
---------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------
 -- CONTEXT ---------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 
--- | Partition affiliates into affiliates and pending
-affiliatesCtx :: [Item String] -> Context String
-affiliatesCtx tuts =
-    listField "affiliated" defaultContext (ofMetadataField "status" "affiliated" tuts)  <>
-    listField "pending" defaultContext (ofMetadataField "status" "pending" tuts)        <>
+-- sponsors --------------------------------------------------------------------------------------------
+-- | Partition sponsors into by level: monad, applicative, and functor
+-- Sponsors are listed in the footer template, which means we need this
+-- context for most pages. The first argument is another context so
+-- we can compose them together, and the usage site can pass in the
+-- context it is in.
+sponsorsCtx :: [Item String] -> Context String
+sponsorsCtx sponsors =
+    listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
+    listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors) <>
+    listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)         <>
     defaultContext
 
+-- affiliates ------------------------------------------------------------------------------------------
+-- | Partition affiliates into affiliates and pending
+affiliatesCtx :: [Item String] -> Context String
+affiliatesCtx affiliates =
+    listField "affiliated" defaultContext (ofMetadataField "status" "affiliated" affiliates)  <>
+    listField "pending" defaultContext (ofMetadataField "status" "pending" affiliates)        <>
+    defaultContext
+
+-- projects --------------------------------------------------------------------------------------------
 -- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
 projectsCtx projects =
@@ -140,18 +130,7 @@ projectsCtx projects =
     listField "completed" defaultContext (ofMetadataField "status" "completed" projects)   <>
     defaultContext
 
--- | Partition sponsors into by level: monad, applicative, and functor
--- Sponsors are listed in the footer template, which means we need this
--- context for most pages. The first argument is another context so
--- we can compose them together, and the usage site can pass in the
--- context it is in.
-sponsorsCtx :: Context String -> [Item String] -> Context String
-sponsorsCtx ctx sponsors =
-    listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
-    listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors) <>
-    listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)         <>
-    ctx
-
+-- news ------------------------------------------------------------------------------------------------
 buildNewsCtx :: Tags -> Context String
 buildNewsCtx categories =
     tagsField "categories" categories <>
@@ -181,6 +160,7 @@ newsWithCategoriesCtx categories =
                         getNews (itemBody -> (_, ids)) = mapM load ids
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
+
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
