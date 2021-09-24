@@ -97,24 +97,18 @@ main = hakyll $ do
 -- | Partition affiliates into affiliates and pending
 affiliatesCtx :: [Item String] -> Context String
 affiliatesCtx tuts =
-    listField "affiliated" defaultContext (ofStatus "affiliated" tuts)  <>
-    listField "pending" defaultContext (ofStatus "pending" tuts)        <>
+    listField "affiliated" defaultContext (ofMetadataField "status" "affiliated" tuts)  <>
+    listField "pending" defaultContext (ofMetadataField "status" "pending" tuts)        <>
     defaultContext
 
 -- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
 projectsCtx p =
-    listField "ideas" defaultContext (ofStatus "ideation" p)        <>
-    listField "proposals" defaultContext (ofStatus "proposed" p)    <>
-    listField "inprogress" defaultContext (ofStatus "inprogress" p) <>
-    listField "completed" defaultContext (ofStatus "completed" p)   <>
+    listField "ideas" defaultContext (ofMetadataField "status" "ideation" p)        <>
+    listField "proposals" defaultContext (ofMetadataField "status" "proposed" p)    <>
+    listField "inprogress" defaultContext (ofMetadataField "status" "inprogress" p) <>
+    listField "completed" defaultContext (ofMetadataField "status" "completed" p)   <>
     defaultContext
-
-ofStatus :: String -> [Item String] -> Compiler [Item String]
-ofStatus v = filterM (\item -> do
-        mbStatus <- getMetadataField (itemIdentifier item) "status"
-        return $ Just v == mbStatus
-    )
 
 -- | Partition sponsors into by level: monad, applicative, and functor
 -- Sponsors are listed in the footer template, which means we need this
@@ -123,14 +117,10 @@ ofStatus v = filterM (\item -> do
 -- context it is in.
 sponsorsCtx :: Context String -> [Item String] -> Context String
 sponsorsCtx ctx sponsors =
-    listField "monads" defaultContext (ofLevel "Monad")             <>
-    listField "applicatives" defaultContext (ofLevel "Applicative") <>
-    listField "functors" defaultContext (ofLevel "Functor")         <>
+    listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
+    listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors) <>
+    listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)         <>
     ctx
-  where
-    ofLevel ty = filterM (\item -> do
-        mbLevel <- getMetadataField (itemIdentifier item) "level"
-        return $ Just ty == mbLevel) sponsors
 
 buildNewsCtx :: Tags -> Context String
 buildNewsCtx categories =
@@ -161,3 +151,10 @@ newsWithCategoriesCtx categories =
                         getNews (itemBody -> (_, ids)) = mapM load ids
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
+
+-- | filter list of item string based on the given value to match on the given metadata field
+ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
+ofMetadataField field value = filterM (\item -> do
+        mbStatus <- getMetadataField (itemIdentifier item) field
+        return $ Just value == mbStatus
+    )
