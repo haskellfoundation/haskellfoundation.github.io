@@ -62,7 +62,7 @@ main = hakyllWith config $ do
             sponsors <- sponsorsCtx ctx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/projects/list.html"  sponsors
+                >>= loadAndApplyTemplate "templates/projects/list.html" sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
@@ -83,6 +83,7 @@ main = hakyllWith config $ do
     create ["news/index.html"] $ do
         route idRoute
         compile $ do
+            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
             let ctx =
                     listField "categories" defaultContext (return newsWithCategories) <>
@@ -90,7 +91,7 @@ main = hakyllWith config $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/news/list.html"     ctx
-                >>= loadAndApplyTemplate "templates/boilerplate.html"   defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
