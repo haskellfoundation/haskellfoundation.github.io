@@ -68,7 +68,7 @@ main = hakyll $ do
         news <- recentFirst =<< loadAll catId
         let ctx =
                 listField "news" (newsWithCategoriesCtx categories) (pure news) <>
-                constField "category" category                                  <>
+                dateField "category" "%B %e, %Y"                                <>
                 defaultContext
 
         makeItem ""
