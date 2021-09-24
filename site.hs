@@ -1,7 +1,5 @@
-{-# Language DeriveGeneric #-}
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
-{-# Language TemplateHaskell #-}
 {-# Language ViewPatterns #-}
 
 import Hakyll
