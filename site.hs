@@ -103,11 +103,11 @@ affiliatesCtx tuts =
 
 -- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
-projectsCtx p =
-    listField "ideas" defaultContext (ofMetadataField "status" "ideation" p)        <>
-    listField "proposals" defaultContext (ofMetadataField "status" "proposed" p)    <>
-    listField "inprogress" defaultContext (ofMetadataField "status" "inprogress" p) <>
-    listField "completed" defaultContext (ofMetadataField "status" "completed" p)   <>
+projectsCtx projects =
+    listField "ideas" defaultContext (ofMetadataField "status" "ideation" projects)        <>
+    listField "proposals" defaultContext (ofMetadataField "status" "proposed" projects)    <>
+    listField "inprogress" defaultContext (ofMetadataField "status" "inprogress" projects) <>
+    listField "completed" defaultContext (ofMetadataField "status" "completed" projects)   <>
     defaultContext
 
 -- | Partition sponsors into by level: monad, applicative, and functor
