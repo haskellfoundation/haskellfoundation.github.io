@@ -9,6 +9,11 @@ import Data.Ord (comparing)
 
 main :: IO ()
 main = hakyll $ do
+
+--------------------------------------------------------------------------------------------------------
+-- STATICS ---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
     match "assets/css/main.css" $ do
         route   idRoute
         compile compressCssCompiler
@@ -16,6 +21,10 @@ main = hakyll $ do
     match "assets/**" $ do
         route idRoute
         compile copyFileCompiler
+
+--------------------------------------------------------------------------------------------------------
+-- HOME ------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
     match "index.html" $ do
         route idRoute
@@ -26,10 +35,21 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
-    match "affiliates/*.markdown" $ compile pandocCompiler
-
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
+    match "**/index.html" $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            getResourceBody
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
 
+--------------------------------------------------------------------------------------------------------
+-- AFFILIATES ------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+    match "affiliates/*.markdown" $ compile pandocCompiler
     match "affiliates/index.html" $ do
         route idRoute
         compile $ do
@@ -41,14 +61,9 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
-    match "**/index.html" $ do
-        route idRoute
-        compile $ do
-            sponsors <- sponsorsCtx defaultContext . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
-            getResourceBody
-                >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
+--------------------------------------------------------------------------------------------------------
+-- PROJECTS --------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
     match "projects/*.markdown" $ compile pandocCompiler
 
@@ -65,6 +80,10 @@ main = hakyll $ do
 
     match "news/**.markdown" $ compile pandocCompiler
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
+
+--------------------------------------------------------------------------------------------------------
+-- NEWS ------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
     tagsRules categories $ \category catId ->  compile $ do
         news <- recentFirst =<< loadAll catId
@@ -91,8 +110,19 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+--------------------------------------------------------------------------------------------------------
+-- TEMPLATES -------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------
+-- CONTEXT ---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 -- | Partition affiliates into affiliates and pending
 affiliatesCtx :: [Item String] -> Context String
@@ -151,6 +181,10 @@ newsWithCategoriesCtx categories =
                         getNews (itemBody -> (_, ids)) = mapM load ids
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
+
+--------------------------------------------------------------------------------------------------------
+-- UTILS -----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
