@@ -131,11 +131,6 @@ projectsCtx projects =
     defaultContext
 
 -- news ------------------------------------------------------------------------------------------------
-buildNewsCtx :: Tags -> Context String
-buildNewsCtx categories =
-    tagsField "categories" categories <>
-    defaultContext
-
 -- | build group of news inside date of publishing (category)
 newsWithCategoriesCtx :: Tags -> Context String
 newsWithCategoriesCtx categories =
