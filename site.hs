@@ -3,8 +3,9 @@
 {-# Language ViewPatterns #-}
 
 import Hakyll
-import Control.Monad (filterM)
 import Data.List (sortOn)
+import Control.Monad (filterM)
+import Control.Monad.ListM (sortByM)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -112,11 +113,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
-            entries <- loadAll "faq/*.markdown"
-
-            let ctx =
-                    listField "faq_entries" defaultContext (return entries) <>
-                    defaultContext
+            ctx <- faqCtx <$> loadAll "faq/*.markdown"
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/faq/list.html"      ctx
@@ -187,6 +184,12 @@ newsWithCategoriesCtx categories =
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
 
+-- faq -------------------------------------------------------------------------------------------------
+faqCtx :: [Item String] -> Context String
+faqCtx entries =
+    listField "faq_entries" defaultContext (sortFromMetadataField "order" entries) <>
+    defaultContext
+
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
@@ -196,4 +199,12 @@ ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
 ofMetadataField field value = filterM (\item -> do
         mbStatus <- getMetadataField (itemIdentifier item) field
         return $ Just value == mbStatus
+    )
+
+-- | sort list of item based on the given metadata field
+sortFromMetadataField :: String -> [Item String] -> Compiler [Item String]
+sortFromMetadataField field = sortByM (\a b -> do
+        a' <- getMetadataField (itemIdentifier a) field
+        b' <- getMetadataField (itemIdentifier b) field
+        return $ compare a' b'
     )
