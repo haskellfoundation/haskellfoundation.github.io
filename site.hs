@@ -5,7 +5,6 @@
 import Hakyll
 import Control.Monad (filterM)
 import Data.List (sortOn)
-import Data.Ord (comparing)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -80,7 +79,7 @@ main = hakyll $ do
         compile $ do
             sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
-            
+
             let ctx =
                     listField "categories" defaultContext (return newsWithCategories) <>
                     defaultContext
@@ -104,6 +103,23 @@ main = hakyll $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/press/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
+-- faq ------------------------------------------------------------------------------------------------
+    match "faq/*.markdown" $ compile pandocCompiler
+    create ["faq/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            entries <- loadAll "faq/*.markdown"
+
+            let ctx =
+                    listField "faq_entries" defaultContext (return entries) <>
+                    defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/faq/list.html"      ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
@@ -170,7 +186,6 @@ newsWithCategoriesCtx categories =
                         getNews (itemBody -> (_, ids)) = mapM load ids
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
-
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
