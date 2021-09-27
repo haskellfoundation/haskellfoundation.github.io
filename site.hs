@@ -3,9 +3,9 @@
 {-# Language ViewPatterns #-}
 
 import Hakyll
-import Control.Monad (filterM)
 import Data.List (sortOn)
-import Data.Ord (comparing)
+import Control.Monad (filterM)
+import Control.Monad.ListM (sortByM)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ main = hakyll $ do
         compile $ do
             sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
-            
+
             let ctx =
                     listField "categories" defaultContext (return newsWithCategories) <>
                     defaultContext
@@ -104,6 +104,19 @@ main = hakyll $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/press/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
+-- faq ------------------------------------------------------------------------------------------------
+    match "faq/*.markdown" $ compile pandocCompiler
+    create ["faq/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            ctx <- faqCtx <$> loadAll "faq/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/faq/list.html"      ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
@@ -171,6 +184,11 @@ newsWithCategoriesCtx categories =
                         newsCtx :: Context String
                         newsCtx = newsWithCategoriesCtx categories
 
+-- faq -------------------------------------------------------------------------------------------------
+faqCtx :: [Item String] -> Context String
+faqCtx entries =
+    listField "faq_entries" defaultContext (sortFromMetadataField "order" entries) <>
+    defaultContext
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
@@ -181,4 +199,12 @@ ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
 ofMetadataField field value = filterM (\item -> do
         mbStatus <- getMetadataField (itemIdentifier item) field
         return $ Just value == mbStatus
+    )
+
+-- | sort list of item based on the given metadata field
+sortFromMetadataField :: String -> [Item String] -> Compiler [Item String]
+sortFromMetadataField field = sortByM (\a b -> do
+        a' <- getMetadataField (itemIdentifier a) field
+        b' <- getMetadataField (itemIdentifier b) field
+        return $ compare a' b'
     )
