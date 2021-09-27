@@ -90,6 +90,23 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+-- press -----------------------------------------------------------------------------------------------
+    match "press/**.markdown" $ compile pandocCompiler
+    create ["news/press/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            press <- recentFirst =<< loadAll "press/*.markdown"
+
+            let ctx =
+                    listField "press_articles" defaultContext (return press) <>
+                    defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/press/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
