@@ -126,7 +126,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
-            ctx <- resourcesCtx . sortOn itemIdentifier <$> loadAll "resources/*.markdown"
+            ctx <- resourcesCtx <$> loadAll "resources/*.markdown"
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/resources/list.html" ctx
