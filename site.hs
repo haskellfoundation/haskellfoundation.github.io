@@ -120,6 +120,19 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+-- resources -------------------------------------------------------------------------------------------
+    match "resources/*.markdown" $ compile pandocCompiler
+    create ["resources/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            ctx <- resourcesCtx . sortOn itemIdentifier <$> loadAll "resources/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/resources/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
@@ -188,6 +201,12 @@ newsWithCategoriesCtx categories =
 faqCtx :: [Item String] -> Context String
 faqCtx entries =
     listField "faq_entries" defaultContext (sortFromMetadataField "order" entries) <>
+    defaultContext
+
+-- resources -------------------------------------------------------------------------------------------
+resourcesCtx :: [Item String] -> Context String
+resourcesCtx resources =
+    listField "resources" defaultContext (return resources) <>
     defaultContext
 
 --------------------------------------------------------------------------------------------------------
