@@ -25,7 +25,7 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
@@ -39,7 +39,7 @@ main = hakyll $ do
     create ["affiliates/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
 
             makeItem ""
@@ -52,7 +52,7 @@ main = hakyll $ do
     create ["projects/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
 
             makeItem ""
@@ -78,7 +78,7 @@ main = hakyll $ do
     create ["news/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
 
             let ctx =
@@ -95,7 +95,7 @@ main = hakyll $ do
     create ["news/press/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             press <- recentFirst =<< loadAll "press/*.markdown"
 
             let ctx =
@@ -103,7 +103,7 @@ main = hakyll $ do
                     defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/press/list.html" ctx
+                >>= loadAndApplyTemplate "templates/press/list.html"    ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
@@ -112,7 +112,7 @@ main = hakyll $ do
     create ["faq/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+            sponsors <- buildSponsorsCtx
             ctx <- faqCtx <$> loadAll "faq/*.markdown"
 
             makeItem ""
@@ -125,12 +125,16 @@ main = hakyll $ do
     create ["resources/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
-            ctx <- resourcesCtx <$> loadAll "resources/*.markdown"
+            sponsors <- buildSponsorsCtx
+            resources <- loadAll "resources/*.markdown"
+
+            let ctx =
+                    listField "resources" defaultContext (return resources) <>
+                    defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/resources/list.html" ctx
-                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= loadAndApplyTemplate "templates/resources/list.html"    ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"       sponsors
                 >>= relativizeUrls
 
 -- templates -------------------------------------------------------------------------------------------
@@ -143,6 +147,10 @@ main = hakyll $ do
 --------------------------------------------------------------------------------------------------------
 
 -- sponsors --------------------------------------------------------------------------------------------
+
+buildSponsorsCtx :: Compiler (Context String)
+buildSponsorsCtx = sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+
 -- | Partition sponsors into by level: monad, applicative, and functor
 -- Sponsors are listed in the footer template, which means we need this
 -- context for most pages.
@@ -201,12 +209,6 @@ newsWithCategoriesCtx categories =
 faqCtx :: [Item String] -> Context String
 faqCtx entries =
     listField "faq_entries" defaultContext (sortFromMetadataField "order" entries) <>
-    defaultContext
-
--- resources -------------------------------------------------------------------------------------------
-resourcesCtx :: [Item String] -> Context String
-resourcesCtx resources =
-    listField "resources" defaultContext (return resources) <>
     defaultContext
 
 --------------------------------------------------------------------------------------------------------
