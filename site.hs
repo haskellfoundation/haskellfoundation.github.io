@@ -6,6 +6,7 @@ import Hakyll
 import Data.List (sortOn)
 import Control.Monad (filterM)
 import Control.Monad.ListM (sortByM)
+import Hakyll.Web.Template (loadAndApplyTemplate)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -20,16 +21,6 @@ main = hakyll $ do
     match "assets/**" $ do
         route idRoute
         compile copyFileCompiler
-
--- home ------------------------------------------------------------------------------------------------
-    match "index.html" $ do
-        route idRoute
-        compile $ do
-            sponsors <- buildSponsorsCtx
-            getResourceBody
-                >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
 
 -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
@@ -118,6 +109,16 @@ main = hakyll $ do
             makeItem ""
                 >>= loadAndApplyTemplate "templates/faq/list.html"      ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
+-- general 'static' pages ------------------------------------------------------------------------------
+    match ("index.html" .||. "**/index.html") $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            getResourceBody
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
 -- resources -------------------------------------------------------------------------------------------
