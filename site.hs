@@ -1,12 +1,17 @@
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language ViewPatterns #-}
+{-# Language BangPatterns #-}
 
 import Hakyll
 import Data.List (sortOn)
 import Control.Monad (filterM)
 import Control.Monad.ListM (sortByM)
 import Hakyll.Web.Template (loadAndApplyTemplate)
+import System.IO (SeekMode(RelativeSeek))
+import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
+import Hakyll.Web.Template.Context (defaultContext)
+import Data.Maybe (isJust)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -111,6 +116,30 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+-- who we are ------------------------------------------------------------------------------------------
+    match "who-we-are/people/*.markdown" $ compile pandocCompiler
+    create ["who-we-are/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/who-we-are/exec-and-board.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"               sponsors
+                >>= relativizeUrls
+
+    create ["who-we-are/past-boards/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/who-we-are/past-board.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"           sponsors
+                >>= relativizeUrls
+
 -- general 'static' pages ------------------------------------------------------------------------------
     match ("index.html" .||. "**/index.html") $ do
         route idRoute
@@ -211,6 +240,27 @@ faqCtx :: [Item String] -> Context String
 faqCtx entries =
     listField "faq_entries" defaultContext (sortFromMetadataField "order" entries) <>
     defaultContext
+
+-- who we are ------------------------------------------------------------------------------------------
+whoWeAreCtx :: [Item String] -> Context String
+whoWeAreCtx people =
+    listField "currentexecutiveteam" defaultContext (ofMetadataFieldCurrent True "executiveTeam" "True" people) <>
+    listField "currentboard" defaultContext (ofMetadataFieldCurrent True "executiveTeam" "False" people)        <>
+    listField "pastexecutiveteam" defaultContext (ofMetadataFieldCurrent False "executiveTeam" "True" people)   <>
+    listField "pastboard" defaultContext  (ofMetadataFieldCurrent False "executiveTeam" "False" people)         <>
+    listField "interimboard" defaultContext (ofMetadataField "interimBoard" "True" people)                      <>
+    defaultContext
+    where
+        ofMetadataFieldCurrent :: Bool -> String -> String -> [Item String] -> Compiler [Item String]
+        ofMetadataFieldCurrent cur field value items = do
+            items' <- ofMetadataField field value items
+            filterM (\item -> do
+                mbTenureStart <- getMetadataField (itemIdentifier item) "tenureStart"
+                mbTenureStop <- getMetadataField (itemIdentifier item) "tenureEnd"
+                pure $ case mbTenureStop of
+                    Nothing -> cur && isJust mbTenureStart
+                    Just date -> not cur
+             ) items'
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
