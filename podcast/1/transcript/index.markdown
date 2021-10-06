@@ -1,38 +1,6 @@
-  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-        <h1 class="text-2xl-5xl">Episode 1: Emily Pillmore &ndash; Transcript</h1>
-      </div>
-    </div>
-  </div>
-
-<div class="max-w-screen-xl mx-auto">
-<div class="mt-16 md:mt-24">
-<div class="mx-auto prose md:prose-lg">
+---
+title: Episode 1':' Emily Pillmore '-' Transcript
+---
 
 <h3 id="introduction">Introduction</h3>
 <p>AS: Welcome to the Haskell Interlude, I am Alejandro Serrano and alongside my co-host Andres Löh we’ve interviewed Emily Pillmore, the CTO of the Haskell Foundation. We’ve talked with her about the role of the Foundation and all the projects around it. But we also have time for other cool topics like optics. I hope you enjoy the show.</p>
@@ -145,7 +113,3 @@
 <p>AS: so I think this is a high point to to stop here after discussing objects and I think all of us have a lot of uh reading to do tonight. So… well, thanks Emily for sharing both your knowledge about optics, and all the nice work you are doing uh for the Haskell community, thanks.</p>
 <p>AL: yeah, thanks very much.</p>
 <p>EP: thank you.</p>
-
-</div>
-</div>
-</div>

@@ -140,6 +140,29 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"           sponsors
                 >>= relativizeUrls
 
+-- podcast ---------------------------------------------------------------------------------------------
+    match "podcast/*.markdown" $ compile pandocCompiler
+    create ["podcast/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            ctx <- podcastCtx <$> loadAll "podcast/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/podcast/list.html"  ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
+                >>= relativizeUrls
+
+    match "podcast/*/transcript/*.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            pandocCompiler
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/podcast/transcript.html" defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html"        sponsors
+                >>= relativizeUrls
+
 -- general 'static' pages ------------------------------------------------------------------------------
     match ("index.html" .||. "**/index.html") $ do
         route idRoute
@@ -261,6 +284,12 @@ whoWeAreCtx people =
                     Nothing -> cur && isJust mbTenureStart
                     Just date -> not cur
              ) items'
+
+-- podcast ---------------------------------------------------------------------------------------------
+podcastCtx :: [Item String] -> Context String 
+podcastCtx episodes =
+    listField "episodes" defaultContext (return $ reverse episodes) <>
+    defaultContext
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
