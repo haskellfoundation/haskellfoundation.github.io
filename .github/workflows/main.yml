@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the hakyll branch
+  push:
+    branches: [ hakyll ]
+  pull_request:
+    branches: [ hakyll ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        stack: ["2.7.3"]
+        ghc: ["8.10.7"]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: hakyll
+
+      - uses: haskell/actions/setup@v1
+        name: Setup Haskell Stack
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          stack-version: ${{ matrix.stack }}
+
+      - uses: actions/cache@v1
+        name: Cache ~/.stack
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-${{ matrix.ghc }}-stack
+
+      - name: Build dependencies
+        run: stack build --system-ghc --only-dependencies
+
+      - name: Build site executable
+        run: stack build --system-ghc
+
+      # Runs a set of commands using the runners shell
+      - name: Deploy
+        run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            stack exec --system-ghc site rebuild
+            git checkout testrelease
+            git pull --rebase
+            # Overwrite existing files with new files
+            cp -a -v _site/. .
+            #  Commit
+            git add --all
+            git commit -m "[`date '+%F %T %Z'`] New release [ci skip]"
+            # Push
+            git push origin testrelease:testrelease
