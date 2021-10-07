@@ -30,20 +30,14 @@ unjustifiable changes to the existing code.
 
 ### Building the site
 
-Refer to the [README](README.md) for more information on building the site. Since `haskell.foundation` is a Hakyll-based site,
-it has a `watch` feature which allows for fast iteration. However, due to the limitations of the Github pages framework,
-the site is watched through the `docs` directory. In order to build the site *and* have those changes propagated, you *must run
-the `./build.sh` at the root of this project!*
-
-To run the `build.sh`, simply issue the following when you are done making changes:
-
-```bash
-./build.sh
-```
-
-Please remember to include this with your merge requests.
+Refer to the [README](README.md) for more information on building the site.
 
 ## Code Quality
 
 The `haskell.foundation` project intends to focus on integration and usability,
 balanced with maintainability.
+
+We strive to be an example of best practices for real Haskell. If you believe
+there is a better way to do something in the code, please let us know or
+submit a PR for review. We would like the HF website to be a clear example of
+how to do a Hakyll website right.

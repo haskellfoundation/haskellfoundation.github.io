@@ -10,50 +10,45 @@ This repository is for the [haskell.foundation](https://haskell.foundation) webs
 
 ## Table Of Contents
 
-- [Building](#building)
-  - [Nix](#nix)
-  - [Cabal/Stack](#cabal/stack)
-- [License](#license)
+- [The Haskell Foundation Website](#the-haskell-foundation-website)
+  - [Table Of Contents](#table-of-contents)
+  - [Building](#building)
+  - [CI](#ci)
+  - [License](#license)
 
 
 ## Building
 
-
-### Nix
-
 To build the project:
 
 ```bash
-nix-build
+stack build
 ```
 
-To run the local development server:
+Once the project has built (which can take a while due to the dependencies for Hakyll), to generate the site use:
 
 ```bash
-./watch.sh
+stack exec -- site build
 ```
 
-Alternatively, you can drop into a nix-shell with
+The site will be build in the `_site` directory, and you can open the files in your browser of choice. Due to a Hakyll issue, some sponsor logos will not show up correctly. This is expected behavior, and should be fine for the deployed site.
 
-```bash
-nix-shell
-```
+For further information, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) at the root of this project.
 
-And call the website watch command directly via Cabal or Stack:
+## CI
 
-```bash
-cabal run haskell-foundation -- watch
-```
+We use GitHub Actions `.github/workflows/main.yml` to build the site for production.
 
-### Cabal/Stack
+The general steps are:
 
-The site can be built locally with Cabal and Stack if the 3rd party dependencies are met, and by issuing the following in terminal:
-
-```base
-cabal run haskell-foundation -- watch
-```
-
-Or the stack equivalent. For further information, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) at the root of this project.
+1. Check out the `hakyll` branch
+2. Install Haskell
+3. Restore the cached build artefacts
+4. Build the `site` executable
+5. Rebuild the site contents using the `site` executable
+6. Check out the main branch
+7. Copy the `_site` directory over the `main` branch contents
+8. Commit and push the site contents to the `main` branch.
 
 ## License
 
