@@ -1,0 +1,467 @@
+<html lang="en">
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>About the Haskell Foundation</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../../assets/js/main.js" defer></script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+
+    <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+      <a href="../../news/press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../../">
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+        <li class="relative">
+          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+            </div>
+
+        </li>
+
+	<li class="relative">
+	  <a href="../../podcast">Podcast</a>
+	</li>
+
+        <li class="relative">
+          <a href="../../projects">Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../donations">Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+       <li class="relative">
+          <a href="../../news" id="news-nav-item">News and Info</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+                  News
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+                  Press
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+            </div>
+
+        </li>
+
+    </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+      <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="sm:px-6 lg:px-16">
+      <div class="relative">
+  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">What Does Affiliation Entail?</h1>
+      
+    </div>
+  </div>
+
+
+
+  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+      <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:text-xl text-gray-300 leading-relaxed">
+        
+  <div class="space-y-8">
+    <div>
+      Affiliation means that the group supports the goals of the Haskell Foundation, and, in return, the Haskell Foundation supports this group.
+    </div>
+    <div>
+      Different groups work in different ways, and it would be counter-productive to impose complete uniformity. However, we expect the groups that want to affiliate with the Haskell Foundation to follow a few ground rules, laid out below.
+    </div>
+  </div>
+  <div class="space-y-8">
+    <div>
+      Affiliation does not mean that the HF is taking over control of that group’s bailiwick. The group’s powers and responsibilities remain unchanged, although it would be reasonable to expect the group to take into account the views of the HF.
+    </div>
+    <div>
+      We make a distinction between projects and committees.
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="max-w-screen-xl mx-auto">
+  <div class="mt-16 md:mt-24">
+  
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      
+    <h2>Affiliated Committees</h2>
+
+    <h3>Transparency</h3>
+    <ul>
+      <li><p>
+        Group must have some website that makes it clear what the goals and responsibilities of this group are
+      </p></li>
+      <li>
+        <p>
+          All technical discussions must be stored in a publicly accessible location, for example:
+        </p>
+        <ul>
+          <li><p>
+            GitHub issues
+          </p></li>
+          <li><p>
+            GitLab issues
+          </p></li>
+          <li><p>
+            Mailing list archives There is an obvious exception for confidential matters such as financial and security related information
+          </p></li>
+        </ul>
+      </li>
+      <li><p>
+        It should be clear what decisions the group has taken, and what are under discussion (if it’s that kind of group). A good example of this are the GHC Steering Committee proposals, but a simple email to a public list can also suffice.
+      </p></li>
+      <li><p>
+        The group must have a voting system in place in case it cannot reach unanimity. Votes must be accompanied by reasoning, and a tie-breaking mechanism should be in place.
+      </p></li>
+    </ul>
+
+    <h3>Membership</h3>
+    <ul>
+      <li>
+        <p>
+          The group’s website should list its members (with their affiliations and terms), and the membership rules.
+        </p>
+      </li>
+      <li>
+        <p>
+          Groups should appoint a chair (or co-chairs) or a contact for Haskell Foundation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Groups should ensure a turnover of membership, for example by setting terms.
+        </p>
+        <ul>
+          <li>
+            <p>
+              This only makes sense for "decision-making" bodies, not really for groups that just focus on doing work.
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          The process for appointing new members should be clearly set out:
+        </p>
+        <ul>
+          <li>
+            <p>
+              There should be a “way in” for new members who are not already part of the “in crowd”; for example, a regular opportunity to self-nominate.
+            </p>
+          </li>
+          <li>
+            <p>
+              Criteria for new members should be written down, so that new members can address them in writing a self-nomination.
+            </p>
+          </li>
+          <li>
+            <p>
+              A reasonably broad group of people should be involved in making appointment decisions (e.g. not just the chair). Typically the whole group votes on appointing new members.
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>CODE OF CONDUCT</h3>
+    <p>
+      Groups must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a>. Groups may additionally adopt other guidelines & CoCs that are stronger; as long as they do not conflict with the GRC.
+    </p>
+    <p>
+      Why make a code of conduct as part of HF affiliation?
+    </p>
+    <ul>
+      <li>
+        <p>
+          We want the Haskell community to be welcoming, diverse, and inclusive. Having explicit guidelines for respectful communication signals that desire, and makes it more explicit and concrete.
+        </p>
+      </li>
+      <li>
+        <p>
+          For all of us, as individuals and as groups, making an explicit commitment to respectful communication encourages us to review our messages to see if they meet the goals set out in the guidelines, and will give others some specifics to point to if we fail.
+        </p>
+      </li>
+    </ul>
+
+    <h2>Affiliated Projects</h2>
+
+    <ul>
+      <li>
+        <p>
+          The project must have a public issue tracker and/or mailing list where discussion about the project takes place
+        </p>
+      </li>
+      <li>
+        <p>
+          The expectation is that the project has at least one responsive maintainer. If this is not the case, it should be clearly signalled that more resources are required.
+        </p>
+      </li>
+      <li>
+        <p>
+          The project must be open to community discussion about possible features and contributions.
+        </p>
+      </li>
+      <li>
+        <p>
+          The project should encourage new contributors and members, i.e. there should be "a way in".
+        </p>
+      </li>
+      <li>
+        <p>
+          Just like committees, the project must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a> as a code of conduct.
+        </p>
+      </li>
+    </ul>
+  
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://digitalasset.com/" target="_blank" class="block w-36 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    
+      <a href="https:/github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    
+      <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    
+      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    
+      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    
+      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    
+      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    
+      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    
+      <a href="https://herp.co.jp/" target="_blank" class="block w-36 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    
+      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    
+      <a href="https://tripshot.com/" target="_blank" class="block w-36 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+ 
+      <div class="flex space-x-4 w-44">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../../assets/images/logos/hf-logo-100-alpha.png" class="h-8" />
+        <div class="font-medium">2021 © Haskell Foundation, <a href="https://github.com/haskellfoundation/haskellfoundation.github.io">submit website bug reports and fixes on GitHub</a></div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

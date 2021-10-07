@@ -1,0 +1,410 @@
+<html lang="en">
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>index</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../assets/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../assets/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../assets/images/logos/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+      <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+      <a href="../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+      <a href="../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+      <a href="../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+
+    <a href="../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+      <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+      <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+      <a href="../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+      <a href="../news/press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+      <a href="../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+      <a href="../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../">
+      <img src="../assets/images/logos/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+        <li class="relative">
+          <a href="../who-we-are" id="who-we-are-nav-item">About</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../contact">Contact</a>
+
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../vision">Vision</a>
+            </div>
+
+        </li>
+
+	<li class="relative">
+	  <a href="../podcast">Podcast</a>
+	</li>
+
+        <li class="relative">
+          <a href="../projects">Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../donations">Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+       <li class="relative">
+          <a href="../news" id="news-nav-item">News and Info</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news">
+                  News
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news/press">
+                  Press
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../resources">Resources</a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../faq">FAQ</a>
+            </div>
+
+        </li>
+
+    </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+    <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:text-xl text-gray-300 leading-relaxed">
+      <div>
+        We invite existing Haskell projects, committees and communities to explicitly affiliate and align themselves
+        with the Haskell Foundation. Affiliation means that the group supports the goals of the Haskell Foundation, and
+        that the Haskell Foundation in turn supports this group.
+      </div>
+      <div>
+        We require affiliated groups to adhere to guidelines around transparency, being open to new members, and follow
+        the <a href="../guidelines-for-respectful-communication" target="_blank">Haskell committee guidelines for
+          respectful communication</a>. We believe that this will help us grow towards being a more open and welcoming
+        community.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-xl mx-auto">
+  <div class="mt-16 md:mt-24 px-4 sm:px-12 md:px-12 lg:px-16">
+    <div class="flex items-center space-x-4">
+      <div>
+        <img class="h-10 md:h-16 lg:h-20" src="../assets/images/affiliated.svg" alt>
+      </div>
+      <h2 class="text-2xl font-normal">Affiliated</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4 my-6 md:my-8 lg:my-10 grid lg:grid-cols-2 py-4 md:py-8 gap-4 md:gap-8">
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://clash-lang.org/" target="_blank">
+  <div class="font-medium">Clash</div>
+  <div class="text-gray-600 break-all">https://clash-lang.org/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://wiki.haskell.org/Core_Libraries_Committee" target="_blank">
+  <div class="font-medium">Core Libraries Committee</div>
+  <div class="text-gray-600 break-all">https://wiki.haskell.org/Core_Libraries_Committee</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/ghc-proposals/ghc-proposals" target="_blank">
+  <div class="font-medium">GHC Steering Committee</div>
+  <div class="text-gray-600 break-all">https://github.com/ghc-proposals/ghc-proposals</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://www.haskell.org/ghcup/" target="_blank">
+  <div class="font-medium">GHCup</div>
+  <div class="text-gray-600 break-all">https://www.haskell.org/ghcup/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://haskell.love/" target="_blank">
+  <div class="font-medium">Haskell Love</div>
+  <div class="text-gray-600 break-all">https://haskell.love/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://www.haskell.org/haskell-org-committee" target="_blank">
+  <div class="font-medium">Haskell.org Committee</div>
+  <div class="text-gray-600 break-all">https://www.haskell.org/haskell-org-committee</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://haskellweekly.news/" target="_blank">
+  <div class="font-medium">Haskell Weekly</div>
+  <div class="text-gray-600 break-all">https://haskellweekly.news/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/haskell/haskell-language-server" target="_blank">
+  <div class="font-medium">Haskell Language Server</div>
+  <div class="text-gray-600 break-all">https://github.com/haskell/haskell-language-server</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/digitallyinduced/ihp" target="_blank">
+  <div class="font-medium">IHP (Integrated Haskell Platform)</div>
+  <div class="text-gray-600 break-all">https://github.com/digitallyinduced/ihp</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://zfoh.ch/zurihac2021/" target="_blank">
+  <div class="font-medium">Zurihac</div>
+  <div class="text-gray-600 break-all">https://zfoh.ch/zurihac2021/</div>
+</a>
+
+      
+    </div>
+    <div class="flex items-center space-x-4">
+      <div>
+        <img class="h-10 md:h-16 lg:h-20" src="../assets/images/pending.svg" alt>
+      </div>
+      <h2 class="text-2xl font-normal">Pending Affiliations</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4 my-6 md:my-8 lg:my-10 grid lg:grid-cols-2 py-4 md:py-8 gap-4 md:gap-8">
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://www.haskell.org/cabal/" target="_blank">
+  <div class="font-medium">Cabal</div>
+  <div class="text-gray-600 break-all">https://www.haskell.org/cabal/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/haskell-infra/hackage-trustees" target="_blank">
+  <div class="font-medium">Hackage Trustees</div>
+  <div class="text-gray-600 break-all">https://github.com/haskell-infra/hackage-trustees</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/haskell-infra/haskell-admins" target="_blank">
+  <div class="font-medium">The Haskell Admins</div>
+  <div class="text-gray-600 break-all">https://github.com/haskell-infra/haskell-admins</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://haskellstack.org/" target="_blank">
+  <div class="font-medium">Stack</div>
+  <div class="text-gray-600 break-all">https://haskellstack.org/</div>
+</a>
+
+      
+      <a class="block border-l-3 border-purple-700 hover:bg-gray-50 shadow-lg px-4 py-2 md:py-4" href="https://github.com/commercialhaskell/stackage/blob/master/CURATORS.m" target="_blank">
+  <div class="font-medium">Stackage Curators</div>
+  <div class="text-gray-600 break-all">https://github.com/commercialhaskell/stackage/blob/master/CURATORS.m</div>
+</a>
+
+      
+    </div>
+    <div class="flex items-center space-x-4">
+      <div>
+        <img class="h-10 md:h-16 lg:h-20" src="../assets/images/join.svg" alt>
+      </div>
+      <h2 class="text-2xl font-normal">Join Affiliations!</h2>
+    </div>
+    <div class="ml-14 md:ml-20 lg:ml-24 mt-4 max-w-xl">
+      <p>
+        This is not a closed list! We very much want the Haskell Foundation to be something by all of us. Please contact
+        us if you are interested in joining us in our quest to make Haskell better for everyone.
+      </p>
+      <div class="mt-4">
+        <a class="arrow-link" href="../contact/">>> Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://digitalasset.com/" target="_blank" class="block w-36 m-4"><img alt="Digital Asset" src="../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    
+      <a href="https:/github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="../assets/images/sponsors/github/github-683.png" srcset="../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    
+      <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    
+      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../assets/images/sponsors/emq/emq.png"></a>
+    
+      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../assets/images/sponsors/exfreight/exfreight.png"></a>
+    
+      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    
+      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    
+      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FlipStone" src="../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    
+      <a href="https://herp.co.jp/" target="_blank" class="block w-36 m-4"><img alt="HERP" src="../assets/images/sponsors/herp/black.png"></a>
+    
+      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../assets/images/sponsors/mercury/mercury.png"></a>
+    
+      <a href="https://tripshot.com/" target="_blank" class="block w-36 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+ 
+      <div class="flex space-x-4 w-44">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../assets/images/logos/hf-logo-100-alpha.png" class="h-8" />
+        <div class="font-medium">2021 © Haskell Foundation, <a href="https://github.com/haskellfoundation/haskellfoundation.github.io">submit website bug reports and fixes on GitHub</a></div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
