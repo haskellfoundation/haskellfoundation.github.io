@@ -57,7 +57,7 @@ jobs:
             git config user.name github-actions
             git config user.email github-actions@github.com
             stack exec --system-ghc site rebuild
-            git checkout testrelease
+            git checkout main
             git pull --rebase
             # Overwrite existing files with new files
             cp -a -v _site/. .
@@ -65,4 +65,4 @@ jobs:
             git add --all
             git commit -m "[`date '+%F %T %Z'`] New release [ci skip]"
             # Push
-            git push origin testrelease:testrelease
+            git push origin main:main
