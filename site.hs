@@ -27,6 +27,10 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    match "sw.js" $ do
+        route idRoute
+        compile copyFileCompiler
+
 -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
 
