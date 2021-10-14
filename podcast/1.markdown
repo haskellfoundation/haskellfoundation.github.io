@@ -15,7 +15,7 @@ published: 2021-08-09
 * [ghcup](https://gitlab.haskell.org/haskell/ghcup-hs)
 * [Chocolatey GHC packages](https://community.chocolatey.org/profiles/Phyx)
 * [Haskell Foundation on the Haskell Discourse](https://discourse.haskell.org/c/haskell-foundation/)
-* [Contact page of the Haskell Foundation including Slack invite link](https://haskell.foundation/contact/)
+* [Contact page of the Haskell Foundation](https://haskell.foundation/contact/) (including Slack invite link)
 * [YourKit](https://www.yourkit.com/)
 * [Wingman tactics plugin for Haskell Language Server](https://haskellwingman.dev/)
 * [Simple Haskell Initiative](https://simplehaskell.org/)
