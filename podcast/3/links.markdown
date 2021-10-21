@@ -1,18 +1,3 @@
----
-title: Gabriella Gonzalez
-episode: 3
-description: |
-  Gabriella Gonzalez is interviewed by Joachim Breitner and Alejandro Serrano,
-  and we talk about Dhall, Nix, and Haskell, learn why Gabriella's packages are
-  sometimes called after characters of computer games, and get to know her
-  elevator pitch for educating Haskell
-
-  The interviewee now goes by Gabriella as their preferred name, but at the
-  time was still using Gabriel.
-buzzsproutId: 9368484
-recorded: 2021-07-12
-published: 2021-10-15
----
 * [Gabriella on twitter](https://twitter.com/GabriellaG439)
 * [Gabriella on github](https://github.com/Gabriel439)
 * [Gabriella’s blog](https://www.haskellforall.com/)
