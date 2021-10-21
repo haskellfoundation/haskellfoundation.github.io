@@ -1,0 +1,485 @@
+<html lang="en">
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>Gabriella Gonzalez</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../../assets/js/main.js" defer></script>
+  <!-- from https://stackoverflow.com/questions/33986976/how-can-i-remove-a-buggy-service-worker-or-implement-a-kill-switch/62154131#62154131
+        attempt to fix: https://github.com/haskellfoundation/haskellfoundation.github.io/issues/70
+  -->
+  <script>
+    if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
+        navigator.serviceWorker.getRegistration('/').then(function(registration) {
+            if (registration) {
+                  registration.update();
+                  registration.unregister();
+            }
+        });
+    }
+  </script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+
+    <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+      <a href="../../news/press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../../">
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+        <li class="relative">
+          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+            </div>
+
+        </li>
+
+	<li class="relative">
+	  <a href="../../podcast">Podcast</a>
+	</li>
+
+        <li class="relative">
+          <a href="../../projects">Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../donations">Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+       <li class="relative">
+          <a href="../../news" id="news-nav-item">News and Info</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+                  News
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+                  Press
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+            </div>
+
+        </li>
+
+        <li class="relative">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </li>
+      </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+    <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+  <div class="sm:px-6 lg:px-16">
+    <div class="relative">
+      <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+                <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+                <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+        <h1 class="text-2xl-5xl"><b>3</b> – Gabriella Gonzalez</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-screen-xl mx-auto">
+    <div class="mx-auto prose md:prose-lg">
+      <div class="space-y-8 max-w-2xl my-7 mx-auto">
+        
+         <p><em>Recorded 2021-07-12. Published 2021-10-15.</em></p>
+        
+        <p>Gabriella Gonzalez is interviewed by Joachim Breitner and Alejandro Serrano, and we talk about Dhall, Nix, and Haskell, learn why Gabriella’s packages are sometimes called after characters of computer games, and get to know her elevator pitch for educating Haskell</p>
+<p>The interviewee now goes by Gabriella as their preferred name, but at the time was still using Gabriel.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto prose md:prose-lg my-6">
+      <div id="buzzsprout-player-9368484"></div>
+      <script src="https://www.buzzsprout.com/1817535/9368484.js?container_id=buzzsprout-player-9368484&player=small" type="text/javascript" charset="utf-8"></script>
+    </div>
+
+    
+    <div class="mx-auto prose md:prose-lg my-6">
+     <div class="flex items-center space-x-4">
+       <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+       <h2 class="text-2xl font-normal">Related links</h2>
+     </div>
+     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+       <ul>
+<li><a href="https://twitter.com/GabriellaG439">Gabriella on twitter</a></li>
+<li><a href="https://github.com/Gabriel439">Gabriella on github</a></li>
+<li><a href="https://www.haskellforall.com/">Gabriella’s blog</a></li>
+<li><a href="https://dhall-lang.org/">Dhall</a></li>
+<li><a href="https://github.com/Gabriel439/haskell-nix">Haskell Nix</a></li>
+<li><a href="https://hackage.haskell.org/package/turtle">Turtle package</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Planescape:_Torment">Planescape Torment</a></li>
+<li><a href="https://github.com/danluu/post-mortems">“A List of Post-mortems!” by Daan Luu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Crossing_the_Chasm">Crossing the Chasm by Moore</a></li>
+<li><a href="https://www.andres-loeh.de/LambdaPi/LambdaPi.pdf">A tutorial Implementation of dependently typed lambda calculus, by Andres Loh, et al</a></li>
+<li><a href="http://conal.net/papers/compiling-to-categories/">Compiling to Categories, by Conal Elliott</a></li>
+</ul>
+     </div>
+    </div>
+    
+
+    
+    <div class="mx-auto prose md:prose-lg my-6">
+     <div class="flex items-center space-x-4">
+       <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+       <h2 class="text-2xl font-normal">Transcript</h2>
+     </div>
+     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+       <p><em>Joachim Breitner:</em> Welcome to the Haskell Interlude, the podcast of the Haskell Foundation. Our guest today is Gabriel Gonzalez, so stay tuned to learn about his work with Dhall, Nix, and Haskell, learn why his packages are sometimes called after characters of computer games, and get to know his elevator pitch for educating Haskell.</p>
+<p><em>JB:</em> So welcome to the third episode of the Haskell Interlude and our guest today is Gabriel Gonzalez. I can tell you a few things about him before we start and hopefully he’ll tell us much more during the podcast. So he currently works at awake security, which is cool because it’s a company that uses Haskell and he’s a longtime contributor to the Haskell and Nix community. So you might have seen his name on various packages, including lots of stuff involving pipes, which we might want to talk about later. He also has this blog called Haskell for all and has been blogging for a long time about Haskell, I think it’s over a decade now, and is in a way of one the bigger public advocates of Haskell, which we’re all grateful for. And then lately you might have heard of this Dhall thing, which is a configuration language, whatever that means and I’m sure we can’t stop him from telling us something about that during this podcast. So welcome Gabriel</p>
+<p><em>Gabriella Gonzalez:</em> Thank you!</p>
+<p><em>JB:</em> and also welcome Alejandro who is my co-host and will help me ask the right questions. So, hi Alejandro!</p>
+<p><em>Alejandro Serrano:</em> Hi!</p>
+<p><em>JB:</em> All right, so, let’s get started, so maybe start with Haskell before we delve into the other things because that’s a Haskell podcast and you created this pipes library, how did you get involved into that?</p>
+<p><em>GG:</em> Okay, so the origin story behind pipes was I read an article from the Monad Reader issue 19, it was written by Mario, I don’t know how to pronounce his last name, but it was like a co-routine pipeline is the name of the article, that’s how you can find it. And it presented such an elegant and principled way in a generic framework for, you know, talking about how to model co-routines in Haskell, and he actually presented several abstractions, one of which was the precursor for pipes, and I was so captivated by it that I decided to turn it into an actual package and this was actually my first time making a package for Haskell, it was an exciting experience, especially when I was asking for my first package account, getting the credentials for that. I was a little bit nervous, but it was a very fun experience. I mean it wasn’t a very long process, the article is actually very clear so I could just very easily translate the article into a package. The hardest part was just writing up documentation and in a blog post to go with it to announce the package and yeah, I think that is the origin story of that package.</p>
+<p><em>AS:</em> I always wonder because back then it seems like people were just like, you see lazy IO and everybody was talking about it and suddenly you see pipes and screaming and conduit just pop up in a few months, in a few years time. So I don’t know, do you think there was like a need, you know something which was in the air that suddenly everybody said yes, we need, that’s when we need the streaming now we need these abstractions in our ecosystem.</p>
+<p><em>GG:</em> Yeah, so I think really the big gap in the ecosystem was the lack of a listT-done-right, because there was a Control.Monad.Trans.List and transformers but that was poorly behaved both theoretically and also like, you know, bad streaming properties too and actually I think that if that had been there from the beginning, that would have actually significantly delayed the advent of say like pipes and conduit as a lot of streaming abstractions would have formed around that. In fact, actually to this day, I don’t always use pipes for streaming stuff. Sometimes, I just used the listT-done-right as the streaming abstraction because it’s simpler and sometimes you don’t need the full power of the pipes package. So I think that was the vacuum that created all these streaming libraries.</p>
+<p><em>JB:</em> So why do we have so many streaming libraries then?</p>
+<p><em>GG:</em> Because it’s a very large design space that I guess that’s the best way to describe it, like, you know, as you know, like there’re a lot of arguments back then about how to handle leftovers if you’re parsing or resource management, and there’s lots of different trade offs to do it, and that’s actually not the first streaming abstraction I’ve authored, there’s another one in the turtle package. The turtle package has its own bespoke streaming abstraction, called Shell, which is kind of like listT plus resource management and it’s more tailored for shell sub processes, for example.</p>
+<p><em>JB:</em> Maybe briefly, what is the turtle library?</p>
+<p><em>GG:</em> Oh, sorry. The turtle package is like a Haskell package for writing shell scripts except in Haskell instead of say bash.</p>
+<p><em>JB:</em> So I wouldn’t use it if I want to like draw pictures.</p>
+<p><em>GG:</em> Oh yeah, it’s not like the turtle drawing, I don’t know, I call it turtle, just because it’s for shell programming is just a pun on shell.</p>
+<p><em>JB:</em> Yeah, is it because of the… I don’t think that pun works in german because when you say the shell, you mean the back of the turtle.</p>
+<p><em>GG:</em> Yes. Yes.</p>
+<p><em>JB:</em> Yeah, that’s more like a, like an armor and so you wouldn’t think of it as a shell.</p>
+<p><em>GG:</em> Yeah.</p>
+<p><em>JB:</em> Puns are tricky</p>
+<p><em>GG:</em> Yeah. I usually, when I name packages, I try not to claim valuable name space. So I try to come with some tangential name that is just somewhat related to the function of the package at hand.</p>
+<p><em>JB:</em> Oh, it’s not just all puns on like 80s computer games, but like logo and pipes, the game where you have to connect pipes and the water comes up.</p>
+<p><em>GG:</em> Oh, no, no. So I do have some packages named after computer games. Well, just one computer game really, A lot of my packages are named after player characters or non player characters from the game PlaneScrape Torment, which I’m a really big fan of one of my favorite computer games. But the other packages are just random names.</p>
+<p><em>JB:</em> So which package you said is named after the</p>
+<p><em>GG:</em> Dhall.</p>
+<p><em>JB:</em> Okay, that’s … it was an elegant transition. You must have planned that years ahead.</p>
+<p><em>GG:</em> Yes.</p>
+<p><em>AS:</em> So maybe that’s a good time then. So, you know what is Dhall? Because we’ve heard a lot from you, but not only from you, so it seems to be increasingly well known, I guess in the configuration community, that’s something that exists.</p>
+<p><em>GG:</em> Yeah, so there isn’t like enough, at least as far as I know, there wasn’t a standard name for what Dhall is, but like there’s a family of languages-tools like Dhall or Jsonnet or Q and a few others like those. Those are the three I think most widely used ones that I’m aware of. I call them programmable configuration languages. It’s kind of a mouthful, but I couldn’t find a smaller term that accurately encompass them. And so they’re basically programming languages, but they’re specialized towards the domain of application configuration. And a very common question that me and other people get is, you know, why do we need this domain specific language? Why don’t we just use a normal programming language, like Haskell, I love Haskell, right, or java or C# or Go or Python or Javascript. Why aren’t we using those?</p>
+<p><em>AS:</em> I already would love that people have this question because what I see more people say is why don’t we use YAML? Again, including our own if in YAML, because that’s how github actions seems to think about.</p>
+<p><em>GG:</em> Yeah. So this is actually one of the things that makes it hard to sell this domain or market or niche, is that like you’re never quite sure who you’re talking to. Some people, you’re trying to convince them, like you said, why configuration files need to be programmable and other people you are trying to convince them why programming languages need to be more domain specific or less powerful and you have to tailor your pitch depending on which direction they’re coming from. I think it’s easier to explain why not to use, say YAML and the reason why is that, especially in ops, in layout tools, they tend to have very large and sprawling configurations. The classic example being Kubernetes, other examples being Terraform or Docker Compose or CloudFormation, they get unmaintainable very quickly and sometimes people will graft on some limited programming language features into these configuration formats, like CloudFormation templates has a limited notion of a function or Ansible has limited programming language features, like for-loops and conditional if I remember correctly, but it’s really half baked and a very poor experience for people in general. So they look for more like real languages to manage the complexity, so they don’t have to repeat themselves and they can write tests or, you know, dry up their configuration files.</p>
+<p><em>JB:</em> What does writing a test mean? Like if you think about configuration what would that mean?</p>
+<p><em>GG:</em> I mean, so ideally you want to push most of the validation into the type system so that you don’t even have to like check in your own time behavior of the configuration. But sometimes you might want to like some configuration languages like say Q. They allow you to push a lot of information into the type system. So like Q even has like a type level notion of something that matches a certain regular expression or an integer between these bounds. Dhall does not. Dhall uses a simpler type system. Well simpler in some regards so, like Dhall just has natural number, there’s no concept of a natural number between two things but Dhall does support tests which can be run at type checking time and so that’s how Dhall usually adds these additional invariants or constraints on the data input. So usually the main reason you want tests is because you don’t want to deploy configuration that isn’t valid in any way, especially in the Ops domain. It can be very dangerous to deploy configurations that are probably… So there’s an article sorry, let me back up. There’s an article written by Dan Luu which talks about the most common sources of production outages and the biggest one by far is actually errors in configuration files. And usually because people don’t think to test them or apply the same programming standards as they do to normal code. And so being able to apply the same quality standards can make those dangerous deploys that Ops tends to do safer.</p>
+<p><em>AS:</em> I get that Dhall then brings type safety to the realm of configuration languages apart from the configurability.</p>
+<p><em>GG:</em> Yeah, so like the one line summary I give for Dhall, is you can think of, it kind of like Jason plus functions, plus types, plus imports, with the caveat that the syntax is not Jason compatible, it doesn’t look like Jason but conceptually it’s like just like Jason, you have records and lists and bools and things like that.</p>
+<p><em>AS:</em> I wonder so, I remember when I played a long time ago with XMonad, they had this idea that well you would configure your XMonad by actually writing Haskell and then recompiling your monitor installation, is there any kind of similarities between both approaches?</p>
+<p><em>GG:</em> Yeah. So this is why we need a domain specific language. So coming from the avenue of why don’t use a fully featured programming language like Haskell. That’s the reason why XMonad is actually a really great example of why in my opinion, we should not use Haskell as a configuration language. Because one of the requirements for a configuration language is that it needs to be easy for people to change the configuration file and then rerun the program. And so if your configuration file is written in Haskell and some end-user wants to change the configuration, like an XMonad configuration, then they need to have the entire Haskell toolchain install on their system, which is very heavy weight, like it depends on exactly how much you install, whether or not it’s statically linked or dynamically linked, but in many cases it can be as much as, you know, a couple of gigabytes of a footprint for just to be able to change and rebuild the configuration file. Plus XMonad has to do all sorts of little tricks to get this working, like the way it loads configuration files is a little bit tricky. So most configuration languages are designed to be easy to embed. They tend to be interpreted so they typically are not compiled and the interpreter should be easy to embed within a larger executable. So it can only add like maybe a few megabytes to the size of the executable, let’s say. Another example, although it wasn’t written actually, it would be like Lua it’s like a Lua classic example, another language that has the same constraints. Right? It’s very lightweight. It’s interpreted easy to embed. <em>JB:</em> Okay, so what is the difference between a scripting language that is easy to write, and is easy to embed and a configuration languages that is programmable? Maybe besides type, I mean. Okay, we have the axis of typed vs untyped, but we all know that there’s a discussion we can have a long time, but maybe apart from that.</p>
+<p><em>GG:</em> So let’s use python as our hypothetical scripting language. Right. In fact, python is</p>
+<p><em>JB:</em> I don’t think it’s hypothetical, I think people use python.</p>
+<p><em>GG:</em> Yeah, I was gonna say people do. So like when I was at twitter, twitter had its own configuration DSL and python. Actually, there are two I can think of. There was it’s build tool. So twitter had an open source build tool that they developed called pants and the configuration files for the build specifications were written in python. Actually, originally they supported ful python. Later on they were restricted to a subset of python. Another example there was another tool, I don’t know if it was used outside of twitter but it’s called pistachio, which was a configuration file format which was basically embedded in python. So yeah, that is, so the main reason why you typically do not want to use a fully featured programming language is for language security reasons. So very often you want configuration files to be interpreted by people who you do not necessarily trust. Classic example is in packaging software. Right? So if you install other people’s packages, so those packages have to have a configuration file associated with them. And so if that configuration file is program well you are running untrusted code. So the language needs to have some security guarantees that it is safe to run untrusted code and that’s why you tend to not use a fully featured language. A really great example of this would be npm. So, npm the packages I believe support arbitrary typescript code if I remember correctly, and that has actually been a source of glitches where they found out that some packages were like expotrading keys or doing bad things basically. It’s rare, but when it does happen it’s pretty devastating and that’s why language security is another one of the big constraints for configuration languages.</p>
+<p><em>JB:</em> Okay, but let me press this point a little bit further, we had lua as an example and I think lua is well known to be safely embeddable. I mean that was part of its design because it’s a scripting language that I don’t know people use in games and you have the teams to solve the problem of you want to run untrustworthy code. So what’s missing?</p>
+<p><em>GG:</em> Well, in lua’s case, I think I’m not that familiar with lua but I’m pretty sure the thing that’s missing is types, right? So, in Dhall’s domain, especially Kubernetes people want to do ahead of time validation of their Kubernetes configuration, let’s say. And they don’t want to find out at runtime that there’s some error bug because that’s the worst time to find out.</p>
+<p><em>JB:</em> Okay, so if Dhall is this language that brings me easy-to-edit, click-to-interpret, easy-to-embed, safe-to-embed then wouldn’t it be like the perfect language for teaching programming in an environment where you need to run the students’ scripts?</p>
+<p><em>GG:</em> I would say probably not only because Dhall does not have a good type inference, I guess what some people would call bi-directional type inference. Right, so Dhall has technically… I guess, I don’t know what are the precise terms since I’m programming language theory, amateur, but I call it, you know, unidirectional versus bidirectional type inference. So Dhall only does unidirectional type inference, which you have to annotate the types of inputs, like function arguments, and then from those inputs, you can then infer the types of things downstream of that. But Dhall does not do bidirectional type inference, so you can’t like work backwards from usage or from outputs to figure out the types of inputs. Because of that it’s a more heavyweight language to use and I think it would probably not be appropriate for teaching purposes, I think you would need a variation of Dhall with better type inference to use it for that purpose.</p>
+<p><em>JB:</em> And this simplicity of the type inference isn’t hurting people who are using Dhall for configuration files.</p>
+<p><em>GG:</em> It is! So this goes back to yet another constraint on configuration languages. So, like YAML you would ideally like this configuration language to be embeddable in a large number of programming languages because, in YAML, you have like YAML parsers in basically every language you know, python, javascript, you name it. Right? Same thing for Jason. And ideally you want that same property for configuration languages because people would rather not have to use, like a separate pre-processor. I mean, they can and some people do, but it’s architecturally much simpler for everybody involved if the interpreter can be embedded in the host language. But because of that constraint, you need to have something that can be implemented multiple times across multiple host languages. And the more complicated the language is to implement, the harder it is to port all of these host languages.</p>
+<p><em>AS:</em> So you want the place where the interpreter is embedded to do the whole parsing, type checking and all of that.</p>
+<p><em>GG:</em> Yes everything.</p>
+<p><em>JB:</em> And I guess this case needs to have very rich specification of what type checking works because you really want it to work with the same and all implementations and not to have one being smarter about inference than the other one.</p>
+<p><em>GG:</em> Yes! There’s a lot of work that goes into making Dhall as easy to implement as possible across all these languages. So there’s a formal language standard, it has both natural deduction semantics, it has an ABNF grammar, it also has a reference, well that’s a work in progress, Haskell implementation of the natural deduction semantics. And it also has a very large test suite and actually it takes a lot of time to standardize a new change, because every time you had a new change, you got to like do all of these things for that new language feature, like add the test suite, add the semantics, update the grammar. And then usually also then implement it again in an actual language to verify that this works basically.</p>
+<p><em>JB:</em> How many implementations do you have?</p>
+<p><em>GG:</em> Uh, let me think. So we have so Haskell, Go, Ruby, Closure, Scala, Scala-Java ones are not officially announced but it’s basically complete. Those are yeah, I think five. Those five are the complete ones and then a few that are work in progress, like PureScript, I think is the next one that’s closest to complete.</p>
+<p><em>JB:</em> Okay, and do you write all of these yourself? Or there is a big thriving community…</p>
+<p><em>GG:</em> No, each comes from a separate person that wrote it. So I only maintain one. I have no intention of ever maintaining more than one implementation of Dhall because one is already a lot of work to maintain.</p>
+<p><em>JB:</em> So I think this might go on a slide tension, but I really like this approach you’re taking here that well, we need to have something that works across different implementations. So we have to start with a precise specification and the reference implementation and an extensive test suite and then we can take it from there. Everything else will just lead to a single implementation-defined thing, even if you don’t want it to be that way. It’s an observation, I made to similar projects recently multiple times and I really in font of that. I guess in the next question from there is like when do you have a formal verification, like in Isabelle or Coq to prove that things are…</p>
+<p><em>GG:</em> So this actually came from way back when we were discussing… So we used to not always have the reference implementation, it used to be only the natural deduction the formal semantics. And then we were trying to decide what language should we write the reference implementation in. And basically the decision was between Haskell or Agda and if we had done it in Agda we could basically also start throwing on, you know, the verification too. We ended up going with Haskell just because we wanted it to… You see it ended up being simpler. We wanted to make it easier for people to contribute because if nobody knows how to program it, like, I mean not a lot of people know Haskell let’s be clear about that. But even fewer people know Agda, so then the bar to contribution would have been even higher than it already was.</p>
+<p><em>JB:</em> I’m very happy to hear that the “how can we get more contributors” question leads to something being implemented in Haskell rather not in Haskell.</p>
+<p><em>GG:</em> Haskell is really great for specifying a reference implementation because the code is very clear and simple compared to like what it would be in other languages.</p>
+<p><em>JB:</em> Yeah, I fully agree.</p>
+<p><em>GG:</em> There is a great tweet, I think by Alexis King, who said something like Haskell is a domain specific language for implementing Haskell and I very much agree with that tweet. It’s just a great language for implementing interpreters or compilers in general. And so code written specifically for that domain ends up being very clear.</p>
+<p><em>AS:</em> But there are projects like HS-to-Coq, which I guess now they are renaming Coq or whatever. So I don’t know what the discussion leads. But they take the same idea writing in Haskell is easier than writing in Coq. But then if you want to verify, you really need your code to be written there. So you built a bridge. That’s what I assume that was the motivation for doing this.</p>
+<p><em>JB:</em> I guess that’s a question to my direction. But I must admit I didn’t even think of HS-to-Coq right in that discussion. But I guess yeah, it would be a possible thing we could throw at the reference implementation especially if it’s claimed to be a reference implementation with simplicity of code and mind that doesn’t use too much fancy Haskell stuff and you could get executable code and then you can prove that your unibidirectional type inference is really in a strict sense, worse than what you would realize or something like that or whatever maybe useful things you want to prove</p>
+<p><em>GG:</em> Actually I did not know about HS-to-Coq.</p>
+<p><em>JB:</em> Okay then I guess. So, HS-to-Coq is a project I did when I was at Penn. I think before the podcast we noticed that Gabriel also was at UPenn when he was doing his PhD. I did aPostdoc there and my postdoc there involved among other things a project where we have a tool that takes Haskell code and turns it into a morally equivalent Coq code and has precisely this is as a goal. You have some Haskell code, it’s already kind of clean and all you want to have a formal model of the thing you’re building there and you throw this tool at it and you massage the translation process a little bit and you get out a Coq version of the same code and depending on how your Haskell looks like this might actually be rather straightforward proving things that then it’s still as hard as it always was with interactive theorem proving.</p>
+<p><em>GG:</em> Yeah, there’s one thing I want to comment. The one nice thing about Agda is you can write code that looks very, very similar to the formal semantics if you do it in Agda which would have been really nice if we had gone that route. But</p>
+<p><em>JB:</em> Right, so actually my next question goes to the direction because in the project where I recently did something similar to that, where I worked before, I had a formal specification and it had pseudo logic, it was like a state machine or you could think of it as inference rules or like small step semantics and I wanted to turn that into Haskell code. And initially I had this desire to write the Haskell code in a way that I can take the Haskell code and include it in the specification as the formal specification and people who don’t know Haskell can still read it. And I failed. Like I thought I could maybe define some helper functions and put it all in some plumbing into nice abstractions and nice combinations and hide it the the monad or something and then really write code that looks like the pseudo code or pseudo spec that I would write in spec and I got stuck with things like, you know, Haskell’s record system wasn’t nice enough to express things concisely. So how close is your Haskell reference implementation to your natural deduction rules?</p>
+<p><em>GG:</em> I would say it doesn’t look the same. So the goal is not to actually look like the formal semantics. The goal is more to be like a Rosetta stone for people who don’t know how to read formal semantics. So it is like, they look at me like, I don’t know what this means, but here is a matching Haskell code and now I can be like, okay, so that’s actually that tends to write</p>
+<p><em>AS:</em> Yeah, it’s true that people look at natural deduction and it’s literally all greek to them. So</p>
+<p><em>GG:</em> Yeah! Actually really great. So that was the case for me until I read a great paper. It was called a tutorial implementation of independently typed lambda calculus.</p>
+<p><em>AS:</em> That’s from Andres.</p>
+<p><em>GG:</em> Yeah, that’s right. And that paper was the first paper that introduced me to how to read that notation because it had basically the formal semantics and Haskell code side by side and was my Rosetta stone for understanding how to translate between the two.</p>
+<p><em>JB:</em> But the translation is still only manual. You you haven’t invested into some mechanized way of connecting the two or generating one from the other one.</p>
+<p><em>GG:</em> No, we have not. It’s entirely manual.</p>
+<p><em>JB:</em> Probably reasonable for for this project, although it’s tempting to make the connection there as well.</p>
+<p><em>GG:</em> I think the right way forward for that would be make Agda more popular and usable. Because I feel like Agda is that sweet spot where it has the potential to become like an actual programming language at least a reference implementation of a language and you can write code that looks just like formal semantics.</p>
+<p><em>AS:</em> That’s the usual thing with Agda. What is missing is the engineer effort, I’m quoting with my fingers now which people with me will see. I think it’s incredibly interesting to know how you can run Agda programs or get Haskell from it. But I guess people feel this is too engineering right now, but I would definitely love that I could write my Agda and then speat Haskell or something.</p>
+<p><em>JB:</em> Yes, but if it’s just the syntax, is it just the syntax that you’re missing?</p>
+<p><em>GG:</em> It’s not just the syntax. Like an example would be how a lot of the Agda features are really only not well polished and supported for like the Emacs Agda language support. Like you want to do them and you want to use an external thing, the experience is less optimal. Plus then, for anything that’s not supported in Agda… Like, in Dhall we have to have some support for hashing or Seaborn coding, so now you have to evict Haskell which you can do like it has facilities for doing that. But then we actually build the reference implementation ci and then we have to do a lot of work to set up the Agda plus the Haskell file to get that working, which complicates things. So yes, it’s mainly just a bunch of engineering effort to make the whole experience as polished and mature as possible.</p>
+<p><em>JB:</em> Also, I guess he would be in one of the best positions of all possible engineers to pull off the ci system that integrates multiple languages in complicated ways.</p>
+<p><em>GG:</em> Yeah, I actually spent a lot of time just maintaining ci for the various Dhall related projects for that reason.</p>
+<p><em>JB:</em> And I guess that was a cheap transition of mine to the direction of talking about Nix. But maybe another cheap transition would be that isn’t the Nix like Nix the language but Nix the packet also one of these configuration languages according to your definition. <em>GG:</em> So actually, Nix has been applied to… So there’s actually two aspects of this. There’s using Nix proper and there’s also a related language called Nickel created by the author Yoko the same person who authored Nix, which is supposed to be a subset of Nix but with types. I think I actually haven’t talked too much into it, but like most people who are interested in using Nix for configuration tend to also point out Nickel too. So there is something called, as for example, cubanix, like kubernetes for Nix basically. And it basically uses the Nix OS module system for configuring kubernetes and it’s actually a decent, I think I haven’t used it but from my superficial study of it, it seems like a decent user experience slash interface for doing this sort of thing because the NixOs module system has like great support for things like specifying, you know, defaults and more interesting types like range. It is kind of like cubes, like I feel like kubernetes and cube kind of have the same user experience in mind for the end user. But I think the main thing that’s lacking is always types, like data types has always been Nix’s Achille heal from the very beginning and that hasn’t changed really. I think Nickel may have solved that and that is actually what Nickel was created for. It was to be another programmable configuration language and it may end up doing well in that regard.</p>
+<p><em>JB:</em> But would you argue that they should just be using Dhall instead?</p>
+<p><em>GG:</em> Um I mean I could see why… When I created Dhall, I did not expect it to take off as much as it did. Dhall actually originated more as a thought experiment than an attempt to be the one true configuration language. And the thought experiment was to be able to strike a balance between, you know, being expressive and still being, you know, constrained and secure. So Dhall tries to do one of the ways Dhall does that not the only way. It is actually not being Turning Complete. And that’s actually the reason the actual thing that led to Dhall’s origin was that in a lot of social media forums like Reddit, hacker news, twitter you see a lot of people arguing about whether or not configuration files will be programmable and the discussion would inevitably go to something like, you know, these configuration files are maintainable, let’s add programming language features like types or functions so we can make it easier to maintain. Someone would inevitably counter by saying, well I don’t want my configuration files to be like throwing exceptions or hanging or doing insecure things or more generally, I would say, I don’t want my configuration files to be Turning Complete and that’s little bit misleading because like you can not be Turing Complete and still do all those other bad things like throwing exceptions and panicking but that’s just sort of the term that everybody latched onto and so I was like, okay, let’s do a thought experiment here. What if I made a configuration file that was a programmable configuration language that was programmable but not Turing Complete, and then also fix these other issues, like these language security issues would that be okay for you? Would you like that? Would it fix your problem? It turns out like for some people it did and that’s kind of why Dhall blew up more than I expected it to. But if I had known in advance it was going to grow that much, I might have changed some things about the way I’ve done it.</p>
+<p><em>JB:</em> Such as?</p>
+<p><em>GG:</em> I probably would have pushed a little bit harder on getting type inference to work at least. And I think that would be like the one main thing I would have changed. Maybe some other things too, like maybe Dhall would have had JSON compatible syntax, although there are some trade offs there as well. Yeah, those are like the two things off the top of my head.</p>
+<p><em>AS:</em> So now that we’ve mentioned Nix, something that it’s kind of current ongoing development, it has how we get people to install the Haskell because it’s always like a toolchain, which is kind of hard to have and then you have so many options. So, I do you have some experience trying to get people to install Haskell in their systems and so on, I guess where you work, you must do this now and then.</p>
+<p><em>GG:</em> Yeah, so I’ve done a lot of evangelizing Haskell ever since I fell in love with the language, like myself for the first time, I think this is the experience. A lot of people learning Haskell have or when they see it for the first time, they’re like, yes, this is like really beautiful and elegance. This is the future programming. Like I want to be doing more of this.</p>
+<p><em>AS:</em> Yeah, I had the experience of teaching 200 people every year for a few years and there are some people who have this, not everybody have this.</p>
+<p><em>GG:</em> Okay, so for the people who do fall in love with Haskell, they have like that shock. So, yeah I tried to evangelize with people for a while. I think my first like, real experience, evangelizing it, it was trying to get it adopted at twitter unsuccessfully. Twitter was a most Scala company basically and I thought, wow, Scala is so similar to Haskell, this should be easy, right? It’s like you guys already know how to do type and functional programming. The languages are still very similar, I thought it would be easier to introduce, but actually it was quite the opposite, you know, for a lot of reasons, but like as an example, one of the reasons because of the fact that they were so similar was actually working against Haskell because the marginal improvement from their point of view is not worth the disruption and switching costs. And there are other issues too, like, that was my first experience, like really trying to get into the mind of how do mainstream programmers, like view languages, like Haskell and learning just like kind of speak their language and speak to the things that they care about. And then later on I read a book called, one of my like one of my co workers at awake security, he knew about my passion for evangelism, he’s like, I think you should really read this book called “Crossing the chasm” because like, I think it aligns a lot with what you’re trying to do and the way you think about things. And I did read it and he was very right. And so the book was originally written for marketing, like it’s about, it was about how to market high tech startups to mainstream consumers. And a lot of what the book said had resonated a lot with my experience of failing to evangelize Haskell at twitter, like what are the things that mainstream adopters get hung up on? and why they are so tigh two languages like Haskell. So yeah, there’s something I spent, I do think about in the context of Nix too, but mostly Haskell, that’s where most of my evangelization is focused.</p>
+<p><em>AS:</em> So I actually am now wondering what kind of, you know, big points you got from there.</p>
+<p><em>GG:</em> So one of the funny things I think, I guess ironic, I don’t know what that is, but the thing that the book really installs in you is that early adopters, like we are early adopters, the kind of people who when they see Haskell they fall in love with it despite its flaws, those are early adopters, so I’m an early adopter of Haskell. Early adopters make very bad evangelists for language, like the curse, like they actually, the way they evangelize a language really turns off mainstream adopters because their values are diametrically opposed to the values of mainstream adopters.</p>
+<p><em>AS:</em> So I should really stop talking about monads, in the BBQs with my friends, right?</p>
+<p><em>GG:</em> Exactly, yeah! So, let me give you an example of how their values are diametrically opposed. For an early adopter if something is bleeding edge that’s a feature because they want to feel an early adopter really wants to feel that they are on the cutting edge, so they have an advantage over the competition. They don’t want to be using something that is being used by everybody else because then they feel like they don’t have an advantage anymore, right? They want something that gives them the jump up on the competition. Mainstream doctors are the opposite. They want to use a tool that’s being used by everybody so they can have like, you know, great ecosystems, third party support documentation and so on. And so like that is one of many reasons why early adopters and mainstream adopter are just not speaking the same language when it comes to why you should adopt a tool.</p>
+<p><em>AS:</em> We’ve mentioned at the beginning that you’ve been more than one decade evangelizing Haskell. So what’s your balance? I mean, it seems like you are making, we are all, short of making progress in evangelizing, but how do you see this progress in these last years.</p>
+<p><em>GG:</em> So I still think Haskell hasn’t made it yet. I have opinions on what I think will be the path to get Haskell forward. My personal opinion is that it’s going to do something with compilers and interpreters. Maybe for a more restricted application domain. Like I think it’s gonna be either that or much to my dismay of finance, I don’t really like how Haskell is used so much in finance, personally, or especially cryptocurrencies, but I think like either interpreters… And they also relate. The reason why Haskell has a lot of take up in financing and cryptocurrencies is because it’s good for writing compilers or at least prototyping compilers and interpreters. But I think that is the path forward. It goes back to the tweet I mentioned earlier about Haskell is a domain specific language for implementing Haskell and like that, I think is actually the way forward. Take that seriously and use Haskell as the way to implement. Take Haskell as a mainstream language for implementing compilers and interpreters because it’s really good for that purpose. It’s got really great mindshare packages, even documentation which normally Haskell is bad, it actually has a pretty good documentation for the packages that are in this domain because there’s a lot of people that are this is a well trodden path in the Haskell ecosystem. Dhall is actually a great example of that. Dhall has an interpreter actually implemented in Haskell, a lot of languages have been implemented in Haskell like Agda, Pure Script. Elm, like it’s a really great track record in this regard. So that for me feels like the way that Haskell is going to go mainstream, if that whole experience from start to finish is really polished.</p>
+<p><em>JB:</em> But isn’t Haskell already there? I mean, if you go to the places where people talk about new programming languages and you hear somebody implemented in Haskell, it’s not like even a surprise. Like you might not even remember the fact because it’s just so normal to use Haskell to implement a new language. At least in the academic setting, but it’s just not mainstream because it’s not mainstream to implement your own language.</p>
+<p><em>GG:</em> Yeah, this goes back to the difference between early adopters and mainstream adopters, which is the bar that you and I consider to be enough is much lower than the bar than a mainstream adopter considers to be enough. So like, what they want, what they would consider to be the bar for adoption would be there should be possible to take somebody who has basically no Haskell experience and over the course of one or two weeks to be able to implement a programming language. So that experience has to be like very streamlined. Haskell needs something like the ruby on rails of implementing a language which has like a really opinionated framework, project layout, choice of dependencies, like everything has been implemented for you, like the type system, the parser, the evaluator.</p>
+<p><em>JB:</em> But how would somebody who needs that kind of help go about even put themselves in a position to implement a new language. I would assume that if you are about to implement a language, you know enough about languages that Haskell is no longer a scary thing.</p>
+<p><em>GG:</em> You would think that, but the counter examples here are things like cloud formation and answable and all these other half baked DSL implemented in YAML which are the scourge of the OPS community. These people, they’re basically in charge with the task of creating a domain specific language for some tool and they’re not up to the task. And so that’s why they do these half baked solutions.</p>
+<p><em>JB:</em> Okay, so you have domain specific languages in mind here? Not so much general purpose languages.</p>
+<p><em>GG:</em> Exactly.</p>
+<p><em>AS:</em> I like how it sounds, but the only thing that makes me a bit you know afraid. You have all these projects also, like from Jetbrains has this mps thing and Eclipse has this Xtext, which is supposed to be for creating DSLs so that people didn’t really go there, they prefer to create their DSLs in Scala or something like this. So, for me, the question is maybe not, whether Haskell is a good tool is that it seems to me that people didn’t get into the DSL boat yet, like people don’t think, okay, I need to create my language or whatever I need, I will create my domain specific languages and tools. They just invent a new YAML half baked format.</p>
+<p><em>GG:</em> There’s partly that there’s not as much of a need for it as you mentioned. I think like in the OPS domain, there’s still like very much a need for it. If anybody keeps track of OPS stuff like the time has come. Like the market there is very ripe for this, but outside of ops or maybe packaging, like yeah, the need or demand for this is not so high that people need that much. I also expect with like the rise of malware that this will also become a greater need overtime where people need these restricted domain specific languages, especially packaging ecosystems will definitely need it. And that will again create pressure to have something to fill this void.</p>
+<p><em>JB:</em> Especially in terms of Malware, I was still thinking of, maybe the attention again, but you might have heard about this. The signal messenger found out that there is some tool that’s commercially distributed to intelligence agencies and police that is scanning software including, scanning phones. So they get the fun of somebody and then they run it through the software and tries to extract as much data as it cans and you would expect such a thing to be very careful and how it’s reading this possibly untrustworthy data. But no, it’s just using libraries of the shelf, old versions, and things. So now they include code in the android app for signal that will make this analysis software crash and take over their machines. Which is very clever. And again, points to the fact that you might want to have special languages for not just OPS, but in this case for analysts of untrustworthy data and I guess other projects like Wire Shark, this is called these days, this tool that inspects packages in the network. It must have a huge amount of code that reads all these different formats and that is probably also a great example of a domain where you really don’t want a general purpose language that can take over your machine, but rather something restricted that you can be very safe running it on untrustworthy input.</p>
+<p><em>GG:</em> Yeah.</p>
+     </div>
+    </div>
+    
+  </div>
+</div>
+
+  </div>
+
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://digitalasset.com/" target="_blank" class="block w-36 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    
+      <a href="https:/github.com/" target="_blank" class="block w-36 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    
+      <a href="https://iohk.io/" target="_blank" class="block w-36 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    
+      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    
+      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    
+      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    
+      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    
+      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    
+      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16 flex flex-wrap justify-center">
+    
+      <a href="https://flipstone.com/" target="_blank" class="block w-36 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    
+      <a href="https://herp.co.jp/" target="_blank" class="block w-36 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    
+      <a href="https://tripshot.com/" target="_blank" class="block w-36 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+ 
+      <div class="flex space-x-4 w-44">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../../assets/images/logos/hf-logo-100-alpha.png" class="h-8" />
+        <div class="font-medium">2021 © Haskell Foundation, <a href="https://github.com/haskellfoundation/haskellfoundation.github.io">submit website bug reports and fixes on GitHub</a></div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
