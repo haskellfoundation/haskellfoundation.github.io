@@ -11,7 +11,7 @@ import Hakyll.Web.Template (loadAndApplyTemplate)
 import System.IO (SeekMode(RelativeSeek))
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template.Context (defaultContext)
-import Data.Maybe (isJust)
+import Data.Maybe (isJust, fromJust)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -145,27 +145,41 @@ main = hakyll $ do
                 >>= relativizeUrls
 
 -- podcast ---------------------------------------------------------------------------------------------
-    match "podcast/*.markdown" $ compile pandocCompiler
     create ["podcast/index.html"] $ do
         route idRoute
         compile $ do
             sponsors <- buildSponsorsCtx
-            ctx <- podcastCtx <$> loadAll "podcast/*.markdown"
+            ctx <- podcastCtx <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/podcast/list.html"  ctx
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
-    match "podcast/*/transcript/*.markdown" $ do
+    match "podcast/*/index.markdown" $ do
         route $ setExtension "html"
         compile $ do
             sponsors <- buildSponsorsCtx
+            -- extract the captures path fragment. really no easier way?
+            episode <- head . fromJust . capture "podcast/*/index.markdown" <$> getUnderlying
+
+            let ctxt = mconcat
+                  [ field "transcript" $ \_ -> do
+                       loadBody (fromCaptures "podcast/*/transcript.markdown" [episode])
+                  , field "links" $ \_ -> do
+                       loadBody (fromCaptures "podcast/*/links.markdown" [episode])
+                  , defaultContext
+                  ]
+
             pandocCompiler
                 >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/podcast/transcript.html" defaultContext
-                >>= loadAndApplyTemplate "templates/boilerplate.html"        sponsors
+                >>= loadAndApplyTemplate "templates/podcast/episode.html" ctxt
+                >>= loadAndApplyTemplate "templates/boilerplate.html"     sponsors
                 >>= relativizeUrls
+
+    match "podcast/*/index.markdown" $ version "raw" $ compile pandocCompiler
+    match "podcast/*/transcript.markdown" $ compile pandocCompiler
+    match "podcast/*/links.markdown" $ compile pandocCompiler
 
 -- general 'static' pages ------------------------------------------------------------------------------
     match ("index.html" .||. "**/index.html") $ do

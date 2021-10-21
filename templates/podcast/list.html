@@ -44,8 +44,8 @@
 
   <div class="mt-16 md:mt-24">
     <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-      <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-        <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+      <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-12 md:py-16">
+        <p class="lg:text-xl text-gray-300 leading-relaxed text-center">
          The Haskell Interlude is Haskell-focused podcast where we interview guests from the Haskell community. The hosts are Joachim Breitner, Andres Löh, Alejandro Serrano, Wouter Swierstra and Niki Vazou.
         </p>
       </div>
@@ -55,21 +55,16 @@
   <div class="mt-16 md:mt-24">
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(episodes)$
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-12 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal"><b>$episode$</b> – $title$</h2>
+        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+          <h2 class="text-center text-2xl-4xl font-normal">
+	    <b>$episode$</b> – $title$
+	  </h2>
           <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            $if(recorded)$
-             <p><em>Recorded $recorded$. Published $published$.</em></p>
-            $endif$
-            <p>$description$</p>
-            <div id="buzzsprout-player-$buzzsproutId$"></div>
-            <script src="https://www.buzzsprout.com/1817535/$buzzsproutId$.js?container_id=buzzsprout-player-$buzzsproutId$&player=small" type="text/javascript" charset="utf-8"></script>
+            $body$
             <div class="mt-4">
-              <a class="arrow-link" href="/podcast/$episode$/transcript/">>> Full transcript</a>
+              <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
             </div>
-            <div class="uppercase font-medium text-gray-500 pt-4">Related links</div>
-              $body$
-           </div>
+	  </div>
         </div>
       $endfor$
     </div>
