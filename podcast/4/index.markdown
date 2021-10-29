@@ -1,11 +1,11 @@
 ---
-title: Jasper Van der Jeugt
+title: Jasper van der Jeugt
 episode: 4
 buzzsproutId: 9454765
 recorded: 2021-10-05
 published: 2021-10-29
 ---
-Jasper Van der Jeug is interviewed by Niki Vazou and Joachim Breitner.
+Jasper van der Jeug is interviewed by Niki Vazou and Joachim Breitner.
 Jasper plays an important role in the Haskell community, helping with
 `haskell.org`, the Google Summer of Code project, ZuriHac and the ICPF
 programming contest. We talk about all this, and the 10 years it took
