@@ -1,5 +1,4 @@
-_Nikki Vazou_:	Welcome to the fourth episode of the Haskell Interlude. We will talk to
-Jasper about Haskell.org, Google Summer of Code, the 10 years it took to get
+_Niki Vazou_:	Welcome to the fourth episode of the Haskell Interlude. We will talk to Jasper about Haskell.org, Google Summer of Code, the 10 years it took to get
 UTF-8 into text, and running ICFP programming contest.
 
 Hi everyone and welcome to the Haskell Interlude. I'm Niki and I have together
