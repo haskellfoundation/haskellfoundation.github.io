@@ -11,7 +11,7 @@ import Hakyll.Web.Template (loadAndApplyTemplate)
 import System.IO (SeekMode(RelativeSeek))
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template.Context (defaultContext)
-import Data.Maybe (isJust, fromJust)
+import Data.Maybe (isJust, fromJust, fromMaybe)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ main = hakyll $ do
     create ["affiliates/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Affiliates")
             ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
 
             makeItem ""
@@ -52,7 +52,7 @@ main = hakyll $ do
     create ["projects/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Projects")
             ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
 
             makeItem ""
@@ -78,7 +78,7 @@ main = hakyll $ do
     create ["news/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "News")
             newsWithCategories <- recentFirst =<< loadAll "news/categories/**.html"
 
             let ctx =
@@ -95,7 +95,7 @@ main = hakyll $ do
     create ["news/press/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Press")
             press <- recentFirst =<< loadAll "press/*.markdown"
 
             let ctx =
@@ -112,7 +112,7 @@ main = hakyll $ do
     create ["faq/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "FAQ")
             ctx <- faqCtx <$> loadAll "faq/*.markdown"
 
             makeItem ""
@@ -125,7 +125,7 @@ main = hakyll $ do
     create ["who-we-are/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Who We Are")
             ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
 
             makeItem ""
@@ -136,7 +136,7 @@ main = hakyll $ do
     create ["who-we-are/past-boards/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Past Boards")
             ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
 
             makeItem ""
@@ -148,7 +148,7 @@ main = hakyll $ do
     create ["podcast/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Haskell Interlude")
             ctx <- podcastCtx <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
 
             makeItem ""
@@ -159,7 +159,7 @@ main = hakyll $ do
     match "podcast/*/index.markdown" $ do
         route $ setExtension "html"
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx Nothing
             -- extract the captures path fragment. really no easier way?
             episode <- head . fromJust . capture "podcast/*/index.markdown" <$> getUnderlying
 
@@ -185,7 +185,7 @@ main = hakyll $ do
     match ("index.html" .||. "**/index.html") $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx Nothing
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
@@ -196,7 +196,7 @@ main = hakyll $ do
     create ["resources/index.html"] $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx (Just "Resources")
             resources <- loadAll "resources/*.markdown"
 
             let ctx =
@@ -219,17 +219,23 @@ main = hakyll $ do
 
 -- sponsors --------------------------------------------------------------------------------------------
 
-buildSponsorsCtx :: Compiler (Context String)
-buildSponsorsCtx = sponsorsCtx . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+buildBoilerplateCtx :: Maybe String -> Compiler (Context String)
+buildBoilerplateCtx mtitle = boilerPlateCtx mtitle . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
 
 -- | Partition sponsors into by level: monad, applicative, and functor
 -- Sponsors are listed in the footer template, which means we need this
 -- context for most pages.
-sponsorsCtx :: [Item String] -> Context String
-sponsorsCtx sponsors =
+--
+-- We set the 'title' based on the title metadata for the item, if present,
+-- or use the passed in Maybe title, if it is a Just, or "No title" if not.
+boilerPlateCtx :: Maybe String -> [Item String] -> Context String
+boilerPlateCtx mtitle sponsors =
     listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
     listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors) <>
     listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)         <>
+    field "title" (\item -> do
+        metadata <- getMetadata (itemIdentifier item)
+        return $ fromMaybe (fromMaybe "No title" mtitle) $ lookupString "title" metadata)    <>
     defaultContext
 
 -- affiliates ------------------------------------------------------------------------------------------
@@ -304,7 +310,7 @@ whoWeAreCtx people =
              ) items'
 
 -- podcast ---------------------------------------------------------------------------------------------
-podcastCtx :: [Item String] -> Context String 
+podcastCtx :: [Item String] -> Context String
 podcastCtx episodes =
     listField "episodes" defaultContext (return $ reverse episodes) <>
     defaultContext
@@ -316,8 +322,8 @@ podcastCtx episodes =
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
 ofMetadataField field value = filterM (\item -> do
-        mbStatus <- getMetadataField (itemIdentifier item) field
-        return $ Just value == mbStatus
+        mbField <- getMetadataField (itemIdentifier item) field
+        return $ Just value == mbField
     )
 
 -- | sort list of item based on the given metadata field
