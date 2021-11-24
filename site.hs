@@ -208,6 +208,16 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"       sponsors
                 >>= relativizeUrls
 
+-- 404 -------------------------------------------------------------------------------------------------
+    match "404.html" $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildSponsorsCtx
+            getResourceBody
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
