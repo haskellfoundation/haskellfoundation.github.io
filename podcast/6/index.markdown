@@ -1,7 +1,7 @@
 ---
 title: Graham Hutton
 episode: 6
-buzzsproutId: ...
+buzzsproutId: 9616803
 recorded: 2021-10-28
 published: 2021-11-26
 ---
