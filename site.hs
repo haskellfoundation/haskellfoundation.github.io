@@ -212,7 +212,7 @@ main = hakyll $ do
     match "404.html" $ do
         route idRoute
         compile $ do
-            sponsors <- buildSponsorsCtx
+            sponsors <- buildBoilerplateCtx Nothing
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
