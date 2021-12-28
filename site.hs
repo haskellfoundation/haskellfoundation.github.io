@@ -218,6 +218,28 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
+-- Careers ---------------------------------------------------------------------------------------------
+    create ["careers/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Careers")
+            ctx <- careersCtx <$> loadAll "careers/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/careers/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
+    match "careers/*.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildBoilerplateCtx Nothing
+            pandocCompiler
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/careers/page.html"    defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html"     sponsors
+                >>= relativizeUrls
+
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
@@ -323,6 +345,13 @@ whoWeAreCtx people =
 podcastCtx :: [Item String] -> Context String
 podcastCtx episodes =
     listField "episodes" defaultContext (return $ reverse episodes) <>
+    defaultContext
+
+-- careers ---------------------------------------------------------------------------------------------
+careersCtx :: [Item String] -> Context String
+careersCtx reqs =
+    listField "openreqs" defaultContext (ofMetadataField "status" "Open" reqs) <>
+    listField "closedreqs" defaultContext (ofMetadataField "status" "Closed" reqs) <>
     defaultContext
 
 --------------------------------------------------------------------------------------------------------
