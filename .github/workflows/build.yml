@@ -49,4 +49,5 @@ jobs:
 
       - name: Deploy site
         run: |
+          if [[ ! -z $GITHUB_HEAD_REF ]]; then echo "Skip this step for pull request"; exit 0; fi;
           ./.github/workflows/deployment/deploy.sh
