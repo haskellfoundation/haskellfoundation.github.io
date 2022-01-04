@@ -29,5 +29,5 @@ The Haskell Foundation is looking for a DevOps engineer to take the Haskell ecos
 
 This role spans many Haskell ecosystem projects to homogenize and improve the infrastructure used to build GHC and other core open source projects whose maintainers are interested, for instance HLS, Cabal, Stack, GHCup, core libraries, and more.
 
-The successful candidate will be in the middle of it all, collaborating with developers at the forefront of making Haskell a groundbreaking, influential, and top tier programming language. The individual will improve existing infrastructure, work on creating a shared CI and performance benchmarking system across the Haskell ecosystem, shorted CI turnaround times, and improve debugability of failures.
+The successful candidate will be in the middle of it all, collaborating with developers at the forefront of making Haskell a groundbreaking, influential, and top-tier programming language. The individual will improve existing infrastructure, work on creating a shared CI and performance benchmarking system across the Haskell ecosystem, shortened CI turnaround times, and improved ability to debug failures.
 
