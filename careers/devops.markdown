@@ -23,7 +23,7 @@ status: Open
 * Demonstrated ability to manage and simplify complexity
 * Collaborate with a variety of stakeholders
 * Can juggle multiple, conflicting priorities
-* Excellent communication skills
+* Excellent written communication skills
 
 The Haskell Foundation is looking for a DevOps engineer to take the Haskell ecosystem, primarily the Glasgow Haskell Compiler (GHC, the Haskell compiler), to the next level of stability, reliability, and performance.
 
