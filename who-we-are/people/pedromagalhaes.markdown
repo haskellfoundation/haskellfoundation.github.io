@@ -1,7 +1,7 @@
 ---
 name: José Pedro Magalhães
 email: dreixel@gmail.com
-title: Vice Treasurer
+title: Vice Treasurer, Vice Secretary
 executiveTeam: "False"
 tenureStart: 2021-02-01
 image: /assets/images/board-members/jpm.png

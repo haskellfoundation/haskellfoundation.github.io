@@ -1,7 +1,7 @@
 ---
 name: Théophile "Hécate" Choutri
 email: hecate@haskell.foundation
-title: Vice Secretary
+title: Secretary
 executiveTeam: "False"
 tenureStart: 2021-02-01
 image: /assets/images/board-members/thc.png

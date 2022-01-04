@@ -1,7 +1,7 @@
 ---
 name: Michael Snoyman
 email: michael@snoyman.com
-title: Secretary
+title: Board Member
 executiveTeam: "False"
 tenureStart: 2021-02-01
 image: /assets/images/board-members/ms.png
