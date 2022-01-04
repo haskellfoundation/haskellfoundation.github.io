@@ -9,7 +9,7 @@ status: Open
 
 ## Responsibilities
 
-* Maintain GitLab and CI infrastructure for GHC
+* Maintain CI (continuous integration) infrastructure for GHC (the Glasgow Haskell Compiler, the leading compiler for the Haskell language), as hosted on GHC's GitLab instance.
 * Improve CI
 * Expand the CI infrastructure to include base the base Haskell ecosystem
 * Support other Haskell libraries and tools, including HLS (Haskell Language Server)
