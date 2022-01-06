@@ -1,9 +1,9 @@
 ---
 title: Donations and Sponsorship
 ---
-  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
+<div class="max-w-screen-xl mx-auto py-16 md:py-24">
+  <div class="sm:px-6 lg:px-16">
+    <div class="relative">
   <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
     <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
       <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
@@ -177,6 +177,23 @@ title: Donations and Sponsorship
     Non-financial contributions to HF are also welcome. As a volunteer-based organization, the Haskell Foundation needs volunteers who can work on software, documentation, promotion, and other tasks to support the HF affiliated projects and the Haskell community. Individuals who contribute their own time or on behalf of their company are the backbone of our organization. Please reach out to us at <a href="mailto:contact@haskell.foundation">contact@haskell.foundation</a> to learn more about how you can volunteer or offer in-kind support.
 
       </p>
+
+      <div class="mt-10 space-y-6 lg:space-y-0 lg:flex justify-around bg-white">
+        <div class="mt-16 md:mt-24 px-4 sm:px-12 md:px-12 lg:px-16">
+          <div class="flex items-center space-x-4">
+            <div>
+              <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+            </div>
+            <h2 class="text-2xl font-normal">In-Kind Donations</h2>
+          </div>
+          <div
+            class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4 my-6 md:my-8 lg:my-10 grid lg:grid-cols-2 py-4 md:py-8 gap-4 md:gap-8">
+            $for(inkinds)$
+            $partial("templates/donations/tile.html")$
+            $endfor$
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
