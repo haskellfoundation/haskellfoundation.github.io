@@ -80,6 +80,46 @@
   </div>
 </div>
 
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Past Executive Team Members</h2>
+          <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+
+            Thank you to the former members of the Executive Team, who helped shape the Haskell Foundation.
+
+          </p>
+  </div>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+<div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+  $for(pastexecutiveteam)$
+  <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+    <div class="sm:flex md:block xl:flex items-center">
+      <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="$name$">
+      <div class="">
+        <h3 class="text-xl font-semibold">$name$</h3>
+        $if(title)$
+        <div class="uppercase text-lg font-medium">$title$</div>
+        <div class="uppercase text-md font-medium">$tenureStart$ - $tenureEnd$</div>
+        $endif$
+      </div>
+    </div>
+    <p>
+      $body$
+    </p>
+    <div>
+      $if(email)$
+      <a class="arrow-link" href="mailto:$email$">>> $email$</a>
+      $endif$
+      $if(website)$
+      <a class="arrow-link" href="$website$">>> $website$</a>
+      $endif$
+    </div>
+  </div>
+  $endfor$
+</div>
+</div>
 
   <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
     <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
