@@ -1,7 +1,6 @@
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language ViewPatterns #-}
-{-# Language BangPatterns #-}
 
 import Hakyll
 import Data.List (sortOn)
@@ -224,9 +223,10 @@ main = hakyll $ do
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Careers")
             ctx <- careersCtx <$> loadAll "careers/*.markdown"
+            hiringSponsors <- hiringSponsorsCtx <$> loadAll "donations/sponsors/*.markdown"
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/careers/list.html" ctx
+                >>= loadAndApplyTemplate "templates/careers/list.html" (ctx <> hiringSponsors)
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -243,7 +243,6 @@ main = hakyll $ do
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
-
 
 --------------------------------------------------------------------------------------------------------
 -- CONTEXT ---------------------------------------------------------------------------------------------
@@ -354,9 +353,22 @@ careersCtx reqs =
     listField "closedreqs" defaultContext (ofMetadataField "status" "Closed" reqs) <>
     defaultContext
 
+hiringSponsorsCtx :: [Item String] -> Context String
+hiringSponsorsCtx sponsors =
+    listField "hiringsponsors" defaultContext (filterMetadataField "careersUrl" sponsors) <>
+    defaultContext
+
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
+
+-- | filter list of item string based on whether or not the field exists
+filterMetadataField :: String -> [Item String] -> Compiler [Item String]
+filterMetadataField field =
+    filterM (\item -> do
+        mbField <- getMetadataField (itemIdentifier item) field
+        return $ isJust mbField
+    )
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
