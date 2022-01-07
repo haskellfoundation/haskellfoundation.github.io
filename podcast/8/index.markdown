@@ -1,9 +1,9 @@
 ---
 title: Théophile Choutri
 episode: 8
-buzzsproutId: TODO # prev 9739319
-recorded: TODO # around 2021-11
-published: TODO # probably this Fri, 2022-01-07
+buzzsproutId: 9739319
+recorded: 2021-11-23
+published: 2022-01-07
 ---
 
 Niki Vazou and Andres Löh are joined by guest Théophile Choutri (they/them), who
