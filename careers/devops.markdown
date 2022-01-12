@@ -1,7 +1,7 @@
 ---
 title: DevOps Engineer
 summary: The Haskell Foundation (HF) seeks a passionate DevOps professional to support GHC, related Haskell projects and tooling, and the HF itself.
-postedOn: 2021-12-28
+postedOn: 2022-01-12
 status: Open
 ---
 
@@ -38,7 +38,7 @@ The successful candidate will be in the middle of it all, collaborating with dev
 
 * Most GHC services are hosted by a single machine running NixOS. This includes our PostreSQL database, GitLab and Grafana instances, our Docker registry, as well as various project-specific services. All of these services are provisioned via their associated Nix modules.
 * Our CI infrastructure builds upon GitLab Pipelines, using Docker for build isolation and reproducibility on Linux. A qualified applicant should be comfortable with both technologies.
-* We maintain a fleet of heterogeneous CI runners, covering Linux (AArch64, x86-64), Windows (x86-64), and Darwin (AArch64). Having some familiarity with all three of these platforms would be useful.
+* We maintain a fleet of heterogeneous CI runners, covering Linux (AArch64, x86-64), Windows (x86-64), and Darwin (AArch64).
 
 # Bonus Points
 
@@ -52,6 +52,6 @@ This is a 100% remote position, reporting to the Executive Director of the Haske
 
 Haskell knowledge in not required.
 
-Budgeted maximum total compensation for this position is $124k USD. Actual terms depend on experience, expertise, geographical location, local employment laws, etc.
+Budgeted maximum total compensation for this position is $$124k USD. Actual terms depend on experience, expertise, geographical location, local employment laws, etc.
 
 The Haskell Foundation does not descriminate based on race, creed, color, ethnicity, national origin, religion, sex, gender identity (including gender expression), sexual orientation, disability, age, marital status, and family/parental status.

@@ -180,8 +180,21 @@ main = hakyll $ do
     match "podcast/*/transcript.markdown" $ compile pandocCompiler
     match "podcast/*/links.markdown" $ compile pandocCompiler
 
+-- home page -------------------------------------------------------------------------------------------
+    create ["index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
+            podcastsCtx <- podcastCtx . take 1 . reverse <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            careersCtx <- careersCtx <$> loadAll "careers/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx)
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
 -- general 'static' pages ------------------------------------------------------------------------------
-    match ("index.html" .||. "**/index.html") $ do
+    match "**/index.html" $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing

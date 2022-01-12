@@ -6,13 +6,13 @@
     <div class="max-w-screen-xl mx-auto">
         <div class="px-4 sm:px-8 md:px-12 lg:px-16">
             <div class="mx-auto prose md:prose-lg">
-                <ul>
-                    <li>Posted: $postedOn$</li>
-                    <li>Status: $status$</li>
-                </ul>
-            $body$
-            <div><a href="mailto:careers@haskell.foundation">Email with a resume/CV to apply!</a></div>
+                <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12 bg-gray-100">
+                    <div class="text-lg"><strong>Posted:</strong> $postedOn$</div>
+                    <div class="text-lg"><strong>Status:</strong> $status$</div>
+                </div>
+                $body$
+                <div><a href="mailto:careers@haskell.foundation">Email with a resume/CV to apply!</a></div>
+            </div>
         </div>
-    </div>
     </div>
 </div>
