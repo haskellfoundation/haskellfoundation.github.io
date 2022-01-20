@@ -1,26 +1,28 @@
 ---
 title: DevOps Engineer
 summary: The Haskell Foundation (HF) seeks a passionate DevOps professional to support GHC, related Haskell projects and tooling, and the HF itself.
-postedOn: 2022-01-12
+postedOn: 2022-01-21
 status: Open
 ---
 
 # Description
 
-The [Haskell Foundation](https://haskell.foundation) is [looking for a DevOps engineer](https://github.com/haskellfoundation/tech-proposals/blob/main/proposals/accepted/003-ghc-ops.md) to take the Haskell ecosystem, primarily the [Glasgow Haskell Compiler](https://gitlab.haskell.org/ghc/ghc) (GHC, the Haskell compiler), to the next level of stability, reliability, and performance.
+The [Haskell Foundation](https://haskell.foundation) is [looking for a DevOps engineer](https://github.com/haskellfoundation/tech-proposals/blob/main/proposals/accepted/003-ghc-ops.md) to take the Haskell ecosystem to the next level of stability, reliability, and performance.
 
-This role spans many Haskell ecosystem projects to homogenize and improve the infrastructure used to build GHC and other core open source projects whose maintainers are interested, for instance HLS, Cabal, Stack, GHCup, core libraries, and more.
+This is a central role in the Haskell ecosystem, the primary responsibility is maintaining and improving the [CI](https://gitlab.haskell.org/ghc/ghc/-/tree/master/.gitlab) infrastructure for GHC ([Glasgow Haskell Compiler](https://gitlab.haskell.org/ghc/ghc)). However, once that is in good shape, we anticipate offering support to other core open source Haskell projects, such as Cabal, Stack, GHCup, Haskell Language Server, and core libraries. 
 
-The successful candidate will be in the middle of it all, collaborating with developers at the forefront of making Haskell a groundbreaking, influential, top-tier programming language. The individual will improve existing infrastructure, work on creating a shared [CI](https://gitlab.haskell.org/ghc/ghc/-/tree/master/.gitlab) and performance benchmarking system across the Haskell ecosystem, shortened CI turnaround times, and improved ability to debug failures.
+The successful candidate will have exceptional DevOps skills in the current technology stack:
 
-# Responsibilities
+* Most GHC services are hosted by a single machine running NixOS, including:
+  * PostgreSQL
+  * GitLab
+  * Grafana
+  * Docker registry
+* GitLab Pipelines
+* Docker
+* Heterogenous CI runners, covering Linux (AArch64, x86-64), Windows (x86-64), and Darwin (AArch64).
 
-* Maintain CI (continuous integration) infrastructure for GHC (the Glasgow Haskell Compiler, the leading compiler for the Haskell language), as hosted on GHC's GitLab instance.
-* Work with the GHC team to improve CI efficiency, reliability, and resource utilization.
-* Design and implement expanding the CI infrastructure to include key components of the Haskell ecosystem.
-* Support other Haskell libraries and tools, including HLS (Haskell Language Server).
-* Support OS packaging of GHC and tools.
-* Documentation for the CI infrastructure.
+Additionally, this position is responsible for maintaining operating system dependent packaging of GHC and related tools.
 
 ## Likely future responsibilities
 
@@ -34,24 +36,18 @@ The successful candidate will be in the middle of it all, collaborating with dev
 * Ability to choose between multiple, conflicting priorities
 * Excellent English written communication skills
 
-# Current Technology Stack
-
-* Most GHC services are hosted by a single machine running NixOS. This includes our PostreSQL database, GitLab and Grafana instances, our Docker registry, as well as various project-specific services. All of these services are provisioned via their associated Nix modules.
-* Our CI infrastructure builds upon GitLab Pipelines, using Docker for build isolation and reproducibility on Linux. A qualified applicant should be comfortable with both technologies.
-* We maintain a fleet of heterogeneous CI runners, covering Linux (AArch64, x86-64), Windows (x86-64), and Darwin (AArch64).
-
 # Bonus Points
 
 * Some famliarity with Haskell packaging.
 * Familiarity with platform-dependent software packaging (e.g. notarisation and code signing on Darwin).
 * Some systems programming experience.
 
-# Misc.
+# Miscellaneous
 
 This is a 100% remote position, reporting to the Executive Director of the Haskell Foundation, but taking technical direction from the GHC team (primarily Ben Gamari). Primary interactions will include people in US and European time zones, but can include coordination with people across the world at times.
 
-Haskell knowledge in not required.
-
-Budgeted maximum total compensation for this position is $$124k USD. Actual terms depend on experience, expertise, geographical location, local employment laws, etc.
+Haskell knowledge is not required.
 
 The Haskell Foundation does not descriminate based on race, creed, color, ethnicity, national origin, religion, sex, gender identity (including gender expression), sexual orientation, disability, age, marital status, and family/parental status.
+
+We offer competitive compensation and benefits (dependent on experience, logistics required to compensate the candidate in their locale, and relevant labor laws).
