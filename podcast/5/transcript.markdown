@@ -1,4 +1,4 @@
-_Joachim Breitner:_ Wellcome to the Haskell Interlude episode with Chis Smith author of the CodeWorld teaching tool. Stay tuned to hear why too much curry in the language can make error messages hard to digest and why a self respecting testing library certainly should be used to test itself.   
+_Joachim Breitner:_ Welcome to the Haskell Interlude episode with Chis Smith author of the CodeWorld teaching tool. Stay tuned to hear why too much curry in the language can make error messages hard to digest and why a self respecting testing library certainly should be used to test itself.   
 
 _Andres Löh:_ Hello! 
 
