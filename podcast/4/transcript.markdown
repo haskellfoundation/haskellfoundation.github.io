@@ -431,7 +431,7 @@ _NV:_ Did you develop all this in Haskell?
 
 _JVdJ:_ Um, we did ... the, okay, to take small step back, I think one of the
 constraints we really had when we were coming up with the problem is that
-graphical is good. Likw it's very nice and draws people in if you can
+graphical is good. Like it's very nice and draws people in if you can
 visualize problems, and obviously I was explaining the problem to you just now
 because it's a podcast but if I could just show an image, like it's much
 clearer, like it's a very very visual thing and that's intentionally what what
