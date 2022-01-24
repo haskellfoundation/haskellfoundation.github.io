@@ -48,6 +48,6 @@ This is a 100% remote position, reporting to the Executive Director of the Haske
 
 Haskell knowledge is not required.
 
-The Haskell Foundation does not descriminate based on race, creed, color, ethnicity, national origin, religion, sex, gender identity (including gender expression), sexual orientation, disability, age, marital status, and family/parental status.
+The Haskell Foundation does not discriminate based on race, creed, color, ethnicity, national origin, religion, sex, gender identity (including gender expression), sexual orientation, disability, age, marital status, and family/parental status.
 
 We offer competitive compensation and benefits (dependent on experience, logistics required to compensate the candidate in their locale, and relevant labor laws).
