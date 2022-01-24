@@ -1,7 +1,3 @@
----
-title: Haskell Foundation
----
-
 <div class="max-w-screen-xl mx-auto mt-6 sm:mt-12">
   <div class="border border-purple-500 p-1 lg:p-3">
     <div class="border border-purple-400 p-1 lg:p-3">
@@ -18,6 +14,31 @@ title: Haskell Foundation
       </div>
     </div>
   </div>
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16">
+    <div class="grid gap-8 md:grid-cols-2">
+        $for(openreqs)$
+        $partial("templates/careers/tile.html")$
+        $endfor$
+
+        $for(episodes)$
+        <div class="bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
+            <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+                <h2 class="text-center text-2xl-4xl font-normal">
+                    <b>$episode$</b> – $title$
+                </h2>
+                <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+                  $body$
+                  <div class="mt-4">
+                    <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        $endfor$
+    </div>
+</div>
+
 
   <div class="relative bg-white mt-24 lg:w-2/3">
     <div class="absolute -z-10 left-0 top-0 right-6 bottom-6 border-3 border-purple-700"></div>

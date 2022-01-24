@@ -1,7 +1,6 @@
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language ViewPatterns #-}
-{-# Language BangPatterns #-}
 
 import Hakyll
 import Data.List (sortOn)
@@ -181,8 +180,21 @@ main = hakyll $ do
     match "podcast/*/transcript.markdown" $ compile pandocCompiler
     match "podcast/*/links.markdown" $ compile pandocCompiler
 
+-- home page -------------------------------------------------------------------------------------------
+    create ["index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
+            podcastsCtx <- podcastCtx . take 1 . reverse <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            careersCtx <- careersCtx <$> loadAll "careers/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx)
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
 -- general 'static' pages ------------------------------------------------------------------------------
-    match ("index.html" .||. "**/index.html") $ do
+    match "**/index.html" $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
@@ -218,10 +230,32 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
+-- Careers ---------------------------------------------------------------------------------------------
+    create ["careers/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Careers")
+            ctx <- careersCtx <$> loadAll "careers/*.markdown"
+            hiringSponsors <- hiringSponsorsCtx <$> loadAll "donations/sponsors/*.markdown"
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/careers/list.html" (ctx <> hiringSponsors)
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
+    match "careers/*.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildBoilerplateCtx Nothing
+            pandocCompiler
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/careers/page.html"    defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html"     sponsors
+                >>= relativizeUrls
+
 -- templates -------------------------------------------------------------------------------------------
     match "templates/*" $ compile templateBodyCompiler
     match "templates/**" $ compile templateBodyCompiler
-
 
 --------------------------------------------------------------------------------------------------------
 -- CONTEXT ---------------------------------------------------------------------------------------------
@@ -325,9 +359,29 @@ podcastCtx episodes =
     listField "episodes" defaultContext (return $ reverse episodes) <>
     defaultContext
 
+-- careers ---------------------------------------------------------------------------------------------
+careersCtx :: [Item String] -> Context String
+careersCtx reqs =
+    listField "openreqs" defaultContext (ofMetadataField "status" "Open" reqs) <>
+    listField "closedreqs" defaultContext (ofMetadataField "status" "Closed" reqs) <>
+    defaultContext
+
+hiringSponsorsCtx :: [Item String] -> Context String
+hiringSponsorsCtx sponsors =
+    listField "hiringsponsors" defaultContext (filterMetadataField "careersUrl" sponsors) <>
+    defaultContext
+
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
+
+-- | filter list of item string based on whether or not the field exists
+filterMetadataField :: String -> [Item String] -> Compiler [Item String]
+filterMetadataField field =
+    filterM (\item -> do
+        mbField <- getMetadataField (itemIdentifier item) field
+        return $ isJust mbField
+    )
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
