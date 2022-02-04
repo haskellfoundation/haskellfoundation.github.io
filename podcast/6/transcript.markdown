@@ -15,7 +15,7 @@ So, welcome Graham, and can you tell me a little bit about yourself?
 
 _Graham Hutton_: Yeah, thanks Wouter and thanks Andres for having me on the
 podcast. Very very pleased to be here. So I'm Graham Hutton. I'm a professor
-at the university of Nottingham and I do research and teaching on functional
+at the University of Nottingham and I do research and teaching on functional
 programming, mainly Haskell type stuff. So I'm basically getting paid to have
 fun. So don't tell my boss but I'd probably do my job for nothing. I'm doing
 kind of Haskell stuff all day every day and it's kind of ... for me, it's a
@@ -428,7 +428,7 @@ of a successful book and you managed to pull this off twice now, why haven't
 you been writing more books?
 
 _GH_: It takes a lot of time. That's the main thing, but I do have the burning
-itch to write another book. I mean, my publisher Cabridge, they said, oh, what
+itch to write another book. I mean, my publisher Cambridge, they said, oh, what
 about a third edition of the book? And I would like to do a third edition, but
 Haskell hasn't changed sufficiently much in the last five years. So my my kind
 of thought at the moment is to to wait until dependent types, if they ever do
@@ -468,7 +468,7 @@ selling points we have in Nottingham is we teach an awful lot of functional
 programming. We've been doing this for 25+ years. We have a kind of significant
 group of people doing it. Functional programming now is throughout the entire
 degree. It's one of the core things that people learn, so it is actually one of
-the selling points when we advertise ourselves toprospective undergraduates, we
+the selling points when we advertise ourselves to prospective undergraduates, we
 say, if you want to do kind of Haskell stuff, then Nottingham is one of the
 places to do that.
 
@@ -638,8 +638,8 @@ you can you can write down the specification for a compiler, what it means to
 be correct, quite concisely, and then actually the implementation of compilers,
 there's lots of little tricks to get things to work properly or to get things
 to be efficient, and how do you get from that high-level specification down to
-the low-level implementation. So for me compilers was always a kind of a holy
-grail. If you could calculate compilers then that was kind of a decent thing to
+the low-level implementation. So for me compilers was always a kind of a Holy
+Grail. If you could calculate compilers then that was kind of a decent thing to
 be able to do with program calculation. And no one really worked on this. I
 mean, there was some early work by Erik Meijer and Mitchell Wand and others,
 but I was never really satisfied with it. It always seemed to be either too
@@ -677,7 +677,7 @@ organisation for computing, and there's a part of that called SIGPLAN, which is
 the Special Interest Group on Programming LANguages, and I was the the vice
 chair of that. Phil Wadler was the chair, and we had tremendous fun just kind
 of overseeing all the conferences in the area of programming languages, and
-again it's just a way to give things back to the community. I meanm I've got so
+again it's just a way to give things back to the community. I mean I've got so
 much out of the community. It's given me an amazing career. Which ah, it's an
 absolute privilege and so I've always wanted to give something back to the
 community by going into these kind of roles, these community roles and trying
@@ -708,7 +708,7 @@ they're discussing. One thing I'd say about SIGPLAN: if anyone gets the
 opportunity to be involved with it, I would jump at it. To an outsider, if
 you're just going to these conferences or going to the workshops, you think,
 why do we need an oversight body? What do they actually do? Is this just a
-talking shop  That's consuming money or something like that? And when you get
+talking shop that's consuming money or something like that? And when you get
 inside it, you find it's a group of really really motivated people, trying to
 make the field better by improving these conferences and just making sure
 they're going in the right direction. And you learn a tremendous amount about
@@ -762,7 +762,7 @@ to put on courses. So we kind of pooled our resources and thought, well we can
 teach courses to our own PhD students, and that worked really well, and it grew
 over the last 21 years, and now it's I think one of the main training events
 for students in theoretical computer science, mainly with a programming
-language semantics slant on it. One ff the main training environments for those
+language semantics slant on it. One of the main training environments for those
 kind of students in Europe, but we do have people coming from America and
 further afield as well. These days, it gets about a hundred ...
 
