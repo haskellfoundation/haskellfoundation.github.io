@@ -244,7 +244,7 @@ enjoyed that.
 
 That's how I got to meet Professor Hicks at the University of Maryland doing
 that work. And then after that I worked for a few years on compilers for
-Homomorphic encryption and, you know so, also privacy related but there the
+homomorphic encryption and, you know so, also privacy related but there the
 model is very different. There the model is, "I have some data and you have some
 program or some algorithm or something that I want to run on my data. But for
 for reasons you don't you may not want to share your algorithm or your program
@@ -490,8 +490,8 @@ needs to be done. But both at Galois and at Maryland I'm just kind of left to my
 own devices. Um, so that that's one way they're similar.
 
 But the main way they're different, is the, is the type of of work and, and by
-that I don't necessarily mean teaching is different than, than what we do. At
-Galois I think that's kind of clearly true, but it's that, in, in teaching
+that I don't necessarily mean teaching is different than, than what we do at
+Galois. I think that's kind of clearly true, but it's that, in, in teaching
 there's a lot more like, urgency and fires that need putting out. You know, I'm
 dealing with student issues or making sure the exam is prepared or making sure
 the exam is graded and these things have a really strict, like you know, not
@@ -767,7 +767,7 @@ and the list was a very to me intimidating list and it felt to me that that's
 not why I like functional program at all.
 
 _WS:_ It's not always. Yeah, it's not always like the super fancy generic
-Category theory abstractions or whatever. Sometimes and the low level kind of
+category theory abstractions or whatever. Sometimes and the low level kind of
 more or low level is not the right word here, but the simple ideas about
 compositionality and, ah you know, solving a problem by breaking it into pieces
 and composing the results or ah, designing a data structure that captures just
@@ -794,7 +794,7 @@ expressions as well.
 _WS:_ Yeah, so so it's, ah it's, one of the things where people think functional
 programming is about higher order functions which is maybe part of kind of
 defining what functional programming is but um I think Simon Peyton Jones talks
-about Expression-oriented programming is kind of a, ah, take on object-oriented
+about expression-oriented programming is kind of a, ah, take on object-oriented
 programming where the thing that you're working with all the time is expressions
 and these expressions can be integer expressions or Boolean expressions or
 functional expressions or lambda. So whatever, right? But crucially, they're all
@@ -903,7 +903,7 @@ the, that's the idea of research. We're pushing the boundaries. We're figuring
 out what are the good ways of doing this, what are the bad ways of doing this
 and we don't know. It takes hindsight. And in industry sometimes they just grab
 the thing and they're like "Oh let's use this everywhere" and then a year later
-they're like "Our code base is unmantainable", you know, and, and that's that. I
+they're like "Our code base is unmaintainable", you know, and, and that's that. I
 don't know how to better address that.
 
 _WS:_ Yeah, so I think I had a recording with Graham Hutton a few weeks ago and
