@@ -33,6 +33,33 @@ main = hakyll $ do
 -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
 
+-- in-kind donations -----------------------------------------------------------------------------------
+    create ["donations/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Sponsorship")
+            iks <- loadAll "donations/inkind/*.markdown"
+
+            let ctx =
+                    listField "inkinds" defaultContext (return iks) <>
+                    defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/donations/list.html"  ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html"     sponsors
+                >>= relativizeUrls
+
+    match "donations/inkind/*.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildBoilerplateCtx Nothing
+
+            pandocCompiler
+                >>= applyAsTemplate sponsors
+                >>= loadAndApplyTemplate "templates/donations/page.html"  defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html"     sponsors
+                >>= relativizeUrls
+
 -- affiliates ------------------------------------------------------------------------------------------
     match "affiliates/*.markdown" $ compile pandocCompiler
     create ["affiliates/index.html"] $ do
