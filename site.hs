@@ -213,7 +213,7 @@ main = hakyll $ do
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
             podcastsCtx <- podcastCtx . take 1 . reverse <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
-            careersCtx <- careersCtx <$> loadAll "careers/*.markdown"
+            careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx)
