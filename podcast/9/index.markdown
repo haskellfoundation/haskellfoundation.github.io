@@ -1,7 +1,7 @@
 ---
 title: Sebastian Graf
 episode: 9
-buzzsproutId: 9368484
+buzzsproutId: 10051487
 recorded: 2021-12-20
 published: 2022-02-11
 ---
