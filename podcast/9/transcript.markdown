@@ -2,7 +2,7 @@ _Joachim Breitner_: Welcome to the episode of Haskell Interlude with our guest S
 
 Today, together with Alejandro, I'm interviewing Sebastian Graf who is a very active GHC developer at the moment. So the first natural question, of course, is "How did you get to GHC?", and, maybe starting before that, "How did you get to get to Haskell?"
 
-_Sebastian Graf_: Hi there. I'm Sebastian, thanks for having me here. I got into Haskell basically when I was in my fifth semester back at university and I was interested in finding other programming languages. I remember I had this website tab open all the time which was something like fledgling languages list. It listed all the current and new programming languages of late and I kept on clicking on new entries to find out what was their deal. So, of course, Haskell has been around for a long time back them. But, actually, the first time around I remember having seen it, I wasn't very convinced because of camel case. Basically, syntactic concerns.  But I think that after a while it really made a click back when my main language actually was D. So I basically came from C# to D and then Haskell.
+_Sebastian Graf_: Hi there. I'm Sebastian, thanks for having me here. I got into Haskell basically when I was in my fifth semester back at university and I was interested in finding other programming languages. I remember I had this website tab open all the time which was something like fledgling languages list. It listed all the current and new programming languages of late and I kept on clicking on new entries to find out what was their deal. So, of course, Haskell has been around for a long time back then. But, actually, the first time around I remember having seen it, I wasn't very convinced because of camel case. Basically, syntactic concerns.  But I think that after a while it really made a click back when my main language actually was D. So I basically came from C# to D and then Haskell.
 
 _JB_: What is D?
 
@@ -10,21 +10,21 @@ _SG_: D is a language which, in spirit, is a bit like a better C++. Also, featur
 
 _Alejandro Serrano_: I remember before Rust made its appearance there being a new systems programming language you should learn because everyone agreed that C++ was not so nice, 20 years ago when nobody knew how to do it better.
 
-_SG_: So, basically, I think D started from C, I guess, and tried to iterate upon it very muck like C++ did. But it isn't compatible with C++. It included a C parser though, I think, so that you can include your C headers directly.
+_SG_: So, basically, I think D started from C, I guess, and tried to iterate upon it very much like C++ did. But it isn't compatible with C++. It included a C parser though, I think, so that you can include your C headers directly.
 
-Regardless, so this was what I started out with and I liked D for its metaprogramming stuff. And then i found out about Haskell and was very surprised that you could actually compile programms that would execute efficiently.
+Regardless, so this was what I started out with and I liked D for its metaprogramming stuff. And then I found out about Haskell and was very surprised that you could actually compile programs that would execute efficiently.
 
-_AS_: In what ways was that surprinsing?
+_AS_: In what ways was that surprising?
 
 _SG_: It's all this laziness stuff and these theorical underpinnings. It's a very high level language, right? You declare your program in expressions and the compiler figures out how to execute this program for you. It's not all clear in which order you execute it and how to do it efficiently. The compiled is allowed certain things but it also has to preserve lazy semantics. This preservation of lazy semantics, in my head, gave rise to a very inefficient underlying execution.
 
 _JB_: But how did you find out that Haskell actually can compile reasonable efficiently? Because I think one of the misperceptions of what you said there is that Haskell is an academic language and it's not usable, it's slow. But how did you notice that this is not the case?
 
-_SG_: Well, I think I saw and read a few blog posts. I saw the entries in the benchmarks game which were like "Whoa, Haskell reaches C performance in some benchmarks".
+_SG_: Well, I think I saw and read a few blog posts. I saw the entries in the Benchmarks Game which were like "Whoa, Haskell reaches C performance in some benchmarks".
 
-_JB_: What is the benchmarks game?
+_JB_: What is the Benchmarks Game?
 
-_SG_: It's the language shootout. I'm not sure if it has been renamed in the past couple of years.
+_SG_: It's the Language Shootout. I'm not sure if it has been renamed in the past couple of years.
 
 _JB_: Okay, is it this website that compares implementations in different programming languages for the same task?
 
@@ -34,9 +34,9 @@ _JB_: Ok.
 
 _SG_: So basically what got me into Haskell in the first place was, of course, this radically new idea of writing programs. But also then I was very amazed to find out that it can be executed efficiently, that the optimizer does such a good job.
 
-Ultimately, I decided to finish my Bachelor's, of course, and then go to Karlsruhe for my Master's. The fact that a certain Joachim Breitner -- who is now the chair for the Programming Paradigms group where I work at --, the fact that Joachim worked there was part of the decision to go to Karlsruhe. I wanted to do more stuff in Haskell and I knew that Joachim was there so it was quite natural for me to go to Karlsruhe.
+Ultimately, I decided to finish my bachelor's, of course, and then go to Karlsruhe for my master's. The fact that a certain Joachim Breitner -- who is now the chair for the Programming Paradigms group where I work at --, the fact that Joachim worked there was part of the decision to go to Karlsruhe. I wanted to do more stuff in Haskell and I knew that Joachim was there so it was quite natural for me to go to Karlsruhe.
 
-_AS_: I find it quite interesting though that the usual story when people go to do some Haskell is that they are interested in the type level or very high level parts of the language and your story is that you were actually interested in this part which we don't talk about so often. I mean, we usually blame laziness more than be inspire by it. So I find it quite nice that the story takes a different turn at some point.
+_AS_: I find it quite interesting though that the usual story when people go to do some Haskell is that they are interested in the type level or very high level parts of the language and your story is that you were actually interested in this part which we don't talk about so often. I mean, we usually blame laziness more than be inspired by it. So I find it quite nice that the story takes a different turn at some point.
 
 _SG_: Yes. I mean, the type level stuff I find interesting to write. But often I find more interesting the fact that you can do this high level type stuff and make it so that the compiler generates an efficient program out of it. I like types and efficiency is basically what I'm saying.
 
@@ -52,11 +52,11 @@ _JB_: I think we need to unpack that a little bit.
 
 _SG_: Maybe we should come back later for that.
 
-_JB_: Yes, let's finish the story from the Bachelor's point to where we are now. So, you said you are a GHC dev now. How did that come to be?
+_JB_: Yes, let's finish the story from the bachelor's point to where we are now. So, you said you are a GHC dev now. How did that come to be?
 
-_SG_: So, I did my masters in Karlsruhe and then I prodded Joachim enough to work with me so that he would work with me. I did my masters thesis then with a topic he devised. Namely he wanted to compare two analysis passes in GHC and see if one subsumes the other or how they're related to each other.
+_SG_: So, I did my master's in Karlsruhe and then I prodded Joachim enough to work with me so that he would work with me. I did my master's thesis then with a topic he devised. Namely he wanted to compare two analysis passes in GHC and see if one subsumes the other or how they're related to each other.
 
-I wrote my Master's thesis and then Joachim recommended me to Simon, or tried to nudge Simon into starting a new project with me. From there on, I worked pretty closely with Simon Peyton Jones.
+I wrote my master's thesis and then Joachim recommended me to Simon, or tried to nudge Simon into starting a new project with me. From there on, I worked pretty closely with Simon Peyton Jones.
 
 _JB_: Did you actually go to Cambridge or was this purely via email?
 
@@ -80,7 +80,7 @@ _SG_: Maybe. So the `shell.nix` commit was basically useless because I think it 
 
 _JB_: That's why it said "less broken".
 
-_SG_: Yeah. So the "Add 'addWordC# PrimOp" commit I think was related to an add with carry instruction that we didn't have any primops before. I think I wanted to use it to write a more efficient `EnumFromToThen` implementation which is used in the `Enum` instance of `Word` for example.
+_SG_: Yeah. So the "Add 'addWordC#' PrimOp" commit I think was related to an add with carry instruction that we didn't have any primops before. I think I wanted to use it to write a more efficient `EnumFromToThen` implementation which is used in the `Enum` instance of `Word` for example.
 
 So the `Enum` instance is basically responsible for the syntax that you use when you write `[0..]`. So this is the instance I was trying to optimize basically.
 
@@ -116,11 +116,11 @@ _AS_: I cannot pronounce his name either.
 
 _SG_: Alp, our frontend telling guy. He hosts this -- I think he's Italian, I'm not sure actually --, so he hosts this `ghc.nix` repository.
 
-_JB_: We didn't make the connection as well. I started using that as well not that I tried to get back into GC development a few weeks ago after some years of being too busy with other stuff. Now I'm using it and it's very useful. So, thanks Alp! While you're editing this episode we can give you some praise.
+_JB_: We didn't make the connection as well. I started using that as well now that I tried to get back into GC development a few weeks ago after some years of being too busy with other stuff. Now I'm using it and it's very useful. So, thanks Alp! While you're editing this episode we can give you some praise.
 
 _SG_: So, we're basically using  his work on `ghc.nix`. I think it's now became a community effort to keep the repository up to date. It works flawlessly as far as I can tell. You just point your Nix shell at a particular URL or local checkout you want and you get a working environment in which you can build GHC including or excluding all LLVM, build the docs and whatever else. This is very useful in getting you started.
 
-Oh, I'm also using Laurie (??) and a couple of extension apps that make it easier for me to get the right environment and still work in zshell.
+Oh, I'm also using lorri and a couple of extension apps that make it easier for me to get the right environment and still work in zshell.
 
 _JB_: That sounds all very Nix heavy so far. Is that something that if you want to contribute to GHC you better be willing to also learn Nix or is it not a requirement?
 
@@ -148,7 +148,7 @@ _SG_: Yes. I'm not sure if he uses version 2 actually. I think he is because he 
 
 _JB_: Before that, for a long time, Simon Peyton Jones was probably the only active GHC developer on Windows. He was actually building on Windows so while all these other people were working on the build system and everything on Linux it was always Simon himself that was the first to stumble about some problem building on Windows. In a way, it's a waste of time because you don't really want Simon to be the one who has to discover these build errors. On the other hand it probably was very good to keep GHC buildable on Windows and Haskell in general be so good for cross-platform development.
 
-_SG_: So I think back then we didn't have a Windows job in CI. Today we have a Windows job in CI so at least the configuration we run in CI should work -- well, for some definition of "should work", because there are many fragile tests and so on that will or will not fail. But I think building should still be possible on Windows. I think Andrea ______ _(??) who work's basically on GHC's backend stuff is also on Windows. Not sure if nowadays he uses the Windows Subsytem for Linux or not.
+_SG_: So I think back then we didn't have a Windows job in CI. Today we have a Windows job in CI so at least the configuration we run in CI should work -- well, for some definition of "should work", because there are many fragile tests and so on that will or will not fail. But I think building should still be possible on Windows. I think Andreas Klebinger who works basically on GHC's backend stuff is also on Windows. Not sure if nowadays he uses the Windows Subsytem for Linux or not.
 
 _AS_: Good, so I think we've convinced everybody that, you know, if you put in the effort, nowadays getting the source and building GHC is easier than it used to be. But I think it's also interesting to know what you are doing apart of how you do it. You know, what kind of contributions? Do you have a long-term project that you are working on? Do you work on small things here and there? How does it work for you?
 
@@ -182,7 +182,7 @@ Most of the open issues at the time were about the inefficiencies of the pattern
 
 He basically broke it down to 3 different data constructors for the intermediate representation in this analysis and it made it all vastly simple. This is basically how one of my papers came to life, featuring Simon and me.
 
-_AS_: So, something I was wondering about. You mentioned that GADTs make the type level Turing complete but we also have guards in patterns, right? I always assumes that the coverage checker will not look at those except for like, I have a `False` and a `otherwise`, that simple. So, now that you mentioned this, I'm actually wondering, does the coverage checker look at guards as part of this thing? So does it know that if I write `n > 0` then it will be smaller in the other branch?
+_AS_: So, something I was wondering about. You mentioned that GADTs make the type level Turing complete but we also have guards in patterns, right? I always assumed that the coverage checker will not look at those except for like, I have a `False` and a `otherwise`, that simple. So, now that you mentioned this, I'm actually wondering, does the coverage checker look at guards as part of this thing? So does it know that if I write `n > 0` then it will be smaller in the other branch?
 
 _SG_: So, it does look at guards, but only if there are pattern guards. So a pattern guard is a guard where you match on some constructor in the result of some arbitrary expression. Right now, if you manage to always put the same expression on the right hand side on the different guards that you want to match and you cover all the cases on the left hand side then I can guarantee with reasonable certainty that this will actually not emit a warning.
 
@@ -208,7 +208,7 @@ _JB_: So the performance test suite can be very merciless. You've built this fan
 
 _SG_: Or the compiler itself might have slowed down because of the optimization that you tweaked actually affected how the compiler was compiled and then there is a space leak somewhere that you have to debug as well. It's a bit frustrating, as I said.
 
-I think many of the suff I focus my work on is related to optimizations and analysis based on the Core IR. So I had a couple of times that I had to debug performance issues.
+I think many of the stuff I focus my work on is related to optimizations and analysis based on the Core IR. So I had a couple of times that I had to debug performance issues.
 
 _AS_: So what kind of analyses are you working on?
 
@@ -216,7 +216,7 @@ _SG_: Actually, nowadays I'm working on the demand analyzer. Most importantly, i
 
 _AS_: So it goes a bit on the idea that analysis is really cool but if we can remove it we can get some time back, right?
 
-_SG_: Right, so the ideas is that you run this analysis to do the transformation afterwards. Both combine to an optimization which means that the generated code will get faster, and if you run your program frequently then you will get back some time.
+_SG_: Right, so the idea is that you run this analysis to do the transformation afterwards. Both combine to an optimization which means that the generated code will get faster, and if you run your program frequently then you will get back some time.
 
 _AS_: Cool. So I have a couple of questions about this. So the first is, can you tell us a bit how you can actually reason about this? Because apart from the usual case of, you know, I have a `!` in my argument, and then my usage is simple, what kind of reasoning can you do with real Haskell functions about this demand analysis?
 
@@ -236,13 +236,13 @@ _JB_: So `seq` is this Haskell function that  takes two arguments and just looks
 
 _SG_: Yeah, it's basically like if you do a case or a pattern match just on the outermost constructor and then you don't do anything further with the rest of it. Maybe put it in a list or something, like a lazy use.
 
-So imagine that you put the function body under a `seq` and from then you reason about how does this expression under `seq` uses its free variables, the variables that it references. For example, if you're `seq`-ing an addition, the addition is strict itself, so you need to know whether or not the function that you call is strict in its arguments. Addition for example is always strict, so you get to know that `(+)` uses both arguments strictly. You use the results strictly and then you get ro reason recursively and combine your results afterwards. This works for non-recursive functions pretty well. But in the case of recursive functions, like, let's say the factorial function which returns `1 * 2 * ...` until the `n` argument, if you write it in a non tail recursive way (return `1` for `0` case and `n * factorial (n - 1)` for the recursive case), for such a recursive function then you just assume that the recursive call just uses all its arguments strictly. Then you analyze the whole function and combine the 2 clauses and if you did so and the function actually uses its arguments strictly then you guessed right. Otherwise you have to reiterate and maybe it is that factorial uses the argument lazily (because of some fact you've found) and then you reiterate until you reach a fixed point.
+So imagine that you put the function body under a `seq` and from then you reason about how does this expression under `seq` uses its free variables, the variables that it references. For example, if you're `seq`-ing an addition, the addition is strict itself, so you need to know whether or not the function that you call is strict in its arguments. Addition for example is always strict, so you get to know that `(+)` uses both arguments strictly. You use the results strictly and then you get to reason recursively and combine your results afterwards. This works for non-recursive functions pretty well. But in the case of recursive functions, like, let's say the factorial function which returns `1 * 2 * ...` until the `n` argument, if you write it in a non tail recursive way (return `1` for `0` case and `n * factorial (n - 1)` for the recursive case), for such a recursive function then you just assume that the recursive call just uses all its arguments strictly. Then you analyze the whole function and combine the 2 clauses and if you did so and the function actually uses its arguments strictly then you guessed right. Otherwise you have to reiterate and maybe it is that factorial uses the argument lazily (because of some fact you've found) and then you reiterate until you reach a fixed point.
 
 This sounds complicated and is complicated in a few special cases. But I think it often gets the job done rather well. So this is how I normally reason about strictness of course.
 
-One other way to make sure that your function is strict in an argument is to just put a bang pattern on eveyr case of your function in that argument position. This is the conservative thing to do.
+One other way to make sure that your function is strict in an argument is to just put a bang pattern on every case of your function in that argument position. This is the conservative thing to do.
 
-_AS_: But, for example, is your analysis more compositional? In the sense that maybe you know you can discover that this function which calls these other 2 functions, toghether they are strict so you can actually optimize the code better than you would do by hand. Reasoning about functions which call other functions strictly and so on becomes very hairy, very very easily.
+_AS_: But, for example, is your analysis more compositional? In the sense that maybe you know you can discover that this function which calls these other 2 functions, together they are strict so you can actually optimize the code better than you would do by hand. Reasoning about functions which call other functions strictly and so on becomes very hairy, very very easily.
 
 _SG_: Yeah, exactly. So that is actually a problem. So, try putting `!` on arguments that you think you want to evaluate strictly, if you know that you don't ever want to call with an argument that could be used lazily (which would be very costly), I think it's actually a good thing. But it clutters your code and it's unclear whether if you put `!` everywhere if they are necessary or you put them there because you wanted to make sure.
 
@@ -252,7 +252,7 @@ _SG_: Yeah. I also find myself doing this when I want to tune code and I  want t
 
 Surprisingly often if you do this the overall performance of your module gets worse. Because you evaluate stuff that you weren't supposed to evaluate, that you wouldn't have to evaluate. But sometimes it also gets better. So I drill down to where I have to put that one `!` to force just enough to have performant code again.
 
-_JB_: I think I once saw a paper where they tried to basically randomly put `!`s everywhere and tried to find the combination that gives the best result
+_JB_: I think I once saw a paper where they tried to basically randomly put `!`s everywhere and tried to find the combination that gives the best result.
 
 _SG_: Yeah, I forgot how it was called. But it was like a genetic programming approach where they just tried `!` and saw what stuck.
 
@@ -272,7 +272,7 @@ _SG_: Yes, it seems that would be very useful. Our test suite has some regressio
 
 _JB_: Might be nice. I wonder if you can use GHC plugins in the test suite because sometimes you often want to test something for the GHC that you just build. It doesn't have all the necessary dynamic libraries needed to load plugins, but maybe it's not too bad.
 
-_SG_: I think we can use this for a lot of internal annotation stuff. But nobody has implemented it yet, so we stick with what we have. I think you're right in that this would also be valuable to Haskell users, for the reasons we just mentioned. It might be work to think about it. The compiler could emit a warning or whatever and you would see in advance whether you need to put a `!` on some argument rather than litter your code with all these bangs. Alternatively, you could just maybe have a strict pragma on a function granularity. That might also be worthwhile.
+_SG_: I think we can use this for a lot of internal annotation stuff. But nobody has implemented it yet, so we stick with what we have. I think you're right in that this would also be valuable to Haskell users, for the reasons we just mentioned. It might be worth to think about it. The compiler could emit a warning or whatever and you would see in advance whether you need to put a `!` on some argument rather than litter your code with all these bangs. Alternatively, you could just maybe have a strict pragma on a function granularity. That might also be worthwhile.
 
 _JB_: I guess one practical problem would be that the strictness analysis GHC of course evolves and changes from version to version, including the way that these are printed out. It's always the problem that once you surface some feature people care about it being more stable and then it's harder to evolve at some times.
 
@@ -280,7 +280,7 @@ _SG_: So this plugin would probably mostly be worthwhile for me a GHC developer.
 
 _JB_: So with all the work that you're pouring into GHC to make it better and faster and whatnot, are you actually using it? Like a developer, to build something else? Or it is just that's all you do and there's no time left for anything else?
 
-_SG_: Actually I like building GHC. so this is actually the single project that I'm working on. Actually I have a couple of libraries on Hackage but they are mostly even boring. So I have a library that replicates the map data type but for partial orders and it's a flop because it's not even faster than just using an association list. Anyways, stuff like that. I explore some ideas as libraries sometimes, but I don't have anything I actively work on at the moment because I spend the free time that I have with playing music in orchestra and whatnot and there isn't actually much time left to put into other Haskell things at the moment. But that might change in the future.
+_SG_: Actually I like building GHC. So this is actually the single project that I'm working on. Actually I have a couple of libraries on Hackage but they are mostly even boring. So I have a library that replicates the map data type but for partial orders and it's a flop because it's not even faster than just using an association list. Anyways, stuff like that. I explore some ideas as libraries sometimes, but I don't have anything I actively work on at the moment because I spend the free time that I have with playing music in orchestra and whatnot and there isn't actually much time left to put into other Haskell things at the moment. But that might change in the future.
 
 _JB_: This is also an effect that I reckon I know: Once you're stepped down one layer below and you're working on the compiler then it's hard to use it because everytime you use it you find something you want to change about the compiler and then you end up working on the compiler again.
 
@@ -292,15 +292,15 @@ _SG_: Yeah, I agree. So no other projects at the moment that I push along.
 
 _AS_: Cool. So, yeah, maybe one last question about all this. So we've been talking a lot about strictness analysis and all of that. I always wondered given that you know how GHC is, when we talk about performance in Haskell, apart from using the right data structure, we talk a lot about strictness. So do you think, and maybe this is more an overarching question, that laziness and strictness are the things you really need to know to get performant Haskell code or is it actually that we like to focus there because it's something which we can actually change because it is so easy to write `!` there. So what are your takes about how we write this performance code in Haskell?
 
-_SG_:a So, I said that the strictness analysis is pretty important but there isn't much to gain anymore in terms of strictness analysis, at least as implemented in GHC. I wouldn't know how to do it in a way that would find out more strictness information.
+_SG_: So, I said that the strictness analysis is pretty important but there isn't much to gain anymore in terms of strictness analysis, at least as implemented in GHC. I wouldn't know how to do it in a way that would find out more strictness information.
 
-_AS_: That's what I mean. So if I as a use want to make my Haskell program more performant, is learning more about the strictness a good thing or is the strictness analysis already good enough and it's hard to squeeze more juice out of the strictness lemon?
+_AS_: That's what I mean. So if I as a user want to make my Haskell program more performant, is learning more about the strictness a good thing or is the strictness analysis already good enough and it's hard to squeeze more juice out of the strictness lemon?
 
-_SG_: Exactly, there is not much left in the strictness lemont. If the function you write in inherently lazy in some argument the compiler can't just evaluate it because there might always be an error something that blows under the argument..
+_SG_: Exactly, there is not much left in the strictness lemon. If the function you write in inherently lazy in some argument the compiler can't just evaluate it because there might always be an error something that blows under the argument..
 
 _JB_: Unless the compiler sees all the places where you call the function.
 
-_SG_:  That's actually an interesting problem, right? In that case you could actually exploit it. We don't do at the moment but we might in the future. so, other than that, the only way you can help the strictness analysis at the moment is to put bangs there and that's not terribly satisfying. But there's not much you can do other than putting `!` ther eon inline the function. GHC already tries pretty hard to do this. It inlines all kinds of stuff, it's pretty crazy how the inliner works. Actually the inliner is one of those transformations that makes the lazyness bearable in Haskell or any language for that matter. If you inline something you can put the stuff that is used lazily as near to the users as you can. Then it might become strict and be as performing as in the strict languages as there is no laziness involved any longer. I think this is how laziness scales and how GHC achieves its performance. By doing strictness analysis and so much inlining. You get a hot loop which most of the time is pretty strict and therefore you get no overhead.
+_SG_:  That's actually an interesting problem, right? In that case you could actually exploit it. We don't do at the moment but we might in the future. So, other than that, the only way you can help the strictness analysis at the moment is to put bangs there and that's not terribly satisfying. But there's not much you can do other than putting `!` there or inline the function. GHC already tries pretty hard to do this. It inlines all kinds of stuff, it's pretty crazy how the inliner works. Actually the inliner is one of those transformations that makes the laziness bearable in Haskell or any language for that matter. If you inline something you can put the stuff that is used lazily as near to the users as you can. Then it might become strict and be as performing as in the strict languages as there is no laziness involved any longer. I think this is how laziness scales and how GHC achieves its performance. By doing strictness analysis and so much inlining. You get a hot loop which most of the time is pretty strict and therefore you get no overhead.
 
 But if you have a program that doesn't really have this hot loop then you often suffer death by thousand paper cuts. I think this is also in GHC itself. It has its own hot loops but I think that there is performance left on the table by the very fact that Haskell itself is lazy. But that's my opinion based on what I've seen so far and based on the problems that I've looked at and optimized so far.
 
