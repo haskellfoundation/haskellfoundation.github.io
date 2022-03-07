@@ -175,7 +175,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Interlude")
-            ctx <- podcastCtx <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            ctx <- podcastCtx . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/podcast/list.html"  ctx
@@ -212,7 +212,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
-            podcastsCtx <- podcastCtx . take 1 . reverse <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            podcastsCtx <- podcastCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
 
             makeItem ""
@@ -385,6 +385,9 @@ podcastCtx :: [Item String] -> Context String
 podcastCtx episodes =
     listField "episodes" defaultContext (return $ reverse episodes) <>
     defaultContext
+
+podcastOrd :: Item String -> Integer
+podcastOrd = read . head . fromJust . capture "podcast/*/index.markdown" . itemIdentifier
 
 -- careers ---------------------------------------------------------------------------------------------
 careersCtx :: [Item String] -> Context String
