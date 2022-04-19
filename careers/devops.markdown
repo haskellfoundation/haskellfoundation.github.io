@@ -2,7 +2,7 @@
 title: DevOps Engineer
 summary: The Haskell Foundation (HF) seeks a passionate DevOps professional to support GHC, related Haskell projects and tooling, and the HF itself.
 postedOn: 2022-01-21
-status: Open
+status: Closed
 ---
 
 # Description
