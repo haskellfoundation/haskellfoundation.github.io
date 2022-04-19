@@ -4,7 +4,8 @@ email: acopton+hf@gmail.com
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2021-02-01
+tenureEnd: 2022-04-08
 image: /assets/images/board-members/ab.png
-committees: Ways of Working (Chair)
+committees: Ways of Working
 ---
 Ph.D., co-founder of Zurich Haskell Meetup and longtime co-organiser of ZuriHac. Currently Head of Software Development at PwC Switzerland. On a mission to making Haskell a viable choice with little personal risk for corporate decision makers.

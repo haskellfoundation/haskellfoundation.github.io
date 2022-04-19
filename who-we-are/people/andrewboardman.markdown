@@ -4,6 +4,7 @@ email: andrew@haskell.foundation
 title: Executive Director
 executiveTeam: "True"
 tenureStart: 2021-02-22
+tenureEnd: 2022-03-31
 image: /assets/images/exec-team/afb.png
 ---
 Andrew Boardman brings a varied background as a serial entrepreneur, manager, teacher, consultant, and financial professional. He started professional programming in high school, writing text editor software for electronic bulletin board systems. Since then he has been the tech lead for the Windows build lab, lead developer for Windows Live Messenger, worked on desktop publishing software at Quark, and co-founded five startups, and much more.

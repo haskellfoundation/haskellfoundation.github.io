@@ -4,6 +4,7 @@ email: michael@snoyman.com
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2021-02-01
+tenureEnd: 2021-03-31
 image: /assets/images/board-members/ms.png
 committees: Technical Agenda
 ---
