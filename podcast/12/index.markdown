@@ -1,7 +1,7 @@
 ---
 title: Gergő Érdi
 episode: 12
-buzzsproutId: 1817535
+buzzsproutId: 10585707
 recorded: 2021-12-14
 published: 2022-05-09
 ---
