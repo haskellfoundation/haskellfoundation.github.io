@@ -20,25 +20,34 @@
         $for(openreqs)$
         $partial("templates/careers/tile.html")$
         $endfor$
-
-        $for(episodes)$
-        <div class="bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
-            <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-                <h2 class="text-center text-2xl-4xl font-normal">
-                    <b>$episode$</b> – $title$
-                </h2>
-                <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-                  $body$
-                  <div class="mt-4">
-                    <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
-                  </div>
-                </div>
-            </div>
-        </div>
-        $endfor$
     </div>
 </div>
 
+  <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    $partial("templates/header.html")$
+
+    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+      <h1 class="text-2xl-5xl">Haskell Interlude Podcast</h1>
+    </div>
+
+    <p class="text-center mt-4 text-gray-500">Listen to the <a href="podcast">latest episodes</a></p>
+  </div>
+
+  <div class="max-w-screen-xl mx-auto md:px-12">
+    $for(episodes)$
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>Episode $episode$</b> – $title$
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          $body$
+          <div class="mt-4">
+            <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
+          </div>
+        </div>
+      </div>
+    $endfor$
+  </div>
 
   <div class="relative bg-white mt-24 lg:w-2/3">
     <div class="absolute -z-10 left-0 top-0 right-6 bottom-6 border-3 border-purple-700"></div>
@@ -79,33 +88,7 @@
 
 
   <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
+  $partial("templates/header.html")$
     <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
       <h1 class="text-2xl-5xl">Our Ethos</h1>
 
@@ -152,39 +135,14 @@
 
 
   <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+    $partial("templates/header.html")$
     <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
       <h1 class="text-2xl-5xl">Follow HF Developments</h1>
 
     </div>
         <p class="text-center mt-4 text-gray-500">Follow us on <a class="fab fa-twitter text-2xl px-2 align-middle" href="https://twitter.com/haskellfound" target="_blank"></a> or join a mailing list</p>
 
-    </div>
+  </div>
 
 <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16">
   <div class="grid gap-8 md:grid-cols-2">
