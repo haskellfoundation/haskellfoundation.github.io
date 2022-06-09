@@ -1,53 +1,24 @@
-welcome to this haskete interview episode today Nikki Vazu and I interview Ryan Trinkle Ryan has co-founded obsidi systems a company that not just uses haskell as the secret button but even more exotic tach.
+_Joachim Breitner:_ Welcome to this Haskell Interlude episode, today Nikki Vazu and I interview Ryan Trickle, Ryan has co-founded Obsidian Systems a company that not just uses Haskell as the secret button but even more exotic tech that as functional reactive programming and Nix. Ryan ???? lodge had ??? some light on the business side of Haskell and we get to hear that hiring for haskell is actually excellent. Stay tuned, especially if you want to hear this story of the supersitious garbage collector that doesn't like number 13. Hi Ryan, good to have you on the podcast.
 
-00:01.90
-haskellpodcast
-Yes, now it's know your fango.
+_Ryan Trickle_: Hi Joachim, I'm very glad to be here with you and Nikki. It's a great opportunity. Thank you.
 
-00:19.86
-Joachim
-Asfunctionally recive programming and Nix Bri Lodge had some light on the business side of hascom and we get to hear that hiring for haskell is actually excellent. Stay tuned, especially if you want to hear this story of the supersitious garbage collector that doesn't like number 13
+_Nikki Vazu_: Hello everyone.
+
+_JB:_ Yeah, I must say I'm particularly excited about this particular episode because when I was relatively new to Haskell and I started this impression that has this this academic language only for teaching, only for language teachers, I was always very excited when I heard that somebody's actually building a company on top of Haskell and solving real world problems for people that probably don't care about Haskell and when I heard about Obsidian Systems that you co-founded back then using Haskell and even more interesting tech that we'll get into. I was was following this with with great interest. So I'm very curious Ryan, how did it all started? What came first? Did you want to build the company? Did you want to use Haskell? We're just in the need of money? Can you tell us the story?
+
+_RT_: Sure, so I've been working with my business partner Ali Abrar for about 15 years now, we really started when we met in law school and we actually tried to start another company using Haskell right after we finished law school making iPhone games and we were, you know, we were not successful in that company but we did end up contributing a whole lot of ARM and mobile stuff back to GHC which was a really nice result, and then we, you know, we worked in a lot of different startups, both during law school and also after iPhone Studios which was the company that was doing iPhone games. And what we saw repeatedly as we worked in lots of different startups was the same sort of mistakes would get made over and over and it's understandable, I mean, people start a company, they may not have experience building a product or whatever else and they ??? kind of ??? have to bring it first ??another?? time a lot of the time, the founders are not highly technical, and so if you're not a highly technical person, how do you even know whether the engineers you hire are doing the job or not. It's just really difficult to understand. So we decided that we thought that having been around the block a few times we could do considerably better than that. And we wanted to turn that into a consultancy that could reliably deliver results for their for our clients. And so the key with that was really that we wanted to break out of this paradigm of just trying to pick the most popular technologies with the most sort of justification, we were just it was just the 2 of us and so we could make decisions that were a little bit more bold. Obsidian Systems doesn't have investors so Ali and I just have sort of. A lot of latitude in in doing what we think is right and in a lot of technical cases that means choosing a technology that isn't highly popular like Haskell, like Nix and NixOS which we also used but a lot of the time it does mean choosing something popular like postgres. For example. With a database I'm not looking for a ton of features or anything fancy I just want something that's going to hold onto my data and never lose it and be a reliable source of something for my application. So we try to really. Dig into things and and make the right decision. Obviously a lot of our clients have not heard of Haskell before they start talking to us, especially the ones who maybe just they've gotten some sort of funding and they want to build something and they hear about us through usually word of mouth. For a long Time. We didn't even really have a marketing site. It was just sort of our phone number on a web page. Um, it was actually kind of embarrassing. Um, but it didn't really matter because when people are deciding who to hire for, you know, really staking the life of their startup on it. They usually are not looking for a fancy website, they're usually looking for a friend or somebody trusted who can vouch for us.
+
+_JB_: So when you say clients? What kind? what? just what kind of field are we talking about what kind of clients or products did you were you cating or catering for.
+
+<=== HERE
 
 
-05:20.22
-Joachim
-Hi Ryan good to have you on the podcast.
+_Joachim Breitner:_
+_JB:_
+_Nikki Vazu_:
+_Ryan Trickle_:
+_RT_:
 
-05:23.65
-Ryan
-Hi yo Kim I'm I'm very glad to be here with you and Nicki. It's it's a great opportunity. Thank you.
-
-05:30.92
-haskellpodcast
-Hello. Everyone.
-
-05:32.90
-Joachim
-Yeah I must I must say I'm particularly excited about this particular episode because when I was relatively new to haskell and I started this impression that has this this academic language only for teaching only for language teachers I was always very excited when I heard that somebody's actually. Building a company on top of hasskell and solving real vote problems for people that probably don't care about haskell and when I heard ah about absurdive system that you co-founded back then using haske and even more interesting tech that we'll get into I was was following this with with great interest. So I'm I'm very curious Ryan. How did it all started. What came first did you want to build the company. Do you want to use heskell we're just in the need of money. Ah, can you tell us the story.
-
-06:17.57
-Ryan
-Sure so I've been working with my business partner aliah bra for about 15 years now we we really started when we met in law school and we actually tried to start another company.
-
-06:32.51
-haskellpodcast
-Or.
-
-06:34.63
-Ryan
-Using Haskell right? after we finished law school making Iphone games and we were ah you know we were not successful in that company but we did end up contributing a whole lot of arm and mobile stuff back to Ghc which was a really nice result. Um, and and then we you know we worked in a lot of different. Startups both during law school and also after Iphone studios which was the company that that was doing iphone games. Um, and what we saw repeatedly as we worked in lots of different startups was. Same sort of mistakes would get made over and over and it's understandable I mean people start a company. They may not have experience building a product or or whatever else and they kind of have to wing it. The first time a lot of the time. The founders are not highly technical. Um, and so. If you're not a highly technical person. How do you even know whether the engineers you hire are doing a good job or not. It's it's just really difficult to understand so we decided that you know we thought that having been around the block a few times we could do considerably better than that. And we wanted to turn that into a consultancy that could reliably deliver results for their for our clients. Um, and so the key with that was really that we wanted to break out of this paradigm of just. Trying to pick the most popular technologies with the most sort of justification we were just it was just the 2 of us and so we could make decisions that were a little bit more bold Obsidian systems doesn't have investors so Ali and I just have sort of. A lot of latitude in in doing what we think is right and in a lot of technical cases that means choosing a technology that isn't highly popular like Haskell ah like Nix and nix os which we also used but a lot of the time it does mean choosing something popular like postgres. For example. With a database I'm not looking for a ton of features or anything fancy I just want something that's going to hold onto my data and never lose it and be a reliable source of of something for for my application. so um so yeah we try to really. Dig into things and and make the right decision. Um, now. Obviously a lot of our clients have not heard of haskell before they start talking to us, especially the ones who maybe just they've gotten some sort of funding and they want to build something and they hear about us through usually word of mouth.
-
-09:15.27
-haskellpodcast
-This.
-
-09:20.82
-Ryan
-Um, for a long Time. We didn't even really have a marketing site. It was just sort of our phone number on a web page. Um, it was actually kind of embarrassing. Um, but it didn't really matter because when people are deciding who to hire for you know, really staking the life of their. Startup on it. They they usually are not looking for a fancy website. They're usually looking for a friend or somebody trusted who can vouch for us. So.
-
-09:46.95
-Joachim
-So when you say clients? What kind? what? just what kind of field are we talking about what kind of clients or products did you were you cating or catering for.
 
 09:56.49
 Ryan
