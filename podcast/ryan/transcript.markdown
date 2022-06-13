@@ -4,157 +4,88 @@ _Ryan Trickle_: Hi Joachim, I'm very glad to be here with you and Nikki. It's a 
 
 _Nikki Vazu_: Hello everyone.
 
-_JB:_ Yeah, I must say I'm particularly excited about this particular episode because when I was relatively new to Haskell and I started this impression that has this this academic language only for teaching, only for language teachers, I was always very excited when I heard that somebody's actually building a company on top of Haskell and solving real world problems for people that probably don't care about Haskell and when I heard about Obsidian Systems that you co-founded back then using Haskell and even more interesting tech that we'll get into. I was was following this with with great interest. So I'm very curious Ryan, how did it all started? What came first? Did you want to build the company? Did you want to use Haskell? We're just in the need of money? Can you tell us the story?
+_JB:_ Yeah, I must say I'm particularly excited about this particular episode because when I was relatively new to Haskell and I started this impression that has this academic language only for teaching, only for language teachers, I was always very excited when I heard that somebody's actually building a company on top of Haskell and solving real world problems for people that probably don't care about Haskell and when I heard about Obsidian Systems that you co-founded back then using Haskell and even more interesting tech that we'll get into. I was was following this with with great interest. So I'm very curious Ryan, how did it all started? What came first? Did you want to build the company? Did you want to use Haskell? We're just in the need of money? Can you tell us the story?
 
-_RT_: Sure, so I've been working with my business partner Ali Abrar for about 15 years now, we really started when we met in law school and we actually tried to start another company using Haskell right after we finished law school making iPhone games and we were, you know, we were not successful in that company but we did end up contributing a whole lot of ARM and mobile stuff back to GHC which was a really nice result, and then we, you know, we worked in a lot of different startups, both during law school and also after iPhone Studios which was the company that was doing iPhone games. And what we saw repeatedly as we worked in lots of different startups was the same sort of mistakes would get made over and over and it's understandable, I mean, people start a company, they may not have experience building a product or whatever else and they ??? kind of ??? have to bring it first ??another?? time a lot of the time, the founders are not highly technical, and so if you're not a highly technical person, how do you even know whether the engineers you hire are doing the job or not. It's just really difficult to understand. So we decided that we thought that having been around the block a few times we could do considerably better than that. And we wanted to turn that into a consultancy that could reliably deliver results for their for our clients. And so the key with that was really that we wanted to break out of this paradigm of just trying to pick the most popular technologies with the most sort of justification, we were just it was just the 2 of us and so we could make decisions that were a little bit more bold. Obsidian Systems doesn't have investors so Ali and I just have sort of. A lot of latitude in in doing what we think is right and in a lot of technical cases that means choosing a technology that isn't highly popular like Haskell, like Nix and NixOS which we also used but a lot of the time it does mean choosing something popular like postgres. For example. With a database I'm not looking for a ton of features or anything fancy I just want something that's going to hold onto my data and never lose it and be a reliable source of something for my application. So we try to really. Dig into things and and make the right decision. Obviously a lot of our clients have not heard of Haskell before they start talking to us, especially the ones who maybe just they've gotten some sort of funding and they want to build something and they hear about us through usually word of mouth. For a long Time. We didn't even really have a marketing site. It was just sort of our phone number on a web page. Um, it was actually kind of embarrassing. Um, but it didn't really matter because when people are deciding who to hire for, you know, really staking the life of their startup on it. They usually are not looking for a fancy website, they're usually looking for a friend or somebody trusted who can vouch for us.
+_RT_: Sure, so I've been working with my business partner Ali Abrar for about 15 years now, we really started when we met in law school and we actually tried to start another company using Haskell right after we finished law school making iPhone games and we were, you know, we were not successful in that company but we did end up contributing a whole lot of ARM and mobile stuff back to GHC which was a really nice result, and then, you know, we worked in a lot of different startups, both during law school and also after iPhone Studios which was the company that was doing iPhone games. And what we saw repeatedly as we worked in lots of different startups was the same sort of mistakes we get made over and over and it's understandable, I mean, people start a company, they may not have experience building a product or whatever else and they had have to bring it the first time a lot of the time, the founders are not highly technical, and so if you're not a highly technical person, how do you even know whether the engineers you hire are doing the job or not. It's just really difficult to understand. So we decided that we thought that having been around the block a few times we could do considerably better than that. And we wanted to turn that into a consultancy that could reliably deliver results for our clients. And so the key with that was really that we wanted to break out of this paradigm of just trying to pick the most popular technologies with the most sort of justification, we were just, it was just the 2 of us and so we could make decisions that were a little bit more bold. Obsidian Systems doesn't have investors so Ali and I just have sort of a lot of latitude in doing what we think is right and in a lot of technical cases that means choosing a technology that isn't highly popular like Haskell, like Nix and NixOS which we also use, but a lot of the time it does mean choosing something popular like Postgres, for example, with a database I'm not looking for a ton of features or anything fancy, I just want something that's going to hold on to my data and never lose it and be a reliable source of something for my application. So we tried to really dig into things and and make the right decision. Obviously a lot of our clients have not heard of Haskell before they start talking to us, especially the ones who maybe just they've gotten some sort of funding and they want to build something and they hear about us through usually word of mouth. For a long yime we didn't even really have a marketing site, it was just sort of our phone number on a web page, what was actually kind of embarrassing, ummm, but it didn't really matter because when people are deciding who to hire for, you know, really staking the life of their startup on it. They usually are not looking for a fancy website, they're usually looking for a friend or somebody trusted who can vouch for us.
 
-_JB_: So when you say clients? What kind? what? just what kind of field are we talking about what kind of clients or products did you were you cating or catering for.
+_JB_: So when you say clients, what kind of field are we talking about, what kind of clients or products did you were you cating or catering for?
 
-<=== HERE
+_RT_: Early on um, the vast majority of our clients were startups and they were there were folks who had really nothing to do with Haskell or even necessarily high tech, we did one that was a logistics startup. It was just managing trucking. We we did another one that was trying to streamline some things in the finance industry with mortgage applications and things like that. Really, these are not companies that are trying to achieve some spectacular engineering or technical goal. They're just trying to build a reliable useful application where the business value is in something else, right? It's like oh we want to make it really easy for people to get a mortgage or or to refinance their student loans or something like that. Um, so they didn't care that we were using Haskell. Sometimes they would be a little skeptical like I've never heard of this. Why don't you use Python or whatever. But then once they saw us starting to deliver results then they would usually be very quickly won over. So yeah.
+
+_NV_: And now that Haskell is getting more popular does it affect your clients, I mean you said they didn't care, now do you even like get clients because of Haskell?
+
+_RT_: Yeah, yeah. I think that's happened a little bit all along, but it has definitely happened more recently. So we've had some some clients that, for example, we're known for expertise in functional reactive programming (FRP), that a couple of clients who say you know we're doing Haskell, we want to use FRP, maybe you can help us with that.
+
+_NV_: So can you tell us a little bit what is a FRP?
+
+_RT_: Yeah, absolutely. Functional reactive programming (FRP) is a way of describing interactive systems using only pure functional semantics. So in most programming including in Haskell, but especially outside of Haskell when you want to describe an interactive system which is a system that gets some sort of input and then produces output and then gets more input and produces more output, like a user interface or really frankly most applications. When you want to build something like that usually the way it's done is with imperative style coding you, will say sort of a list of things that need to happen in a certain order and we do that in the IO monad in Haskell but you know, we also do it in C and it really the C and the Haskell look pretty similar when you're writing that kind of code. And the reason that we write things like that even in Haskell is that we need some way of specifying like when the data is coming in when it's going out. And traditional pure functional programming doesn't really give us a vocabulary for that, it will sort of take all of its data as input at the beginning like maybe a compiler right? You give it a bunch of source files and then it does a whole lot of computational work and then it spits out and executable or something like that, of course real compilers need to worry about memory management and stuff. But the basic idea is that's a very clear pure function, you take a bunch of stuff and you produce an output and what happens in between is sort of side effect fee, but a graphical user interface is quite the opposite of that, almost every interesting thing a user interface does is like okay the user clicked a button now we need to refresh the screen and we need to pull up some data and maybe take some sort of action and then we wait for the user to do something else. And maybe we wait for data to come in so that we can put it on the screen and the user sees it updating live. So the problem is writing these things in imperative style even within Haskell loses a lot of the benefit of pure functional programming because you get back into this mode of I've got mutable variables, I've got often sort of like poorly scoped state things that are a little bit too like global variables or even just variables living in a very large area in your program and that makes it very difficult to reason about what your code is going to do, and it gets you far away from the whole, like if it compiles it works thing which is I mean never strictly true, but it is surprisingly often true in Haskell I think most Haskell developers have had this feeling that it really compile, if it compiles the works way more often than it feels like a shit, so functional reactive programming gives us a totally pure vocabulary for describing these interactive things, like buttons on a user interface, a button for example might produce an event and an event is a pure value, but it represents a potentially endless stream of clicks on the button.
+
+_NV_: So when you say pure value, you say a monadic computation, no?
+
+_RT_: No, I really mean a pure value here.
+
+_NV_: The button is a pure value?
+
+_RT_: The event is semantically pure and what I mean by that is you cannot affect anything by just holding on to this event. So I don't know if there is academic theory that backs me up here, but this is the sort of mental model I've arrived at. Basically the fundamental thing that makes let's say a pure integer easier to deal with than say an IO graph is that when an I ref is being used in many places in your software. They can all sort of have arbitrary impacts on it and you get into this situation where you can't know what the IO does unless you read through the whole codebase. And even if you do read it you probably won't be able to understand it all. It's just too big for the human brain to hold. But if you've got an integer, well you pass it into all kinds of places and who cares what they do with it because it's not going to come back and change the value of the integer or anything like that. And event in FRP works the same way even though it represents something that's changing through time. The people who you send it to the functions that you give it as an argument to can't have any impact at all on what it happens so you can kind of think of the event as though it's an infinite timeline stretching into the past and the future and you can only observe it at the current time so you can't necessarily. You definitely can't see the future of the event but you also can't affect the future of the event. So, basically this has sort of brought me around to the idea that mutability and purity are actually separate properties of a programming semantics.
+
+_JB:_ So maybe another way of looking at this if I compare it with maybe more traditional way of doing UI, so you have handlers on events then you can compose these handlers and, but often what we see I guess in most of these libraries is that they bubble down and up some kind of chain of event handlers and you can disable the surrounding event handlers by returning falses or depending or calling some disabled default and suddenly you have this kind of action at a distance whereas with the pure event from a button. You're still handling an event in a way if you want to think about it morerationally which maybe I am still doing too much here. But at least I know that nothing else can interfere with how I'm handling this particular handlers, that...
+
+ ah ah is that a good way of putting it.
+
+_RT_: Yeah, absolutely, and if you sort of look at the standard for how these things are done in most of the industry which of course has been making improvements with things like react, but you know when you've got a bunch of callbacks, you've first of all callbacks have a type signature that's something like A to IO unit. So by definition they're pretty much just doing side effects. So we we sort of in the Haskell community know that can get you into trouble. It's very difficult to reason about, but even more so, you know, if you have a single event source and you add on several different callbacks to it. Those callbacks can easily interfere with each other and the order is actually important at least sometimes and at the same time you don't usually have very good control over what the order of execution is so he just kind of toss them into a bucket and hope for the best and then this gets even worse when you have chains of callbacks like if you have 1 callback from a certain source of data and then you use that to update another source of data and then that triggers another callback that goes somewhere else. Ah, it sort of very quickly becomes impossible to understand what the system's really going to do.
+
+_NV_: .... y're using a monod basically to encapsulate this side effect that you're talking about, right?
+
+_RT_: No, um, we do use a monad in reflex for certain things but not for the the sort of basic stuff. For example, merging 2 events together, that's completely pure, there's no monad involved.
+
+_NV_: But when you say event, the event is not a monad itself?
+
+_RT_: No, it's not, it actually can't be because you can't write return, but at a sort of so, okay, so there's the technical level where it can't be a monad because it's impossible to write return, because that would be an event that's always firing and that actually turns out to sort of break everything in FRP, but you could write bind for it but it's not doesn't wind up being very useful, so it could be some a semi-monad, if you really wanted it to be, but it's better to think of an event as essentially a container like an infinite list, except that with a list you have a bunch of items that are all existing at the same time but in different places in memory, with an event you have a bunch of different items that are all existing at the same place but at different times.
+
+_JB:_ So it's like applying transpose to a ah list and then excellently getting the dimensions wrong and turning into time rather than space.
+
+_RT_: Exactly, exactly. So so the semantics are just like any other pure container you can f-map over it. You can't traverse it because if you, it would take an infinite amount of time for your traverse to return. But you could sort of like you can scan over it, you can fold over it, you can do those sorts of things and they all just sort of perfectly make sense. The only place that a monad is actually necessary in reflex, which is the FRP system that I built, is when you need to know what the current time is. For example, when you want to create state in an FRP system, you need to..., let's say you had an event and you wanted to count how many times the event actually occurred, like a button click. Well you need to know when you're starting from, because as I said before the event logically speaking stretches infinitely into the past and infinitely into the future. So despite that you sort of get the event at a certain time, right? So you can't look infinitely into the past, don't retain history for any of this stuff because it would be a memory leak, so logically speaking we do have a monad that says like okay if I'm going to start counting when do I start counting? And semantically it's just a reader monad, operationally it's extremely different from a reader monad, but it's a way of sort of saying this is when we're starting. But other than that nothing else uses monads, well, internally, but the overall semantics is pure with the exception of that.
+
+_JB:_ You... The FRP you're using is use it only for the UI of your application, so does it actually like permeyate to the backend then you can program everything and across a stack and one single programming model.
+
+_RT_: Well, I would love for that to be the case. But right now we do primarily use it for the user interface side of things. We also have a terminal library that lets you build like curses style user interfaces using FRP and reflex itself has no opinion about what you're using it for, it doesn't it doesn't know anything about user interfaces, we have a Reflex DOM library which allows you to do a DOM manipulation in the browser, and then other people have built libraries for this for like native iPhone and I think Android and various things like that. So it can be used for a bunch of things people have also built like web servers that use reflex as their sort of basic model, the only problem with that at the moment is that Reflex implementation like the operational core is all single-threaded, which means that you can instantiate it multiple times so you can run multiple threads but those different threads can't talk to each other in FRP, you have to have them communicate via traditional imperative techniques. So each FRP domain is just sort of its own single-threaded thing, so that's not ideal, we've kept our backends a little bit more traditional for the time being, but I would certainly look forward to at some point having, you know, FRP be the way that we do backends as well.
+
+_JB:_ So, you the us you're building our ??? iPhone, Android and terminal applications?
+
+_RT_: Yeah, we have not built any terminal applications for clients. That has not been a big request, but we've built internal tools that way. Our clients, yeah, we build web, mobile and and also desktop apps for some clients and they all build with the same, you know, semantics the same Reflex DOM based core.
+
+_NV_: And how are you generating your backend, are you are you using JIT?
+
+_RT_: Yeah, the backends that we build are typically built with snap or WAI sometimes and all GHC-based, you know, we certainly appreciate the high degree of parallelism and everything else that do you see provides, I mean it's a wonderful backend language, I don't think that we're doing anything that special I think a lot of Haskell companies get a great benefit out of using Haskell on their backend.
+
+_JB:_ So if you're so heavily invested into to, like GHC and Haskell, how..., when you look at the current evolution of Haskell, like what's happening at the moment with language extensions with Haskell Foundation of course on the governance level, also technically, what do you think, is it going in a good direction, is it going in a bad direction, is it and going no direction and that's good or bad or?
+
+_RT_: I think it is going in a good direction and you know I'm really excited about what Hf??? is doing, so I was asked to be part of the initial creation of the hf??? and now I'm on its board and I'm the treasurer and I think that the board has been assembled from a really excellent, very representative group of people, I've learned a lot from speaking with the members of the board and also members of some of the task forces, like the technical task force and I think it is really going to be very helpful to Haskell going forward I think it's already accomplished a good amount of stuff and fundamentally to me Haskell is like this still mostly hidden gem and Haskell has been the recipient of so much academic work of such high quality, but a lot of that work has not really made its way into production. I mean as you said you know back in 2015 like there were really not that many people doing commercial Haskell. And now there are a lot more but it's still I think a lot less than it ought to be, so we need to improve things like the way that we..., we use improve a lot of the incidental stuff I think that the core of the language is excellent and of course we'll keep improving it I mean there's a lot of really brilliant people working on things, but it's really making it accessible to business so that we can take those academic accomplishments and start to really reap the value out of it. One of the reasons that I'm in industry and and a practitioner myself rather than trying to personally go an academic route is that I just felt like there was a big need to get these high-tech really smart things actually being used, I think that almost nobody would would be happy to invent an amazing thing and then just have nobody else use it. You know, people people want their their ideas to be used and that's how the real value for society gets generated. So yeah.
+
+_NV_: And do you have any suggestions on how this can happen I mean maybe using your personal experience right? because you finished low and like how did you get into haskell.
+
+
+22:15 <=== HERE
 
 
 _Joachim Breitner:_
 _JB:_
+
 _Nikki Vazu_:
+_NV_:
+
 _Ryan Trickle_:
 _RT_:
 
 
-09:56.49
-Ryan
-Early on um, the vast majority of our clients were startups and they were there were folks who had really nothing to do with Haskell or even necessarily high tech. We did one that was a logistics startup. It was just. Managing trucking. Um we we did another one that was trying to streamline some things in the finance industry with with mortgage applications and things like that. Um, really, these are not companies that are trying to achieve some spectacular engineering or technical goal. They're just trying to build a reliable useful application where the business value is in something else, right? It's like oh we want to make it really easy for people to get ah to get a mortgage or or to refinance their student loans or something like that. Um, so they didn't care that we were using Haskell. Sometimes they would be a little skeptical like I've never heard of this. Why don't you use Python or whatever. But then once they saw us starting to deliver results then they would usually be very quickly won over. So yeah.
 
-10:56.44
-haskellpodcast
-Mr.
+=====
 
-11:04.52
-haskellpodcast
-And now that Haskell is getting more popular does it affect your clients I mean you said they didn't care now. Do you even like get clients because of haske.
 
-11:14.55
-Ryan
-Yeah, yeah, and I I think that's happened a little bit all along, but it has definitely happened more recently. So we've had some some clients that. Ah, for example, we're we're known for. Expertise in functional reactive Programming. We've had a couple of clients who say you know we're doing Haskell. We want to use ah frp. Um, maybe you can help us with that.
-
-11:42.16
-haskellpodcast
-So can you tell us Elizabeth what is a farpi.
-
-11:45.94
-Ryan
-Yeah, absolutely functional reactive programming is a way of describing interactive systems using only pure functional semantics. So in most programming including in haskell but. But especially outside of Haskell when you want to describe an interactive system which is a system that gets some sort of input and then produces output and then gets more input and produces more output like a user interface or really frankly, most applications. Um. You want to build something like that usually the way it's done is with imperative style coding you will say sort of ah a list of things that need to happen in a certain order and we do that in the I o monad in Haskell but you know. We also do it in c and it really the c and the haskell look pretty similar when you're writing that kind of code. Um and the reason that we write things like that even in haskell is that we need some way of specifying like when the data is coming in when it's going out. Um, and traditional pure functional programming doesn't really give us a vocabulary vocabulary for that. Um, it will sort of take all of its data as input at the beginning like maybe a compiler right? You give it a bunch of source files and. Then it does a whole lot of computational work and then it spits out and executable or something like that of course real compilers need to worry about memory management and stuff. But but the basic idea is like that's a very clear pure function. You take a bunch of stuff and you produce an output and what happens in between. Is sort of side effect free but a graphical user interface is quite the opposite of that. Um, almost every interesting thing. A user interface does is like okay the user clicked a button now we need to refresh the screen and we need to pull up some data and maybe take some sort of action and then we wait for the user to do something else. And maybe we wait for data to come in so that we can put it on the screen and the user sees it updating live. So the problem is writing these things in imperative style even within haskell loses a lot of the benefit of pure functional programming because you get back into this mode of. I've got mutable variables I've got often sort of like poorly scoped state things that are are a little bit too like global variables or even just variables living in a very large area in your program and that makes it very difficult to reason about what your code is going to do and it gets you.
-
-14:32.64
-Ryan
-Far away from the whole like if it compiles it works thing which is I mean never strictly true, but but it is surprisingly often true in Haskell I think most haskell developers have had this feeling that it it really compile if it compiles the works. Way more often than it feels like it should so so functional. Reactive programming gives us a totally pure vocabulary for describing these interactive things like buttons on a user interface a button for example, might produce an event and an event.
-
-14:50.87
-Joachim
-Yeah, definitely.
-
-14:50.90
-haskellpodcast
-So.
-
-15:09.33
-Ryan
-Is a pure value. Um, but it represents at a potentially endless stream of Clicks on the button.
-
-15:18.32
-haskellpodcast
-So when you say pure value. You say a monadic computation. No the Baton is a pure value.
-
-15:24.22
-Ryan
-No I Really mean a pure value here. Um the the the event is semantically pure and and what I mean by that is you cannot affect anything. By just holding on to this event. So I don't know if there is academic theory that backs me up here but but this is the sort of mental model I've arrived at um basically the fundamental thing that makes let's say a pure integer. Easier to deal with than say an I ograph is that when an I ref is being used in many places in your software. They can all sort of have arbitrary impacts on it and you get into this situation where you can't know what the I does unless you read through the whole codebase. And even if you do read it. You probably won't be able to understand it All. It's just too big for the human brain to hold. But if you've got an integer. Well you pass it into all kinds of places and who cares what they do with it because it's not going to come back and change the value of the integer or anything like that. And event in frp works the same way even though it represents something that's changing through time. The people who you send it to the the functions that you give it as an argument to can't have any impact at all on what it happens so you can kind of think of the event as though. It's It's an infinite timeline stretching into the past and the future and you can only observe it at the current time so you can't necessarily. You definitely can't see the future of the event but you also can't affect the future of the event. So. Yeah, basically this has sort of brought me around to the idea that mutability and purity are actually separate properties of a programming semantics.
-
-17:30.23
-Joachim
-So Maybe another way of looking at this if I compare it with maybe more traditional way of doing you eyes. So you have hand loss on events then you can compose these handlers and and but often what what we we see I guess in in most of these libraries is that. They bubble down and up some kind of chain of of of event handlers and you can disable the surrounding event handlers by returning falses or depending or or calling some disabled default and and suddenly you have this kind of ah action at ah at a distance whereas with the pure event from a button. You're still handling an event in a way if you want to think about it morerationally which maybe I am still doing too much here. But at least I know that nothing else can interfere with how I'm handling this particular vendors that ah ah is that a good way of putting it.
-
-18:22.18
-Ryan
-Yeah, absolutely yeah, yeah, and and if you sort of look at the standard for how these things are done in most of the industry which of course has been making improvements with things like react. Um, but you know when you've got a bunch of callbacks. You've. First of all callbacks have a type signature that's something like a to I o unit. So by definition. They're pretty much just doing side effects. So we we all sort of in the haskell community know that that can get you into trouble. It's very difficult to reason about, but even more so you know if you have. A single event source and you add on several different callbacks to it. Those callbacks can easily interfere with each other and the order is actually important at least sometimes and at the same time you don't usually have very good control. Over what the order of execution is so he just kind of toss them into a bucket and hope for the best and then this gets even worse when you have chains of callbacks like if you have 1 callback from a certain source of data and then you use that to update another source of data and then that triggers another callback that goes somewhere else. Ah, it sort of very quickly becomes impossible to understand what the system's really going to do.
-
-19:51.32
-Joachim
-But with with the effort you you go first.
-
-19:51.49
-haskellpodcast
-You do sorry go left Me're using a mono basically to encapsulate this side effect that you're talking about right.
-
-20:05.32
-Ryan
-No, um, we do use a monad in reflex for certain things but not for the the sort of basic stuff. Um, for example, merging 2 events together. That's completely pure. There's no monite involved.
-
-20:25.45
-haskellpodcast
-Um, but when you say event The event is not a mono diter. Oh yeah.
-
-20:29.56
-Ryan
-No, it's not um, it. It actually can't be because you can't write return. Um, but at a sort of so okay, so there's the technical level where it can't be a 1 ad because it's impossible to write return because that would be an event that's always firing um and that actually. Turns out to sort of break everything in fmp. Um, but you you could write bind for it. But it's not it doesn't wind up being very useful. Um, so it could be some a semimon monoid or sorry semi monad if you really wanted it to be um, but. It It's better to think of an event as essentially a container like ah like an infinite list except that with a list. You have a bunch of items that are all existing at the same time but in different places in memory with an event you have. A bunch of different items that are all existing at the same place but at different times.
-
-21:31.66
-Joachim
-So it's like applying transpose to a ah list and then excellently getting the dimensions wrong and turning it in into time rather than space.
-
-21:39.38
-Ryan
-Exactly exactly? Um, yeah, So so the semantics are just like any other pure container you can f-map over it. Um you you can't traverse it because if you it would take an infinite amount of time for your traverse to return. But. But you could sort of like you can scan over It. You can fold over it. Um, you can do those sorts of things and they all just sort of perfectly make sense. The only place that ah that a monad is actually necessary in Reflex which is the frp system that I built. Is when you need to know what the current time is. For example, when you want to create state in an frp system. You need to like? let's say let's say you had an event and you wanted to count how many times the event actually occurred like a button click. Um, well you need to know when you're starting from because as I said before the event logically speaking stretches infinitely into the past and infinitely into the Future. So despite that you sort of get the event at a certain time right? So You can't look infinitely into the Past. Don't retain history for any of this stuff because it would be a memory leak so logically speaking we do have a monad that says like okay if I'm going to start counting when do I start counting and semantically it's just a reader monad. Operationally, it's extremely different from a reader monad. But. Um, but it's a way of sort of saying this is when we're starting. But other than that nothing else uses nothing Else. Uses Monads well internally, but the the overall semantics is is pure with the exception of that with that moment.
-
-23:35.12
-Joachim
-You the fp you're using is use it only for the ui of of your application. So does it actually like permeyate to the backend then you can program everything and across a stack and 1 single programming model.
-
-23:49.41
-Ryan
-Well I would love for that to be the case. But right now we do primarily use it for the user interface side of things. Um, we also have a terminal library that that lets you build like curses style user interfaces using frp. And reflex itself has no opinion about what you're using it for it doesn't it doesn't know anything about user interfaces. We have a reflex dom library which allows you to do a dom manipulation in the browser. Um, and then other people have built libraries for this for for like native iphone. And I think Android and various things like that. Um, so it can be used for a bunch of things people have also built like web servers that use reflex as their as their sort of basic model. Um, the only problem with that at the moment is that. Reflexes implementation like the operational core is all single-threaded. Um, which means that you can instantiate it multiple times so you can run multiple threads but those different threads can't talk to each other in frp you have to have them communicate via traditional imperative techniques. So each Frp domain is just sort of its own single-th threaded thing so that's not ideal. We've kept our backends a little bit more traditional for the time being but I would certainly look forward to at some point having. You know, frp be the way that we do backends as well.
-
-25:29.45
-Joachim
-So so you the us you're building our Vp iphone Android and terminal applications.
-
-25:36.85
-Ryan
-Yeah, we we have not built any terminal applications for clients. Um that that has not been a big request but we've built internal tools that way. Um our clients. Yeah, we build web mobile and and also desktop apps for some clients.
-
-25:40.60
-Joachim
-Okay I was just wondering.
-
-25:56.40
-Ryan
-Um, and and they all build with the same you know semantics the same Reflex Dom based core.
-
-26:02.28
-haskellpodcast
-And how are you generating your backend are you are you using J T.
-
-26:08.51
-Ryan
-Yeah, the backends that we build are typically built with snap or w ai sometimes and all ghc-based you know we certainly appreciate the heidi degree of parallelism and. Everything else that do you see provides I mean it's ah it's a wonderful backend language I don't think that we're doing anything that special I think a lot of Haskell companies. Get a great benefit out of using haskell on their backend.
-
-26:38.68
-Joachim
-So if you're so heavily invested into to like ghg and and hesold how um when you look at the current evolution of haske like what's happening at the moment with language extensions with Haskell Foundation of course on the. Governance level also technically what do you think? is it going in a good direction. Is it going in a bad direction is it and going no direction and that's good or bad or.
-
-27:06.50
-Ryan
-I think it is going in a good direction and you know I'm really excited about what Hf is doing. Um, so I I was asked to be a part of the initial creation of the hf and now I'm on its board and I'm the treasurer and. I think that the board has has been assembled from ah a really excellent, very representative group of people. Um I've learned a lot from speaking with the members of the board and also members of some of the task forces like the technical task force and. I think it is really going to be very helpful to askll going forward I think it's already accomplished a good amount of stuff and fundamentally to me haskell is like this still mostly hidden gem and haskell has been. The recipient of so much academic work of such high quality but a lot of that work has not really made its way into production. Um I mean as you said you know back in 152 like there were really not that many people doing commercial haskell.
-
-28:19.98
-haskellpodcast
-You go.
-
-28:22.92
-Ryan
-And now there are a lot more but it's still I think a lot less than it ought to be um and so we need to improve ah things like the way that we ah be we we use improve. A lot of the incidental stuff I think that the core of the language is excellent and of course we'll keep improving it I mean there's a lot of really brilliant people working on things but it's it's really making it accessible to business so that we can take those. Ah. Those academic accomplishments and start to really reap the value out of it. 1 of the reasons that that I'm in industry and and a practitioner myself rather than trying to personally go an academic route is that I just felt like there was a big need to get these. High-tech really smart things actually being used because I think that almost nobody would would be happy to to invent an amazing thing and then just have nobody else use it. You know people people want their their ideas to be used. And that's how the real value for society gets generated. So yeah.
 
 29:38.89
 haskellpodcast
-And do you have any suggestions on how this can happen I mean maybe using your personal experience right? because you finished low and like how did you get into haskell.
+
 
 29:51.22
 Ryan
