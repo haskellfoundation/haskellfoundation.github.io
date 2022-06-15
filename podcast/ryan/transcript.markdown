@@ -60,12 +60,38 @@ _RT_: Yeah, the backends that we build are typically built with snap or WAI some
 
 _JB:_ So if you're so heavily invested into to, like GHC and Haskell, how..., when you look at the current evolution of Haskell, like what's happening at the moment with language extensions with Haskell Foundation of course on the governance level, also technically, what do you think, is it going in a good direction, is it going in a bad direction, is it and going no direction and that's good or bad or?
 
-_RT_: I think it is going in a good direction and you know I'm really excited about what Hf??? is doing, so I was asked to be part of the initial creation of the hf??? and now I'm on its board and I'm the treasurer and I think that the board has been assembled from a really excellent, very representative group of people, I've learned a lot from speaking with the members of the board and also members of some of the task forces, like the technical task force and I think it is really going to be very helpful to Haskell going forward I think it's already accomplished a good amount of stuff and fundamentally to me Haskell is like this still mostly hidden gem and Haskell has been the recipient of so much academic work of such high quality, but a lot of that work has not really made its way into production. I mean as you said you know back in 2015 like there were really not that many people doing commercial Haskell. And now there are a lot more but it's still I think a lot less than it ought to be, so we need to improve things like the way that we..., we use improve a lot of the incidental stuff I think that the core of the language is excellent and of course we'll keep improving it I mean there's a lot of really brilliant people working on things, but it's really making it accessible to business so that we can take those academic accomplishments and start to really reap the value out of it. One of the reasons that I'm in industry and and a practitioner myself rather than trying to personally go an academic route is that I just felt like there was a big need to get these high-tech really smart things actually being used, I think that almost nobody would would be happy to invent an amazing thing and then just have nobody else use it. You know, people people want their their ideas to be used and that's how the real value for society gets generated. So yeah.
+_RT_: I think it is going in a good direction and you know I'm really excited about what Hf??? is doing, so I was asked to be part of the initial creation of the hf??? and now I'm on its board and I'm the treasurer and I think that the board has been assembled from a really excellent, very representative group of people, I've learned a lot from speaking with the members of the board and also members of some of the task forces, like the technical task force and I think it is really going to be very helpful to Haskell going forward I think it's already accomplished a good amount of stuff and fundamentally to me Haskell is like this still mostly hidden gem and Haskell has been the recipient of so much academic work of such high quality, but a lot of that work has not really made its way into production. I mean as you said you know back in 2015 like there were really not that many people doing commercial Haskell. And now there are a lot more but it's still I think a lot less than it ought to be, so we need to improve things like the way that we..., we use improve a lot of the incidental stuff I think that the core of the language is excellent and of course we'll keep improving it I mean there's a lot of really brilliant people working on things, but it's really making it accessible to business so that we can take those academic accomplishments and start to really reap the value out of it. One of the reasons that I'm in industry and and a practitioner myself rather than trying to personally go an academic route is that I just felt like there was a big need to get these high-tech really smart things actually being used, I think that almost nobody would would be happy to invent an amazing thing and then just have nobody else use it. You know, people want their ideas to be used and that's how the real value for society gets generated. So yeah.
 
-_NV_: And do you have any suggestions on how this can happen I mean maybe using your personal experience right? because you finished low and like how did you get into haskell.
+_NV_: And do you how do your suggestions on how this can happen, I mean maybe using your personal experience right? Because you finished low (?????) and like how did you get into haskell.
+
+_RT_: Well so I got into Haskell, actually a little bit before law school, I was... I did Computer Science undergrad and I at that time, you know I got into law school and I wanted to make myself a more well-rounded person. So that's why I wanted to go to law school I wanted to really get the education, a lot of people say that law school is like a applied philosophy degree and I think that's reasonably accurate. I certainly learned a lot about how to speak and how to think about things that were not just technical and so I really appreciate that education, I never took the bar, I never practiced law but I still am very glad that I that I went and got that Education. But going back to your question I think that's really impacted me to to take this sort of look of like okay well not just how do we build this amazing technical thing, but how do we give people the trust they need to actually use it. Databases for example are an area where I skew very conservative because it's like to me if somebody has a brilliant database, they just made yesterday even if it's awesome like I don't know how it's going to respond when like a disk fails in a certain weird way, or something like that you know whereas with postgres I know it's been put through its paces for you know, 20 years or more, and so that's... I don't know that's sort of part of how I think about this stuff.
+
+_NV_: So the industrial setting is not trusting Haskill because it's still like a bunch of academics playing with...
+
+_RT_: Well I don't think the academics are doing something wrong, yeah, you say playing with it I, I think it's really substantial work. But I do think it's a different skill set to translate that into something that is easy for businesses to adopt. You know, that means we need to have things like better education which everybody knows about, but we also need things like, clearer decision making, right? Like there's a lot of stuff... Haskell is a lot like... you know, choose your own adventure book, right? Like there's a lot of excellent things but...
+
+_JB:_ Especially if your adventure is dealing with dependencies and packet installations then you really have the best game you can hurt.
+
+_RT_: Yeah, yeah, like you know when when somebody starts using Ruby on Rails which was so popular like back when I was like starting to get into the tech industry I read a book on Ruby on Rails because everybody was saying like this is the way you should build a website. And I tried it and I didn't like it very much and I ended up switching to Haskell but, but I see the appeal because it's sort of like this big set piece thing and you don't have to go in and research every little component and you know when, typically building stuff at Haskell you need a lot of knowledge of how to assess which dependency to use, like there's just not a lot of stuff that's like prefabricated for you, and industry probably needs more of that kind of stuff in order to make it effective. There's also a lot of, in industry sort of trepidation about having, finding enough engineers you know and this is something that I don't think we can directly solve because it's a chicken and egg problem. We're going to have to sort of gradually grow our way out of it. But. You know, business people are afraid that you know if they're dealing with a very small community then what if their business gets big which of course everybody wants their business to get big in at least in the startup world. And then what are they gonna do, you know?? So I think it's a valid concern and there's things we can do about it. But it's not gonna be any kind of silver bullet.
+
+_JB:_ How bad is it or how good is it like you, I guess you're in the position of somebody who occasionally you're often has to hire somebody who knows Haskell or wants to learn Haskell so how's your experience?
+
+_RT_: Well, our experience has been excellent. So for us hiring Haskell folks is really great and it's nice because people who use Haskell have typically taught themselves. So they're pre-selected for having a good amount of motivation, hmn... There are a lot of benefits to hiring people in Haskell I think but it's certainly true that if I wanted to go out and hire a hundred developers over the next two months I wouldn't know how to do that and it might be possible with enough money I think iok????? has done that kind of thing in the past like the very well funded Haskell shops have maybe dug ??? big lifts like that. But I can see how it would be a challenge. For us on the other hand we focus a little bit more on you know how can we make the maximally effective team and frankly, we've found that we can do a lot more with you know, 4 engineers than a lot of other teams can do with 20 and so that's really a huge benefit. Not just because obviously from a business perspective it's more cost effective but also because you you don't have these dis???? economies of scale that usually crop up in large teams. For example, like you can't really have a single manager for 20 people you need to have multiple managers which means now you probably need somebody to manage all those managers and that's going to make all your communication, a whole lot slower. So yeah having small teams of developers, where each developer is extremely able to make changes in the system. Like for example, we do everything full stack, we don't divide our engineers into backend at frontend. We always work throughout the whole stack. Of course people may have different specialties and things like that. But then usually they'll pair or they'll sort of just talk amongst themselves. But we like to give people responsibility for whole features. And this is way better because it means that people can sort of do everything they need to do to get things done. They don't have to send a request to the backend team and wait three days to hear back that oh no, that's a terrible idea. You know and it's it works so much more nicely and by the way, the fact that we can cross compile Haskell to everything that we do, browser, backend, mobile, whatever that is really a key part of enabling us to work full stack because if we had to have somebody who was an expert in Swift and also an expert in Haskell and also an expert in Kotlin or whatever. There aren't that many people who are very good at all those things.
+
+_JB:_ So the model you describe with having a small, very effective team I think it definitely sounds great. I wonder does it did do you sometimes hit roadblocks or maybe not roadblocks but where which just doesn't scale anymore because you have a project that's too big for even for 5 x programmers to manage where you say okay this is no no, no longer a project for us and you need to go to a company that has these hundreds of programmers available or did it never come up?
+
+_RT_: Well typically what we do as our companies, as our clients grow, they will start taking over more and more of the project. So you know usually what we'll do is we'll sort of kick off the project, get it launched, you know, get it to be somewhat successful and then we'll help train internal developers as our clients hire. And then at some point we'll hand over the project fully. And that seems to be a model that works pretty well. You know, clearly as well... I guess this is probably not common knowledge in the engineering community. But in the business communities it's pretty widely accepted that service businesses are relatively slow growth and that's what we are as a consultancy. Whereas things like startups are obviously trying to be extremely high growth and so it's not very realistic for us to keep up if one of our clients really you know takes off. Of course we would try to do everything we can to be there for them and make it happen but generally speaking as that kind of growth picks up people. Want to start having in-house development teams and take more ownership of that.
+
+_JB:_ But that's intriguing that means you have companies who've never heard about Haskell before come to you, you build them something that they like and and they're actually now they're suddenly becoming a Haskell shop themselves, because...
+
+_RT_: Yeah, yeah, absolutely.
+
+_JB:_ That's like viral.
+
+_RT_: Ah, well yeah, right I hope so I mean and the thing is it's not.. It's not like we're trying to sell them on the sort of theory and like oh man, don't you, don't you love purity and strong types like the business people are not getting down to that level and they care that the bug counts are lower. They care that we're better at shipping on a schedule and by the way that's very related to the bug counts right? Bugs, you can't really schedule how long it's going to take to fix a bug and if most of your time is spent debugging it really wrecks your ability to plan anything on a schedule. So you know we can build things with less bugs, we can build it faster, we can typically build it with a smaller team and the business people see this and you know after a while it can really sync-in. So, yeah I mean that's definitely something we've been looking to do, you know... we've always wanted to take these technologies and use them to produce the things that our clients want to produce rather than trying to seek out clients specifically who just want the technologies that we are expert in.
 
 
-22:15 <=== HERE
+32:18 <=== HERE
 
 
 _Joachim Breitner:_
@@ -77,87 +103,6 @@ _NV_:
 _Ryan Trickle_:
 _RT_:
 
-
-
-=====
-
-
-
-29:38.89
-haskellpodcast
-
-
-29:51.22
-Ryan
-Well so I got into Haskell Um, actually a little bit before law school I was I did computer Science undergrad and I at that time. Ah, you know I got into law school. And I wanted to make myself a more well-rounded person. So That's why I wanted to go to law school I wanted to really get the education A lot of people say that law school is like a applied philosophy degree and I think that's reasonably accurate. Certainly learned a lot about how to speak and how to think about things that were not just technical and and so I really appreciate that education I never took the bar I never practiced law but but I still am very glad that I that I went and got that Education. Um.
-
-30:45.56
-haskellpodcast
-40
-
-30:47.25
-Ryan
-But going back to your question I think that that's really impacted me ah to to take this sort of look of like okay well not not just how do we build this amazing technical thing. But how do we give people the trust they need to actually use it. Um. Databases for example are an area where I skew very conservative because it's like to me if somebody has a brilliant database. They just made yesterday even if it's awesome like I don't know how it's going to respond when like a disk fails in a certain weird way. Or something like that you know whereas with postgres I know it's been put through its paces for you know, 20 years or more um and and so that's I don't know that's that's that's sort of part of how I think about this stuff.
-
-31:36.31
-haskellpodcast
-So the industrial setting is not trusting haskill because it's still like a bunch of academics playing with him.
-
-31:43.89
-Ryan
-Well I don't I don't think the academics are doing something wrong. Yeah, you say playing with it I I think it's really substantial work. But I do think it's a different skill set to translate that into something that is easy for businesses to Adopt. You know that means we need to have things like better education which everybody knows about but but we also need things like um, clearer decision making right? like there's a lot of stuff. Haskell is a lot like ah you know, choose your own adventure book right? like there's. A lot of excellent things but just assessing.
-
-32:20.55
-Joachim
-Especially if your adventure is dealing with dependencies and packet installations then you really have the best game you can hurt.
-
-32:27.21
-Ryan
-Yeah, yeah, like you know when when somebody starts using Ruby on rails which was so popular like back when I was like starting to get into the tech industry I Read a book on Ruby on rails because everybody was saying like this is the way you should build a website. Um. And I tried it and I didn't like it very much. Um and I ended up switching to Haskell but um, but I see the appeal because it's sort of like this big set piece thing and you don't have to go in and research every little component and you know when. Typically building stuff at Haskell You need a lot of knowledge of how to assess which dependency to use um like there's just not a lot of ah, not a lot of stuff that's like prefabricated for you and industry probably needs more of that kind of stuff in order to make it effective. There's also a lot of. Ah, in industry sort of trepidation about having ah finding enough engineers you know and this is something that I don't think we can directly solve because it's a chicken and egg Problem. We're going to have to sort of gradually grow our way out of it. But. You know business people are afraid that you know if they're dealing with a very small community then what if their business gets big which of course everybody wants their business to get big in at least in the startup world. Um, and then what are they gonna do you know?? Um. So I think it's a valid concern and and there's there's things we can do about it. But it's not going to be any kind of Silver bullet.
-
-34:06.33
-Joachim
-How how bad is it or how good is it like you you I guess you're in the position of somebody who occasionally you're often has to hire somebody who knows Haskell or wants to learn haskell so how's your experience.
-
-34:17.88
-Ryan
-Well, our experience has been excellent. So for us hiring Haskell folks is is really great and it's it's nice because people who use haskell. Ah. Have typically taught themselves. Um, so they're they're preselected for having a good amount of motivation. Um there. There are a lot of benefits to hiring people in haskell I think but it's certainly true that if I wanted to go out and hire a hundred developers over the next. two months I wouldn't know how to do that and it might be possible with enough money I think io k has done that kind of thing in the past like the very well funded haskell shops have maybe dug big lifts like that. but but I can see how it would be a challenge. Um, for us on the other hand we we focus a little bit more on you know how can we make the maximally effective team and frankly, we've found that we can do a lot more with you know, 4 engineers than a lot of other teams can do with 20 and so that's really a huge benefit. Not just because obviously from a business perspective. It's more cost effective but also because you you don't have these dis economies of scale that usually crop up in large teams. Um, for example, like. You can't really have a single manager for 20 people you need to have multiple managers which means now you probably need somebody to manage all those managers and that's going to make all your communication. A whole lot slower. so so yeah having small teams of developers. Where each developer is extremely able to make changes in the system. Like for example, we we do everything full stack. We don't we don't divide our engineers into backend at front end. We always work throughout the whole stack. Of course people may have different specialties and things like that. But then usually they'll pair or they'll sort of just talk amongst themselves. Um, but we like to give people responsibility for whole features. Um, and this is way better because it it means that people can sort of do everything they need to do to get things done. They don't have to. Send a request to the backend team and wait three days to hear back that oh no, that's a terrible idea. Um you know and it's it works so much more nicely and and by the way, the fact that we can cross compile haskell to everything that we do browser backend mobile. Whatever that is really a.
-
-37:06.80
-Ryan
-Key part of enabling us to work full stack because if we had to have somebody who was an expert in Swift and also an expert in in Haskell and also an expert in Kotlin or whatever. There aren't that many people who are very good at all those things.
-
-37:22.64
-Joachim
-So the the model you describe with having ah a small, very effective team I think I mean definitely sounds great. I wonder does it did do you sometimes hit roadblocks or maybe not roadblocks but where which just doesn't scale anymore because you have a project that's. Too big for even for 5 x programmers to manage where you say okay this is no no, no longer a project for us and you need to go to to ah a company that has these hundreds of programmers available or did it never come up.
-
-37:53.73
-Ryan
-Well typically what we do as our companies as our clients grow they will. They will start taking over more and more of the project. So you know usually. What we'll do is we'll sort of kick off the project. Get it launched you know, get it to be somewhat successful and then we'll help train internal developers as our clients hire. Um and and and then at some point we'll hand over the project fully. Um, and and that seems to be a model that works pretty well. Um, you know, clearly as well. I guess this is probably not common knowledge in the engineering community. But but in the business communities. It's pretty widely accepted that service businesses are are relatively slow growth and that's what we are as a consultancy. Whereas things like startups are obviously trying to be extremely high growth and so it's not very realistic for us to keep up if 1 of our clients really you know takes off. Of course we would try to do everything we can to to be there for them and and make it happen but generally speaking. As that kind of growth picks up people. Want to start having in-house development teams and and take more ownership of that.
-
-39:13.52
-haskellpodcast
-But this.
-
-39:13.63
-Joachim
-But but that's intriguing that means you have companies who've never heard about Haskell before come to you, you build them something that they like and and they're actually now they're suddenly becoming a haskell shop themselves because.
-
-39:27.22
-Ryan
-Um, yeah, yeah, absolutely.
-
-39:31.84
-Joachim
-That's like that's like viral.
-
-39:34.16
-haskellpodcast
-Um, yeah, click. Thank you.
-
-39:36.21
-Ryan
-Ah, Well yeah, right I Hope so I mean and and the thing is it's not.. It's not like we're trying to sell them on the the sort of theory and like oh man, don't you don't you love purity and and strong types like the business people. Not getting down to that level. They care that the bug counts are lower. They care that we're better at shipping on a schedule and and by the way that's very related to the bug counts right? Bugs You can't really schedule how long it's going to take to fix a bug and if most of your time is spent debugging it really wrecks your ability to plan. Anything on a schedule. Um, so you know we we can build things with less Bugs. We can build it Faster. We can typically build it with a smaller team and the business people see this and you know after a while it can really sync In. So. Yeah I mean that's definitely something. We've been looking to do like you know we've we've always wanted to take these technologies and use them to produce the things that our clients want to produce rather than trying to seek out clients specifically who just want the technologies that we are expert in.
 
 40:48.53
 haskellpodcast
