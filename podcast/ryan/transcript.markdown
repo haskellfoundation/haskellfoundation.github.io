@@ -91,7 +91,30 @@ _JB:_ That's like viral.
 _RT_: Ah, well yeah, right I hope so I mean and the thing is it's not.. It's not like we're trying to sell them on the sort of theory and like oh man, don't you, don't you love purity and strong types like the business people are not getting down to that level and they care that the bug counts are lower. They care that we're better at shipping on a schedule and by the way that's very related to the bug counts right? Bugs, you can't really schedule how long it's going to take to fix a bug and if most of your time is spent debugging it really wrecks your ability to plan anything on a schedule. So you know we can build things with less bugs, we can build it faster, we can typically build it with a smaller team and the business people see this and you know after a while it can really sync-in. So, yeah I mean that's definitely something we've been looking to do, you know... we've always wanted to take these technologies and use them to produce the things that our clients want to produce rather than trying to seek out clients specifically who just want the technologies that we are expert in.
 
 
-32:18 <=== HERE
+_NV_: But then the hiring problem that we discussed before becomes more interesting, right? Because you are asking from business people that don't even know what is Haskell to hire Haskell experts.
+
+
+_RT_: Yeah that's true, it does... it doesn't become a challenge, I'm not sure that it's actually a worse challenge than they have in other languages and the reason is that hiring Haskell developers you may have a little bit less volume, like you're not going to get a hundred resumes for a Haskell job, typically. But with... like I've you know I've had to hire Javascript developers and you do get a hundred resumes and then you have to spend a lot of time going through them and looking for somebody who's actually good and that can be a real challenge. So I think that you know for our clients with our help they've always been able to hire who they need to hire. I definitely think that you know even, even with explosive growth you don't end up needing an enormous number of developers typically with a Haskell shop I mean, I think like some of our clients have had like 60 or 70 Haskell engineers. So it's you know, I guess IolHK??? has also been a client I think they probably have more than that but I wasn't involved in their hiring. So yeah, I guess it's the hiring thing has always been scary but I've never seen it be a really big problem. You know, it's bark??? is much worse than its bite.
+
+_JB:_ But it's not just that you not just Haskell that you're betting on and betting on for your customers and then your customers seem to be happy, but it's still a bet, you're actually there's more interesting non-standard tech that you're using. So for I mean, I guess next one would be GHCJS which is this GHC for I guess I could still say that compiled has go to Javascript which I believe is I maybe may correct me if this is the wrong, wrong way of phrasing it but it was an impressive feat of work by very few people, mostly Luite Stegeman and I always wondered is it very risky to have such a very rarely I mean it's okay, Haskell is rarely used but T2TS??? is even less used component is so central to your business, so...
+
+_RT_: Yeah I certainly understand where you're coming from on that and it is a project with relatively few maintainers, it's not just Luite these days but, yeah, it's not a huge group. But we have not found this to be really a big problem, really what it's meant is that a few times we Obsidian have had to step in and just do the maintenance. You know whether it's tracking down some obscure bug or you know helping update to a newer version of GHC and this has been a cost that we've just sort of taken on ourselves and done as part of our Open Source work. We do quite a lot of open source work that's not built to any client and it's just sort of what we think is necessary to move the ecosystem forward and GHCJS is part of that. I would say that the benefit we've received from GHCJS has been like orders of magnitude higher than the maintenance costs that we've had to pay. I don't know exactly how much it's been probably like a couple of... maybe like 2 engineer years have been spent on that over the last seven years by us and it's just not a very large fraction of our total open source work, so yeah, it's I think it's another thing it's a very reasonable kind of fear but in practice for us it has not been a problem.
+
+_JB:_ And you never had like horrible bugs that you were unable to fix the reasonable end of time or like times where you thought oh my God we made this was a mistake to use this tech.
+
+_RT_: No, I've never had a time when I felt that way there was one really crazy bug very early on, right after GHCJS was released and it was getting in the way of one of the client projects and I ended up having to spend just like a ton of personal time and it ended up being this like really obscure little thing where if you have a heap object with 13 or more slots in it like references to other objects then one of those slots would not be traversed by the garbage collector and so if in that situation you had an object on the heap where the only reference was from one of these missing slots then it would get collected...
+
+_NV_: ???
+
+_RT_: Yeah but only if it had some sort of finalizer or something were you really in trouble because this is Javascript based, so you'd actually still have the data, it's just that your finalizer would run at the wrong time that was a very painful thing to track down it ended up being a one character change I think changing a 2 to a 1 or something and you suggest, but yeah, so that was very tough that was really, Just when Obsidian was getting started. We didn't have any employees at that time allowed to have just released GHCJS like maybe six or eight months before so we were completely prepared for it to be still buggy and having issues. But yeah I don't... I don't really think there's a realistic way that we could do the kind of stuff that we do without having something like GHCJS, I'm very excited about the WebAssembly progress that's being made within the GHC community I really hope that we have the ability to have WebAssembly as a first class compilation target in near future.
+
+_JB:_ But in summary I think it's worth pointing out that despite the impression that one might get that. Maybe I also had at some point of GHCJS being looking like a dangerous technology. It works very well and if you get your way around of actually installing it and using it then yeah, you can use it.
+
+38:50 <=== HERE
+
+_RT_: Yeah, absolutely you know I think that's to a certain extent this comes down to nonhakell stuff. For example, we use knix for all of our dependency management. And we have a rule at the company that every Repo has to build in 1 step via Nix and when we hand things off to Qa for example, ah and and by the way not every software company believes in Qa these days but we certainly do um and when we hand things off to Qa. We give them a git hash. We don't give them built artifacts. Ah we we just give them a git hash and they are able to mix build from that and this gives us a high degree of confidence that we are testing the right thing and this also includes the ability to pin down things like ghc js like if we have to run. g hc js with a small patch because you know we've found an issue and we fixed it and we've contributed upstream but maybe it hasn't gotten merged or released yet nix makes it essentially trivial to work on these minor forks of things and this really gives us a huge ability. To operate in the open source world as good citizens where we will. We will build patches and and we will fix things in place rather than making workarounds this also saves our clients a ton of money by the way because when you do workarounds in the downstream codebase. Now you're on the hook for maintaining those workarounds forever. It's actually a surprisingly high maintenance cost whereas if you just go into the open source codebase and fix it. Um, you know assuming it doesn't take too long to fix it. It's so much cheaper. Um, so Nix gives us the tools we need. To be able to pin things so that once we qa it like I don't really care if if there's a bug in some version of gc js that we're not using. We're not going to accidentally upgrade to it. You know we're goingnna upgrade to it. We're Goingnna put it through q a and we're gonna be sure that it really works. Um, so. So the the sort of the flexibility to do patching and the rigidity to know exactly what we're building and not have accidental upgrades and things like that Nix enables us to really use things that are active open source projects like this without any. Real downside to us or to our clients and then the second thing is just you know being serious about q a and about process. Um, you know we don't really believe in just you know, putting things out and and.
+
+
 
 
 _Joachim Breitner:_
@@ -103,74 +126,6 @@ _NV_:
 _Ryan Trickle_:
 _RT_:
 
-
-40:48.53
-haskellpodcast
-Um, but then the hiring problem that I we discussed before becomes more interesting right? because you are asking from business people that don't even know what is hasal to hire Haskell experts.
-
-41:01.56
-Ryan
-Yeah that's true it it does it doesn't become a challenge. Um I'm not sure that it's ah actually a worse challenge than they have in other ah in in other languages and and the reason is that hiring haskell developers. You may have a little bit less volume like you're not going to get a hundred resumes for a haskell job typically um, but with like I've you know I've had to hire Javascript developers and you do get a hundred resumes and then you have to spend a lot of time. Going through them and and looking for somebody who's actually good and that can be a real challenge. So I think that you know for our clients with our help they've they've always been able to hire who they need to hire. Um I definitely think that you know even even with explosive growth. Don't end up needing an enormous number of developers typically with a haskell shop I mean I think like some of our clients have had like 60 or 70 haskell engineers. So it's you know.
-
-42:11.72
-haskellpodcast
-Yeah.
-
-42:15.29
-Ryan
-I Guess IolHK has also been a client I think they probably have more than that. But um, but I wasn't involved in their hiring. Ah so so yeah I guess it's the hiring thing has always been scary but I've never seen it be a really big Problem. You know it's it's it's bark is much worse than its bite.
-
-42:44.10
-Ryan
-Sorry, just a sec guys.
-
-43:04.90
-Joachim
-But it's it's not just that you not just haskle that you're betting on and and betting on for your customers and then your customers seem to um, they seem to be happy, but it's still still a bet you're actually there's more interesting. Non-standard tech that you're using. So for I mean. Guess next one would be ghjs which is this gh for I guess I could still say that compiled has go to Javascript which I believe is I maybe may correct me if this is the wrong, wrong way of phrasing it but it was an and an impressive feat of work by. Very few people. Um mostlyd loiter steigman was um and I always wondered is it it very risky to have such a very rarely I mean it's okay that'shasco is rarely used, but. T two two s is even less used component is so central to your business. So but.
-
-44:05.97
-Ryan
-Yeah I certainly understand where you're coming from on that and and it is it is a project with relatively few maintainers. Um, it's not just lata these days but um, but yeah, it's not ah, it's not a huge group. But we have not found this to be really a big problem. Um, really what it's meant is that a few times we obsidian have had to step in and just do the maintenance. Um, you know whether it's tracking down some obscure bug or ah or. You know helping update to a newer version of ghc and this has been a cost that we've just sort of taken on ourselves and done as part of our open source work. We do quite a lot of open source work. That's not built to any client and it's just sort of what we think is necessary to move the ecosystem forward. Um. And and gc js is is part of that. Um I would say that the benefit we've received from gacjs has been like orders of magnitude higher than the maintenance costs that we've had to pay. I I don't know exactly how much it's been probably like a couple of and maybe like 2 engineer years have been spent on that over the last seven years by us. Um, and it's just not a very large fraction of our total open source work. Even. Um, so yeah, it's I think it's another thing it's ah it's a it's a very reasonable kind of fear but in practice for us. It has not been a problem.
-
-45:45.59
-Joachim
-And you never had like horrible bucks that you were unable to fix the reasonable end of time or like times where you thought oh my God we made this was a mistake to use this tech.
-
-45:58.16
-Ryan
-No never I've never had a time when I felt that way there was one really crazy bug very early on right after Ghc Js was released and. It it was getting in the way of of one of the client projects and I ended up having to spend just like a ton of personal time and it ended up being this like really obscure little thing where if you have a heap object with 13 or more. Slots in it like references to other objects then one of those slots would not be traversed by the garbage collector and so if in that situation you had an object on the heap where the only reference.
-
-46:36.31
-haskellpodcast
-That's hard.
-
-46:51.43
-Ryan
-Was from one of these missing slots then it would get collected and yeah and and but only if it had some sort of finalizer or something were you really in trouble because this is javascript based So you'd actually still have the data.
-
-46:55.98
-haskellpodcast
-It right with your team.
-
-47:11.40
-Ryan
-It's just that your your finalizer would run at the wrong time that that was a very painful thing to track down it ended up being a one character change I think changing a 2 to a 1 or something and you suggest, but um, but yeah, so that that was very tough that was really.
-
-47:20.23
-haskellpodcast
-7
-
-47:29.18
-Ryan
-Just when obsidian was getting started. We didn't have any employees at that time allowed to have just released ghtwojs like maybe six or eight months before so we were completely prepared for it to be still buggy and and having issues. But but yeah I don't. I don't really think there's a realistic way that we could do the kind of stuff that we do without having something like Gcs I'm very excited about the webassembly progress that's being made within the ghc community I really hope that we have the ability to to have. Webassembly as a first class compilation target in your future.
-
-48:12.11
-Joachim
-But in summary I think it's worth pointing out that despite the impression that one might get that. Maybe I also had at some point of G G J s being looking like a dangerous technology. It works very well and if you get your way around of actually. Installing it and using it then yeah, you can use it.
-
-48:33.54
-Ryan
-Yeah, absolutely you know I think that's to a certain extent this comes down to nonhakell stuff. For example, we use knix for all of our dependency management. And we have a rule at the company that every Repo has to build in 1 step via Nix and when we hand things off to Qa for example, ah and and by the way not every software company believes in Qa these days but we certainly do um and when we hand things off to Qa. We give them a git hash. We don't give them built artifacts. Ah we we just give them a git hash and they are able to mix build from that and this gives us a high degree of confidence that we are testing the right thing and this also includes the ability to pin down things like ghc js like if we have to run. g hc js with a small patch because you know we've found an issue and we fixed it and we've contributed upstream but maybe it hasn't gotten merged or released yet nix makes it essentially trivial to work on these minor forks of things and this really gives us a huge ability. To operate in the open source world as good citizens where we will. We will build patches and and we will fix things in place rather than making workarounds this also saves our clients a ton of money by the way because when you do workarounds in the downstream codebase. Now you're on the hook for maintaining those workarounds forever. It's actually a surprisingly high maintenance cost whereas if you just go into the open source codebase and fix it. Um, you know assuming it doesn't take too long to fix it. It's so much cheaper. Um, so Nix gives us the tools we need. To be able to pin things so that once we qa it like I don't really care if if there's a bug in some version of gc js that we're not using. We're not going to accidentally upgrade to it. You know we're goingnna upgrade to it. We're Goingnna put it through q a and we're gonna be sure that it really works. Um, so. So the the sort of the flexibility to do patching and the rigidity to know exactly what we're building and not have accidental upgrades and things like that Nix enables us to really use things that are active open source projects like this without any. Real downside to us or to our clients and then the second thing is just you know being serious about q a and about process. Um, you know we don't really believe in just you know, putting things out and and.
 
 51:20.87
 Ryan
