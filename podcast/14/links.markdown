@@ -17,3 +17,7 @@
 * [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly)
 * [Nix](https://en.wikipedia.org/wiki/Nix_(package_manager))
 * [NixOS](https://nixos.org/)
+* [Selenium](https://www.selenium.dev/)
+* [Simon Marlow](https://en.wikipedia.org/wiki/Simon_Marlow)
+* [ICFP (International Conference on Functional Programming)](https://en.wikipedia.org/wiki/International_Conference_on_Functional_Programming)
+* [ZuriHac](https://zurihac.info)
