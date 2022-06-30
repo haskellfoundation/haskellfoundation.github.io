@@ -1,3 +1,4 @@
+* [Ryan's Twitter](https://mobile.twitter.com/ryantrinkle)
 * [Obsidian Systems](https://obsidian.systems)
 * [PostgreSQL](https://www.postgresql.org)
 * [Functional reactive programming (FRP)](https://en.wikipedia.org/wiki/Functional_reactive_programming)
