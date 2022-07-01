@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  pull_request:
+    branches-ignore:
+      - gh-pages
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        stack: ["2.7.3"]
+        ghc: ["8.10.7"]
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: haskell/actions/setup@v1
+        name: Setup Haskell Stack
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          stack-version: ${{ matrix.stack }}
+
+      - uses: actions/cache@v1
+        name: Cache ~/.stack
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-${{ matrix.ghc }}-stack
+
+      - name: Build dependencies
+        run: stack build --system-ghc --only-dependencies
+
+      - name: Build site
+        run: |
+          stack build --system-ghc
+          stack exec --system-ghc site rebuild
+
+      - name: Deploy site
+        run: |
+          if [[ ! -z $GITHUB_HEAD_REF ]]; then echo "Skip this step for pull request"; exit 0; fi;
+          ./.github/workflows/deployment/deploy.sh
