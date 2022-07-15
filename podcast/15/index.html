@@ -1,0 +1,538 @@
+<html lang="en">
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <title>Facundo Dominguez</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../../assets/js/main.js" defer></script>
+  <!-- from https://stackoverflow.com/questions/33986976/how-can-i-remove-a-buggy-service-worker-or-implement-a-kill-switch/62154131#62154131
+        attempt to fix: https://github.com/haskellfoundation/haskellfoundation.github.io/issues/70
+  -->
+  <script>
+    if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
+        navigator.serviceWorker.getRegistration('/').then(function(registration) {
+            if (registration) {
+                  registration.update();
+                  registration.unregister();
+            }
+        });
+    }
+  </script>
+</head>
+<body class="relative">
+
+<!-- This is the mobile fly-out menu - outside document flow. -->
+<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" width="68" height="52" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+      <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+
+    <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+      <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+<!-- Document flow begins here -->
+<div class="min-h-screen flex flex-col">
+  <div>
+    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../../">
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+        <li class="relative">
+          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+                  Current Board
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+                  Past Boards
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
+            </div>
+
+        </li>
+
+	<li class="relative">
+	  <a href="../../podcast">Podcast</a>
+	</li>
+
+        <li class="relative">
+          <a href="../../projects">Projects</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../donations">Sponsorship</a>
+
+        </li>
+
+        <li class="relative">
+          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+                  Affiliates
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+                  About Affiliating
+                </a>
+
+            </div>
+
+        </li>
+
+       <li class="relative">
+          <a href="../../news" id="news-nav-item">News and Info</a>
+
+            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+                  News
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+                  Blog
+                </a>
+
+                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+                  Press
+                </a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+
+          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+            </div>
+
+        </li>
+
+        <li class="relative">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </li>
+      </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+  </div>
+
+  <div class="flex-grow">
+    <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+  <div class="sm:px-6 lg:px-16">
+    <div class="relative">
+      <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+                <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+                <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+        <h1 class="text-2xl-5xl"><b>15</b> – Facundo Dominguez</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-screen-xl mx-auto">
+    <div class="mx-auto prose md:prose-lg">
+      <div class="space-y-8 max-w-2xl my-7 mx-auto">
+        
+         <p><em>Recorded 05-05-2022. Published 15-07-2022.</em></p>
+        
+        <p>Facundo Dominguez is interviewed by Niki Vazou and Joachim Breitner. Facundo Dominguez tells us the difference between STM and SMT. We also talk about Liquid Haskell and its relation to dependent types and the <code>QualifiedDo</code> extension – which is one of the most highly discussed GHC proposals – and the general GHC proposals. And, finally, Facundo describes a technique to have Haskell peacefully coexist with other languages thanks to his work in the build system Bazel.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto prose md:prose-lg my-6">
+      <div id="buzzsprout-player-10962514"></div>
+      <script src="https://www.buzzsprout.com/1817535/10962514.js?container_id=buzzsprout-player-10962514&player=small" type="text/javascript" charset="utf-8"></script>
+    </div>
+
+    
+    <div class="mx-auto prose md:prose-lg my-6">
+     <div class="flex items-center space-x-4">
+       <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+       <h2 class="text-2xl font-normal">Related links</h2>
+     </div>
+     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+       <ul>
+<li><a href="https://mobile.twitter.com/FacundoDomngu12">Facundo’s twitter</a></li>
+<li><a href="https://www.tweag.io/">Tweag</a></li>
+<li><a href="https://ucsd-progsys.github.io/liquidhaskell-blog/">LiquidHaskell</a></li>
+<li><a href="https://gitlab.com/goldfirere/stitch">Stitch</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3406088.3409015#d80283920e1">Stitch paper</a></li>
+<li><a href="https://github.com/facundominguez/stitch-lh">StitchLH</a></li>
+<li><a href="https://nikivazou.github.io/static/osdi21.pdf">“STORM” paper (PDF)</a></li>
+<li><a href="https://resources.mpi-inf.mpg.de/departments/rg1/conferences/vtsa08/slides/barret2_smt.pdf">SMT paper (PDF)</a></li>
+<li><a href="https://groups.csail.mit.edu/tds/papers/Shavit/ShavitTouitou-podc95.pdf">STM paper (PDF)</a></li>
+<li><a href="https://github.com/ghc-proposals/ghc-proposals">GHC proposals repository</a></li>
+<li><a href="https://www.tweag.io/blog/2020-07-13-qualified-do-announcement/"><code>QualifiedDo</code> blog article</a></li>
+<li><a href="https://github.com/ghc-proposals/ghc-proposals/blob/master/proposals/0216-qualified-do.rst"><code>QualifiedDo</code> proposal</a></li>
+<li><a href="https://github.com/tweag/inline-java"><code>inline-java</code> repository</a></li>
+<li><a href="https://github.com/tweag/rules_haskell"><code>rules-haskell</code> repository</a></li>
+</ul>
+     </div>
+    </div>
+    
+
+    
+    <div class="mx-auto prose md:prose-lg my-6">
+     <div class="flex items-center space-x-4">
+       <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+       <h2 class="text-2xl font-normal">Transcript</h2>
+     </div>
+     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+       <p><em>Niki Vazou</em>: Welcome to the Haskell Interlude. In today’s episode Facundo Dominguez tells us the difference between STM and SMT. We also talk about Liquid Haskell and its relation to dependent types and the <code>QualifiedDo</code> extension – which is one of the most highly discussed GHC proposals –, and the general GHC proposals. And, finally, Facundo lets have Haskell peacefully coexist with other languages thanks to his work in the build system Bazel.</p>
+<p>So, hello, I’m Niki, and Joachim is today here with me.</p>
+<p><em>Joachim Breitner</em>: Hello.</p>
+<p><em>NV</em>: And our guest today is Facundo.</p>
+<p><em>Facundo Dominguez</em>: Hello there!</p>
+<p><em>NV</em>: So why don’t you start by telling us about your Haskell history. Like, how did you get to it, when, and where?</p>
+<p><em>FD</em>: All right. So, first time at Haskell was in university. It was taught in one of the was thought in one of the courses there. Later on, I did my final project for my Bachelor’s in Haskell as well. And then I followed up that with Master’s that also had an implementation in Haskell.</p>
+<p><em>JB</em>: So, which university was that?</p>
+<p><em>FD</em>: I stayed in Montevideo, in Universidad de La República, which is a big university owned by the state. There were some folks here who had traveled to Sweden and studied there (also to share money) and they brought Haskell to these latitudes. Haskell or functional programming was totally unknown before, I would say.</p>
+<p><em>NV</em>: So who are you talking about?</p>
+<p><em>FD</em>: There were several professors who went to Sweden. I remember Juan José García Siri, Silvia Da Rosa, Alvado Tasistro. And then, to share money, my thesis advisor, who is called Alberto Pardo. So Alberto, I think, has stayed connected with, or investigating research topics related to functional programming. So you might find him in committees of conference today.</p>
+<p><em>JB</em>: So when you started learning Haskell at university – my experience was that in the first year I was just doing something I had to do because it was University and it didn’t really click; and then only later it clicked and it made sense and became this thing that I highly value – how was it for you? Was it like immediately clear? “Haskell is great and going to be influencing the rest of your life forward” or take a while?</p>
+<p><em>FD</em>: When I was having my first course, I surely didn’t fall in love with it. It was only after I started reading papers about Haskell that I start to see some differences with other programming languagees. It happened to me eventually with “Why functional programming matters?” but I had to read it several times to get the message. What hooked me much faster was the paper of SMT transactions that Simon Peyton-Jones wrote at about that time or perhaps a little bit earlier. We are talking at the beginning of the century here. From there it started to look to me like it was possible to write in Haskell code where it was clear what it was attempting to do.</p>
+<p><em>NV</em>: But these SMT transactions are not about Haskell? What is it?</p>
+<p><em>FD</em>: SMT is software transactional memory. Is concurrency. So software transactional memory is a tool that you can use in concurrent programs to synchronize different threads. It has some properties related to how easy you can compose different transactions into larger ones and still get a program that does what what you mean it to do.</p>
+<p>So, from there, time passed, I left university and started to work professionally. At some point I started to look for a functional programming job and that turned out not to be entirely trivial. It started to become like a sort of a dream to achieve. Anyone here felt the same looking to work with Haskell? I eventually got some freelance jobs to do with Haskell for companies in the North Hemisphere. Because, of course, in Uruguay and Latin America in general, Haskell is not a thing in industry.</p>
+<p><em>NV</em>: And that’s still the case, right?</p>
+<p><em>FD</em>: Yes, I think so. But I think you can find companies now that are using Scala. So functional programming is coming slowly. And I know of one company using Erlang. So maybe we can count Erlang as functional programming too.</p>
+<p>Well, after a while of doing freelancing I got a job for a company called Parallel Scientific where I could work for a couple of years and then came to Tweag.</p>
+<p><em>NV</em>: And here is where we are now. Because I heard that you are one of the first Tweag employees.</p>
+<p><em>FD</em>: Well Tweag started in November of 2013 and we were 3 persons: Alexander Vasilov, Mathiew Boespflug, and myself. We were working together in the former company, Parallel Scientific. So, at some point Parallel Scientific ceases operations and we still wanted to continue working together because we were young, we wanted to change the world, and we wanted to to have fun.</p>
+<p><em>JB</em>: So which of these things have you achieved? Being young, changing the world, and having fun?</p>
+<p><em>FD</em>: So, being young was easy at the time. So we still wanted to have fun and change the world, mind you.</p>
+<p><em>NV</em>: The world is changed too. So, I guess the real question is, how did you want to change the world with Tweag or Parallel Scientific or through functional programming in general? As opposed to like many people see all this functional programming as this borderline research that doesn’t really have an effect on the word. So I’m curious to hear the opposite argument.</p>
+<p><em>FD</em>: Well, from the industry side I think it’s easier to change how your team works. So you might not change the world immediately but you can convince your peers that functional programming is worth it. You can get some start with some small projects with functional programming. You can start having discussions about how to solve real problems using functional programming. Haskell is really challenging for that because it’s offering you so many ways to solve a problem and you have to pick one. If you want to make a conscious choice, that requires a lot of discussion. There were not a lot of resources at the time telling you how to do functional programming to solve real world problems. So it looks interesting to try to acquire that experience.</p>
+<p><em>JB</em>: So what is an example of something where you have many ways of doing it and you need expert guidance if you want to solve real world problems?</p>
+<p><em>FD</em>: Well, I think we could find many examples. One that comes to mind now is how much you want the compiler to check for you. Because you might be happy just not confusing booleans with integers or you might want to make sure that you are searching in a map the keys that actually exist in the map and that you are not going to get a runtime error because of a missing key. Even if you agreed on the things you want the compiler to check you still have multiple ways of implementing those checks. Are you going to use Liquid Haskell to try to do that? Are you going to try to use type classes (like heterogeneous lists)? And if you use type classes, do you use functional dependencies or do you use associated types? So the decision tree branches and branches and branches, and reaching to the leaves is a long way.</p>
+<p><em>NV</em>: So is this an obviously good thing that you have so many choices?</p>
+<p><em>FD</em>: Well, it must be good for researchers. But for industry, you have a heterogeneous group of people with various degrees of experience. So it’s not so obvious. Also you have several constraints. I think that when you are undertaking a research project you have much more freedom in deciding what your constraints are going to be. In the real world, well, your software has to be a specific size or it has to work with some particular technology, it has to run in a particular operating system or many (which is worse). And all of these constraints are not always known from the beginning. This has a greater risk of sending you to revise your assumptions, having to rewrite some parts of your code.</p>
+<p><em>NV</em>: Let me ask you what should be the structured way of software engineering on making these decisions based on the project.</p>
+<p><em>FD</em>: Well, we have opinions, certainly. These opinions, of course, change from engineer to engineer. I think there is a recently large batch who thinks that we should try to not get too fancy with dependent types, for instance, try to keep the scope limited in what we ask the compiler to check at compile time, and then try to look for other practical solutions to cope with the problems or the mistakes that the programmer can do. But that’s not like there is a consensus inside Tweag. For instance, you will find people which are aiming for more power when programming and getting a study on guarantees. So I’m not sure I’m answering the question. No, I don’t think we have a book that you can read and learn all the experience that we have, that we have earned over the years. Also, I’m reluctant to claim that this experience is universal so you can apply it safely in all contexts. If we go and discuss the projects I’ve been involved with you will see that the parts of the landscape that I’ve been exploring is very narrow.</p>
+<p><em>JB</em>: So on the options that you think about how much you want the compiler to do for you, I notice that you mentioned Liquid Haskell. I think you actually worked or work on Liquid Haskell. Maybe not everybody who listens the podcast knows what Liquid Haskell is. So maybe, could you just introduce us to Liquid Haskell, from what it is, at least, for you and what it means for you and what you’ve been doing there and why everybody should know about it or why everybody should not know about it. I don’t know that’s up to you.</p>
+<p><em>FD</em>: Yeah, sure. So Liquid Haskell is a tool that can analyze your program and tell you what you need to prove in order to ensure that the program does what you intended to do. You explain to the tool what you intend the program to do by inserting some comments in the program that say what the functions are meant to be doing. So Liquid Haskell can read these special comments, can read the source code and equalize these as well. Like if you want to prove that this program is correct you need to give me this list of proofs. And, to save the user a trouble of writing these proofs on paper it will use an SMT solver to try to prove these things automatically.</p>
+<p><em>JB</em>: So, SMT is not the think we talked about earlier, right/ That was STM and now it’s SMT. So, what is SMT?</p>
+<p><em>FD</em>: Ah, so let’s say that instead of an SMT solver there is an automatic theorem prover. So there’s yet another tool at the side of Liquid Haskell that can prove theorems automatically for you, or some theorems for you. So Liquid Haskell is going to pass whatever verification conditions it thinks are necessary to this automatic theorem prover and if the automatic theorem prover can prove them all then Liquid Haskell will say that your program actually is correct.</p>
+<p><em>JB</em>: Okay.</p>
+<p><em>NV</em>: And maybe can you say some examples of properties you can use Liquid Haskell on, or that you want to use Liquid Haskell on? To make things concrete.</p>
+<p><em>FD</em>: Sure. So I think I would try to use Liquid Haskell on almost every code I write. So whenever I write a function, this function has preconditions in order to have an useful outcome. Many of these preconditions are simple and they can be checked by an automated theorem prover. Things like the input list must not be empty and the result is going to be sorted. If you are working with a tree-like that structures you can say the tree is balanced both as a precondition when I get it as input and as an output when I get it as result.</p>
+<p><em>JB</em>: Okay, so this sounds like something I might want to use. Is it ready for people out there to use? You just tell somebody who just did maybe a little bit of Haskell to know and install it?</p>
+<p><em>NV</em>: I was thinking exactly the same. Like you have a magic SMT based tool that can tell you that like if your input tree is balanced, your output tree is balanced. There should be a cut.</p>
+<p><em>FD</em>: Well, I’ve tried it for over an year now and verdict is you can use it if you are enough motivated. But if you want to motivate other people about it probably we should lower the value for adoption. There are 3 things, I think, that we could improve to make Liquid Haskell followed. One of them is make Liquid Haskell easier to understand – that is, when you use it and it doesn’t work you have a way to inspect what Liquid Haskell is trying to do and figure out how to modify your program so it works, so verification passes. Another thing that could be improved is, of course, making verification faster. Today if you want to verify a program – it depends on what you are trying to verify – it could multiply several times the time you need to build a program. And, well of course, there are usability issues, bugs that you have to work around because nobody had the time to fix them yet.</p>
+<p><em>JB</em>: Who is developing Liquid Haskell then?</p>
+<p><em>FD</em>: I don’t know. We have to search on the web.</p>
+<p><em>NV</em>: Yeah, I can tell the mystery. Me and my PhD supervisor, Ranjit Jhala, are the main developers. I mean it has been amazing that Facundo is working on these. I think that the most amazing thing is that I made a pull request and I immediately saw a review of the pull request by Facundo. That was very nice and I think you have been speeding up verification times a lot.</p>
+<p><em>FD</em>: Well, glad to hear that your are appreciating the help. We’ll see how far we can go with performance.</p>
+<p><em>NV</em>: So, I have to note here that Liquid Haskell is using this SMT on the back that is this automating prover and performance is bad. When you go outside of these decidable fragments of verification – like if you just want to say “a non-empty input list returns to non-empty output list”, then everything works and it’s very smooth –, the more advanced theorem you want to prove then more processing is happening and this is where speed up is needed.</p>
+<p><em>JB</em>: So could can you describe what the decidable fragment is?</p>
+<p><em>NV</em>: The decidable fragment is interpreted functions and linear arithmetic, basically. So you can use linear arithmetic to talk about the size of list. But if you want to say, for example, “<code>append</code> is associative” then you need to know the definition of <code>append</code> and then you go to the recursive function – and when you start dealing with recursive functions what is happening is that Liquid Haskell has a preprocessor that is analyzing all these. And this is what Facundo has optimized a lot, this preprocessor for when you leave this decidable fragment. But, of course, all these are very difficult to explain without assuming that the user knows all the internal information. And this is where problems are. Like error reporting, assuming that your user doesn’t know how the SMT works, then how do you explain the error? I think error reporting is a very difficult problem in all functional programming, I mean even in GHC the more <code>#LANGUAGE</code> pragmas that you use, the more your errors are getting confusing.</p>
+<p><em>JB</em>: If you use less language extensions, the errors are simple. They tell you turn on this extensions. So that’s easy to follow, but then the next arrow is tricky.</p>
+<p><em>FD</em>: Yeah. Well, I’m not aiming to give errors that are self-explanatory, that assume the user knows everything. But even assuming the user knows how the algorithms work it’s hard to understand why our program doesn’t pass verification. So, an easier goal to achieve is just to give enough information for that person who knows how Liquid Haskell works. We are not there yet, if we look at the dump of formulas that we can say that Liquid Haskell discovers and this preprocessing that Niki was saying before. There’s a part where Liquid Haskell tries to augment your environment with extra hypotheses that it has, that hold and some of these hypotheses can get really really large and hard to read. So if you want to inspect what Liquid Haskell has inferred, you have a hard time understanding because these hypotheses are too much. So when I say improving the ability of users to understand it I’m meaning “let’s give the expert users some chance of dealing with this”. So the biggest challenge I have with Liquid Haskell today is that the codebase is big and I still have to make changes without breaking it. Sometimes I manage, but sometimes I still fail to see some environment and I made a pull request and had to do another pull request to fix what I have broken.</p>
+<p><em>NV</em>: But what about the good parts of Liquid Haskell? Like why are you putting in all this effort? Where do you want to see it?</p>
+<p><em>FD</em>: Oh, well, I want Tweagers – I mean, other coworkers – to start using it. I want our customers to start receiving code that is verified with Liquid Haskell. So we can keep the code simple because I like dependent types. We don’t need to modify the Haskell program a lot to get verification to pass. That’s my hypothesis, to engage it with all of these.</p>
+<p><em>NV</em>: Then did you have something very concrete that you can explain what do you want your code to get verified about?</p>
+<p><em>FD</em>: Well, in the beginning, I’m going to aim for these simple preconditions and postconditions for functions, without choosing any particular domain. I think this is wildly applicable. And once this is easy to use and I can get other coworkers to use it, then we could get more ambitious and say “let’s try to prove some properties related to the domain of an application”. So, say, when we work with a database we ensure that the users of our application really have access to the data they are supposed to and they they cannot read the data that is private to a different user. I think Ranjit has paper related to something like that.</p>
+<p><em>NV</em>: Yeah, we have a paper at OSDI that’s called “STORM” and it’s doing exactly that. But it’s very interesting because, I mean, it happened but, again, it was very difficult. Like the annotations when you develop the library that ensures these privacy properties, the annotations that the developer had to write were very complicated. I mean the first author is a very smart student and it took him a lot of time to develop it. But in theory if you use this verified library to develop clients it’s not that difficult.</p>
+<p><em>FD</em>: Right? Well, yeah that’s my impression. So taking it slowly. Also you can still prove a lot of interesting things about your functions without going for such high level properties. I discovered this when working on an interpreter for the lambda calculus where I tried to prove Liquid Haskell that the expressions that you are manipulating are well-typed.</p>
+<p><em>NV</em>: And this is “Sticth”, right?</p>
+<p><em>FD</em>: Yeah, this is StitchLH, because there’s “Stitch” which is the paper written by Richard Eisenberg which just uses the available Haskell hackery to ensure with the compiler that your expressions are well typed.</p>
+<p><em>NV</em>: And originally it is using type families and dependent types and all these. And you wanted to port the same verification conditions using Liquid Haskell.</p>
+<p><em>FD</em>: Yeah. So that means that your code is Haskell98. All the trouble of expressing and proving your properties is on the Liquid Haskell side, another Haskell program.</p>
+<p><em>NV</em>: So you have the answer to the question of how dependent types compare to the refinement types of Liquid Haskell? Because I hear this question a lot yet I still don’t have an answer. Like a cleanup?</p>
+<p><em>FD</em>: I think you can arise a lot of passion in the functional programming community by bringing that topic. I only claim that for the examples I have seen where I can get away without dependent types. But I’m sure that we are going to find persons who think that dependent types are still the future and are more powerful and more flexible, maybe, than Liquid Haskell.</p>
+<p><em>JB</em>: But it’s not an exclusive or, right? Presumably Liquid Haskell and dependent types can be used together if that’s needed and you can refine your dependent types. Or is there something fundamental that makes you choose one or the other?</p>
+<p><em>FD</em>: I think you can use both but right now for me, it looks like they go in opposite directions when you approach verification. Maybe you could say “well, I’m going to try to use dependent types for things that aren’t easy to prove with an automated theorem prover”. That’s plausible, but I haven’t seen any experience trying that yet.</p>
+<p><em>JB</em>: I think that the point I was trying to make is that dependent types per se are not just about verifying things. They’re just also functions that you kind of want to present a dependently typed thing even though you’re not proving them to be correct, and just the ability to have types depend on terms is not verification on its own yet. And then when you have programs that happen to use that feature I see nothing wrong with putting some refinement types on functions and results if you want to check some side conditions or something else. I don’t think it’s they’re exclusive.</p>
+<p><em>FD</em>: Do you have any examples of some use of dependent types that you might not use for verification?</p>
+<p><em>JB</em>: I came across something – and this is not fully thought out so this is going to be a bit more chatty –, but I was looking at some automated difference shapes in library earlier. It’s building a differential – a differential is, like in the linear algebra sense, real analytics, you think of it as this number that’s the derivative; but a more abstract view of it from a methodical point of view is to say it’s a tangent at a point on a curve. And what a tangent means kind of depends on what kind of space you’re in. So the tangent to a line is a straight line, the tangent to a sphere or to 2D object is a plane. So these are different types. Now what if I take a union of 2 of these spaces, like just the <code>Either</code> type? Well the tangent at a point has a different type depending on whether it’s a tangent of a point of <code>Left</code> or a tangent of the point on the <code>Right</code>. That may be one of these things – this is very very superficial. I could just take another union type for the tangent and then have a verification condition that kind of conveys information that when I’m taking a tangent of a point in the <code>Left</code> space then that really is of that type of tangents the <code>Left</code> space and the other way around. But that may be something that I’d want to be expressed on the type system. Then, maybe, the next step I want to verify is that all my things are continuous, or whatever – I ended up making things us right now up. Maybe that would be a better for something like Liquid Haskell.</p>
+<p><em>NV</em>: So my understanding of what you’re saying is that the benefit of dependent types is that you can use them to affect the implementation of your function. You can have the function depending on your type. While the refinement types are exactly the opposite. As Facundo said, we like Liquid Haske because your code doesn’t need to be modified. Your code just imposes external verification conditions. So from this distinction I can see why they’re exclusive and they serve different purposes.</p>
+<p><em>JB</em>: They’re not exclusive I would say. Another way of putting it, if you think about red-black trees – is one of these typical examples of data structures with invariants – then you can use the Haskell98 type system to encode the invariant. I guess people would say that this is verification saying that a data structure is a red-black tree. I guess there’s this thing where it’s unclear whether you’re verifying something or you’re just just modeling the thing in a way that that only allows certain good behaviors. And maybe that’s a kind of squishy distinction.</p>
+<p><em>FD</em>: Yeah. I think when you use dependent types, there’s always some structure that you are imposing on your types. So there are some expressions that would fail to typecheck if you use dependent types. So this is the thing that you are verifying at compile time, however trivial. Now that you put it, yes, it looks to me like you can mix dependent types with Liquid Haskell without getting too ambitious on what you have the compiler check with dependent types. Also, in the case of red-black trees, one question to do there: you can do it with Haskell98, fair, but how hard is the implementation when you try to have the compiler verify it?</p>
+<p><em>JB</em>: Yeah, I think that’s the crux of the question. There are probably examples where doing it in types actually makes it easier to write it because the compiler will happily check all the things you need to do but it will actually guide you in writing the code. And there are cases where you need to jump through hoops to make the compiler accept it where maybe Liquid Haskell, I would expect, would just accept it with much less trouble. And, maybe, that’s the criteria you would apply when you want to choose which kind of approach you want to use or where you want to make the cut between what do you put in the types and what do you put in the refinements.</p>
+<p><em>NV</em>: Yeah, and as we mentioned before these SMT-based refinement types like Liquid Haskell are very good. A lot of these are decidable theories. The most famous of which is linear arithmetic. So if you want your spec to have linear arithmetic you have to use Liquid Haskell. Do you have to use an automated prover behind it to discharge this? Because I mean we know how to solve this. Why should the user develop again linear arithmetic and make explicit Proofs about that?</p>
+<p><em>JB</em>: Yeah, absolutely.</p>
+<p><em>FD</em>: Okay, but you can encode a lot of things using linear arithmetic. So again, it’s not easy to for me to decide want to stop because that’s what Liquid Haskell does with reflection, and it gets scary.</p>
+<p><em>JB</em>: So you mentioned that working on the Liquid Haskell codebase, that it’s big and things. But you also worked on other big codebases like GHC itself. So I guess the question is which is less scary of the 2 code bases, seem to be a bit mean?</p>
+<p><em>NV</em>: In our defense, Liquid Haskell depends on GHC codebase, so it can only be worse.</p>
+<p><em>JB</em>: So like it’s practicing on reverse, so that that’s a good point. So one thing I saw you didn’t yet achieve was implement the <code>QualifiedDo</code> language extension. Is that correct?</p>
+<p><em>FD</em>: Yes, that’s correct.</p>
+<p><em>JB</em>: Maybe not all our listeners are reading through all GHC proposals coming through. So what is <code>QualifiedDo</code> and why is it there and is it useful?</p>
+<p><em>FD</em>: Well, <code>QualifiedDo</code> came to alleviate the syntax part of another proposal which is linear types for GHC. So with <code>QualifiedDo</code> you basically try to be able to use the monadic <code>do</code> syntax to write Monads that involve linear types. Before the <code>QualifiedDo</code> extension this wasn’t possible, for various technical reasons. So the <code>QualifiedDo</code> language extension is a particularly small one because it affects only the renamer in GHC. The big effort of implementing <code>QualifiedDo</code> was getting the Haskell community to agree on how it should be. So I like to brag that the <code>QualifiedDo</code> proposal has the second most comments at the time it was approved.</p>
+<p><em>NV</em>: After Linear types?</p>
+<p><em>FD</em>: Yes, that was the first.</p>
+<p><em>JB</em>: I would expect some of the even more syntactical proposals to have even more comments.</p>
+<p><em>FD</em>: Well, you check it. I’m not sure my claim is checkable, because I say “at the time it was approved”.</p>
+<p><em>JB</em>: Yes, yes. And by the time of recording this podcast it has already gone down to number 6, being surpassed in number of comments by “visible <code>forall</code> in types of terms” – so that sounds like syntax –, “linear types” –as Niki said –, and then before that there was a “support the design of dependent types” – it’s all about dependent types and I guess you make a good point that Liquid Haskell is actually simpler than dependent types, and maybe people shouldn’t be using that as much. And then before that we get the really heavy syntactical things: the second in the list is “lambda expressions with guards and multiple clauses” also known as “multi way if” or “multi-way lambda” and then the most common one with 540 comments is the “Record dot syntax” language extension proposal. Which shows that the smaller the syntax you’re talking about the more comments you get.</p>
+<p>Okay, back to the topic.</p>
+<p><em>NV</em>: I meant, it’s not the only factor. The record is the most commonly used so it makes sense that people have opinions.</p>
+<p><em>JB</em>: Right. But we can easily get distracted by looking at what is distracting most people. So, let’s go back to <code>QualifiedDo</code>. You’re right and justified in bragging about getting it through because it means that there was a lot of discussions and a lot of changes and refinements.</p>
+<p><em>FD</em>: Yeah, we had like 2 or 3 alternatives sides to decide upon.</p>
+<p><em>JB</em>: So how was the process from your personal point of view, the whole proposal thing?</p>
+<p><em>FD</em>: I think it was very enriching because it was the first time I really had to arbitrate the tension between people coming with different needs, different ideas of what the proposal should be. And resolving all these tensions in an harmonious way, I feel that was a challenge. But in the end I’m happy that we work steadily towards a closure. And no, nobody was hurt in the process. So that’s success in my book.</p>
+<p><em>NV</em>: But was it productive? I have never submitted a GHC proposal but you said this. Is it more on the people management or is the result productive actually?</p>
+<p><em>FD</em>: Well, it’s about talking to people certainly, so it’s more about talking to people than programming. It has a good component of research to frame the problem and to understand what limitations you are imposing knowingly and unknowingly. So from the implementation standpoints it just like 50 lines of code, maybe be a hundred.</p>
+<p><em>JB</em>: That’s surprisingly little.</p>
+<p><em>FD</em>: So on the other hand, you can expect a lot of code to be written that is going to use the extension so you certainly want to get it right.</p>
+<p><em>JB</em>: So I wasn’t following the linear Haskell development recently closely. Are you using <code>QualifiedDo</code> now in the way you wanted to do? Is it satisfying your needs?</p>
+<p><em>FD</em>: Well, for linear types, yes, I think it’s working as as expected. To be fair I have only tried <code>QualifiedDo</code> in <code>inline-java</code>, which is a library that we wrote in Tweag to allow Haskell programs to invoke Java, to execute Java fragments. And there we use linear types to make sure that the program doesn’t leak Java objects, so when you are finished using an object you can report to the JVM that you are done with it and the JVM can collect it. Because if you leak the objects then your program is going to run out of memory. So that’s where I’ve seen <code>QualifiedDo</code> in action and, yes, it makes your programs more readable, if you like the monadic syntax.</p>
+<p><em>JB</em>: Yeah I remember that in this discussion of that extension we also had many crazy ideas for using it to just have a more convenient syntax for lists and things. So maybe it could be framed as abuses of the feature. But I haven’t seen them in the wild yet. But has <code>QualifiedDo</code> actually been released? Which GHC release was it released with? Maybe it’s not out there in the wild yet. It’s too much.</p>
+<p><em>FD</em>: Well, that’s a good question. I suppose it’s in GHC 9.</p>
+<p><em>JB</em>: Yes, 9.0</p>
+<p><em>FD</em>: Most customers I work with have stayed with GHC 8.10 So probably it hasn’t been in the wild and off yet.</p>
+<p><em>NV</em>: And can you briefly comment what is the GHC proposal procedure? I mean everybody can go and make comments and then who decides?</p>
+<p><em>FD</em>: So the GHC proposal process is driven by the GHC steering committee. Proposals can be created on the GitHub repository called <code>ghc-proposals</code> by anybody. You’re kind of invited to advertise your proposal a little bit so that you get actual comments from people outside the committee first. So, I don’t know, talk about it on the mailing lists, and Reddit, and Twitter, and Discourse, and these things. And hopefully a constructive and not overbearing discussion will happen on the proposal thing where maybe committee members but anybody else, really, like really anybody, could just comment and refine. And when you see that discussion kind of stalls or comes to an impasse, then at that point you would probably submit your proposal to the GHC steering committee, at which point someone – probably I – will pick it up, relabel it, assign somebody from the committee as a shepherd – which is a single person who is now there driving this proposal (which I think is quite useful to actually get things done, otherwise you have a committee and things are assigned to the committee as a whole and then that means nobody does something). So there’s always at least one person responsible for the next steps and that shepherd will look at it more closely, maybe come back with questions, refinement, remarks, etc. And when they have all the answers to these question then they will make a recommendation to the committee, which could be to accept or reject. And the committee starts talking about it. If it turns out that, well, we can’t really reject or accept either, then a discussion is needed, and we might put it back to “needs revision”. This means that, again, you, as in the author, have to maybe address some open questions or maybe include some refinement and then go back and forth. And after a few of these alterations (sometimes more than sometimes less), the committee votes or notices that there’s agreement and we don’t need to do a formal vote. This happens on the mailing list – which is public, you’re welcome to read it, but it’s still meant to be the space for the committee to talk among themselves. And then we say yay or nay, and if it’s okay, then we merge it. At which point the committee considers its work to be done and it’s again up to you to actually motivate somebody to implement it or find somebody to implement it. So the GHC steering committee just says “oh yeah, that’s a good idea”. It doesn’t say somebody has to do it.</p>
+<p><em>JB</em>: Which is a bit different from, for example, the core libraries committee. They want a working merge request ready before they look at proposals. Which is a different choice.</p>
+<p><em>NV</em>: But when you have the GHC request it is not reviewed?</p>
+<p><em>JB</em>: Yes, but the committee that reviews the proposal is about language design. So there you would put in something like “we want a <code>QualifiedDo</code> extension, it has this name and the syntax, and the syntax should do the following things.” And then when we are fine with that then it comes to the implementation part. And that’s when you start working against the GHC codebase and you actually implement the thing. And now we have to get it past the GHC developer and maintainers, who then look at, like, “did you write sensible code?”, “is it commented?”, “are there tests?”, “does the implementation make sense?”,… So the GHC proposals are about the design and then the implementation is about, well, implementation. And about the who the GHC steering committee has around 9 or 10 people. Regular people drop out because they get bored or their term is over or something else comes up. Then we just have an open call for nominations. Everybody is welcome to nominate themselves. And the committee elects the next members and we’re always happy to have new motivated people on the committee. So if you want to join, pay attention to the usual channels for next wave of nominations, which, I think, is coming up in July or August or something.</p>
+<p><em>NV</em>: Yeah, it sounds like a lot of feedback and not a fast process.</p>
+<p><em>JB</em>: It may not be fast, but I believe it is at least functional in terms of a process, as in not dysfunctional. I’m always asking people what they thought of the process. Maybe there’s something we need to refine.</p>
+<p>So, maybe a different topic that I saw on your list of contributions. Something about integrating Haskell with Bazel. I’m old enough to remember the times when you compiled Haskell packages by downloading a tarball and running a <code>./configure</code> and then <code>runhaskell setup build</code>. Only very recently came cabal and kind of recently I actually learned about this thing called Nix – which is kind of cool. And now there’s yet another thing. So what is this Bazel and why should I know about it as a Haskell developer? Or should I just not know about it?</p>
+<p><em>FD</em>: So, each language ecosystem has internal tools to build its code. In Haskell we have <code>cabal install</code> and Cabal the library. We also have Stack, which uses Cabal the library, but does its own thing instead of relying on <code>cabal install</code> for installing packages. These tools are very optimized for projects that use only Haskell. If you have a codebase that includes, perhaps, Python, or, perhaps, Java, or Go, or your favorite language then you have a hard time convincing Stack or <code>cabal install</code> to compile and to link these other pieces of the project. When you build your project, and you work iteratively on it, you usually expect that you only rebuild what’s necessary when you make a change. But because <code>cabal install</code> and Stack only know about Haskell, they only have a fair chance of detecting what to rebuild in the Haskell part. If you change something in the code part, likely you are going to have to rebuild everything in Haskell that might depend on it. And then the motivation to try to look for other tools is trying to offer better solutions to work in these settings where you have multiple language to work with. Bazel is a system that you could think in some ways is similar to <code>make</code> where you specify a target in the command line and then the tool will build everything that is necessary to get the artifact for that target produced. One of the difference of Bazel and make for instance is that Bazel allows you to define sets of rules to build each different languages. So when you start a new project, instead of writing your rules from scratch to teach make how to build Haskell, you can reuse the rules that someone else has written, and has used for a different project. And the same thing happens with other languages. So if you have a project that uses Haskell and Java, you can use these rule sets and you can express dependencies using this these rules between artifacts constructed for different languages. Bazel has a view of all the dependencies between the files of the project no matter what language they are written in – which makes the build task feasible, when you want to have incremental builds. Then, there are other goodies, like hermeticity. That means that if you fail to declare a dependency between your artifacts, a dependency that is necessary, it will always catch it, will say “you need to declare this dependency”. Whereas with make when you run your <code>make</code> command if the artifact is already present in the file system it might not detect that the dependency declaration is missing. It might just pick the the artifact from the file system and it will work for you and it will fail for some person building your software as well.</p>
+<p><em>JB</em>: And how does Bazel achieve that on a technical level? Does it build everything in some kind of a container?</p>
+<p><em>FD</em>: It has a concept of a sandbox, where you put in the sandbox everything that is declared as a dependency and avoid putting anything else. The sandbox can be implemented with different technologies. But that’s the core concept. You’re only inputs to the commands are the files that you have said it would needs.</p>
+<p><em>JB</em>: So that includes the build tools themselves? Like in nix but unlike make, I cannot use GHC until I include it somehow as a dependency. Is that right?</p>
+<p><em>FD</em>: That’s correct.</p>
+<p><em>NV</em>: It’s not Haskell specific, right?</p>
+<p><em>FD</em>: It’s not. Basically it is written to build any language.</p>
+<p>But the work I’ve been doing is Haskell specific. Because I’ve been working in <code>rules-haskell</code> which is the set of rules for building Haskell code. One of the things I’ve been involved in the last year is lowering or getting finer granularity on how you express the dependencies. Right now <code>rules-haskell</code> will allow you to express dependencies between libraries or packages. But if you want to get incremental builds, so you don’t rebuild all of a library when you make a change in it, you need to express dependencies between individual module files. And expressing all the dependencies between individual modules it’s something very tedious to do in in your configuration. And then maintaining these dependencies whenever you change the imports into your source file. So this work is coming together with our tool to scan the Haskell source code in dependencies and writes configuration for Bazel that expresses the dependencies between the files.</p>
+<p><em>JB</em>: So it is a tool that you wrote as part of this project or is it some other tool?</p>
+<p><em>FD</em>: Yeah, it’s a tool that I have written. We haven’t announced it yet, because it is in the final stages of development. But the idea is that you can have incremental builds when building up a project that has multiple packages or multiple libraries. And you only rebuild and link what is necessary. Sometimes it can be better than what you get with Stack or <code>cabal install</code>, which still separates everything in libraries and packages. This is work that has been commissioned by a customer of ours that has precisely this large codebase, and polyglot.</p>
+<p><em>NV</em>: So I think it’s very interesting that we start with verification and now we went to the other side that is built system, that is very low level. So maybe can you close with some vision about what of all this aspect is more important for Haskell or what you see changing soon in Haskell for good? Generally some vision about the Haskell in the future that you have.</p>
+<p><em>FD</em>: I suppose both are necessary. You surely want to be able to build the programs that you have verified and you want to build them in reasonable time. Sure if you are working with a smart program you don’t care much about the time it takes to build. But for a language to be successful, it has to be fast to compile in large code bases. Here, performance is crucial. And, well, I don’t need to convince you about why we should try to verify our programs. But an important part of writing software is discovering the mistakes that the programmers do when they write it. We all do mistakes and there’s no way to avoid that because only computers can do things in a repeatably and accurate fashion, provided that they have been programmed correctly. So there’s strife for tools that can verify programs, I think it’s also worthwhile and it’s one that is going to find the future of programming.</p>
+<p><em>NV</em>: It’s very nice.</p>
+<p><em>JB</em>: Well, I guess that’s a good final message for this episode.</p>
+<p><em>NV</em>: Thank you very much.</p>
+<p><em>FD</em>: Thanks for having me here and see you around.</p>
+<p><em>JB</em>: Thanks a lot.</p>
+     </div>
+    </div>
+    
+  </div>
+</div>
+
+  </div>
+
+  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+  <div class="mt-16 flex flex-wrap items-center justify-center">
+      <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
+  </div>
+
+  <div class="mt-16">
+    <div class="font-bold">Monads</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    
+      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    
+      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    
+      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    
+  </div>
+
+  <div class="mt-16">
+    <div class="font-bold">Applicatives</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    
+      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    
+      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    
+      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    
+      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    
+      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    
+      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    
+      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16">
+    <div class="font-bold">Functors</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    
+      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    
+      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    
+      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    
+      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    
+      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+
+      <div class="flex space-x-4 w-44">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../../assets/images/logos/hf-logo-100-alpha.png" class="h-8" />
+        <div class="font-medium">2022 © Haskell Foundation, <a href="https://github.com/haskellfoundation/haskellfoundation.github.io">submit website bug reports and fixes on GitHub</a></div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
