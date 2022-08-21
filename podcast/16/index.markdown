@@ -5,8 +5,8 @@ buzzsproutId:
 recorded:
 published:
 ---
-Oskar Wickström is interviewed by Alejandro and Joachim Breitner, he will tell
-us a little bit about property based testing Haskell code but also applying
-these ideas to the testing of complete systems. A little bit about interfacing
-Haskell to other languages and even your web browser and what it's like to
-learn Rust as a Haskell programmer.
+Oskar Wickström is interviewed by Wouter Swierstra and Alejandro Serrano, he
+will tell us a little bit about property-based testing (PBT) Haskell code but
+also applying these ideas to the testing of complete systems. He will say a
+little bit about interfacing Haskell to other languages and even with your web
+browser and what it's like to learn Rust as a Haskell programmer.
