@@ -3,7 +3,7 @@ title: Oskar Wickström
 episode: 16
 buzzsproutId:
 recorded:
-published:
+published: 2022-09-02
 ---
 Oskar Wickström is interviewed by Wouter Swierstra and Alejandro Serrano, he
 will tell us a little bit about property-based testing (PBT) Haskell code but
