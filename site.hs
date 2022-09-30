@@ -4,7 +4,7 @@
 
 import Hakyll
 import Data.List (sortOn)
-import Control.Monad (filterM)
+import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
 import Hakyll.Web.Template (loadAndApplyTemplate)
 import System.IO (SeekMode(RelativeSeek))
@@ -415,10 +415,12 @@ filterMetadataField field =
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
-ofMetadataField field value = filterM (\item -> do
+ofMetadataField field value items = do
+  matching <- filterM (\item -> do
         mbField <- getMetadataField (itemIdentifier item) field
-        return $ Just value == mbField
-    )
+        return $ Just value == mbField) items
+  guard (not (null matching))
+  pure matching
 
 -- | sort list of item based on the given metadata field
 sortFromMetadataField :: String -> [Item String] -> Compiler [Item String]
