@@ -17,9 +17,11 @@
 
 <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16">
     <div class="grid gap-8 md:grid-cols-2">
+        $if(openreqs)$
         $for(openreqs)$
         $partial("templates/careers/tile.html")$
         $endfor$
+        $endif$
 
         $for(episodes)$
         <div class="bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
