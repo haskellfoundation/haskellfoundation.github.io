@@ -1,7 +1,7 @@
 ---
 title: Oskar Wickström
 episode: 16
-buzzsproutId:
+buzzsproutId: 11220661
 recorded:
 published: 2022-09-02
 ---
