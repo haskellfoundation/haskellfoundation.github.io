@@ -1,12 +1,8 @@
 ---
-title: Oskar Wickström
-episode: 16
-buzzsproutId: 11220661
-recorded: 2022-02-15
-published: 2022-10-04
+title: Ningning Xie
+episode: 17
+buzzsproutId: 11564042
+recorded: 2022-06-21
+published: 2022-10-23
 ---
-Oskar Wickström is interviewed by Wouter Swierstra and Alejandro Serrano, he
-will tell us a little bit about property-based testing (PBT) Haskell code but
-also applying these ideas to the testing of complete systems. He will say a
-little bit about interfacing Haskell to other languages and even with your web
-browser and what it's like to learn Rust as a Haskell programmer.
+Ningning Xie is interviewed by Niki Vazou and Andres Loh. Ningning first contributed to GHC at her Google summer of code project with a very ambitious goal of implementing the whole dependent Haskell. Also later she fixed several ghc bugs and worked on Koka’s Algebraic effects. Her future hope and advice is to use programming language concepts on real-word problems.
