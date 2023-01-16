@@ -1,0 +1,7 @@
+* [Jesper's website](https://jesper.sikanda.be/)
+* [Jesper's twitter](https://twitter.com/agdakx)
+* [Agda](https://wiki.portal.chalmers.se/agda/Main/HomePage)
+* [Reasonable Agda Is Correct Haskell](https://github.com/agda/agda2hs)
+* [A tutorial for Automated Theorem Proving in Agda](https://link.springer.com/chapter/10.1007/11617990_10)
+* [Liar Paradox](https://en.wikipedia.org/wiki/Liar_paradox)
+* [Workshop on the Implementation of Type Systems](https://popl22.sigplan.org/home/wits-2022)
