@@ -53,7 +53,7 @@ jobs:
         run: stack build --system-ghc
 
       - name: Deploy
-        # No not deploy from pull requests
+        # No deploy from pull requests
         if: ${{ github.event_name != 'pull_request' }}
         run: |
             git config user.name github-actions
