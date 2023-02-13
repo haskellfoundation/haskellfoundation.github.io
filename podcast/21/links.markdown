@@ -1,0 +1,8 @@
+* [Andrey's website](https://blogs.ncl.ac.uk/andreymokhov/)
+* [Andrey's twitter](https://twitter.com/andreymokhov)
+* [Algebraic Graphs](https://github.com/snowleopard/alga)
+* [Hadrian](https://gitlab.haskell.org/ghc/ghc/-/blob/master/hadrian/README.md)
+* [Build Systems à la Carte](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/build-systems-a-la-carte-theory-and-practice/097CE52C750E69BD16B78C318754C7A4)
+* [Selective Functors](https://github.com/snowleopard/selective)
+* [Dune](https://github.com/ocaml/dune)
+* [United Monoids](https://arxiv.org/ftp/arxiv/papers/2202/2202.09230.pdf)
