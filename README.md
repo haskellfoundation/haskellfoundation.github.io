@@ -14,8 +14,9 @@ This repository is for the [haskell.foundation](https://haskell.foundation) webs
   - [Table Of Contents](#table-of-contents)
   - [Building](#building)
   - [CI](#ci)
+  - [Deployment](#deployment)
+    - [PRs deployment](#prs-deployment)
   - [License](#license)
-
 
 ## Building
 
@@ -49,6 +50,26 @@ The general steps are:
 6. Check out the main branch
 7. Copy the `_site` directory over the `main` branch contents
 8. Commit and push the site contents to the `main` branch.
+
+## Deployment
+
+[Available Deployments](https://github.com/haskellfoundation/haskellfoundation.github.io/blob/gh-pages/DEPLOYMENTS.md)
+
+Deployment is automated for branches in the original repository.
+
+### PRs deployment
+
+When you are submitting a PR, it's a good practice to provide a link to a running website demo.
+
+First you should enable GitHub pages for you forked repository.
+
+<img width="949" alt="Screen Shot 2021-12-29 at 10 28 32 PM" src="https://user-images.githubusercontent.com/9302460/147704755-d9bc8c08-7272-4c55-b88f-34b3aefd0c1e.png">
+
+Then you should manually trigger a build for your branch in your forker repository.
+
+<img width="988" alt="Screen Shot 2021-12-29 at 10 25 19 PM" src="https://user-images.githubusercontent.com/9302460/147704589-8bce2b51-cedc-4e8a-9aec-33574b2d2c02.png">
+
+At first time it can take a while because there is no cache for Hakyll dependencies at your GitHub actions runner yet. You can attach a link to running CI job to the PR and go drink coffee.
 
 ## License
 
