@@ -1,5 +1,5 @@
 ---
-title: Andrey Mokhov.
+title: Andrey Mokhov
 episode: 21
 buzzsproutId: 12240448
 recorded: 2022-12-08
