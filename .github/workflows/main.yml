@@ -43,7 +43,8 @@ jobs:
         name: Cache ~/.stack
         with:
           path: ~/.stack
-          key: ${{ runner.os }}-${{ matrix.ghc }}-stack
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-${{ matrix.ghc }}-
 
       - name: Build dependencies
         run: stack build --system-ghc --only-dependencies
@@ -51,8 +52,9 @@ jobs:
       - name: Build site executable
         run: stack build --system-ghc
 
-      # Runs a set of commands using the runners shell
       - name: Deploy
+        # No deploy from pull requests
+        if: ${{ github.event_name != 'pull_request' }}
         run: |
             git config user.name github-actions
             git config user.email github-actions@github.com
