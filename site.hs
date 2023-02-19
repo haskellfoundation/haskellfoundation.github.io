@@ -22,6 +22,10 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "assets/css/theme.css" $ do
+        route   idRoute
+        compile compressCssCompiler
+
     match "assets/**" $ do
         route idRoute
         compile copyFileCompiler

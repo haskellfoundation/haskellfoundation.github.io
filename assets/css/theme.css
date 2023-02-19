@@ -1,0 +1,97 @@
+:root {
+  --logo-gold: #ffbe00;
+}
+
+body.light {
+  --bg-color: #FFFFFF;
+  --bg-header: #000000;
+  --bg-text: #000000;
+
+  --mg-color: #F4F4F5;
+  --mg-header: #000000;
+  --mg-text: #3D3D40; // #71717A;
+
+  --fg-color: #27272A;
+  --fg-header: #FAFAFA;
+  --fg-text: #D4D4D8;
+
+  --anchor: #6D28D9;
+  --bg-nav: transparent;
+}
+
+body.dark {
+  --bg-color: #646066;
+  --bg-header: #FFFFFF; // #747279;
+  --bg-text: #FFFFFF; // #f4f1e2;
+
+  --mg-color: #333333;
+  --mg-header: #FFFFFF;
+  --mg-text: #FEFEFE;
+
+  --fg-color: #5E5184;
+  --fg-header: #FFFFFF;
+  --fg-text: #fefefe;
+
+  --anchor: #EB82DC;
+  --bg-nav: #393939;
+}
+
+.theme-gold {
+  color: var(--logo-gold);
+}
+
+.theme-nav {
+  background-color: var(--bg-nav);
+}
+
+body.loaded :is(p, div) {
+  transition: background-color 1s; /* we DO NOT want transitions between themes until all content is loaded */
+}
+
+.dark .theme-logo-dark, .light .theme-logo-light {
+  display: block;
+}
+
+.theme-background, .theme-background :is(p, li, .prose) {
+  background-color: var(--bg-color);
+  color: var(--bg-text);
+}
+
+.theme-background :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--bg-header);
+}
+
+.theme-background ul > li:before {
+  background-color: var(--anchor);
+}
+
+.theme-middle-ground, .theme-middle-ground :is(p, li, .prose) {
+  background-color: var(--mg-color);
+  color: var(--mg-text);
+}
+
+.theme-middle-ground :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--mg-header);
+}
+
+.theme-foreground, .theme-foreground :is(p, li, .prose) {
+  background-color: var(--fg-color);
+  color: var(--fg-text);
+}
+
+.theme-foreground :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--fg-header);
+}
+
+.theme-icon, :is(.theme-nav, .theme-background, .theme-middle-ground, .theme-foreground) a:not(:hover) {
+  color: var(--anchor);
+}
+
+a p {
+  color: inherit;
+}
+
+.theme-list > * {
+  border-top-width: 1px;
+  border-color: rgba(150, 150, 150, 0.3);
+}
