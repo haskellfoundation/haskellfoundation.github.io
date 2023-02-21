@@ -2,7 +2,7 @@
   --logo-gold: #ffbe00;
 }
 
-body.light {
+body {
   --bg-color: #FFFFFF;
   --bg-header: #000000;
   --bg-text: #000000;
@@ -19,21 +19,23 @@ body.light {
   --bg-nav: transparent;
 }
 
-body.dark {
-  --bg-color: #646066;
-  --bg-header: #FFFFFF; // #747279;
-  --bg-text: #FFFFFF; // #f4f1e2;
+@media (prefers-color-scheme: dark) {
+  body {
+    --bg-color: #646066;
+    --bg-header: #FFFFFF; // #747279;
+    --bg-text: #FFFFFF; // #f4f1e2;
 
-  --mg-color: #333333;
-  --mg-header: #FFFFFF;
-  --mg-text: #FEFEFE;
+    --mg-color: #333333;
+    --mg-header: #FFFFFF;
+    --mg-text: #FEFEFE;
 
-  --fg-color: #5E5184;
-  --fg-header: #FFFFFF;
-  --fg-text: #fefefe;
+    --fg-color: #5E5184;
+    --fg-header: #FFFFFF;
+    --fg-text: #fefefe;
 
-  --anchor: #EB82DC;
-  --bg-nav: #393939;
+    --anchor: #EB82DC;
+    --bg-nav: #393939;
+  }
 }
 
 .theme-gold {
@@ -42,14 +44,6 @@ body.dark {
 
 .theme-nav {
   background-color: var(--bg-nav);
-}
-
-body.loaded :is(p, div) {
-  transition: background-color 1s; /* we DO NOT want transitions between themes until all content is loaded */
-}
-
-.dark .theme-logo-dark, .light .theme-logo-light {
-  display: block;
 }
 
 .theme-background, .theme-background :is(p, li, .prose) {

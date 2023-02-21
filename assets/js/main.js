@@ -116,19 +116,3 @@ newsMenu.addEventListener('mouseout', function(event) {
   newsMenu.classList.add('hidden');
   }, 200);
 }, true);
-
-// Toggle Theme
-function toggleTheme() {
-  const DARK = 'dark';
-  const LIGHT = 'light';
-
-  const bodyClassList = document.body.classList;
-  bodyClassList.toggle(DARK);
-  bodyClassList.toggle(LIGHT);
-  const isDark = bodyClassList.contains(DARK);
-  localStorage.setItem(DARK, isDark);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('loaded');
-});

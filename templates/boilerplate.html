@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="/assets/css/theme.css">
     <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
     <script src="/assets/js/main.js" defer></script>
-    <script src="/assets/js/preload.js">INTENTIONALLY BLOCKING. DO NOT DEFER.</script>
     <!-- from https://stackoverflow.com/questions/33986976/how-can-i-remove-a-buggy-service-worker-or-implement-a-kill-switch/62154131#62154131
       attempt to fix: https://github.com/haskellfoundation/haskellfoundation.github.io/issues/70
     -->
@@ -39,11 +38,6 @@
     </script>
   </head>
   <body class="relative">
-    <script>
-      // THIS MUST RUN EXACTLY HERE SO THAT BODY CLASS CAN BE MODIFIED BUT THE REST OF THE DOM HASN'T LOADED YET
-      preloadTheme();
-    </script>
-
     <!-- This is the mobile fly-out menu - outside document flow. -->
     $partial("templates/mobile-nav-flyout.html")$
 
