@@ -45,13 +45,13 @@ title: Projects
   </div>
   <div class="mt-16 md:mt-24">
     <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-      <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-        <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Volunteering</h2>
-        <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+      <div class="theme-foreground shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+        <h2 class="font-normal text-3xl-4xl text-center">Volunteering</h2>
+        <p class="mt-10 lg:text-xl leading-relaxed text-center">
           We are always looking for help on our projects. If you would like to volunteer, please reach out to us at <a
-            href="mailto:volunteer@haskell.foundation">volunteer@haskell.foundation</a>, or join the <a
-            href="https://join.slack.com/t/haskell-foundation/shared_invite/zt-mjh76fw0-CEjg2NbyVE8rVQDvR~0F4A">Haskell
-            Foundation Slack</a>. If you have a proposal, we'd love to hear it!
+                                                                                                                      href="mailto:volunteer@haskell.foundation">volunteer@haskell.foundation</a>, or join the <a
+                                                                                                                      href="https://join.slack.com/t/haskell-foundation/shared_invite/zt-mjh76fw0-CEjg2NbyVE8rVQDvR~0F4A">Haskell
+                                                                                                                      Foundation Slack</a>. If you have a proposal, we'd love to hear it!
         </p>
       </div>
     </div>
@@ -59,7 +59,7 @@ title: Projects
   <div class="mt-16 md:mt-24">
 
     $if(inprogress)$
-    <div class="text-2xl-5xl text-center md:px-12">In Progress</div>
+    <div class="text-2xl-5xl pb-12 text-center md:px-12">In Progress</div>
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(inprogress)$
       $partial("templates/projects/tile.html")$
@@ -68,7 +68,7 @@ title: Projects
     $endif$
 
     $if(ideas)$
-    <div class="text-2xl-5xl text-center md:px-12">Planning</div>
+    <div class="text-2xl-5xl py-8 text-center md:px-12">Planning</div>
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(ideas)$
       $partial("templates/projects/tile.html")$
@@ -77,7 +77,7 @@ title: Projects
     $endif$
 
     $if(proposals)$
-    <div class="text-2xl-5xl text-center md:px-12">Proposed</div>
+    <div class="text-2xl-5xl py-8 text-center md:px-12">Proposed</div>
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(proposals)$
       $partial("templates/projects/tile.html")$
@@ -86,7 +86,7 @@ title: Projects
     $endif$
 
     $if(completed)$
-    <div class="text-2xl-5xl text-center md:px-12">Completed</div>
+    <div class="text-2xl-5xl py-8 text-center md:px-12">Completed</div>
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(completed)$
       $partial("templates/projects/tile.html")$

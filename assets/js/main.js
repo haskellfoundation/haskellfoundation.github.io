@@ -37,7 +37,7 @@ whoWeAreButton.addEventListener('mouseover', () => {
 });
 whoWeAreButton.addEventListener('mouseout', () => {
   whoWeAreButtonTimeout = setTimeout(() => {
-	whoWeAreMenu.classList.add('hidden');
+  whoWeAreMenu.classList.add('hidden');
   }, 200);
 });
 
@@ -47,10 +47,10 @@ whoWeAreMenu.addEventListener('mouseover', () => {
 whoWeAreMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
-	 return;
+   return;
   }
   whoWeAreMenuTimeout = setTimeout(() => {
-	whoWeAreMenu.classList.add('hidden');
+  whoWeAreMenu.classList.add('hidden');
   }, 200);
 }, true);
 
@@ -68,7 +68,7 @@ affiliatesButton.addEventListener('mouseover', () => {
 });
 affiliatesButton.addEventListener('mouseout', () => {
   affiliatesButtonTimeout = setTimeout(() => {
-	affiliatesMenu.classList.add('hidden');
+  affiliatesMenu.classList.add('hidden');
   }, 200);
 });
 
@@ -78,10 +78,10 @@ affiliatesMenu.addEventListener('mouseover', () => {
 affiliatesMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
-	 return;
+   return;
   }
   affiliatesMenuTimeout = setTimeout(() => {
-	affiliatesMenu.classList.add('hidden');
+  affiliatesMenu.classList.add('hidden');
   }, 200);
 }, true);
 
@@ -100,7 +100,7 @@ newsButton.addEventListener('mouseover', () => {
 });
 newsButton.addEventListener('mouseout', () => {
   newsButtonTimeout = setTimeout(() => {
-	newsMenu.classList.add('hidden');
+  newsMenu.classList.add('hidden');
   }, 200);
 });
 
@@ -110,9 +110,9 @@ newsMenu.addEventListener('mouseover', () => {
 newsMenu.addEventListener('mouseout', function(event) {
   var e = event.toElement || event.relatedTarget;
   if (e.parentNode == this || e == this) {
-	 return;
+   return;
   }
   newsMenuTimeout = setTimeout(() => {
-	newsMenu.classList.add('hidden');
+  newsMenu.classList.add('hidden');
   }, 200);
 }, true);

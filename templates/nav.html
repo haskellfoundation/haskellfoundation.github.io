@@ -1,110 +1,105 @@
 <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
-  <div>
-    <a href="/">
-      <img src="/assets/images/logos/hf-logo-100-alpha.png" />
-      <div class="text-sm mt-2 text-gray-500"></div>
-    </a>
-  </div>
+  <a href="/">
+    <img class="theme-logo-light" src="/assets/images/logos/hf-logo-svg.svg" width="100" height="81" alt="haskell logo" />
+  </a>
 
   <nav class="hidden lg:block">
     <ul class="flex space-x-8 xl:space-x-12">
 
+      <li class="relative">
+        <a href="/who-we-are" id="who-we-are-nav-item">About</a>
 
-        <li class="relative">
-          <a href="/who-we-are" id="who-we-are-nav-item">About</a>
+        <div class="theme-middle-ground theme-list pt-2 absolute top-full w-44 shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+          <a class="block p-4 cursor-pointer" href="/who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 cursor-pointer" href="/who-we-are/past-boards">
+            Past Boards
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 cursor-pointer" href="/contact">Contact</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/contact">Contact</a>
+          <a class="block p-4 cursor-pointer" href="/vision">Vision</a>
+          <a class="block p-4 cursor-pointer" href="/careers">Careers</a>
+        </div>
 
+      </li>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/careers">Careers</a>
-            </div>
+      <li class="relative">
+        <a href="/podcast">Podcast</a>
+      </li>
 
-        </li>
+      <li class="relative">
+        <a href="/projects">Projects</a>
 
-	<li class="relative">
-	  <a href="/podcast">Podcast</a>
-	</li>
+      </li>
 
-        <li class="relative">
-          <a href="/projects">Projects</a>
+      <li class="relative">
+        <a href="/donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="/donations">Sponsorship</a>
+      <li class="relative">
+        <a href="/affiliates" id="affiliates-nav-item">Affiliates</a>
 
-        </li>
+        <div class="theme-middle-ground theme-list pt-2 absolute top-full w-44 shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-        <li class="relative">
-          <a href="/affiliates" id="affiliates-nav-item">Affiliates</a>
+          <a class="block p-4 cursor-pointer" href="/affiliates">
+            Affiliates
+          </a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+          <a class="block p-4 cursor-pointer" href="/affiliates/about">
+            About Affiliating
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/affiliates">
-                  Affiliates
-                </a>
+        </div>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/affiliates/about">
-                  About Affiliating
-                </a>
+      </li>
 
-            </div>
+      <li class="relative">
+        <a href="/news" id="news-nav-item">News and Info</a>
 
-        </li>
+        <div class="theme-middle-ground theme-list pt-2 absolute top-full w-44 shadow-md z-10 hidden" id="news-nav-item-menu">
 
-       <li class="relative">
-          <a href="/news" id="news-nav-item">News and Info</a>
+          <a class="block p-4 cursor-pointer" href="/news">
+            News
+          </a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+          <a class="block p-4 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/news">
-                  News
-                </a>
+          <a class="block p-4 cursor-pointer" href="/news/press">
+            Press
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 cursor-pointer" href="/resources">Resources</a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/news/press">
-                  Press
-                </a>
+          <a class="block p-4 cursor-pointer" href="/faq">FAQ</a>
+        </div>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/resources">Resources</a>
+      </li>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="/faq">FAQ</a>
-            </div>
-
-        </li>
-
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
-    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none"
-      aria-label="Main menu" aria-haspopup="true">
+    <a id="mobile-nav-open" type="button" class="theme-icon mr-4 flex items-center justify-center p-2 rounded shadow-lg focus:outline-none"
+                                               aria-label="Main menu" aria-haspopup="true">
       <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
-    </button>
+    </a>
   </div>
 
 </nav>

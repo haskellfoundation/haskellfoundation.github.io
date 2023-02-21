@@ -21,6 +21,7 @@ _cache/
 _site/
 stack.yaml.lock
 dist-newstyle/
+.DS_Store
 
 ### General ###
 *~
