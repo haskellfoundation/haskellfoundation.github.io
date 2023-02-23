@@ -23,6 +23,12 @@
         $endfor$
         $endif$
 
+        $if(announcements)$
+        $for(announcements)$
+        $partial("templates/news/frontpage.html")$
+        $endfor$
+        $endif$
+
         $for(episodes)$
         <div class="bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
             <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">

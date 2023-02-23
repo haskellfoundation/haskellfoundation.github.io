@@ -1,6 +1,7 @@
 {-# Language ScopedTypeVariables #-}
 {-# Language OverloadedStrings #-}
 {-# Language ViewPatterns #-}
+{-# Language TypeApplications #-}
 
 import Hakyll
 import Data.List (sortOn)
@@ -213,10 +214,13 @@ main = hakyll $ do
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
             podcastsCtx <- podcastCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            careers <- loadAll @String "careers/*.markdown"
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
+            announces  <- take 1 <$> (recentFirst =<< loadAll @String "news/*/**.markdown")
+            let announceCtx = announcementsCtx announces
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx)
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx <> announceCtx)
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -400,6 +404,12 @@ hiringSponsorsCtx :: [Item String] -> Context String
 hiringSponsorsCtx sponsors =
     listField "hiringsponsors" defaultContext (filterMetadataField "careersUrl" sponsors) <>
     defaultContext
+
+-- Anouncements
+
+announcementsCtx :: [Item String] -> Context String
+announcementsCtx ads =
+  listField "announcements" defaultContext (pure ads)
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
