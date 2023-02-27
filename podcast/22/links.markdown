@@ -1,4 +1,5 @@
 * [Alejandro's website](https://www.cse.chalmers.se/~russo/)
+* [Alejandro's twitter](https://twitter.com/poke48k)
 * [DPella](https://www.dpella.io/)
 * [DPella paper](https://arxiv.org/pdf/1909.07918.pdf)
 * [LIO](https://hackage.haskell.org/package/lio)
