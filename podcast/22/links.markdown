@@ -1,0 +1,7 @@
+* [Alejandro's website](https://www.cse.chalmers.se/~russo/)
+* [DPella](https://www.dpella.io/)
+* [DPella paper](https://arxiv.org/pdf/1909.07918.pdf)
+* [LIO](https://hackage.haskell.org/package/lio)
+* [John Hughes](https://www.cse.chalmers.se/~rjmh/)
+* [Koen Claessen](https://www.cse.chalmers.se/~koen/)
+* [Marco Gaboardi](https://cs-people.bu.edu/gaboardi/)
