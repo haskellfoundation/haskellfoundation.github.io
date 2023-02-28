@@ -13,7 +13,6 @@
   <!-- other -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" data-ssr="" name="viewport">
-  <title>$title$</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="/assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
@@ -35,6 +34,14 @@
         });
     }
   </script>
+
+  <!-- metadata -->
+  <title>$title$</title>
+  <meta property="og:title" content="$title$"></meta>
+  $if(description)$
+  <meta property="og:description" content="$description$"></meta>
+  $endif$
+
 </head>
 <body class="relative">
 

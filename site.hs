@@ -12,6 +12,8 @@ import System.IO (SeekMode(RelativeSeek))
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template.Context (defaultContext)
 import Data.Maybe (isJust, fromJust, fromMaybe)
+import Text.Pandoc as Pandoc
+import qualified Data.Text as T
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -176,7 +178,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Interlude")
-            ctx <- podcastCtx . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            ctx <- podcastListCtx . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/podcast/list.html"  ctx
@@ -208,12 +210,18 @@ main = hakyll $ do
     match "podcast/*/transcript.markdown" $ compile pandocCompiler
     match "podcast/*/links.markdown" $ compile pandocCompiler
 
+-- Description compiler --------------------------------------------------------------------------------
+--
+-- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field
+
+    match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
+
 -- home page -------------------------------------------------------------------------------------------
     create ["index.html"] $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
-            podcastsCtx <- podcastCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
+            podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
             careers <- loadAll @String "careers/*.markdown"
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
             announces  <- take 1 <$> (recentFirst =<< loadAll @String "news/*/**.markdown")
@@ -304,14 +312,18 @@ buildBoilerplateCtx mtitle = boilerPlateCtx mtitle . sortOn itemIdentifier <$> l
 -- We set the 'title' based on the title metadata for the item, if present,
 -- or use the passed in Maybe title, if it is a Just, or "No title" if not.
 boilerPlateCtx :: Maybe String -> [Item String] -> Context String
-boilerPlateCtx mtitle sponsors =
-    listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)             <>
-    listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors) <>
-    listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)         <>
-    field "title" (\item -> do
+boilerPlateCtx mtitle sponsors = mconcat
+    [ listField "monads" defaultContext (ofMetadataField "level" "Monad" sponsors)
+    , listField "applicatives" defaultContext (ofMetadataField "level" "Applicative" sponsors)
+    , listField "functors" defaultContext (ofMetadataField "level" "Functor" sponsors)
+    , field "title" $ \item -> do
         metadata <- getMetadata (itemIdentifier item)
-        return $ fromMaybe (fromMaybe "No title" mtitle) $ lookupString "title" metadata)    <>
-    defaultContext
+        return $ fromMaybe (fromMaybe "No title" mtitle) $ lookupString "title" metadata
+    , field "description" $ \item -> do
+        desc <- loadBody (setVersion (Just "description") (itemIdentifier item))
+        if null desc then noResult "Description empty" else pure (escapeHtml desc)
+    , defaultContext
+    ]
 
 -- affiliates ------------------------------------------------------------------------------------------
 -- | Partition affiliates into affiliates and pending
@@ -385,8 +397,8 @@ whoWeAreCtx people =
              ) items'
 
 -- podcast ---------------------------------------------------------------------------------------------
-podcastCtx :: [Item String] -> Context String
-podcastCtx episodes =
+podcastListCtx :: [Item String] -> Context String
+podcastListCtx episodes =
     listField "episodes" defaultContext (return $ reverse episodes) <>
     defaultContext
 
@@ -439,3 +451,39 @@ sortFromMetadataField field = sortByM (\a b -> do
         b' <- getMetadataField (itemIdentifier b) field
         return $ compare a' b'
     )
+
+--------------------------------------------------------------------------------------------------------
+-- Pandoc extensions -----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+-- | Read a page render using pandoc, rendering its first paragraph as a plain string
+--
+-- Cargo-culted from pandocCompiler
+pandocPlainCompiler :: Compiler (Item String)
+pandocPlainCompiler = cached "pandocPlainCompiler" $
+    getResourceBody >>=
+      readPandocWith defaultHakyllReaderOptions >>=
+      pure . fmap firstPara >>=
+      pure . writePandocPlainWith defaultHakyllWriterOptions
+
+-- | Write a document's first paragraph (as plain text) using pandoc, with the supplied options
+--
+-- Cargo-culted from hakyll’s writePandocWith
+writePandocPlainWith :: Pandoc.WriterOptions  -- ^ Writer options for pandoc
+                -> Item Pandoc.Pandoc    -- ^ Document to write
+                -> Item String    -- ^ Resulting HTML
+writePandocPlainWith wopt (Item itemi doc) =
+    case runPure $ writePlain wopt doc of
+        Left err    -> error $ "Hakyll.Web.Pandoc.writePandocWith: " ++ show err
+        Right item' -> Item itemi $ T.unpack item'
+
+
+-- | Finds the first regular paragraph of a Pandoc doc
+firstPara :: Pandoc.Pandoc -> Pandoc.Pandoc
+firstPara (Pandoc.Pandoc meta blocks) = Pandoc.Pandoc meta (go blocks)
+  where
+    go :: [Pandoc.Block] -> [Pandoc.Block]
+    go [] = [] -- I tried to use noResult "firstPara: No plain text found", but it made the build fail
+    go (block@(Pandoc.Plain _) : _) = [block]
+    go (block@(Pandoc.Para _)  : _) = [block]
+    go (_ : bs) = go bs
