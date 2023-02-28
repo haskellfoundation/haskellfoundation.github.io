@@ -52,13 +52,15 @@ jobs:
       - name: Build site executable
         run: stack build --system-ghc
 
+      - name: Build site
+        run:  stack exec --system-ghc site rebuild
+
       - name: Deploy
         # No deploy from pull requests
         if: ${{ github.event_name != 'pull_request' }}
         run: |
             git config user.name github-actions
             git config user.email github-actions@github.com
-            stack exec --system-ghc site rebuild
             git checkout main
             git pull --rebase
             # Overwrite existing files with new files
