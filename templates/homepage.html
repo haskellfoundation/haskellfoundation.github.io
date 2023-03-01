@@ -44,6 +44,13 @@
             </div>
         </div>
         $endfor$
+
+        $if(events)$
+        $for(events)$
+        $partial("templates/events/tile.html")$
+        $endfor$
+        $endif$
+
     </div>
 </div>
 

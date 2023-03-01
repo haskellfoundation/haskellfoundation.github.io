@@ -210,6 +210,31 @@ main = hakyll $ do
     match "podcast/*/transcript.markdown" $ compile pandocCompiler
     match "podcast/*/links.markdown" $ compile pandocCompiler
 
+-- Events
+
+    create ["events/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Events")
+            ctx <- allEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/events/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
+    match "events/*.markdown" $ do
+      route $ setExtension "html"
+      let ctxt = mconcat
+            [ defaultContext ]
+      compile $ do
+        sponsors <- buildBoilerplateCtx Nothing
+        pandocCompiler
+          >>= applyAsTemplate sponsors
+          >>= loadAndApplyTemplate "templates/events/page.html" ctxt
+          >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+          >>= relativizeUrls
+
 -- Description compiler --------------------------------------------------------------------------------
 --
 -- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field
@@ -226,9 +251,10 @@ main = hakyll $ do
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
             announces  <- take 1 <$> (recentFirst =<< loadAll @String "news/*/**.markdown")
             let announceCtx = announcementsCtx announces
+            eventsCtx <- activeEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx <> announceCtx)
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx <> announceCtx <> eventsCtx)
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -269,7 +295,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
--- Careers ---------------------------------------------------------------------------------------------
+-- careers ---------------------------------------------------------------------------------------------
     create ["careers/index.html"] $ do
         route idRoute
         compile $ do
@@ -422,6 +448,18 @@ hiringSponsorsCtx sponsors =
 announcementsCtx :: [Item String] -> Context String
 announcementsCtx ads =
   listField "announcements" defaultContext (pure ads)
+
+-- Events
+
+allEventsCtx :: [Item String] -> Context String
+allEventsCtx evts =
+    listField "events" defaultContext (pure evts) <>
+    defaultContext
+
+activeEventsCtx :: [Item String] -> Context String
+activeEventsCtx evts =
+  listField "events" defaultContext (ofMetadataField "status" "active" evts) <>
+  defaultContext
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
