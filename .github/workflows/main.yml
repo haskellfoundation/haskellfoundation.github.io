@@ -55,8 +55,8 @@ jobs:
         run:  stack exec --system-ghc site rebuild
 
       - name: Deploy
-        # No deploy from pull requests
-        if: ${{ github.event_name != 'pull_request' }}
+        # Deploy only from non-pull-request changes to hakyll branch
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/hakyll'}}
         run: |
             git config user.name github-actions
             git config user.email github-actions@github.com
