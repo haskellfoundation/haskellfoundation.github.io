@@ -82,7 +82,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Projects")
-            ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll "projects/*.markdown"
+            ctx <- projectsCtx . sortOn itemIdentifier <$> loadAll ("projects/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/projects/list.html" ctx
