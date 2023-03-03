@@ -41,7 +41,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Sponsorship")
-            iks <- loadAll "donations/inkind/*.markdown"
+            iks <- loadAll ("donations/inkind/*.markdown" .&&. hasNoVersion)
 
             let ctx =
                     listField "inkinds" defaultContext (return iks) <>
@@ -69,7 +69,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Affiliates")
-            ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll "affiliates/*.markdown"
+            ctx <- affiliatesCtx . sortOn itemIdentifier <$> loadAll ("affiliates/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/affiliates/list.html"   ctx
@@ -125,7 +125,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Press")
-            press <- recentFirst =<< loadAll "press/*.markdown"
+            press <- recentFirst =<< loadAll ("press/*.markdown" .&&. hasNoVersion)
 
             let ctx =
                     listField "press_articles" defaultContext (return press) <>
@@ -142,7 +142,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "FAQ")
-            ctx <- faqCtx <$> loadAll "faq/*.markdown"
+            ctx <- faqCtx <$> loadAll ("faq/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/faq/list.html"      ctx
@@ -155,7 +155,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Who We Are")
-            ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
+            ctx <- whoWeAreCtx <$> loadAll ("who-we-are/people/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/who-we-are/exec-and-board.html" ctx
@@ -166,7 +166,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Past Boards")
-            ctx <- whoWeAreCtx <$> loadAll "who-we-are/people/*.markdown"
+            ctx <- whoWeAreCtx <$> loadAll ("who-we-are/people/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/who-we-are/past-board.html" ctx
@@ -247,7 +247,7 @@ main = hakyll $ do
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
             podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
-            careers <- loadAll @String "careers/*.markdown"
+            careers <- loadAll @String ("careers/*.markdown" .&&. hasNoVersion)
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
             announces  <- take 1 <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
             let announceCtx = announcementsCtx announces
@@ -274,7 +274,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Resources")
-            resources <- loadAll "resources/*.markdown"
+            resources <- loadAll ("resources/*.markdown" .&&. hasNoVersion)
 
             let ctx =
                     listField "resources" defaultContext (return resources) <>
@@ -300,8 +300,8 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Careers")
-            ctx <- careersCtx <$> loadAll "careers/*.markdown"
-            hiringSponsors <- hiringSponsorsCtx <$> loadAll "donations/sponsors/*.markdown"
+            ctx <- careersCtx <$> loadAll ("careers/*.markdown" .&&. hasNoVersion)
+            hiringSponsors <- hiringSponsorsCtx <$> loadAll ("donations/sponsors/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/careers/list.html" (ctx <> hiringSponsors)
@@ -329,7 +329,8 @@ main = hakyll $ do
 -- sponsors --------------------------------------------------------------------------------------------
 
 buildBoilerplateCtx :: Maybe String -> Compiler (Context String)
-buildBoilerplateCtx mtitle = boilerPlateCtx mtitle . sortOn itemIdentifier <$> loadAll "donations/sponsors/*.markdown"
+buildBoilerplateCtx mtitle =
+    boilerPlateCtx mtitle . sortOn itemIdentifier <$> loadAll ("donations/sponsors/*.markdown" .&&. hasNoVersion)
 
 -- | Partition sponsors into by level: monad, applicative, and functor
 -- Sponsors are listed in the footer template, which means we need this
