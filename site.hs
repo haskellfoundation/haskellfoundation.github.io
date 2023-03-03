@@ -249,7 +249,7 @@ main = hakyll $ do
             podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
             careers <- loadAll @String "careers/*.markdown"
             careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
-            announces  <- take 1 <$> (recentFirst =<< loadAll @String "news/*/**.markdown")
+            announces  <- take 1 <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
             let announceCtx = announcementsCtx announces
             eventsCtx <- activeEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
 
