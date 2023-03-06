@@ -26,7 +26,7 @@ The workshop will be instructed by seasoned contributors to GHC. So far, we have
 
 ### Simon Peyton Jones
 
-Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at Microsoft Research in Cambridge, England, where he started in Sept 1998. He’s also an Honorary Professor of the Computing Science Department at Glasgow University, where he was a professor during 1990-1998. Simon is interested in the design, implementation, and application of lazy functional languages. He was one of the original designers of Haskell, and much of his work is focused around the Glasgow Haskell Compiler and its ramifications. Simon is also chair of Computing at School, the group at the epicentre of the reform of the national curriculum for Computing in England. Computer science is now a foundational subject, alongside maths and natural science, that every child learns from primary school onwards.
+Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at Microsoft Research in Cambridge, England, where he started in 1998. He’s also an Honorary Professor of the Computing Science Department at Glasgow University, where he was a professor during 1990-1998. Simon is interested in the design, implementation, and application of lazy functional languages. He was one of the original designers of Haskell, and much of his work is focused around the Glasgow Haskell Compiler and its ramifications. Simon's earlier work was instrumental in discovering how to generate efficient code for lazy languages on stock hardware, but today, he focuses on the GHC type checker, constraint solver, and simplifier.
 
 ### Ben Gamari
 
