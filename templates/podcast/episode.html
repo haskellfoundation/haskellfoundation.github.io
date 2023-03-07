@@ -5,55 +5,52 @@
   </div>
 </div>
 
-  <div class="max-w-screen-xl mx-auto">
-    <div class="mx-auto prose md:prose-lg">
-      <div class="space-y-8 max-w-2xl my-7 mx-auto">
-        $if(recorded)$
-         <p><em>Recorded $recorded$. Published $published$.</em></p>
-        $endif$
-        $body$
-      </div>
+<div class="max-w-screen-xl mx-auto">
+  <div class="mx-auto prose md:prose-lg">
+    <div class="space-y-8 max-w-2xl my-7 mx-auto">
+      $if(recorded)$
+      <p><em>Recorded $recorded$. Published $published$.</em></p>
+      $endif$
+      $body$
     </div>
-
-    <div class="mx-auto prose md:prose-lg my-6">
-      <div id="buzzsprout-player-$buzzsproutId$"></div>
-      <script src="https://www.buzzsprout.com/1817535/$buzzsproutId$.js?container_id=buzzsprout-player-$buzzsproutId$&player=small" type="text/javascript" charset="utf-8"></script>
-    </div>
-
-    $if(links)$
-    <div class="mx-auto prose md:prose-lg my-6">
-     <div class="flex items-center space-x-4">
-       <!--
-       TODO: Insert nice icon
-       <div>
-         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
-       </div>
-       -->
-       <h2 class="text-2xl font-normal">Related links</h2>
-     </div>
-     <div
-       class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
-       $links$
-     </div>
-    </div>
-    $endif$
-
-    $if(transcript)$
-    <div class="mx-auto prose md:prose-lg my-6">
-     <div class="flex items-center space-x-4">
-       <!--
-       TODO: Insert nice icon
-       <div>
-         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
-       </div>
-       -->
-       <h2 class="text-2xl font-normal">Transcript</h2>
-     </div>
-     <div
-       class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
-       $transcript$
-     </div>
-    </div>
-    $endif$
   </div>
+
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div id="buzzsprout-player-$buzzsproutId$"></div>
+    <script src="https://www.buzzsprout.com/1817535/$buzzsproutId$.js?container_id=buzzsprout-player-$buzzsproutId$&player=small" type="text/javascript" charset="utf-8"></script>
+  </div>
+
+  $if(links)$
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div class="flex items-center space-x-4">
+      <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+      <h2 class="text-2xl font-normal">Related links</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+      $links$
+    </div>
+  </div>
+  $endif$
+
+  $if(transcript)$
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div class="flex items-center space-x-4">
+      <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+      <h2 class="text-2xl font-normal">Transcript</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+      $transcript$
+    </div>
+  </div>
+  $endif$
 </div>
