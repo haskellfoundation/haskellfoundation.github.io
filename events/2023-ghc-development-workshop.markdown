@@ -32,6 +32,14 @@ Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at
 
 Ben has been contributing to GHC for over a decade and been working as a full-time compiler engineer at Well-Typed since 2015. In that time he has worked across the compiler, from parsing to code generation to release management and development infrastructure. His contributions include GHC's non-moving concurrent garbage collector, GHC's type-reflection implementation, and numerous improvements in profiling. He tends to find himself working near the back end of GHC's compilation pipeline and runtime system.
 
+### Sylvain Henry
+
+Sylvain has a background in high-performance computing and has been contributing to GHC since 2015. He joined IOG in 2019 to work full-time on GHC. Since 2022, he has led a small team of engineers working on improving Haskell tooling. His contributions include `ghc-bignum` (an improved implementation of GHC's support for big numbers), improvements to GHC's constant-folding capabilities, various fixes to the RTS, and a lot of refactoring to make GHC's code more modular and to make GHC a better cross-compiler. In 2022, his team added a new JavaScript backend to GHC, adapted from GHCJS.
+
+### Cheng Shao
+
+Cheng Shao is a full-time software engineer at Tweag, where he has been working since 2018. His main contribution to GHC is the WebAssembly backend, which grew out of his early research project, a Haskell-to-WebAssembly compiler codenamed Asterius. He focuses on maintaining the GHC WebAssembly backend, adding new functionality, as well as other GHC work that involves code generation and the runtime system.
+
 ## Participation
 
 Due to space constraints and to enable scholarships for student participants, there will be a fee for full on-site participation.
