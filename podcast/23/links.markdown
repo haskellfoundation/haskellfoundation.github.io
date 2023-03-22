@@ -1,0 +1,8 @@
+* [Ben's website](http://smart-cactus.org/~ben/)
+* [Ben's twitter](https://twitter.com/bgamari)
+* [Ben's github](https://github.com/bgamari)
+* [Ben at well-typed](https://well-typed.com/people/ben/)
+* [GHC's Garbage Collector](http://www.smart-cactus.org/~ben/posts/2018-11-18-nonmoving-gc-for-ghc.html)
+* [Mark and Sweep Collectors](https://www.geeksforgeeks.org/mark-and-sweep-garbage-collection-algorithm/)
+* [GHC proposals](https://github.com/ghc-proposals/ghc-proposals)
+* [Stack Traces in Haskell](https://www.arashrouhani.com/papers/master-thesis.pdf)
