@@ -6,3 +6,4 @@
 * [Mark and Sweep Collectors](https://www.geeksforgeeks.org/mark-and-sweep-garbage-collection-algorithm/)
 * [GHC proposals](https://github.com/ghc-proposals/ghc-proposals)
 * [Stack Traces in Haskell](https://www.arashrouhani.com/papers/master-thesis.pdf)
+* [GHC Profilers](https://www.youtube.com/watch?v=vCv1vnY87NI&ab_channel=TNGTechnologyConsultingGmbH)
