@@ -25,10 +25,16 @@ To build the project:
 stack build
 ```
 
-Once the project has built (which can take a while due to the dependencies for Hakyll), to generate the site use:
+Once the project has built (which can take a while due to the dependencies for Hakyll), generate the site with:
 
 ```bash
 stack exec -- site build
+```
+
+and for development use:
+
+```bash
+stack run -- site watch
 ```
 
 The site will be build in the `_site` directory, and you can open the files in your browser of choice. Due to a Hakyll issue, some sponsor logos will not show up correctly. This is expected behavior, and should be fine for the deployed site.

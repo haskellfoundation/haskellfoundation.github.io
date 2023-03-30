@@ -5,88 +5,87 @@
   </div>
 </div>
 
-  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Executive Team</h2>
-      <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Executive Team</h2>
+    <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
 
-  The Haskell Foundation Executive Team reports to the Board of Directors and manages the day to day work of the Foundation. They interpret the Board's priorities, research solutions, and work with the community to execute of the Foundation's mission.
+      The Haskell Foundation Executive Team reports to the Board of Directors and manages the day to day work of the Foundation. They interpret the Board's priorities, research solutions, and work with the community to execute of the Foundation's mission.
 
-      </p>
-    </div>
+    </p>
   </div>
-  <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
-    <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
-      $for(currentexecutiveteam)$
-        <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-          <div class="sm:flex md:block xl:flex items-center">
-            <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="$name$">
-            <div class="">
-              <h3 class="text-xl font-semibold">$name$</h3>
-              <div class="uppercase text-lg font-medium">$title$</div>
-            </div>
-          </div>
-          <p>
-            $body$
-          </p>
-          <div>
-            <a class="arrow-link" href="mailto:$email$">>> $email$</a>
-          </div>
-        $if(website)$
-        <div>
-          <a class="arrow-link" href="$website$">>> $website$</a>
+</div>
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+    $for(currentexecutiveteam)$
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="$name$">
+        <div class="">
+          <h3 class="text-xl font-semibold">$name$</h3>
+          <div class="uppercase text-lg font-medium">$title$</div>
         </div>
-        $endif$
-        </div>
-      $endfor$
-   </div>
-  </div>
-
-
-  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">The HF Board Of Directors</h2>
-      <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
-
-  The Haskell Foundation board of directors are responsible for managing and setting the direction of the Haskell Foundation.
-
-      </p>
-    </div>
-  </div>
-
-  <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
-    <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
-      $for(currentboard)$
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="$name$">
-          <div class="">
-            <h3 class="text-xl font-semibold">$name$</h3>
-            $if(title)$
-            <div class="uppercase text-lg font-medium">$title$</div>
-            $endif$
-          </div>
-        </div>
-        <p>
-          $body$
-        </p>
-        $if(committees)$
-        <div>
-          <div class="font-bold text-gray-600">Committees</div>
-          <p>$committees$</p>
-        </div>
-        $endif$
-        $if(email)$
-        <div>
-          <a class="arrow-link" href="mailto:$email$">>> $email$</a>
-        </div>
-        $endif$
-        $if(website)$
-        <div>
-          <a class="arrow-link" href="$website$">>> $website$</a>
-        </div>
-        $endif$
       </div>
-      $endfor$
+      <p>
+        $body$
+      </p>
+      <div>
+        <a class="arrow-link" href="mailto:$email$">>> $email$</a>
+      </div>
+      $if(website)$
+      <div>
+        <a class="arrow-link" href="$website$">>> $website$</a>
+      </div>
+      $endif$
     </div>
+    $endfor$
   </div>
+</div>
+
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">The HF Board Of Directors</h2>
+    <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+
+      The Haskell Foundation board of directors are responsible for managing and setting the direction of the Haskell Foundation.
+
+    </p>
+  </div>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+    $for(currentboard)$
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="$image$" alt="$name$">
+        <div class="">
+          <h3 class="text-xl font-semibold">$name$</h3>
+          $if(title)$
+          <div class="uppercase text-lg font-medium">$title$</div>
+          $endif$
+        </div>
+      </div>
+      <p>
+        $body$
+      </p>
+      $if(committees)$
+      <div>
+        <div class="font-bold text-gray-600">Committees</div>
+        <p>$committees$</p>
+      </div>
+      $endif$
+      $if(email)$
+      <div>
+        <a class="arrow-link" href="mailto:$email$">>> $email$</a>
+      </div>
+      $endif$
+      $if(website)$
+      <div>
+        <a class="arrow-link" href="$website$">>> $website$</a>
+      </div>
+      $endif$
+    </div>
+    $endfor$
+  </div>
+</div>
