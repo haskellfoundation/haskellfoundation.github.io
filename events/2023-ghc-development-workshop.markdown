@@ -40,6 +40,11 @@ Sylvain has a background in high-performance computing and has been contributing
 
 Cheng Shao is a full-time software engineer at Tweag, where he has been working since 2018. His main contribution to GHC is the WebAssembly backend, which grew out of his early research project, a Haskell-to-WebAssembly compiler codenamed Asterius. He focuses on maintaining the GHC WebAssembly backend, adding new functionality, as well as other GHC work that involves code generation and the runtime system.
 
+### Ryan Scott
+
+Ryan has contributed to GHC since 2015, and has worked on type class deriving, Template Haskell, pattern-match coverage checking, and various odds and ends in the type checker. He has worked as a research engineer at [Galois, Inc.](https://galois.com/) since 2020, where he works on a variety of program analysis tools such as [Cryptol](https://cryptol.net/), [Crux](https://crux.galois.com/), and [SAW](https://saw.galois.com/). In addition, Ryan maintains a large number of libraries on Hackage, and as a result, he contributes to the maintenance of [head.hackage](https://gitlab.haskell.org/ghc/head.hackage), which makes it possible to check if upcoming changes to GHC will affect the code that he maintains.
+
+
 ## Participation
 
 Due to space constraints and to enable scholarships for student participants, there will be a fee for full on-site participation.
