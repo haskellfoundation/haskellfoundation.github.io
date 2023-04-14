@@ -26,7 +26,7 @@ We expect that participants already know Haskell and have worked on some form of
 
 ## Presenters
 
-The workshop will be instructed by seasoned contributors to GHC. So far, we have confirmed that the following GHC developers will present.l
+The workshop will be instructed by seasoned contributors to GHC. So far, we have confirmed that the following GHC developers will present.
 
 ### Ben Gamari
 
@@ -43,6 +43,10 @@ Ryan has contributed to GHC since 2015, and has worked on type class deriving, T
 ### Sam Derbyshire
 
 Sam is a GHC contributor who joined the Well-Typed team in late 2021. Despite being relatively new to GHC, Sam has already made significant contributions to the project, such as overhauling representation-polymorphism checking and more recently the handling of duplicate record fields. He attributes this success to the wonderful community of GHC contributors who helped him become familiar with the project. In addition to his work on GHC, Sam also developed a graphics shader library in Haskell; his latest project involves typesetting Japanese sheet music for the shakuhachi.
+
+### Sebastian Graf
+
+Sebastian is currently a PhD student at Karlsruhe Institute of Technology. Ever since he had started his Master's thesis, he is deeply invested in the Core optimisations and static analyses of GHC and regularly contributes improvements and bug fixes in those areas. In particular, his GHC interests revolve around demand analysis, arity analysis, specialization, the simplifier and pattern-match coverage checking. At university, Sebastian assists lectures in basics of Functional Programming as well as (imperative) Compiler Design and found research interest in programming language semantics as well as Abstract Interpretation. He also is an enthusiastic trumpet player.
 
 ### Simon Peyton Jones
 
