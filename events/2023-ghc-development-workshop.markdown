@@ -14,7 +14,7 @@ In this three-day event, held on the lakeside campus of OST in lovely Rapperswil
 
 ## In-Person Attendance
 
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, AoE.
+The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
 
 ## The Workshop
 
@@ -76,4 +76,4 @@ Remote participation will make use of the Zurihac infrastructure. We will do our
 
 If you or your company would like to sponsor the event, enabling more students to have financial support to attend, please contact David Thrane Christiansen at [david@haskell.foundation](mailto:david@haskell.foundation).
 
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, AoE.
+The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
