@@ -4,6 +4,7 @@ email: dreixel@gmail.com
 title: Vice Treasurer, Vice Secretary
 executiveTeam: "False"
 tenureStart: 2021-02-01
+tenureEnd: 2021-04-01
 image: /assets/images/board-members/jpm.png
 committees: Budget
 ---

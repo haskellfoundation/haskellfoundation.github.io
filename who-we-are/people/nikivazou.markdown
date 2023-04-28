@@ -4,6 +4,7 @@ email: niki.vazou@imdea.org
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2021-02-01
+tenureEnd: 2023-04-01
 image: /assets/images/board-members/nv.png
 committees: Technical Agenda, Community, Publicity
 ---
