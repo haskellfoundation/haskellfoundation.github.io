@@ -3,7 +3,7 @@ name: Hazel Weakly
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2023-04-01
-image: "/assets/images/board-members/no-image.png"
+image: "/assets/images/board-members/hw.png"
 website: https://hazelweakly.me/
 ---
 Hazel spends her days working on building out teams of humans as well as infrastructure, systems, automation, and tooling to make life better for others. She’s worked at a variety of companies, across a wide range of tech, and knows that the hardest problems to solve are the social ones. One of her favorite things is watching someone light up when they understand something for the first time, and a life goal of hers is to help as many people as possible experience that joy.
