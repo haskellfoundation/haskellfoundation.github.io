@@ -1,0 +1,6 @@
+* [Bodigrim's Github](https://github.com/Bodigrim)
+* [core-libraries-committee](https://github.com/haskell/core-libraries-committee)
+* [bytestring library](https://github.com/haskell/bytestring)
+* [vector library](https://github.com/haskell/vector)
+* [Migration guide for Eq without (/=)](https://github.com/haskell/core-libraries-committee/pull/16)
+* [ghc-proposals](https://github.com/ghc-proposals/ghc-proposals) 
