@@ -12,10 +12,6 @@ We are excited to announce the **2023 GHC Contributors' Workshop, June 7-9 2023*
 
 In this three-day event, held on the lakeside campus of OST in lovely Rapperswil, Switzerland, you can learn what you need to know in order to get started working on GHC, right from the core team itself. Because the workshop is immediately prior to [Zurihac 2023](https://zfoh.ch/zurihac2023/), there will be time to work on your project and ask questions.
 
-## In-Person Attendance
-
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
-
 ## The Workshop
 
 At this workshop, you can learn the ins and outs of working on GHC, including practical techniques for minimizing rebuilds and diagnosing compiler bugs. The fundamental concepts and idioms of key compiler subsystems will be presented, along with tips and tricks for understanding how they are working in a running compiler. This is a practical workshop: any theory presented will be in service of building things, and we expect that you will arrive with a checkout and build of the source tree ready to go.
@@ -80,4 +76,6 @@ Remote participation will make use of the Zurihac infrastructure. We will do our
 
 If you or your company would like to sponsor the event, enabling more students to have financial support to attend, please contact David Thrane Christiansen at [david@haskell.foundation](mailto:david@haskell.foundation).
 
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
+Applications for the event are now closed.
+
+<div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/ost_logo-400.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
