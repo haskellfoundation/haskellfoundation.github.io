@@ -152,4 +152,6 @@ Remote participation will make use of the Zurihac infrastructure. We will do our
 
 If you or your company would like to sponsor the event, enabling more students to have financial support to attend, please contact David Thrane Christiansen at [david@haskell.foundation](mailto:david@haskell.foundation).
 
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
+Applications for the event are now closed.
+
+<div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/ost_logo-400.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
