@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,25 +28,27 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>About the Haskell Foundation</title>
-  <meta property="og:title" content="About the Haskell Foundation" />
+  <meta property="og:title" content="About the Haskell Foundation">
+  </meta>
   
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
 
 <div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
 
@@ -69,11 +73,11 @@
     <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
-      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
-      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
-      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
-      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
-      <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+    <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
 
     <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
 
@@ -82,25 +86,25 @@
     <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
-      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
-      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+    <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
 
     <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
-      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
-      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
-      <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
-      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
-      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+    <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+    <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
 
   </div>
 
 </div>
 
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="../../">
@@ -113,91 +117,91 @@
     <ul class="flex space-x-8 xl:space-x-12">
 
 
-        <li class="relative">
-          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+      <li class="relative">
+        <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+            Past Boards
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
 
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
+        </div>
 
-        </li>
+      </li>
 
-	<li class="relative">
-	  <a href="../../podcast">Podcast</a>
-	</li>
+      <li class="relative">
+        <a href="../../podcast">Podcast</a>
+      </li>
 
-        <li class="relative">
-          <a href="../../projects">Projects</a>
+      <li class="relative">
+        <a href="../../projects">Projects</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../donations">Sponsorship</a>
+      <li class="relative">
+        <a href="../../donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+      <li class="relative">
+        <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
-                  Affiliates
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+            Affiliates
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
-                  About Affiliating
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+            About Affiliating
+          </a>
 
-            </div>
+        </div>
 
-        </li>
+      </li>
 
-       <li class="relative">
-          <a href="../../news" id="news-nav-item">News and Info</a>
+      <li class="relative">
+        <a href="../../news" id="news-nav-item">News and Info</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
-                  News
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+            News
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
-                  Press
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+            Press
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+        </div>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
@@ -210,29 +214,30 @@
 
 </nav>
 
-  </div>
+    </div>
 
-  <div class="flex-grow">
+    <div class="flex-grow">
       <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+  <div class="sm:px-6 lg:px-16">
+  <div class="relative">
+    <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+    <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -240,187 +245,195 @@
   </div>
 </div>
 
-    </div>
-    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-      <h1 class="text-2xl-5xl">What Does Affiliation Entail?</h1>
-      
-    </div>
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl-5xl">What Does Affiliation Entail?</h1>
   </div>
+</div>
 
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:text-xl text-gray-300 leading-relaxed">
 
-
-  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-      <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:text-xl text-gray-300 leading-relaxed">
-        
-  <div class="space-y-8">
-    <div>
-      Affiliation means that the group supports the goals of the Haskell Foundation, and, in return, the Haskell Foundation supports this group.
-    </div>
-    <div>
-      Different groups work in different ways, and it would be counter-productive to impose complete uniformity. However, we expect the groups that want to affiliate with the Haskell Foundation to follow a few ground rules, laid out below.
-    </div>
-  </div>
-  <div class="space-y-8">
-    <div>
-      Affiliation does not mean that the HF is taking over control of that group’s bailiwick. The group’s powers and responsibilities remain unchanged, although it would be reasonable to expect the group to take into account the views of the HF.
-    </div>
-    <div>
-      We make a distinction between projects and committees.
-    </div>
-  </div>
-
+      <div class="space-y-8">
+        <div>
+          Affiliation means that the group supports the goals of the Haskell Foundation, and, in return, the Haskell Foundation supports this group.
+        </div>
+        <div>
+          Different groups work in different ways, and it would be counter-productive to impose complete uniformity. However, we expect the groups that want to affiliate with the Haskell Foundation to follow a few ground rules, laid out below.
+        </div>
       </div>
+      <div class="space-y-8">
+        <div>
+          Affiliation does not mean that the HF is taking over control of that group’s bailiwick. The group’s powers and responsibilities remain unchanged, although it would be reasonable to expect the group to take into account the views of the HF.
+        </div>
+        <div>
+          We make a distinction between projects and committees.
+        </div>
+      </div>
+
     </div>
   </div>
-
+</div>
 
 <div class="max-w-screen-xl mx-auto">
   <div class="mt-16 md:mt-24">
-  
-  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
-    <div class="mx-auto prose md:prose-lg">
-      
-    <h2>Affiliated Committees</h2>
 
-    <h3>Transparency</h3>
-    <ul>
-      <li><p>
-        Group must have some website that makes it clear what the goals and responsibilities of this group are
-      </p></li>
-      <li>
-        <p>
-          All technical discussions must be stored in a publicly accessible location, for example:
-        </p>
-        <ul>
-          <li><p>
-            GitHub issues
-          </p></li>
-          <li><p>
-            GitLab issues
-          </p></li>
-          <li><p>
-            Mailing list archives There is an obvious exception for confidential matters such as financial and security related information
-          </p></li>
-        </ul>
-      </li>
-      <li><p>
-        It should be clear what decisions the group has taken, and what are under discussion (if it’s that kind of group). A good example of this are the GHC Steering Committee proposals, but a simple email to a public list can also suffice.
-      </p></li>
-      <li><p>
-        The group must have a voting system in place in case it cannot reach unanimity. Votes must be accompanied by reasoning, and a tie-breaking mechanism should be in place.
-      </p></li>
-    </ul>
+    <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+      <div class="mx-auto prose md:prose-lg">
 
-    <h3>Membership</h3>
-    <ul>
-      <li>
-        <p>
-          The group’s website should list its members (with their affiliations and terms), and the membership rules.
-        </p>
-      </li>
-      <li>
-        <p>
-          Groups should appoint a chair (or co-chairs) or a contact for Haskell Foundation.
-        </p>
-      </li>
-      <li>
-        <p>
-          Groups should ensure a turnover of membership, for example by setting terms.
-        </p>
+        <h2>Affiliated Committees</h2>
+
+        <h3>Transparency</h3>
         <ul>
           <li>
             <p>
-              This only makes sense for "decision-making" bodies, not really for groups that just focus on doing work.
+              Group must have some website that makes it clear what the goals and responsibilities of this group are
+            </p>
+          </li>
+          <li>
+            <p>
+              All technical discussions must be stored in a publicly accessible location, for example:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  GitHub issues
+                </p>
+              </li>
+              <li>
+                <p>
+                  GitLab issues
+                </p>
+              </li>
+              <li>
+                <p>
+                  Mailing list archives There is an obvious exception for confidential matters such as financial and security related information
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              It should be clear what decisions the group has taken, and what are under discussion (if it’s that kind of group). A good example of this are the GHC Steering Committee proposals, but a simple email to a public list can also suffice.
+            </p>
+          </li>
+          <li>
+            <p>
+              The group must have a voting system in place in case it cannot reach unanimity. Votes must be accompanied by reasoning, and a tie-breaking mechanism should be in place.
             </p>
           </li>
         </ul>
-      </li>
-      <li>
+
+        <h3>Membership</h3>
+        <ul>
+          <li>
+            <p>
+              The group’s website should list its members (with their affiliations and terms), and the membership rules.
+            </p>
+          </li>
+          <li>
+            <p>
+              Groups should appoint a chair (or co-chairs) or a contact for Haskell Foundation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Groups should ensure a turnover of membership, for example by setting terms.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  This only makes sense for "decision-making" bodies, not really for groups that just focus on doing work.
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              The process for appointing new members should be clearly set out:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  There should be a “way in” for new members who are not already part of the “in crowd”; for example, a regular opportunity to self-nominate.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Criteria for new members should be written down, so that new members can address them in writing a self-nomination.
+                </p>
+              </li>
+              <li>
+                <p>
+                  A reasonably broad group of people should be involved in making appointment decisions (e.g. not just the chair). Typically the whole group votes on appointing new members.
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>CODE OF CONDUCT</h3>
         <p>
-          The process for appointing new members should be clearly set out:
+          Groups must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a>. Groups may additionally adopt other guidelines & CoCs that are stronger; as long as they do not conflict with the GRC.
+        </p>
+        <p>
+          Why make a code of conduct as part of HF affiliation?
         </p>
         <ul>
           <li>
             <p>
-              There should be a “way in” for new members who are not already part of the “in crowd”; for example, a regular opportunity to self-nominate.
+              We want the Haskell community to be welcoming, diverse, and inclusive. Having explicit guidelines for respectful communication signals that desire, and makes it more explicit and concrete.
             </p>
           </li>
           <li>
             <p>
-              Criteria for new members should be written down, so that new members can address them in writing a self-nomination.
-            </p>
-          </li>
-          <li>
-            <p>
-              A reasonably broad group of people should be involved in making appointment decisions (e.g. not just the chair). Typically the whole group votes on appointing new members.
+              For all of us, as individuals and as groups, making an explicit commitment to respectful communication encourages us to review our messages to see if they meet the goals set out in the guidelines, and will give others some specifics to point to if we fail.
             </p>
           </li>
         </ul>
-      </li>
-    </ul>
 
-    <h3>CODE OF CONDUCT</h3>
-    <p>
-      Groups must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a>. Groups may additionally adopt other guidelines & CoCs that are stronger; as long as they do not conflict with the GRC.
-    </p>
-    <p>
-      Why make a code of conduct as part of HF affiliation?
-    </p>
-    <ul>
-      <li>
-        <p>
-          We want the Haskell community to be welcoming, diverse, and inclusive. Having explicit guidelines for respectful communication signals that desire, and makes it more explicit and concrete.
-        </p>
-      </li>
-      <li>
-        <p>
-          For all of us, as individuals and as groups, making an explicit commitment to respectful communication encourages us to review our messages to see if they meet the goals set out in the guidelines, and will give others some specifics to point to if we fail.
-        </p>
-      </li>
-    </ul>
+        <h2>Affiliated Projects</h2>
 
-    <h2>Affiliated Projects</h2>
+        <ul>
+          <li>
+            <p>
+              The project must have a public issue tracker and/or mailing list where discussion about the project takes place
+            </p>
+          </li>
+          <li>
+            <p>
+              The expectation is that the project has at least one responsive maintainer. If this is not the case, it should be clearly signalled that more resources are required.
+            </p>
+          </li>
+          <li>
+            <p>
+              The project must be open to community discussion about possible features and contributions.
+            </p>
+          </li>
+          <li>
+            <p>
+              The project should encourage new contributors and members, i.e. there should be "a way in".
+            </p>
+          </li>
+          <li>
+            <p>
+              Just like committees, the project must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a> as a code of conduct.
+            </p>
+          </li>
+        </ul>
 
-    <ul>
-      <li>
-        <p>
-          The project must have a public issue tracker and/or mailing list where discussion about the project takes place
-        </p>
-      </li>
-      <li>
-        <p>
-          The expectation is that the project has at least one responsive maintainer. If this is not the case, it should be clearly signalled that more resources are required.
-        </p>
-      </li>
-      <li>
-        <p>
-          The project must be open to community discussion about possible features and contributions.
-        </p>
-      </li>
-      <li>
-        <p>
-          The project should encourage new contributors and members, i.e. there should be "a way in".
-        </p>
-      </li>
-      <li>
-        <p>
-          Just like committees, the project must adopt the <a href="../../guidelines-for-respectful-communication">Guidelines for Respectful Communication</a> as a code of conduct.
-        </p>
-      </li>
-    </ul>
-  
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
-  </div>
+    </div>
 
-  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap items-center justify-center">
-      <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
+    <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
   </div>
 
   <div class="mt-16">
@@ -428,15 +441,15 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
     
-      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
     
-      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
-      <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
-      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
     
   </div>
 
@@ -445,21 +458,21 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
     
-      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
     
-      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
     
-      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
     
-      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
     
-      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -468,17 +481,17 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
     
-      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
     
-      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
     
-      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
     
-      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
     
-      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
   </div>
 </div>
@@ -519,7 +532,8 @@
   </div>
 </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>

@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,18 +28,19 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>Théophile Choutri</title>
-  <meta property="og:title" content="Théophile Choutri" />
+  <meta property="og:title" content="Théophile Choutri">
+  </meta>
   
   <meta property="og:description" content="Niki Vazou and Andres Löh are joined by guest Théophile Choutri
 (they/them), who also goes by Hécate. Théophile coordinates multiple
@@ -48,14 +51,16 @@ documentation and developing an alternative to Hackage. Together they
 discuss Théophile's introduction to Haskell and their ongoing projects
 with the Foundation and the broader community, with a focus on the
 challenges facing Haskell non-experts and how they hope to tackle them.
-" />
+">
+  </meta>
   
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
 
 <div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
 
@@ -80,11 +85,11 @@ challenges facing Haskell non-experts and how they hope to tackle them.
     <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
-      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
-      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
-      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
-      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
-      <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+    <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
 
     <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
 
@@ -93,25 +98,25 @@ challenges facing Haskell non-experts and how they hope to tackle them.
     <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
-      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
-      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+    <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
 
     <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
-      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
-      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
-      <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
-      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
-      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+    <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+    <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
 
   </div>
 
 </div>
 
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="../../">
@@ -124,91 +129,91 @@ challenges facing Haskell non-experts and how they hope to tackle them.
     <ul class="flex space-x-8 xl:space-x-12">
 
 
-        <li class="relative">
-          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+      <li class="relative">
+        <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+            Past Boards
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
 
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
+        </div>
 
-        </li>
+      </li>
 
-	<li class="relative">
-	  <a href="../../podcast">Podcast</a>
-	</li>
+      <li class="relative">
+        <a href="../../podcast">Podcast</a>
+      </li>
 
-        <li class="relative">
-          <a href="../../projects">Projects</a>
+      <li class="relative">
+        <a href="../../projects">Projects</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../donations">Sponsorship</a>
+      <li class="relative">
+        <a href="../../donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+      <li class="relative">
+        <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
-                  Affiliates
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+            Affiliates
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
-                  About Affiliating
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+            About Affiliating
+          </a>
 
-            </div>
+        </div>
 
-        </li>
+      </li>
 
-       <li class="relative">
-          <a href="../../news" id="news-nav-item">News and Info</a>
+      <li class="relative">
+        <a href="../../news" id="news-nav-item">News and Info</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
-                  News
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+            News
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
-                  Press
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+            Press
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+        </div>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
@@ -221,69 +226,70 @@ challenges facing Haskell non-experts and how they hope to tackle them.
 
 </nav>
 
-  </div>
+    </div>
 
-  <div class="flex-grow">
-    <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="flex-grow">
+      <div class="max-w-screen-xl mx-auto py-16 md:py-24">
   <div class="sm:px-6 lg:px-16">
-    <div class="relative">
-      <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-                <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-                <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
-              </div>
+  <div class="relative">
+    <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-        <h1 class="text-2xl-5xl"><b>8</b> – Théophile Choutri</h1>
+    <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="max-w-screen-xl mx-auto">
-    <div class="mx-auto prose md:prose-lg">
-      <div class="space-y-8 max-w-2xl my-7 mx-auto">
-        
-         <p><em>Recorded 2021-11-23. Published 2022-01-07.</em></p>
-        
-        <p>Niki Vazou and Andres Löh are joined by guest Théophile Choutri (they/them), who also goes by Hécate. Théophile coordinates multiple projects and volunteer groups within the Haskell Foundation, notably the Haskell School project (intending to provide a free online open source library for teaching Haskell), and works on improving GHC core documentation and developing an alternative to Hackage. Together they discuss Théophile’s introduction to Haskell and their ongoing projects with the Foundation and the broader community, with a focus on the challenges facing Haskell non-experts and how they hope to tackle them.</p>
-      </div>
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl-5xl"><b>8</b> – Théophile Choutri</h1>
+  </div>
+</div>
+
+<div class="max-w-screen-xl mx-auto">
+  <div class="mx-auto prose md:prose-lg">
+    <div class="space-y-8 max-w-2xl my-7 mx-auto">
+      
+      <p><em>Recorded 2021-11-23. Published 2022-01-07.</em></p>
+      
+      <p>Niki Vazou and Andres Löh are joined by guest Théophile Choutri (they/them), who also goes by Hécate. Théophile coordinates multiple projects and volunteer groups within the Haskell Foundation, notably the Haskell School project (intending to provide a free online open source library for teaching Haskell), and works on improving GHC core documentation and developing an alternative to Hackage. Together they discuss Théophile’s introduction to Haskell and their ongoing projects with the Foundation and the broader community, with a focus on the challenges facing Haskell non-experts and how they hope to tackle them.</p>
     </div>
+  </div>
 
-    <div class="mx-auto prose md:prose-lg my-6">
-      <div id="buzzsprout-player-9846037"></div>
-      <script src="https://www.buzzsprout.com/1817535/9846037.js?container_id=buzzsprout-player-9846037&player=small" type="text/javascript" charset="utf-8"></script>
-    </div>
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div id="buzzsprout-player-9846037"></div>
+    <script src="https://www.buzzsprout.com/1817535/9846037.js?container_id=buzzsprout-player-9846037&player=small" type="text/javascript" charset="utf-8"></script>
+  </div>
 
-    
-    <div class="mx-auto prose md:prose-lg my-6">
-     <div class="flex items-center space-x-4">
-       <!--
+  
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div class="flex items-center space-x-4">
+      <!--
        TODO: Insert nice icon
        <div>
          <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
        </div>
        -->
-       <h2 class="text-2xl font-normal">Related links</h2>
-     </div>
-     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
-       <ul>
+      <h2 class="text-2xl font-normal">Related links</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+      <ul>
 <li><a href="https://theophile.choutri.eu/">Théophile Choutri</a></li>
 <li><a href="https://twitter.com/TechnoEmpress">Théophile’s Twitter</a> (hecate on IRC)</li>
 <li><a href="https://haskellbook.com/">Haskell Programming from First Principles</a> (Julie Moronuki, Christopher Allen)</li>
@@ -302,23 +308,23 @@ challenges facing Haskell non-experts and how they hope to tackle them.
 <li><a href="https://grin-compiler.github.io/">GRIN Project</a></li>
 <li><a href="https://github.com/flora-pm/flora-server">Flora</a> (Hackage alternative, under development)</li>
 </ul>
-     </div>
     </div>
-    
+  </div>
+  
 
-    
-    <div class="mx-auto prose md:prose-lg my-6">
-     <div class="flex items-center space-x-4">
-       <!--
+  
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div class="flex items-center space-x-4">
+      <!--
        TODO: Insert nice icon
        <div>
          <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
        </div>
        -->
-       <h2 class="text-2xl font-normal">Transcript</h2>
-     </div>
-     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
-       <p><em>Andres Löh:</em> Welcome to the Haskell Interlude. My name is Andres Löh, and my co-host is Niki Vazou.</p>
+      <h2 class="text-2xl font-normal">Transcript</h2>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+      <p><em>Andres Löh:</em> Welcome to the Haskell Interlude. My name is Andres Löh, and my co-host is Niki Vazou.</p>
 <p><em>Niki Vazou:</em> Hello!</p>
 <p><em>AL:</em> Our guest today is Théophile Choutri, perhaps better known in the Haskell community as Hécate. In the next hour, we’ll talk about the importance of documentation that is alive, the Haskell School project to create an online open source book on all aspects of Haskell, and the future of Hackage.</p>
 <p><em>AL:</em> Welcome Théophile, glad to have you with us.</p>
@@ -517,18 +523,17 @@ challenges facing Haskell non-experts and how they hope to tackle them.
 <p><em>AL:</em> For all these different things, I hope they all are very successful, and perhaps we can talk again in a year or something and see where it all got to.</p>
 <p><em>TC:</em> Absolutely. I was honored to be invited, thank you very much.</p>
 <p><em>NV:</em> Thank you!</p>
-     </div>
     </div>
-    
   </div>
+  
 </div>
 
-  </div>
+    </div>
 
-  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap items-center justify-center">
-      <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
+    <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
   </div>
 
   <div class="mt-16">
@@ -536,15 +541,15 @@ challenges facing Haskell non-experts and how they hope to tackle them.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
     
-      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
     
-      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
-      <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
-      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
     
   </div>
 
@@ -553,21 +558,21 @@ challenges facing Haskell non-experts and how they hope to tackle them.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
     
-      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
     
-      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
     
-      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
     
-      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
     
-      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -576,17 +581,17 @@ challenges facing Haskell non-experts and how they hope to tackle them.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
     
-      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
     
-      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
     
-      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
     
-      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
     
-      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
   </div>
 </div>
@@ -627,7 +632,8 @@ challenges facing Haskell non-experts and how they hope to tackle them.
   </div>
 </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>

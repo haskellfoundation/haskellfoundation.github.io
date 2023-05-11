@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,25 +28,27 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>Haskell Interlude</title>
-  <meta property="og:title" content="Haskell Interlude" />
+  <meta property="og:title" content="Haskell Interlude">
+  </meta>
   
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
 
 <div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
 
@@ -69,11 +73,11 @@
     <a href="../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
-      <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
-      <a href="../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
-      <a href="../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
-      <a href="../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
-      <a href="../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+    <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
 
     <a href="../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
 
@@ -82,25 +86,25 @@
     <a href="../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
-      <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
-      <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+    <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
 
     <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
-      <a href="../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
-      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
-      <a href="../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
-      <a href="../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
-      <a href="../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+    <a href="../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+    <a href="../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
 
   </div>
 
 </div>
 
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="../">
@@ -113,91 +117,91 @@
     <ul class="flex space-x-8 xl:space-x-12">
 
 
-        <li class="relative">
-          <a href="../who-we-are" id="who-we-are-nav-item">About</a>
+      <li class="relative">
+        <a href="../who-we-are" id="who-we-are-nav-item">About</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
+            Past Boards
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../contact">Contact</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../contact">Contact</a>
 
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../careers">Careers</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../careers">Careers</a>
+        </div>
 
-        </li>
+      </li>
 
-	<li class="relative">
-	  <a href="../podcast">Podcast</a>
-	</li>
+      <li class="relative">
+        <a href="../podcast">Podcast</a>
+      </li>
 
-        <li class="relative">
-          <a href="../projects">Projects</a>
+      <li class="relative">
+        <a href="../projects">Projects</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../donations">Sponsorship</a>
+      <li class="relative">
+        <a href="../donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
+      <li class="relative">
+        <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates">
-                  Affiliates
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates">
+            Affiliates
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
-                  About Affiliating
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
+            About Affiliating
+          </a>
 
-            </div>
+        </div>
 
-        </li>
+      </li>
 
-       <li class="relative">
-          <a href="../news" id="news-nav-item">News and Info</a>
+      <li class="relative">
+        <a href="../news" id="news-nav-item">News and Info</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news">
-                  News
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news">
+            News
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news/press">
-                  Press
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news/press">
+            Press
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../resources">Resources</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../resources">Resources</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../faq">FAQ</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../faq">FAQ</a>
+        </div>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
@@ -210,48 +214,47 @@
 
 </nav>
 
-  </div>
+    </div>
 
-  <div class="flex-grow">
-    <div class="max-w-screen-xl mx-auto py-16 md:py-24">
+    <div class="flex-grow">
+      <div class="max-w-screen-xl mx-auto py-16 md:py-24">
   <div class="sm:px-6 lg:px-16">
-    <div class="relative">
-      <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-                <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20">
-                </div>
-              </div>
+  <div class="relative">
+    <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-                <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20">
-                </div>
-              </div>
+    </div>
+    <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
 
   <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-     <h1 class="text-2xl-5xl">The Haskell Interlude</h1>
+    <h1 class="text-2xl-5xl">The Haskell Interlude</h1>
   </div>
 
   <div class="mt-16 md:mt-24">
     <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
       <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-12 md:py-16">
         <p class="lg:text-xl text-gray-300 leading-relaxed text-center">
-         The Haskell Interlude is Haskell-focused podcast where we interview guests from the Haskell community. The hosts are Joachim Breitner, Andres Löh, Matthías Páll Gissurarson, Wouter Swierstra and Niki Vazou.
+          The Haskell Interlude is Haskell-focused podcast where we interview guests from the Haskell community. The hosts are Joachim Breitner, Andres Löh, Matthías Páll Gissurarson, Wouter Swierstra and Niki Vazou.
         </p>
       </div>
     </div>
@@ -260,318 +263,318 @@
   <div class="mt-16 md:mt-24">
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>25</b> – Bodigrim
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Joachim Breitner and Wouter Swierstra talk to Andrew Lelechenko, also known as Bodigrim. Bodigrim went from a being a mathematician to a failed PHP developer the chair of the Core Libraries Committee. In this episode, we discuss whether he prefers number theory or Haskell, whether he prefers working with compilers or PHP frameworks, and whether he prefers high salaries for Haskell developers or breaking changes to the <code>base</code> library.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/25">&gt;&gt; Listen to Bodigrim</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>25</b> – Bodigrim
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Joachim Breitner and Wouter Swierstra talk to Andrew Lelechenko, also known as Bodigrim. Bodigrim went from a being a mathematician to a failed PHP developer the chair of the Core Libraries Committee. In this episode, we discuss whether he prefers number theory or Haskell, whether he prefers working with compilers or PHP frameworks, and whether he prefers high salaries for Haskell developers or breaking changes to the <code>base</code> library.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/25">&gt;&gt; Listen to Bodigrim</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>24</b> – Jeremy Gibbons
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Andres Löh and Niki Vazou chat with Jeremy Gibbons. Jeremy Gibbons is professor at Oxford and talks about his journey from Orwell to Haskell, how to teach Haskell and specification languages to undergraduates as well as professional programmers, how programming languages should keep simple things simple, and how paper writing can or even should be like poetry.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/24">&gt;&gt; Listen to Jeremy Gibbons</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>24</b> – Jeremy Gibbons
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Andres Löh and Niki Vazou chat with Jeremy Gibbons. Jeremy Gibbons is professor at Oxford and talks about his journey from Orwell to Haskell, how to teach Haskell and specification languages to undergraduates as well as professional programmers, how programming languages should keep simple things simple, and how paper writing can or even should be like poetry.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/24">&gt;&gt; Listen to Jeremy Gibbons</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>23</b> – Ben Gamari
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Wouter Swierstra and Joachim Breitner chat with Ben Gamari. Ben is a consultant at Well-Typed known for his work at GHC. Ben tells us a little bit about his switch from Python to Haskell but not because he was missing the static typing, how programming his thermostat lead him to a career in the compiler development, and what it’s like to be a GHC force multiplier.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/23">&gt;&gt; Listen to Ben Gamari</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>23</b> – Ben Gamari
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Wouter Swierstra and Joachim Breitner chat with Ben Gamari. Ben is a consultant at Well-Typed known for his work at GHC. Ben tells us a little bit about his switch from Python to Haskell but not because he was missing the static typing, how programming his thermostat lead him to a career in the compiler development, and what it’s like to be a GHC force multiplier.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/23">&gt;&gt; Listen to Ben Gamari</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>22</b> – Alejandro Russo
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Andres Löh and Niki Vazou talk with Alejandro Russo. Alejandro is a professor at Chalmers University in Gothenburg Sweden, he is an enthusiastic functional programmer as well as a researcher in the fields of security and privacy. He talks about the unique strengths Haskell has in these areas and how to move research ideas into industry.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/22">&gt;&gt; Listen to Alejandro Russo</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>22</b> – Alejandro Russo
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Andres Löh and Niki Vazou talk with Alejandro Russo. Alejandro is a professor at Chalmers University in Gothenburg Sweden, he is an enthusiastic functional programmer as well as a researcher in the fields of security and privacy. He talks about the unique strengths Haskell has in these areas and how to move research ideas into industry.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/22">&gt;&gt; Listen to Alejandro Russo</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>21</b> – Andrey Mokhov
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Matthías Páll and Andres Löh talk with Andrey Mokhov. Andrey is best known for his work on the Hadrian build system and today he talks about algebraic graphs, selective functors, and the difference between OCaml and Haskell.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/21">&gt;&gt; Listen to Andrey Mokhov</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>21</b> – Andrey Mokhov
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Matthías Páll and Andres Löh talk with Andrey Mokhov. Andrey is best known for his work on the Hadrian build system and today he talks about algebraic graphs, selective functors, and the difference between OCaml and Haskell.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/21">&gt;&gt; Listen to Andrey Mokhov</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>20</b> – Jesper Cockx
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Jesper Cockx, one of the main Agda developers, is interviewed by Niki Vazou and Matthias Pall. They talk about how to explain dependent types to one’s father, how Agda’s automation and proof search work, and how Agda can be used to verify Haskell code bases.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/20">&gt;&gt; Listen to Jesper Cockx</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>20</b> – Jesper Cockx
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Jesper Cockx, one of the main Agda developers, is interviewed by Niki Vazou and Matthias Pall. They talk about how to explain dependent types to one’s father, how Agda’s automation and proof search work, and how Agda can be used to verify Haskell code bases.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/20">&gt;&gt; Listen to Jesper Cockx</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>19</b> – Marc Scholten
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Marc Scholten is interviewed by Andres Löh and Joachim Breitner. They talk about the Integrated Haskell Platform web framework (IHP), implicit parameters and nix.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/19">&gt;&gt; Listen to Marc Scholten</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>19</b> – Marc Scholten
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Marc Scholten is interviewed by Andres Löh and Joachim Breitner. They talk about the Integrated Haskell Platform web framework (IHP), implicit parameters and nix.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/19">&gt;&gt; Listen to Marc Scholten</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>18</b> – Matthias Pall Gissurarson & Jimmy Koppel
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>In this episode Matthias Pall Gissurarson &amp; Jimmy Koppel are interviewed by Wouter Swierstra and Niki Vazou. They talk about program synthesis, typed holes, program repair, and generating properties using a new technique called ECTAs.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/18">&gt;&gt; Listen to Matthias Pall Gissurarson & Jimmy Koppel</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>18</b> – Matthias Pall Gissurarson & Jimmy Koppel
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>In this episode Matthias Pall Gissurarson &amp; Jimmy Koppel are interviewed by Wouter Swierstra and Niki Vazou. They talk about program synthesis, typed holes, program repair, and generating properties using a new technique called ECTAs.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/18">&gt;&gt; Listen to Matthias Pall Gissurarson & Jimmy Koppel</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>17</b> – Ningning Xie
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Ningning Xie is interviewed by Niki Vazou and Andres Loh. Ningning first contributed to GHC at her Google summer of code project with a very ambitious goal of implementing the whole dependent Haskell. Also later she fixed several ghc bugs and worked on Koka’s Algebraic effects. Her future hope and advice is to use programming language concepts on real-word problems.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/17">&gt;&gt; Listen to Ningning Xie</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>17</b> – Ningning Xie
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Ningning Xie is interviewed by Niki Vazou and Andres Loh. Ningning first contributed to GHC at her Google summer of code project with a very ambitious goal of implementing the whole dependent Haskell. Also later she fixed several ghc bugs and worked on Koka’s Algebraic effects. Her future hope and advice is to use programming language concepts on real-word problems.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/17">&gt;&gt; Listen to Ningning Xie</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>16</b> – Oskar Wickström
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Oskar Wickström is interviewed by Wouter Swierstra and Alejandro Serrano, he will tell us a little bit about property-based testing (PBT) Haskell code but also applying these ideas to the testing of complete systems. He will say a little bit about interfacing Haskell to other languages and even with your web browser and what it’s like to learn Rust as a Haskell programmer.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/16">&gt;&gt; Listen to Oskar Wickström</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>16</b> – Oskar Wickström
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Oskar Wickström is interviewed by Wouter Swierstra and Alejandro Serrano, he will tell us a little bit about property-based testing (PBT) Haskell code but also applying these ideas to the testing of complete systems. He will say a little bit about interfacing Haskell to other languages and even with your web browser and what it’s like to learn Rust as a Haskell programmer.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/16">&gt;&gt; Listen to Oskar Wickström</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>15</b> – Facundo Dominguez
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Facundo Dominguez is interviewed by Niki Vazou and Joachim Breitner. Facundo Dominguez tells us the difference between STM and SMT. We also talk about Liquid Haskell and its relation to dependent types and the <code>QualifiedDo</code> extension – which is one of the most highly discussed GHC proposals – and the general GHC proposals. And, finally, Facundo describes a technique to have Haskell peacefully coexist with other languages thanks to his work in the build system Bazel.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/15">&gt;&gt; Listen to Facundo Dominguez</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>15</b> – Facundo Dominguez
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Facundo Dominguez is interviewed by Niki Vazou and Joachim Breitner. Facundo Dominguez tells us the difference between STM and SMT. We also talk about Liquid Haskell and its relation to dependent types and the <code>QualifiedDo</code> extension – which is one of the most highly discussed GHC proposals – and the general GHC proposals. And, finally, Facundo describes a technique to have Haskell peacefully coexist with other languages thanks to his work in the build system Bazel.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/15">&gt;&gt; Listen to Facundo Dominguez</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>14</b> – Ryan Trinkle
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Ryan Trinkle is interviewed by Joachim Breitner and Niki Vazou. Ryan Trinkle has co-founded Obsidian Systems, a company that not just uses Haskell but even more exotic tech that as Functional Reactive Programming (FRP) and Nix. Ryan shed some light on the business side of Haskell and we get to hear that hiring for Haskell is actually excellent.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/14">&gt;&gt; Listen to Ryan Trinkle</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>14</b> – Ryan Trinkle
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Ryan Trinkle is interviewed by Joachim Breitner and Niki Vazou. Ryan Trinkle has co-founded Obsidian Systems, a company that not just uses Haskell but even more exotic tech that as Functional Reactive Programming (FRP) and Nix. Ryan shed some light on the business side of Haskell and we get to hear that hiring for Haskell is actually excellent.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/14">&gt;&gt; Listen to Ryan Trinkle</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>13</b> – David Christiansen
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>David Christiansen is interviewed by Alejandro Serrano and Wouter Swierstra. They talk about many functional programming things, from Idris to Racket and of course Haskell and David’s new role as the executive director of Haskell Foundation.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/13">&gt;&gt; Listen to David Christiansen</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>13</b> – David Christiansen
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>David Christiansen is interviewed by Alejandro Serrano and Wouter Swierstra. They talk about many functional programming things, from Idris to Racket and of course Haskell and David’s new role as the executive director of Haskell Foundation.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/13">&gt;&gt; Listen to David Christiansen</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>12</b> – Gergő Érdi
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Gergő Érdi is interviewed by Wouter Swierstra and Andres Löh. Gergő has an interesting path into Haskell taking many twists and turns. This episode discusses about these twists and Gergő’s recent book on implementing retro computers using Haskell.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/12">&gt;&gt; Listen to Gergő Érdi</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>12</b> – Gergő Érdi
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Gergő Érdi is interviewed by Wouter Swierstra and Andres Löh. Gergő has an interesting path into Haskell taking many twists and turns. This episode discusses about these twists and Gergő’s recent book on implementing retro computers using Haskell.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/12">&gt;&gt; Listen to Gergő Érdi</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>11</b> – Simon Peyton Jones
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Simon Peyton Jones is interviewed by Andres Löh and Joachim Breitner. Simon is the creator of Haskell and in this episode he talks about his new position at Epic, the origins of Haskell and why “it feels right”, and the (extra)ordinary Haskell programmers.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/11">&gt;&gt; Listen to Simon Peyton Jones</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>11</b> – Simon Peyton Jones
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Simon Peyton Jones is interviewed by Andres Löh and Joachim Breitner. Simon is the creator of Haskell and in this episode he talks about his new position at Epic, the origins of Haskell and why “it feels right”, and the (extra)ordinary Haskell programmers.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/11">&gt;&gt; Listen to Simon Peyton Jones</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>10</b> – Nadia Polikarpova
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Nadia Polikarpova is interviewed by Alejandro Serrano and Niki Vazou. Nadia is an assistant professor at UCSD, where she works on improving how we write programs. They talk about some of her projects, like Hoogle+ and Synquid, and how she approaches teaching about these topics.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/10">&gt;&gt; Listen to Nadia Polikarpova</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>10</b> – Nadia Polikarpova
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Nadia Polikarpova is interviewed by Alejandro Serrano and Niki Vazou. Nadia is an assistant professor at UCSD, where she works on improving how we write programs. They talk about some of her projects, like Hoogle+ and Synquid, and how she approaches teaching about these topics.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/10">&gt;&gt; Listen to Nadia Polikarpova</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>9</b> – Sebastian Graf
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Sebastian Graf is interviewed by Joachim Breitner and Alejandro Serrano. Sebastian is one of the most active contributors to GHC, and tells of this experience, from his very first commit to GHC to his current work on the pattern coverage checker and demand analyzer. He also gives us hints on how to reason about the strictness of Haskell programs.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/9">&gt;&gt; Listen to Sebastian Graf</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>9</b> – Sebastian Graf
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Sebastian Graf is interviewed by Joachim Breitner and Alejandro Serrano. Sebastian is one of the most active contributors to GHC, and tells of this experience, from his very first commit to GHC to his current work on the pattern coverage checker and demand analyzer. He also gives us hints on how to reason about the strictness of Haskell programs.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/9">&gt;&gt; Listen to Sebastian Graf</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>8</b> – Théophile Choutri
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Niki Vazou and Andres Löh are joined by guest Théophile Choutri (they/them), who also goes by Hécate. Théophile coordinates multiple projects and volunteer groups within the Haskell Foundation, notably the Haskell School project (intending to provide a free online open source library for teaching Haskell), and works on improving GHC core documentation and developing an alternative to Hackage. Together they discuss Théophile’s introduction to Haskell and their ongoing projects with the Foundation and the broader community, with a focus on the challenges facing Haskell non-experts and how they hope to tackle them.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/8">&gt;&gt; Listen to Théophile Choutri</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>8</b> – Théophile Choutri
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Niki Vazou and Andres Löh are joined by guest Théophile Choutri (they/them), who also goes by Hécate. Théophile coordinates multiple projects and volunteer groups within the Haskell Foundation, notably the Haskell School project (intending to provide a free online open source library for teaching Haskell), and works on improving GHC core documentation and developing an alternative to Hackage. Together they discuss Théophile’s introduction to Haskell and their ongoing projects with the Foundation and the broader community, with a focus on the challenges facing Haskell non-experts and how they hope to tackle them.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/8">&gt;&gt; Listen to Théophile Choutri</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>7</b> – José Calderón
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>José Calderón is interviewed by Niki Vazou and Wouter Swierstra . José has been working on functional programming at Galois and University of Maryland. He tells us about his research background in many different continents, his experience with teaching compilers, the relation between music and functional programming and the “Recursive Programming Techniques” book that in the 1970s captured the essence of functional programming.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/7">&gt;&gt; Listen to José Calderón</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>7</b> – José Calderón
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>José Calderón is interviewed by Niki Vazou and Wouter Swierstra . José has been working on functional programming at Galois and University of Maryland. He tells us about his research background in many different continents, his experience with teaching compilers, the relation between music and functional programming and the “Recursive Programming Techniques” book that in the 1970s captured the essence of functional programming.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/7">&gt;&gt; Listen to José Calderón</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>6</b> – Graham Hutton
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Graham Hutton is interviewed by Wouter Swierstra and Andres Löh. Graham is known for his work on Haskell both in research and teaching Haskell, and in particular his Haskell book. Graham will tell us a little bit about how his book came about and give us advice for how to write a book ourselves, but also look back on his experience using Haskell and teaching Haskell in the last thirty years, and tell us a little bit about how bad the compile times were for the very first versions of GHC.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/6">&gt;&gt; Listen to Graham Hutton</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>6</b> – Graham Hutton
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Graham Hutton is interviewed by Wouter Swierstra and Andres Löh. Graham is known for his work on Haskell both in research and teaching Haskell, and in particular his Haskell book. Graham will tell us a little bit about how his book came about and give us advice for how to write a book ourselves, but also look back on his experience using Haskell and teaching Haskell in the last thirty years, and tell us a little bit about how bad the compile times were for the very first versions of GHC.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/6">&gt;&gt; Listen to Graham Hutton</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>5</b> – Chris Smith
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Chris Smith is interviewed by Joachim Breitner and Andres Löh. Chris is the author of the CodeWorld teaching tool and discusses why too much curry in the language can make error messages hard to digest and why a self respecting testing library certainly should be used to test itself.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/5">&gt;&gt; Listen to Chris Smith</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>5</b> – Chris Smith
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Chris Smith is interviewed by Joachim Breitner and Andres Löh. Chris is the author of the CodeWorld teaching tool and discusses why too much curry in the language can make error messages hard to digest and why a self respecting testing library certainly should be used to test itself.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/5">&gt;&gt; Listen to Chris Smith</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>4</b> – Jasper Van der Jeugt
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Jasper Van der Jeugt is interviewed by Niki Vazou and Joachim Breitner. Jasper plays an important role in the Haskell community, helping with <code>haskell.org</code>, the Google Summer of Code project, ZuriHac and the ICFP programming contest, so there is much to talk about.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/4">&gt;&gt; Listen to Jasper Van der Jeugt</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>4</b> – Jasper Van der Jeugt
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Jasper Van der Jeugt is interviewed by Niki Vazou and Joachim Breitner. Jasper plays an important role in the Haskell community, helping with <code>haskell.org</code>, the Google Summer of Code project, ZuriHac and the ICFP programming contest, so there is much to talk about.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/4">&gt;&gt; Listen to Jasper Van der Jeugt</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>3</b> – Gabriella Gonzalez
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>Gabriella Gonzalez is interviewed by Joachim Breitner and Alejandro Serrano, and we talk about Dhall, Nix, and Haskell, learn why Gabriella’s packages are sometimes called after characters of computer games, and get to know her elevator pitch for educating Haskell</p>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>3</b> – Gabriella Gonzalez
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>Gabriella Gonzalez is interviewed by Joachim Breitner and Alejandro Serrano, and we talk about Dhall, Nix, and Haskell, learn why Gabriella’s packages are sometimes called after characters of computer games, and get to know her elevator pitch for educating Haskell</p>
 <p>The interviewee now goes by Gabriella as their preferred name, but at the time was still using Gabriel.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/3">&gt;&gt; Listen to Gabriella Gonzalez</a>
-            </div>
-	  </div>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/3">&gt;&gt; Listen to Gabriella Gonzalez</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>2</b> – Lennart Augustsson
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>The guest in our second episode is Lennart Augustsson. The hosts are Wouter Swierstra and Niki Vazou. We talk about Lennart’s long history with Haskell, about the various jobs he has had, all the compilers he has written, and about dependent types.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/2">&gt;&gt; Listen to Lennart Augustsson</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>2</b> – Lennart Augustsson
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>The guest in our second episode is Lennart Augustsson. The hosts are Wouter Swierstra and Niki Vazou. We talk about Lennart’s long history with Haskell, about the various jobs he has had, all the compilers he has written, and about dependent types.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/2">&gt;&gt; Listen to Lennart Augustsson</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>1</b> – Emily Pillmore
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>The guest of our first regular episode is Emily Pillmore, CTO of the Haskell Foundation. The hosts are Alejandro Serrano and Andres Löh. We talk about Emily’s path to Haskell, the role of the Haskell Foundation and the CTO within the Haskell Foundation, about current projects, the Haskell Community and about Emily’s work on Optics.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/1">&gt;&gt; Listen to Emily Pillmore</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>1</b> – Emily Pillmore
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>The guest of our first regular episode is Emily Pillmore, CTO of the Haskell Foundation. The hosts are Alejandro Serrano and Andres Löh. We talk about Emily’s path to Haskell, the role of the Haskell Foundation and the CTO within the Haskell Foundation, about current projects, the Haskell Community and about Emily’s work on Optics.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/1">&gt;&gt; Listen to Emily Pillmore</a>
+          </div>
         </div>
+      </div>
       
-        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
-          <h2 class="text-center text-2xl-4xl font-normal">
-	    <b>0</b> – Teaser
-	  </h2>
-          <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-            <p>We are starting a new Haskell-focused podcast where we interview guests from the Haskell community. The hosts are Niki Vazou, Joachim Breitner, Andres Löh, Alejandro Serrano and Wouter Swierstra. In this teaser episode, we introduce ourselves.</p>
-            <div class="mt-4">
-              <a class="arrow-link" href="../podcast/0">&gt;&gt; Listen to Teaser</a>
-            </div>
-	  </div>
+      <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24">
+        <h2 class="text-center text-2xl-4xl font-normal">
+          <b>0</b> – Teaser
+        </h2>
+        <div class="mt-8  space-y-8 max-w-2xl mx-auto">
+          <p>We are starting a new Haskell-focused podcast where we interview guests from the Haskell community. The hosts are Niki Vazou, Joachim Breitner, Andres Löh, Alejandro Serrano and Wouter Swierstra. In this teaser episode, we introduce ourselves.</p>
+          <div class="mt-4">
+            <a class="arrow-link" href="../podcast/0">&gt;&gt; Listen to Teaser</a>
+          </div>
         </div>
+      </div>
       
     </div>
   </div>
@@ -594,12 +597,12 @@
 
 </div>
 
-  </div>
+    </div>
 
-  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap items-center justify-center">
-      <img class="block w-36 m-4" alt="Individual Sponsors" src="../assets/images/sponsors/individuals.png" />
+    <img class="block w-36 m-4" alt="Individual Sponsors" src="../assets/images/sponsors/individuals.png" />
   </div>
 
   <div class="mt-16">
@@ -607,15 +610,15 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
     
-      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../assets/images/sponsors/github/github-683.png" srcset="../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../assets/images/sponsors/github/github-683.png" srcset="../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
     
-      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
-      <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
-      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
     
   </div>
 
@@ -624,21 +627,21 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../assets/images/sponsors/carboncloud/vertical3x.png"></a>
     
-      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../assets/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../assets/images/sponsors/emq/emq.png"></a>
     
-      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../assets/images/sponsors/exfreight/exfreight.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../assets/images/sponsors/exfreight/exfreight.png"></a>
     
-      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../assets/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../assets/images/sponsors/mercury/mercury.png"></a>
     
-      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
     
-      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -647,17 +650,17 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../assets/images/sponsors/artificial/artificial-683.png" srcset="../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../assets/images/sponsors/artificial/artificial-683.png" srcset="../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
     
-      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
     
-      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
     
-      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../assets/images/sponsors/herp/black.png"></a>
+    <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../assets/images/sponsors/herp/black.png"></a>
     
-      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
     
-      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
   </div>
 </div>
@@ -698,7 +701,8 @@
   </div>
 </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>

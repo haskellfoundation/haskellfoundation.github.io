@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,25 +28,27 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>Past Boards</title>
-  <meta property="og:title" content="Past Boards" />
+  <meta property="og:title" content="Past Boards">
+  </meta>
   
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
 
 <div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
 
@@ -69,11 +73,11 @@
     <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
-      <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
-      <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
-      <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
-      <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
-      <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+    <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
 
     <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
 
@@ -82,25 +86,25 @@
     <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
-      <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
-      <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+    <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
 
     <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
-      <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
-      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
-      <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
-      <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
-      <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+    <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+    <a href="../../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
 
   </div>
 
 </div>
 
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="../../">
@@ -113,91 +117,91 @@
     <ul class="flex space-x-8 xl:space-x-12">
 
 
-        <li class="relative">
-          <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+      <li class="relative">
+        <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+            Past Boards
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
 
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
+        </div>
 
-        </li>
+      </li>
 
-	<li class="relative">
-	  <a href="../../podcast">Podcast</a>
-	</li>
+      <li class="relative">
+        <a href="../../podcast">Podcast</a>
+      </li>
 
-        <li class="relative">
-          <a href="../../projects">Projects</a>
+      <li class="relative">
+        <a href="../../projects">Projects</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../donations">Sponsorship</a>
+      <li class="relative">
+        <a href="../../donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+      <li class="relative">
+        <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
-                  Affiliates
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+            Affiliates
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
-                  About Affiliating
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+            About Affiliating
+          </a>
 
-            </div>
+        </div>
 
-        </li>
+      </li>
 
-       <li class="relative">
-          <a href="../../news" id="news-nav-item">News and Info</a>
+      <li class="relative">
+        <a href="../../news" id="news-nav-item">News and Info</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
-                  News
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+            News
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
-                  Press
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+            Press
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+        </div>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
@@ -210,29 +214,30 @@
 
 </nav>
 
-  </div>
+    </div>
 
-  <div class="flex-grow">
+    <div class="flex-grow">
       <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+  <div class="sm:px-6 lg:px-16">
+  <div class="relative">
+    <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+    <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -240,23 +245,22 @@
   </div>
 </div>
 
-   </div>
-    <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-      <h1 class="text-2xl-5xl">Past Boards</h1>
-    </div>
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl-5xl">Past Boards</h1>
   </div>
+</div>
 
-  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Past Board Members</h2>
-            <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Past Board Members</h2>
+    <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
 
-              We are honored to have served the Haskell Foundation along with these former members of the Board.
+      We are honored to have served the Haskell Foundation along with these former members of the Board.
 
-            </p>
-    </div>
+    </p>
   </div>
-  
+</div>
+
 <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
   <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
     
@@ -446,194 +450,193 @@
 <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
   <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
     <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">Past Executive Team Members</h2>
-          <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+    <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
 
-            Thank you to the former members of the Executive Team, who helped shape the Haskell Foundation.
+      Thank you to the former members of the Executive Team, who helped shape the Haskell Foundation.
 
-          </p>
-  </div>
-</div>
-
-<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
-<div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
-  
-  <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-    <div class="sm:flex md:block xl:flex items-center">
-      <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/exec-team/afb.png" alt="Andrew Boardman">
-      <div class>
-        <h3 class="text-xl font-semibold">Andrew Boardman</h3>
-        
-        <div class="uppercase text-lg font-medium">Executive Director</div>
-        <div class="uppercase text-md font-medium">2021-02-22 - 2022-03-31</div>
-        
-      </div>
-    </div>
-    <p>
-      <p>Andrew Boardman brings a varied background as a serial entrepreneur, manager, teacher, consultant, and financial professional. He started professional programming in high school, writing text editor software for electronic bulletin board systems. Since then he has been the tech lead for the Windows build lab, lead developer for Windows Live Messenger, worked on desktop publishing software at Quark, and co-founded five startups, and much more.</p>
-<p>Andrew was drawn to Haskell in 2015 as the best solution to solve the truly difficult problems in computer science. Most recently he was a Haskell developer and engineering manager at SimSpace Corp., working on software for cybersecurity readiness training and testing. He is extremely excited about serving the community, and looks forward to working with everyone to address pain points and build on the language’s strengths.</p>
     </p>
-    <div>
-      
-      <a class="arrow-link" href="mailto:andrew@haskell.foundation">>> andrew@haskell.foundation</a>
-      
-      
-    </div>
   </div>
-  
-  <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-    <div class="sm:flex md:block xl:flex items-center">
-      <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/exec-team/ep.png" alt="Emily Pillmore">
-      <div class>
-        <h3 class="text-xl font-semibold">Emily Pillmore</h3>
-        
-        <div class="uppercase text-lg font-medium">Chief Technology Officer</div>
-        <div class="uppercase text-md font-medium">2021-02-22 - 2021-12-31</div>
-        
-      </div>
-    </div>
-    <p>
-      <p>Emily Pillmore got her start on Wall St. as a consultant and financial professional, reverse engineering statistical models and providing technical audit. She started her programming career as a late bloomer at the University of Utah, learning Java and Perl. Ultimately deciding to pursue mathematics (Topology and Geometry), she found a way to combine these two loves via functional programming, and quickly changed careers to focus on Scala and Haskell in 2016. Since then, she has served as a senior engineer for Disney Streaming (working on Disney+), and as a core team member of <a href="https://kadena.io">Kadena</a>.</p>
-<p>Emily has since developed a proclivity for OSS and community contributions, authoring or maintaining many well-known Haskell packages, contributing to Core Libraries and Haskell.org as a board member, and serving the Haskell Foundation as its first Working Group Chair. She looks forward to seeing Haskell flourish, and building some great tech that will make everyone’s Haskell experience that much better.</p>
-    </p>
-    <div>
-      
-      <a class="arrow-link" href="mailto:emily@haskell.foundation">>> emily@haskell.foundation</a>
-      
-      
-    </div>
-  </div>
-  
 </div>
-</div>
-
-  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
-    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
-      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">The HF Interim Board Of Directors</h2>
-      <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
-
-  HF's Interim Board served during the launch phase and managed the establishment of the first full board in early 2021, as well as interviewing and selecting the foundation Executive Director and Chief Technology Officer.
-
-      </p>
-    </div>
-  </div>
-
 
 <div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
   <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
     
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/cd.png" alt="Chris Dornan">
-          <div class>
-            <h3 class="text-xl font-semibold">Chris Dornan</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/exec-team/afb.png" alt="Andrew Boardman">
+        <div class>
+          <h3 class="text-xl font-semibold">Andrew Boardman</h3>
+          
+          <div class="uppercase text-lg font-medium">Executive Director</div>
+          <div class="uppercase text-md font-medium">2021-02-22 - 2022-03-31</div>
+          
         </div>
-        <p>
-          <p>Chris has been interested in Haskell since the early reports and wrote the original Alex package in the 1990s. In the late nineties Chris taught Haskell to undergraduates in UCC (Cork) and in the noughties used Haskell tools to develop key aspects of the ARMv7 architecture. Since 2013 Chris has been chief Engineer for IRIS Connect where he has overseen the development of the new IRIS Connect video platform which makes extensive use of Haskell in the back end.</p>
-        </p>
       </div>
+      <p>
+        <p>Andrew Boardman brings a varied background as a serial entrepreneur, manager, teacher, consultant, and financial professional. He started professional programming in high school, writing text editor software for electronic bulletin board systems. Since then he has been the tech lead for the Windows build lab, lead developer for Windows Live Messenger, worked on desktop publishing software at Quark, and co-founded five startups, and much more.</p>
+<p>Andrew was drawn to Haskell in 2015 as the best solution to solve the truly difficult problems in computer science. Most recently he was a Haskell developer and engineering manager at SimSpace Corp., working on software for cybersecurity readiness training and testing. He is extremely excited about serving the community, and looks forward to working with everyone to address pain points and build on the language’s strengths.</p>
+      </p>
+      <div>
+        
+        <a class="arrow-link" href="mailto:andrew@haskell.foundation">>> andrew@haskell.foundation</a>
+        
+        
+      </div>
+    </div>
     
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/ek.png" alt="Edward Kmett">
-          <div class>
-            <h3 class="text-xl font-semibold">Edward Kmett</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/exec-team/ep.png" alt="Emily Pillmore">
+        <div class>
+          <h3 class="text-xl font-semibold">Emily Pillmore</h3>
+          
+          <div class="uppercase text-lg font-medium">Chief Technology Officer</div>
+          <div class="uppercase text-md font-medium">2021-02-22 - 2021-12-31</div>
+          
         </div>
-        <p>
-          <p>Edward is currently off founding a stealth startup. He also sits on the board of the Topos Institute, promoting category theory in industry as a tool for exchanging ideas. Outside of Haskell he’s worked on graphics and special effects, telecommunications, finance, linguistics, and once helped Taiwan point a big RADAR at China. Edward found Haskell in 2006 and at the time mistakenly believed all Haskellers were thoroughly fluent in category theory, so he started blogging to this imaginary audience. A few years later his work on lenses provided a more practical impetus for more folks to learn some of these ideas, closing the circle. He currently maintains well over a hundred Haskell libraries covering a rather wide swathe of topics and isn’t entirely sure how he backed himself into that position.</p>
-        </p>
       </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/gk.png" alt="Gabriele Keller">
-          <div class>
-            <h3 class="text-xl font-semibold">Gabriele Keller</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
-        </div>
-        <p>
-          <p>Gabriele is Professor of Software Technology in the Department of Information and Computing Sciences. Her research focuses on how programming languages can be used to improve the quality of software. Conventional software testing is very important, but can’t guarantee the absence of errors. She is addressing this problem in her research on developing and using programming languages that are based on mathematical theory, so we can prove that a program will work in all scenarios. Call it ‘correctness by construction’. The real world significance is obvious: it saves a lot of time and it eliminates errors, so which company wouldn’t want it?</p>
-        </p>
+      <p>
+        <p>Emily Pillmore got her start on Wall St. as a consultant and financial professional, reverse engineering statistical models and providing technical audit. She started her programming career as a late bloomer at the University of Utah, learning Java and Perl. Ultimately deciding to pursue mathematics (Topology and Geometry), she found a way to combine these two loves via functional programming, and quickly changed careers to focus on Scala and Haskell in 2016. Since then, she has served as a senior engineer for Disney Streaming (working on Disney+), and as a core team member of <a href="https://kadena.io">Kadena</a>.</p>
+<p>Emily has since developed a proclivity for OSS and community contributions, authoring or maintaining many well-known Haskell packages, contributing to Core Libraries and Haskell.org as a board member, and serving the Haskell Foundation as its first Working Group Chair. She looks forward to seeing Haskell flourish, and building some great tech that will make everyone’s Haskell experience that much better.</p>
+      </p>
+      <div>
+        
+        <a class="arrow-link" href="mailto:emily@haskell.foundation">>> emily@haskell.foundation</a>
+        
+        
       </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/jv.png" alt="Jasper Van Der Jeugt">
-          <div class>
-            <h3 class="text-xl font-semibold">Jasper Van Der Jeugt</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
-        </div>
-        <p>
-          <p>Jasper is a Principal Engineer at Fugue, a cloud security startup. He has been deeply involved in the Haskell community for over ten years, contributing as open source maintainer as well as community organizer, with efforts like ZuriHac and Summer of Haskell. He currently chairs the Haskell.org committee.</p>
-        </p>
-      </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/la.png" alt="Lennart Augustsson">
-          <div class>
-            <h3 class="text-xl font-semibold">Lennart Augustsson</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
-        </div>
-        <p>
-          <p>Lennart has been using and implementing Haskell in various roles for the last 30 years. He currently works for Epic Games.</p>
-        </p>
-      </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/sm.png" alt="Simon Marlow">
-          <div class>
-            <h3 class="text-xl font-semibold">Simon Marlow</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
-        </div>
-        <p>
-          <p>Simon Marlow is a Software Engineer at Facebook in London. He has previously worked on Haxl, a Haskell-based domain-specific language that is used by the teams fighting abuse on Facebook, and he is currently working on Glean, a system to store and query facts about source code at scale. Simon is a co-author of the Glasgow Haskell Compiler, author of the book “Parallel and Concurrent Programming in Haskell”, and has a string of research publications in functional programming, language design, compilers, and language implementation.</p>
-        </p>
-      </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/spj.png" alt="Simon Peyton Jones">
-          <div class>
-            <h3 class="text-xl font-semibold">Simon Peyton Jones</h3>
-            <div class="uppercase text-lg font-medium">Chair</div>
-          </div>
-        </div>
-        <p>
-          <p>Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at Microsoft Research in Cambridge, England, where he started in Sept 1998. He’s also an Honorary Professor of the Computing Science Department at Glasgow University, where he was a professor during 1990-1998. Simon is interested in the design, implementation, and application of lazy functional languages. He was one of the original designers of Haskell, and much of his work is focused around the Glasgow Haskell Compiler and its ramifications. Simon is also chair of Computing at School, the group at the epicentre of the reform of the national curriculum for Computing in England. Computer science is now a foundational subject, alongside maths and natural science, that every child learns from primary school onwards.</p>
-        </p>
-      </div>
-    
-      <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
-        <div class="sm:flex md:block xl:flex items-center">
-          <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/sw.png" alt="Stephanie Weirich">
-          <div class>
-            <h3 class="text-xl font-semibold">Stephanie Weirich</h3>
-            <div class="uppercase text-lg font-medium">Interim Board Member</div>
-          </div>
-        </div>
-        <p>
-          <p>Stephanie Weirich is the ENIAC President’s Distinguished Professor of Computer and Information Science at the University of Pennsylvania. Her research areas include functional programming, type systems, machine-assisted theorem proving and dependent types. She and her students have made significant contributions to the design of the type system of the Glasgow Haskell Compiler. Dr. Weirich was recognized by the SIGPLAN Milner Young Researcher award (2016), a Microsoft Outstanding collaborator award, and a most influential ICFP paper award (awarded in 2016, for 2006). She has served as the general chair of ICFP 2020 and as the program chair of POPL 2018, ICFP 2010, and the 2009 Haskell Symposium.</p>
-        </p>
-      </div>
+    </div>
     
   </div>
 </div>
 
-  </div>
+<div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+  <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+    <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">The HF Interim Board Of Directors</h2>
+    <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
 
-  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+      HF's Interim Board served during the launch phase and managed the establishment of the first full board in early 2021, as well as interviewing and selecting the foundation Executive Director and Chief Technology Officer.
+
+    </p>
+  </div>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-4 sm:px-12 md:px-12 lg:px-16 py-16 md:py-24">
+  <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/cd.png" alt="Chris Dornan">
+        <div class>
+          <h3 class="text-xl font-semibold">Chris Dornan</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Chris has been interested in Haskell since the early reports and wrote the original Alex package in the 1990s. In the late nineties Chris taught Haskell to undergraduates in UCC (Cork) and in the noughties used Haskell tools to develop key aspects of the ARMv7 architecture. Since 2013 Chris has been chief Engineer for IRIS Connect where he has overseen the development of the new IRIS Connect video platform which makes extensive use of Haskell in the back end.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/ek.png" alt="Edward Kmett">
+        <div class>
+          <h3 class="text-xl font-semibold">Edward Kmett</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Edward is currently off founding a stealth startup. He also sits on the board of the Topos Institute, promoting category theory in industry as a tool for exchanging ideas. Outside of Haskell he’s worked on graphics and special effects, telecommunications, finance, linguistics, and once helped Taiwan point a big RADAR at China. Edward found Haskell in 2006 and at the time mistakenly believed all Haskellers were thoroughly fluent in category theory, so he started blogging to this imaginary audience. A few years later his work on lenses provided a more practical impetus for more folks to learn some of these ideas, closing the circle. He currently maintains well over a hundred Haskell libraries covering a rather wide swathe of topics and isn’t entirely sure how he backed himself into that position.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/gk.png" alt="Gabriele Keller">
+        <div class>
+          <h3 class="text-xl font-semibold">Gabriele Keller</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Gabriele is Professor of Software Technology in the Department of Information and Computing Sciences. Her research focuses on how programming languages can be used to improve the quality of software. Conventional software testing is very important, but can’t guarantee the absence of errors. She is addressing this problem in her research on developing and using programming languages that are based on mathematical theory, so we can prove that a program will work in all scenarios. Call it ‘correctness by construction’. The real world significance is obvious: it saves a lot of time and it eliminates errors, so which company wouldn’t want it?</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/jv.png" alt="Jasper Van Der Jeugt">
+        <div class>
+          <h3 class="text-xl font-semibold">Jasper Van Der Jeugt</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Jasper is a Principal Engineer at Fugue, a cloud security startup. He has been deeply involved in the Haskell community for over ten years, contributing as open source maintainer as well as community organizer, with efforts like ZuriHac and Summer of Haskell. He currently chairs the Haskell.org committee.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/la.png" alt="Lennart Augustsson">
+        <div class>
+          <h3 class="text-xl font-semibold">Lennart Augustsson</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Lennart has been using and implementing Haskell in various roles for the last 30 years. He currently works for Epic Games.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/sm.png" alt="Simon Marlow">
+        <div class>
+          <h3 class="text-xl font-semibold">Simon Marlow</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Simon Marlow is a Software Engineer at Facebook in London. He has previously worked on Haxl, a Haskell-based domain-specific language that is used by the teams fighting abuse on Facebook, and he is currently working on Glean, a system to store and query facts about source code at scale. Simon is a co-author of the Glasgow Haskell Compiler, author of the book “Parallel and Concurrent Programming in Haskell”, and has a string of research publications in functional programming, language design, compilers, and language implementation.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/spj.png" alt="Simon Peyton Jones">
+        <div class>
+          <h3 class="text-xl font-semibold">Simon Peyton Jones</h3>
+          <div class="uppercase text-lg font-medium">Chair</div>
+        </div>
+      </div>
+      <p>
+        <p>Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at Microsoft Research in Cambridge, England, where he started in Sept 1998. He’s also an Honorary Professor of the Computing Science Department at Glasgow University, where he was a professor during 1990-1998. Simon is interested in the design, implementation, and application of lazy functional languages. He was one of the original designers of Haskell, and much of his work is focused around the Glasgow Haskell Compiler and its ramifications. Simon is also chair of Computing at School, the group at the epicentre of the reform of the national curriculum for Computing in England. Computer science is now a foundational subject, alongside maths and natural science, that every child learns from primary school onwards.</p>
+      </p>
+    </div>
+    
+    <div class="border border-gray-300 rounded py-8 px-6 sm:px-12 md:px-6 lg:px-12 space-y-6">
+      <div class="sm:flex md:block xl:flex items-center">
+        <img class="h-32 mr-8 mb-6 sm:mb-0 md:mb-6 xl:mb-0" src="../../assets/images/board-members/sw.png" alt="Stephanie Weirich">
+        <div class>
+          <h3 class="text-xl font-semibold">Stephanie Weirich</h3>
+          <div class="uppercase text-lg font-medium">Interim Board Member</div>
+        </div>
+      </div>
+      <p>
+        <p>Stephanie Weirich is the ENIAC President’s Distinguished Professor of Computer and Information Science at the University of Pennsylvania. Her research areas include functional programming, type systems, machine-assisted theorem proving and dependent types. She and her students have made significant contributions to the design of the type system of the Glasgow Haskell Compiler. Dr. Weirich was recognized by the SIGPLAN Milner Young Researcher award (2016), a Microsoft Outstanding collaborator award, and a most influential ICFP paper award (awarded in 2016, for 2006). She has served as the general chair of ICFP 2020 and as the program chair of POPL 2018, ICFP 2010, and the 2009 Haskell Symposium.</p>
+      </p>
+    </div>
+    
+  </div>
+</div>
+
+    </div>
+
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap items-center justify-center">
-      <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
+    <img class="block w-36 m-4" alt="Individual Sponsors" src="../../assets/images/sponsors/individuals.png" />
   </div>
 
   <div class="mt-16">
@@ -641,15 +644,15 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
     
-      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../../assets/images/sponsors/github/github-683.png" srcset="../../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
     
-      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
-      <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
-      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
     
   </div>
 
@@ -658,21 +661,21 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../../assets/images/sponsors/carboncloud/vertical3x.png"></a>
     
-      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../../assets/images/sponsors/emq/emq.png"></a>
     
-      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../../assets/images/sponsors/exfreight/exfreight.png"></a>
     
-      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
     
-      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
     
-      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -681,17 +684,17 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../../assets/images/sponsors/artificial/artificial-683.png" srcset="../../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
     
-      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
     
-      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
     
-      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
+    <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../../assets/images/sponsors/herp/black.png"></a>
     
-      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
     
-      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
   </div>
 </div>
@@ -732,7 +735,8 @@
   </div>
 </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>

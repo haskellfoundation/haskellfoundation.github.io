@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,25 +28,27 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>Haskell Foundation Vision</title>
-  <meta property="og:title" content="Haskell Foundation Vision" />
+  <meta property="og:title" content="Haskell Foundation Vision">
+  </meta>
   
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-<div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
 
 <div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
 
@@ -69,11 +73,11 @@
     <a href="../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
-      <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
-      <a href="../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
-      <a href="../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
-      <a href="../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
-      <a href="../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+    <a href="../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
 
     <a href="../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
 
@@ -82,25 +86,25 @@
     <a href="../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
 
     <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
-      <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
-      <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+    <a href="../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
 
     <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
-      <a href="../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
-      <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
-      <a href="../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
-      <a href="../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
-      <a href="../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+    <a href="../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell-foundation.medium.com/" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Blog</a>
+    <a href="../press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
 
   </div>
 
 </div>
 
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
 
   <div>
     <a href="../">
@@ -113,91 +117,91 @@
     <ul class="flex space-x-8 xl:space-x-12">
 
 
-        <li class="relative">
-          <a href="../who-we-are" id="who-we-are-nav-item">About</a>
+      <li class="relative">
+        <a href="../who-we-are" id="who-we-are-nav-item">About</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
-                  Current Board
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are">
+            Current Board
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
-                  Past Boards
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../who-we-are/past-boards">
+            Past Boards
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../contact">Contact</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../contact">Contact</a>
 
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../vision">Vision</a>
-            <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../careers">Careers</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../careers">Careers</a>
+        </div>
 
-        </li>
+      </li>
 
-	<li class="relative">
-	  <a href="../podcast">Podcast</a>
-	</li>
+      <li class="relative">
+        <a href="../podcast">Podcast</a>
+      </li>
 
-        <li class="relative">
-          <a href="../projects">Projects</a>
+      <li class="relative">
+        <a href="../projects">Projects</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../donations">Sponsorship</a>
+      <li class="relative">
+        <a href="../donations">Sponsorship</a>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
+      <li class="relative">
+        <a href="../affiliates" id="affiliates-nav-item">Affiliates</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates">
-                  Affiliates
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates">
+            Affiliates
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
-                  About Affiliating
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../affiliates/about">
+            About Affiliating
+          </a>
 
-            </div>
+        </div>
 
-        </li>
+      </li>
 
-       <li class="relative">
-          <a href="../news" id="news-nav-item">News and Info</a>
+      <li class="relative">
+        <a href="../news" id="news-nav-item">News and Info</a>
 
-            <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news">
-                  News
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news">
+            News
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
-                  Blog
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell-foundation.medium.com/">
+            Blog
+          </a>
 
-                <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news/press">
-                  Press
-                </a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../news/press">
+            Press
+          </a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../resources">Resources</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../resources">Resources</a>
 
-          	<a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../faq">FAQ</a>
-            </div>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../faq">FAQ</a>
+        </div>
 
-        </li>
+      </li>
 
-        <li class="relative">
-          <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
-            <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-        </li>
-      </ul>
+      <li class="relative">
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="MG5HKV4VTH9UG" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Donate to the Haskell Foundation using PayPal!" alt="Donate to the Haskell Foundation with our PayPal button" />
+          <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+      </li>
+    </ul>
   </nav>
 
   <div class="absolute right-0 lg:hidden self-start">
@@ -210,44 +214,44 @@
 
 </nav>
 
-  </div>
+    </div>
 
-  <div class="flex-grow">
+    <div class="flex-grow">
       <div class="max-w-screen-xl mx-auto py-16 md:py-24">
-    <div class="sm:px-6 lg:px-16">
-      <div class="relative">
-  <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+  <div class="sm:px-6 lg:px-16">
+  <div class="relative">
+    <div class="absolute top-0 left-0 border-t border-l border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 left-1 md:left-2 border-t border-l border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
-    <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
-      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
-        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
-          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
-            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+    <div class="absolute top-0 right-0 border-t border-r border-purple-50 h-10 md:h-20 w-10 md:w-20">
+      <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-100 h-10 md:h-20 w-10 md:w-20">
+        <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-200 h-10 md:h-20 w-10 md:w-20">
+          <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-300 h-10 md:h-20 w-10 md:w-20">
+            <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-400 h-10 md:h-20 w-10 md:w-20">
+              <div class="absolute top-1 md:top-2 right-1 md:right-2 border-t border-r border-purple-500 h-10 md:h-20 w-10 md:w-20"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-    </div>
-      <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-        <h1 class="text-2xl-5xl">Our Vision</h1>
       </div>
     </div>
   </div>
 </div>
 
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl-5xl">Our Vision</h1>
+  </div>
+</div>
+
 <div class="max-w-screen-xl mx-auto">
-    <div class="md:px-12 lg:px-16">
+  <div class="md:px-12 lg:px-16">
     <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
       <p class="lg:text-xl text-gray-300 leading-relaxed text-center">The Haskell Foundation is an independent, non-profit organization dedicated to broadening the adoption of Haskell, by supporting its ecosystem of tools, libraries, education, and research.
 
@@ -256,137 +260,147 @@
   </div>
   <div class="mt-16 md:mt-24">
 
-  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
-    <div class="mx-auto prose md:prose-lg">
-      Why do we need yet another Haskell community organisation?   The HF will address the following needs, which are currently under-served:
-      <ul>
-      <li><p>
-        <b>Driving adoption.</b> HF seeks to foster an understanding of the benefits of using Haskell among developers who do not currently use the language, to erase barriers to entry, and to improve the Haskell ecosystem. We have many passionate and expert groups, but each is focused around a particular piece of the ecosystem, and none is dedicated to the overall user experience.
-        </p>
-      </li>
-      <li class="relative">
-        <b>Technical infrastructure and glue.</b>  The HF will identify and integrate or implement missing “technical glue”: the useful stuff that makes for a smooth user experience (pain-free installers, documentation, error messages, and much more).
-      </li>
-      <li class="relative">
-        <b>Community glue.</b>  Our individual groups function well, but we lack mechanisms for high-quality technical communication between them.  The HF will try to nurture respectful, inclusive communication across the community.
-      </li>
-      <li class="relative">
-        <b>Resources and funding.</b>   We have plenty of volunteer groups, but as Haskell becomes more widely adopted, and more mission critical to more organisations it becomes harder for volunteers to sustain all the necessary infrastructure.  We need colleagues whose day job is to make everything work...and that needs funding.  Because of its broad scope, the Foundation will be a more credible recipient of corporate funding than any of our individual groups are today.
-      </li>
-    </ul>
-
-      <h3>Principles and Ethos</h3>
-      <div>
-        How we pursue the goals of HF is just as important as what the goals are. HF’s actions will be guided by these core principles:
+    <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+      <div class="mx-auto prose md:prose-lg">
+        Why do we need yet another Haskell community organisation? The HF will address the following needs, which are currently under-served:
         <ul>
-          <li><p>
-              <b>Open source.</b> Haskell is an open source community and HF will embrace the open-source ethos wholeheartedly. HF may develop, or sponsor the development of tools and infrastructure, but it will all be open source.
-          </p>
-        </li>
-        <li><p>
-            <b>Empowering the community.</b> A major goal of HF is to augment, celebrate, and coordinate the contributions and leadership of volunteers, not to supplant or replace them.
-          </p>
-        </li>
-        <li><p>
-            <b>Open, friendly, and diverse.</b> For many of us Haskell is more a way of life than a programming language. All are welcome, all can contribute.
-          </p>
-        </li>
-        <li><p>
-            <b>Transparent.</b> All communication related to code and decision making will be publicly accessible, to enable asynchronous communication and collaboration. Only certain categories of sensitive information (e.g. financial, and matters concerning particular individuals) will be kept confidential.
-          </p>
-        </li>
-        <li><p>
-            <b>True to Haskell’s principles.</b> Haskell’s design puts principle ahead of expediency, notably by cleaving closely to the principles of purely functional programming.  Success, yes, but not at all costs!
-          </p>
-        </li>
-      </div>
+          <li>
+            <p>
+              <b>Driving adoption.</b> HF seeks to foster an understanding of the benefits of using Haskell among developers who do not currently use the language, to erase barriers to entry, and to improve the Haskell ecosystem. We have many passionate and expert groups, but each is focused around a particular piece of the ecosystem, and none is dedicated to the overall user experience.
+            </p>
+          </li>
+          <li class="relative">
+            <b>Technical infrastructure and glue.</b> The HF will identify and integrate or implement missing “technical glue”: the useful stuff that makes for a smooth user experience (pain-free installers, documentation, error messages, and much more).
+          </li>
+          <li class="relative">
+            <b>Community glue.</b> Our individual groups function well, but we lack mechanisms for high-quality technical communication between them. The HF will try to nurture respectful, inclusive communication across the community.
+          </li>
+          <li class="relative">
+            <b>Resources and funding.</b> We have plenty of volunteer groups, but as Haskell becomes more widely adopted, and more mission critical to more organisations it becomes harder for volunteers to sustain all the necessary infrastructure. We need colleagues whose day job is to make everything work...and that needs funding. Because of its broad scope, the Foundation will be a more credible recipient of corporate funding than any of our individual groups are today.
+          </li>
+        </ul>
 
-      <h3>Organization</h2>
+        <h3>Principles and Ethos</h3>
         <div>
-          The Haskell community comprises an amazing group of technical talent, and functions today as an almost entirely volunteer effort. The Haskell Foundation will not change that. Our goal is to make every member of the Haskell community, and every Haskell committee, feel more supported, and more productive. We want to enlarge and diversify our community going forward.  Here’s a picture:
-          <center>
-            <img src="../static/images/community-glue.png" alt="Community glue">
-          </center>
-        </div>
-        <div>
-          More specifically:
+          How we pursue the goals of HF is just as important as what the goals are. HF’s actions will be guided by these core principles:
           <ul>
-            <li><p>
-            HF will have a <b>Foundation Board</b> (“Board” hereafter) that reflects the Haskell community and its stakeholders, including academics, commercial users, and individuals.
+            <li>
+              <p>
+                <b>Open source.</b> Haskell is an open source community and HF will embrace the open-source ethos wholeheartedly. HF may develop, or sponsor the development of tools and infrastructure, but it will all be open source.
               </p>
             </li>
-            <li><p>
-            HF will have a staff. The size of the staff will depend on funding, but we intend to hire an <b>Executive Director</b> (ED), who can organize Haskell outreach, support its funding activities and oversee the rest of the staff. The staff will mostly focus on funding, marketing, and key infrastructure.
+            <li>
+              <p>
+                <b>Empowering the community.</b> A major goal of HF is to augment, celebrate, and coordinate the contributions and leadership of volunteers, not to supplant or replace them.
               </p>
             </li>
-
-            <li><p>
-            HF will work with existing and new open-source teams to channel energy into various efforts like packaging, tools, libraries, compilers, languages, documentation, user experience, and infrastructure. To reiterate, we expect that most technical contributions will be volunteer, just as it is today, but we want to position HF to fill gaps that can help adoption.
+            <li>
+              <p>
+                <b>Open, friendly, and diverse.</b> For many of us Haskell is more a way of life than a programming language. All are welcome, all can contribute.
               </p>
             </li>
-            <li><p>
-            HF will establish a code of conduct and transparent decision-making that will apply to itself and any associated teams.
+            <li>
+              <p>
+                <b>Transparent.</b> All communication related to code and decision making will be publicly accessible, to enable asynchronous communication and collaboration. Only certain categories of sensitive information (e.g. financial, and matters concerning particular individuals) will be kept confidential.
               </p>
             </li>
-            <li><p>
-             To the extent HF funds and pursues technical goals itself, it will pursue those goals with the same transparency as we expect from any of the teams associated with it. In this way HF will augment the community in a transparent way.
+            <li>
+              <p>
+                <b>True to Haskell’s principles.</b> Haskell’s design puts principle ahead of expediency, notably by cleaving closely to the principles of purely functional programming. Success, yes, but not at all costs!
               </p>
             </li>
-          </ul>
         </div>
 
+        <h3>Organization</h2>
+          <div>
+            The Haskell community comprises an amazing group of technical talent, and functions today as an almost entirely volunteer effort. The Haskell Foundation will not change that. Our goal is to make every member of the Haskell community, and every Haskell committee, feel more supported, and more productive. We want to enlarge and diversify our community going forward. Here’s a picture:
+            <center>
+              <img src="../static/images/community-glue.png" alt="Community glue">
+            </center>
+          </div>
+          <div>
+            More specifically:
+            <ul>
+              <li>
+                <p>
+                  HF will have a <b>Foundation Board</b> (“Board” hereafter) that reflects the Haskell community and its stakeholders, including academics, commercial users, and individuals.
+                </p>
+              </li>
+              <li>
+                <p>
+                  HF will have a staff. The size of the staff will depend on funding, but we intend to hire an <b>Executive Director</b> (ED), who can organize Haskell outreach, support its funding activities and oversee the rest of the staff. The staff will mostly focus on funding, marketing, and key infrastructure.
+                </p>
+              </li>
 
-      <h3>Funding</h3>
-      <div>
-        There have been other initiatives of this kind in the past, but they have proved hard to sustain.  A big part of this has been a simple lack of bandwidth in a highly decentralised community run entirely by volunteers.
+              <li>
+                <p>
+                  HF will work with existing and new open-source teams to channel energy into various efforts like packaging, tools, libraries, compilers, languages, documentation, user experience, and infrastructure. To reiterate, we expect that most technical contributions will be volunteer, just as it is today, but we want to position HF to fill gaps that can help adoption.
+                </p>
+              </li>
+              <li>
+                <p>
+                  HF will establish a code of conduct and transparent decision-making that will apply to itself and any associated teams.
+                </p>
+              </li>
+              <li>
+                <p>
+                  To the extent HF funds and pursues technical goals itself, it will pursue those goals with the same transparency as we expect from any of the teams associated with it. In this way HF will augment the community in a transparent way.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+
+          <h3>Funding</h3>
+          <div>
+            There have been other initiatives of this kind in the past, but they have proved hard to sustain. A big part of this has been a simple lack of bandwidth in a highly decentralised community run entirely by volunteers.
+          </div>
+          <div>
+            The Haskell Foundation launches with a small group of founding sponsors, enough to employ an Executive Director. Our goal is to raise around $1m/year in cash and in-kind contributions.
+          </div>
+          <h3>Improving the Haskell Adoption Story</h3>
+          <div>
+            A principal goal of the Foundation is to promote adoption of Haskell. We see that task as having three major components:
+          </div>
+          <p>
+          <h4>Eliminating unreasonable barriers to adoption</h4>
+
+          We expect that with HF adding a little structure, some things can be improved immediately. For example, we need an entry point for Haskell that speaks to the needs of a range of users: from engineers looking for an easy on-ramp with our best advice on how to learn and use Haskell, to team leaders who want to assess Haskell adoption as a business decision. The Haskell community today does not cover the full range of content needed to promote adoption. This is one example where an organization with the right focus and some resources can easily have a positive impact.
+          </p>
+          <p>
+          <h4>Educating the tech community</h4>
+          Engineers are typically the ones who drive Haskell adoption. But they often need permission or sponsorship from managers 1 or 2 levels higher. These decision makers are people who are more concerned about speed of development, reliability, maintenance, and people. We need to explicitly address a broader audience and position Haskell as the best solution to many problems, while maintaining integrity and avoiding too much “marketing speak".
+          </p>
+          <p>
+            Conditions for telling this story are favorable. The days of a senior sysadmin dictating which version of Java or Python “shall be used” are dying. Containers and cloud technology have inadvertently conspired to permit engineering teams to make these decisions more often at a team level, even in larger organizations. Still, these teams need air cover and solid tools so that their decisions don’t look “rogue” to the rest of the organization.
+          </p>
+          <p>
+            If used correctly, Haskell can be unreasonably effective. Unfortunately, the “if” clause is not common knowledge. The HF recognizes that many of these advanced features are precisely the reason why Haskell can be successful in cases where other languages fall short. We trust that the end users will be able to make the right trade-offs that work for them. The HF will be there to help users that need to make these trade-offs by improving documentation and highlighting success stories. For example, Haskell has a great concurrency story and things like STM that are dramatically undersold in the marketplace. Some advanced features can be emphasized and taught.
+          </p>
+          <p>
+            The spectrum of developers is very broad: Haskell is used by both junior developers as well as long-time experts. This can cause friction, and some code may be unreadable even to other Haskell developers. This is unfortunate, because we believe that Haskell allows us to express ideas in a way that are clear and elegant. We need to delineate the common knowledge aspect of the language and tools to elevate more developers. HF should carry this banner.
+          </p>
+          <p>
+            Beyond that, the pesky problem of the marketplace for Haskellers remains. We often hear about fear of hiring bottlenecks and we know some engineering leaders that list this as the number one concern about Haskell. These leaders need to know one thing. You don’t have to hire a Haskell team: Haskell can make your team. Your smart Python developers can learn how to make reliable software and will love you for letting them. There is a role for HF to bridge the gap between the countless developers who want to learn and write Haskell, and the decision makers who currently believe it is hard to find these people.
+          </p>
+          <p>
+          <h4>Technical Agenda: Enhancing the tooling, filling the gaps</h4>
+
+          Haskell Foundation will identify a list of technical goals that will ease adoption and improve Haskell use in production. We have established an initial agenda and are seeking to refine it as we go forward. As HF evolves, we will engage technical discussion in a transparent way, with input from the community.
+          </p>
+
       </div>
-      <div>
-        The Haskell Foundation launches with a small group of founding sponsors, enough to employ an Executive Director. Our goal is to raise around $1m/year in cash and in-kind contributions.
-      </div>
-      <h3>Improving the Haskell Adoption Story</h3>
-      <div>
-        A principal goal of the Foundation is to promote adoption of Haskell.   We see that task as having three major components:
-      </div>
-      <p>
-        <h4>Eliminating unreasonable barriers to adoption</h4>
-
-        We expect that with HF adding a little structure, some things can be improved immediately. For example, we need an entry point for Haskell that speaks to the needs of a range of users: from engineers looking for an easy on-ramp with our best advice on how to learn and use Haskell, to team leaders who want to assess Haskell adoption as a business decision. The Haskell community today does not cover the full range of content needed to promote adoption. This is one example where an organization with the right focus and some resources can easily have a positive impact.
-      </p>
-      <p>
-        <h4>Educating the tech community</h4>
-        Engineers are typically the ones who drive Haskell adoption. But they often need permission or sponsorship from managers 1 or 2 levels higher. These decision makers are people who are more concerned about speed of development, reliability, maintenance, and people. We need to explicitly address a broader audience and position Haskell as the best solution to many problems, while maintaining integrity and avoiding too much “marketing speak".
-      </p>
-      <p>
-        Conditions for telling this story are favorable. The days of a senior sysadmin dictating which version of Java or Python “shall be used” are dying. Containers and cloud technology have inadvertently conspired to permit engineering teams to make these decisions more often at a team level, even in larger organizations. Still, these teams need air cover and solid tools so that their decisions don’t look “rogue” to the rest of the organization.
-      </p>
-      <p>
-        If used correctly, Haskell can be unreasonably effective. Unfortunately, the “if” clause is not common knowledge. The HF recognizes that many of these advanced features are precisely the reason why Haskell can be successful in cases where other languages fall short. We trust that the end users will be able to make the right trade-offs that work for them. The HF will be there to help users that need to make these trade-offs by improving documentation and highlighting success stories. For example, Haskell has a great concurrency story and things like STM that are dramatically undersold in the marketplace. Some advanced features can be emphasized and taught.
-      </p>
-      <p>
-        The spectrum of developers is very broad: Haskell is used by both junior developers as well as long-time experts. This can cause friction, and some code may be unreadable even to other Haskell developers. This is unfortunate, because we believe that Haskell allows us to express ideas in a way that are clear and elegant. We need to delineate the common knowledge aspect of the language and tools to elevate more developers. HF should carry this banner.
-      </p>
-      <p>
-      Beyond that, the pesky problem of the marketplace for Haskellers remains. We often hear about fear of hiring bottlenecks and we know some engineering leaders that list this as the number one concern about Haskell. These leaders need to know one thing. You don’t have to hire a Haskell team: Haskell can make your team. Your smart Python developers can learn how to make reliable software and will love you for letting them. There is a role for HF to bridge the gap between the countless developers who want to learn and write Haskell, and the decision makers who currently believe it is hard to find these people.
-      </p>
-      <p>
-        <h4>Technical Agenda: Enhancing the tooling, filling the gaps</h4>
-
-        Haskell Foundation will identify a list of technical goals that will ease adoption and improve Haskell use in production.  We have established an initial agenda and are seeking to refine it as we go forward. As HF evolves, we will engage technical discussion in a transparent way, with input from the community.
-      </p>
-
     </div>
-  </div>
 
-  </div>
   </div>
 </div>
 
-  </div>
+    </div>
 
-  <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
   <div class="font-bold">SPONSORS</div>
   <div class="mt-16 flex flex-wrap items-center justify-center">
-      <img class="block w-36 m-4" alt="Individual Sponsors" src="../assets/images/sponsors/individuals.png" />
+    <img class="block w-36 m-4" alt="Individual Sponsors" src="../assets/images/sponsors/individuals.png" />
   </div>
 
   <div class="mt-16">
@@ -394,15 +408,15 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
+    <a href="https://digitalasset.com/" target="_blank" class="block w-48 m-4"><img alt="Digital Asset" src="../assets/images/sponsors/digital-asset/digital-asset-logo-light.png"></a>
     
-      <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../assets/images/sponsors/github/github-683.png" srcset="../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
+    <a href="https://github.com/" target="_blank" class="block w-48 m-4"><img alt="GitHub" src="../assets/images/sponsors/github/github-683.png" srcset="../assets/images/sponsors/github/github-200.png 200w, /assets/images/sponsors/github/github-400.png 400w, /assets/images/sponsors/github/github-683.png 683w"></a>
     
-      <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
-      <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
-      <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
+    <a href="https://meta.com/" target="_blank" class="block w-48 m-4"><img alt="Meta" src="../assets/images/sponsors/meta/Meta_lockup_positive.png"></a>
     
   </div>
 
@@ -411,21 +425,21 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../assets/images/sponsors/carboncloud/vertical3x.png"></a>
+    <a href="https://www.carboncloud.com/" target="_blank" class="block w-36 m-4"><img alt="CarbonCloud" src="../assets/images/sponsors/carboncloud/vertical3x.png"></a>
     
-      <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../assets/images/sponsors/emq/emq.png"></a>
+    <a href="https://www.emqx.io/" target="_blank" class="block w-36 m-4"><img alt="EMQ" src="../assets/images/sponsors/emq/emq.png"></a>
     
-      <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../assets/images/sponsors/exfreight/exfreight.png"></a>
+    <a href="https://www.exfreight.com/" target="_blank" class="block w-36 m-4"><img alt="ExFreight" src="../assets/images/sponsors/exfreight/exfreight.png"></a>
     
-      <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../assets/images/sponsors/mercury/mercury.png"></a>
+    <a href="https://mercury.com/" target="_blank" class="block w-36 m-4"><img alt="Mercury" src="../assets/images/sponsors/mercury/mercury.png"></a>
     
-      <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-      <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
+    <a href="https://platonic.systems" target="_blank" class="block w-36 m-4"><img alt="Platonic Systems" src="../assets/images/sponsors/platonic-systems/platonic-systems-683.png" srcset="../assets/images/sponsors/platonic-systems/platonic-systems-200.png 200w, /assets/images/sponsors/platonic-systems/platonic-systems-400.png 400w, /assets/images/sponsors/platonic-systems/platonic-systems-683.png 683w"></a>
     
-      <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-      <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -434,17 +448,17 @@
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-      <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../assets/images/sponsors/artificial/artificial-683.png" srcset="../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
+    <a href="https://artificial.io/" target="_blank" class="block w-24 m-4"><img alt="Artificial" src="../assets/images/sponsors/artificial/artificial-683.png" srcset="../assets/images/sponsors/artificial/artificial-200.png 200w, /assets/images/sponsors/artificial/artificial-400.png 400w, /assets/images/sponsors/artificial/artificial-683.png 683w"></a>
     
-      <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
+    <a href="https://flipstone.com/" target="_blank" class="block w-24 m-4"><img alt="FlipStone" src="../assets/images/sponsors/flipstone/flipstone-683.png" srcset="../assets/images/sponsors/flipstone/flipstone-200.png 200w, /assets/images/sponsors/flipstone/flipstone-400.png 400w, /assets/images/sponsors/flipstone/flipstone-683.png 683w"></a>
     
-      <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
+    <a href="https://freckle.com/" target="_blank" class="block w-24 m-4"><img alt="Freckle" src="../assets/images/sponsors/freckle/freckle-logo-683.png" srcset="../assets/images/sponsors/freckle/freckle-logo-200.png 200w, /assets/images/sponsors/freckle/freckle-logo-400.png 400w, /assets/images/sponsors/freckle/freckle-logo-683.png 683w"></a>
     
-      <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../assets/images/sponsors/herp/black.png"></a>
+    <a href="https://herp.co.jp/" target="_blank" class="block w-24 m-4"><img alt="HERP" src="../assets/images/sponsors/herp/black.png"></a>
     
-      <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
+    <a href="https://mlabs.city/" target="_blank" class="block w-24 m-4"><img alt="MLabs" src="../assets/images/sponsors/mlabs/logo-black-pink.png"></a>
     
-      <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
   </div>
 </div>
@@ -485,7 +499,8 @@
   </div>
 </div>
 
-</div>
+  </div>
 
 </body>
+
 </html>
