@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Favicon -->
@@ -26,40 +28,44 @@
   -->
   <script>
     if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
-        navigator.serviceWorker.getRegistration('/').then(function(registration) {
-            if (registration) {
-                  registration.update();
-                  registration.unregister();
-            }
-        });
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
     }
   </script>
 
   <!-- metadata -->
   <title>$title$</title>
-  <meta property="og:title" content="$title$"></meta>
+  <meta property="og:title" content="$title$">
+  </meta>
   $if(description)$
-  <meta property="og:description" content="$description$"></meta>
+  <meta property="og:description" content="$description$">
+  </meta>
   $endif$
 
 </head>
+
 <body class="relative">
 
-<!-- This is the mobile fly-out menu - outside document flow. -->
-$partial("templates/mobile-nav-flyout.html")$
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  $partial("templates/mobile-nav-flyout.html")$
 
-<!-- Document flow begins here -->
-<div class="min-h-screen flex flex-col">
-  <div>
-    $partial("templates/nav.html")$
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      $partial("templates/nav.html")$
+    </div>
+
+    <div class="flex-grow">
+      $body$
+    </div>
+
+    $partial("templates/footer.html")$
   </div>
-
-  <div class="flex-grow">
-    $body$
-  </div>
-
-  $partial("templates/footer.html")$
-</div>
 
 </body>
+
 </html>
