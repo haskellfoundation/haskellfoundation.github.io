@@ -22,6 +22,9 @@ _site/
 stack.yaml.lock
 dist-newstyle/
 
+### NodeJS ###
+node_modules/
+
 ### General ###
 *~
 .DS_Store
