@@ -62,7 +62,7 @@ Sylvain has a background in high-performance computing and has been contributing
 ## Participation
 
 Due to space constraints and to enable scholarships for student participants, there will be a fee for full on-site participation.
-Fees will be used to cover travel costs for presenters and students who don't have other funding to attend.
+Fees will be used to cover travel costs for presenters, other direct costs of running the event, and students who don't have other funding to attend.
 The fee depends on participant category:
 
  * _Enrolled students_ ($$40) are participants who are enrolled full-time at an educational institution. 
