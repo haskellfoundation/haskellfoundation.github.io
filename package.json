@@ -4,8 +4,8 @@
   "author": "Haskell Foundation",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -- --postcss -o tailwind.css",
-    "build:production": "NODE_ENV=production tailwindcss -- --postcss -o tailwind.css"
+    "build": "tailwindcss --postcss -o tailwind.css",
+    "build:production": "NODE_ENV=production tailwindcss --postcss -o tailwind.css"
   },
   "devDependencies": {
     "@types/tailwindcss": "^2.0.2",
