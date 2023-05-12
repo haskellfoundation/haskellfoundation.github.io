@@ -239,7 +239,7 @@ main = hakyll $ do
 --
 -- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field
 
-    match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
+    match ("**/*.markdown" .&&. (complement "node_modules/**/*.markdown")) $ version "description" $ compile pandocPlainCompiler
 
 -- home page -------------------------------------------------------------------------------------------
     create ["index.html"] $ do
@@ -259,7 +259,7 @@ main = hakyll $ do
                 >>= relativizeUrls
 
 -- general 'static' pages ------------------------------------------------------------------------------
-    match "**/index.html" $ do
+    match ("**/index.html" .&&. (complement "node_modules/**/index.html")) $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
