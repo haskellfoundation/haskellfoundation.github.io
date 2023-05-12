@@ -1,0 +1,18 @@
+{
+  "name": "haskellfoundation.github.io",
+  "version": "0.0.1",
+  "author": "Haskell Foundation",
+  "private": true,
+  "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
+    "@tailwindcss/ui": "^0.7.2",
+    "autoprefixer": "^10.1.0",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/tailwindcss": "^2.0.2"
+  }
+}
