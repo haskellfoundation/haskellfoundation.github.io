@@ -47,6 +47,11 @@ jobs:
           ghc-version: ${{ matrix.ghc }}
           stack-version: ${{ matrix.stack }}
 
+      - uses: actions/setup-node@v6
+        name: Setup NodeJS
+        with:
+          node-version: 24
+
       - uses: actions/cache/restore@v4
         id: cache
         name: Cache ~/.stack
@@ -71,6 +76,11 @@ jobs:
 
       - name: Build site
         run:  stack exec --system-ghc site rebuild
+
+      - name: Build CSS
+        run:  |
+          npm ci
+          npm run build:production
 
       - name: Deploy
         # Deploy only from non-pull-request changes to hakyll branch
