@@ -1,4 +1,9 @@
+// Most of the complexity in this file is to reproduce most of the manually
+// changed CSS styles. This file shouldn't need to be updated after merging
+// unless custom changes to tailwind itself are desired.
+
 const { join } = require('path');
+const colors = require('tailwindcss/colors')
 
 /** @type {string[]} */
 const topLevelFoldersWithTailwind = [
@@ -39,10 +44,30 @@ module.exports = {
       ...topLevelFilesWithTailwind.map(f => makeAbsolute(f))
     ],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
+    fontFamily: {
+      sans: ['Maven Pro', 'sans-serif'],
+      serif: ['Playfair Display', 'serif']
+    },
+    extend: {
+      fontWeight: {
+        "w-800": '800'
+      },
+      borderWidth: {
+        "3": "3px",
+      },
+      colors: {
+        gray: colors.gray,
+        blue: colors.blue,
+        trueGray: colors.trueGray,
+        purple: colors.violet
+      }
+    }
   },
   variants: {},
   plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/ui'),
   ],
 }

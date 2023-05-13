@@ -1,0 +1,20 @@
+/**
+ * WARNING: This file will be overwritten when the site is built.
+ * Do not put anything in here that is unrelated to tailwind.
+ *
+ * NOTE: The underlying implementation details of how this works are as follows
+ * 1. tailwindcss needs these directives in order to know where to generate the
+ *    output
+ * 2. first, hackyll is run and will copy this file to
+ *    _sites/assets/tailwind.css
+ * 3. then, after hackyll is done, postcss will be ran on _this_
+ *    assets/tailwind.css file. Postcss will, during execution, invoke
+ *    tailwindcss. tailwindcss (the compiler) will scan all the files in the
+ *    site for tailwind classes (including _this_ assets/tailwind.css file).
+ * 4. postcss's output file is configured to be _site/assets/tailwind.css
+ *    (which causes this file to get overwritten with the correct contents)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
