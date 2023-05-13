@@ -21,9 +21,18 @@ import qualified Data.Text as T
 main :: IO ()
 main = hakyll $ do
 -- statics ---------------------------------------------------------------------------------------------
-    match "assets/css/main.css" $ do
-        route   idRoute
-        compile compressCssCompiler
+    match "assets/css/tailwind.css" $ do
+        route idRoute
+        -- We concatenate a dev.css file that exists at the root of the repository so that people don't
+        -- need to have nodejs setup or working in order to get a functional development experience
+        -- "why yes this is very crimes why do you ask"
+        compile $ getResourceString >>= traverse (unixFilter "cat" ["-", "dev.css"])
+
+    -- Here is where interop with JS would happen if we felt like making every
+    -- haskell developer working on this site learn all of the nodejs nonsense
+    -- match "assets/css/*.css" $ do
+    --     route idRoute
+    --     undefined -- (insert some invoke "npm run build" step here)
 
     match "assets/**" $ do
         route idRoute
@@ -32,6 +41,7 @@ main = hakyll $ do
     match "sw.js" $ do
         route idRoute
         compile copyFileCompiler
+
 
 -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
