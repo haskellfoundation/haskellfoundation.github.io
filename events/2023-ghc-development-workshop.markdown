@@ -14,7 +14,8 @@ In this three-day event, held on the lakeside campus of OST in lovely Rapperswil
 
 ## In-Person Attendance
 
-The [application form](https://www.surveylegend.com/s/4uue) for **in-person participation** is available until April 14, 2023, [AoE](https://www.timeanddate.com/time/zones/aoe).
+In-person attendance is now full. Please watch this space for information about free online participation.
+
 
 ## The Workshop
 
@@ -23,6 +24,67 @@ At this workshop, you can learn the ins and outs of working on GHC, including pr
 Additionally, the speakers will be available to answer questions and to provide mentorship during Zurihac itself, so this is a great opportunity to finish your first MR.
 
 We expect that participants already know Haskell and have worked on some form of programming language implementation in the past, whether as students, at work, or just for fun. Concepts such as parsing, type checking, unification, and code generation should be familiar, but we don't expect participants to already be experts.
+
+## Practical Information and Schedule
+
+The workshop will be held at the [Rapperswil-Jona campus of OST](https://www.ost.ch/en/university-of-applied-sciences/campus/rapperswil-jona-campus). It is right next to the Rapperswil train station, at [Oberseestrasse 10](https://goo.gl/maps/DkF6U9qdgdjcMfz29). The [Zurihac 2023 site](https://zfoh.ch/zurihac2023/) has instructions for transportation between Rapperswil and Zürich.
+
+### Preparation
+
+This is a hands-on workshop, so please bring the equipment that you need to work on GHC (laptop, power adapter, etc). Swiss electricity is 220 volts, 50 Hz AC. [Swiss power outlets](https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets#Swiss_SN_441011_(Type_J)) are different than in many European countries, so please bring an appropriate adapter if necessary. Drinking fountains are not common in Europe, so please bring a refillable water bottle.
+
+Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on Matrix or IRC. 
+
+Checklist:
+ * Swiss power adapter(s), if necessary
+ * Refillable water bottle
+ * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
+ * Checked out and built a recent GHC from source
+
+### Program
+
+Please check this space for last minute program changes. As of now, the schedule is as follows:
+
+<table>
+
+<tr><th colspan="3">2023-06-07</th></tr>
+<tr><th>8:00-9:00</th><td> Registration</td><td></td></tr>
+<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
+<tr><th>9:30-11:15</th><td> System Overview and Introduction to GHC Development</td><td> Ryan Scott</td></tr>
+<tr><th>11:30-12:20</th><td> The Renamer, part 1</td><td> Sam Derbyshire</td></tr>
+<tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
+<tr><th>13:40-14:40</th><td> The Renamer, part 2</td><td> Sam Derbyshire</td></tr>
+<tr><th>15:00-17:00</th><td> The Simplifier</td><td> Sebastian Graf</td></tr>
+
+<tr><th colspan="3">2023-06-08</th></tr>
+<tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
+<tr><th>9:30-11:15</th><td>The RTS</td><td>Ben Gamari</td></tr>
+<tr><th>11:30-12:20</th><td>The WASM codegen, part 1</td><td>Cheng Shao</td></tr>
+<tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
+<tr><th>13:40-14:40</th><td>The WASM codegen, part 2</td><td>Cheng Shao</td></tr>
+<tr><th>15:00-17:00</th><td>The type checker</td><td>Simon Peyton Jones</td></tr>
+
+<tr><th colspan="3">2023-06-09</th></tr>
+<tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
+<tr><th>9:30-11:15</th><td>Tools and ecosystem</td><td>Duncan Coutts</td></tr>
+<tr><th>11:30-12:20</th><td>The JS codegen, part 1</td><td>Sylvain Henry</td></tr>
+<tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
+<tr><th>13:40-14:40</th><td>The JS codegen, part 2</td><td>Sylvain Henry</td></tr>
+<tr><th>15:00-17:00</th><td>HLS</td><td>Zubin Duggal</td></tr>
+<tr><th>17:00-17:30</th><td>Farewell</td><td>David&nbsp;Thrane&nbsp;Christiansen and Farhad&nbsp;Mehta</td></tr>
+
+</table>
+
+All times are in CEST using a 24-hour clock. Speakers have been asked to plan appropriate breaks during their timeslots.
+
+We don't expect every participant to attend every presentation. It's perfectly acceptable to skip a topic that you're less interested in so you can hack on a topic that you are interested in, taking advantage of ready access to GHC experts for hands-on assistance.
+
+### Lunch and Refreshments
+
+We will eat lunch in the OST canteen, called Mensa. While Mensa is open from 11:00-13:15, it is very busy from 11:45-12:30 because classes are in session, and they've asked that we go before or after. Talks have been scheduled to account for this.
+
+Coffee, tea, and fruit will be provided. There is also easy access to a tap for water. Dinner is on your own. There is a grocery store very near the campus where other products can be purchased as well.
+
 
 ## Presenters
 
@@ -35,6 +97,8 @@ Ben has been contributing to GHC for over a decade and been working as a full-ti
 ### Cheng Shao
 
 Cheng Shao is a full-time software engineer at Tweag, where he has been working since 2018. His main contribution to GHC is the WebAssembly backend, which grew out of his early research project, a Haskell-to-WebAssembly compiler codenamed Asterius. He focuses on maintaining the GHC WebAssembly backend, adding new functionality, as well as other GHC work that involves code generation and the runtime system.
+
+### Duncan Coutts
 
 ### Ryan Scott
 
@@ -56,6 +120,7 @@ Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at
 
 Sylvain has a background in high-performance computing and has been contributing to GHC since 2015. He joined IOG in 2019 to work full-time on GHC. Since 2022, he has led a small team of engineers working on improving Haskell tooling. His contributions include `ghc-bignum` (an improved implementation of GHC's support for big numbers), improvements to GHC's constant-folding capabilities, various fixes to the RTS, and a lot of refactoring to make GHC's code more modular and to make GHC a better cross-compiler. In 2022, his team added a new JavaScript backend to GHC, adapted from GHCJS.
 
+### Zubin Duggal
 
 
 
