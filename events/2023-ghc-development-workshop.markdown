@@ -29,13 +29,16 @@ We expect that participants already know Haskell and have worked on some form of
 
 The workshop will be held at the [Rapperswil-Jona campus of OST](https://www.ost.ch/en/university-of-applied-sciences/campus/rapperswil-jona-campus). It is right next to the Rapperswil train station, at [Oberseestrasse 10](https://goo.gl/maps/DkF6U9qdgdjcMfz29). The [Zurihac 2023 site](https://zfoh.ch/zurihac2023/) has instructions for transportation between Rapperswil and Zürich.
 
+All talks and presentations will be held in room 4.113. This is an air-conditioned classroom that will be configured conference-style, which means that most seats won't have a table or desk attached. During the event, we'll let you know which additional spaces are good for compiler hacking.
+
 ### Preparation
 
 This is a hands-on workshop, so please bring the equipment that you need to work on GHC (laptop, power adapter, etc). Swiss electricity is 220 volts, 50 Hz AC. [Swiss power outlets](https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets#Swiss_SN_441011_(Type_J)) are different than in many European countries, so please bring an appropriate adapter if necessary. Drinking fountains are not common in Europe, so please bring a refillable water bottle.
 
 Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
 
-Checklist:
+#### Checklist
+
  * Swiss power adapter(s), if necessary
  * Refillable water bottle
  * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
@@ -54,7 +57,7 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th>11:30-12:20</th><td> The Renamer, part 1</td><td> Sam Derbyshire</td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
 <tr><th>13:40-14:40</th><td> The Renamer, part 2</td><td> Sam Derbyshire</td></tr>
-<tr><th>15:00-17:00</th><td> The Simplifier</td><td> Sebastian Graf</td></tr>
+<tr><th>15:00-17:00</th><td> Core Optimizations</td><td> Sebastian Graf</td></tr>
 
 <tr><th colspan="3">2023-06-08</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
