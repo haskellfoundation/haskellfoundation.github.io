@@ -93,37 +93,37 @@ Coffee, tea, and fruit will be provided. There is also easy access to a tap for 
 
 The workshop will be instructed by seasoned contributors to GHC. So far, we have confirmed that the following GHC developers will present.
 
-### Ben Gamari
+### Ben Gamari, Well-Typed
 
 Ben has been contributing to GHC for over a decade and been working as a full-time compiler engineer at Well-Typed since 2015. In that time he has worked across the compiler, from parsing to code generation to release management and development infrastructure. His contributions include GHC's non-moving concurrent garbage collector, GHC's type-reflection implementation, and numerous improvements in profiling. He tends to find himself working near the back end of GHC's compilation pipeline and runtime system.
 
-### Cheng Shao
+### Cheng Shao, Tweag
 
 Cheng Shao is a full-time software engineer at Tweag, where he has been working since 2018. His main contribution to GHC is the WebAssembly backend, which grew out of his early research project, a Haskell-to-WebAssembly compiler codenamed Asterius. He focuses on maintaining the GHC WebAssembly backend, adding new functionality, as well as other GHC work that involves code generation and the runtime system.
 
-### Duncan Coutts
+### Duncan Coutts, Well-Typed
 
-### Ryan Scott
+### Ryan Scott, Galois
 
 Ryan has contributed to GHC since 2015, and has worked on type class deriving, Template Haskell, pattern-match coverage checking, and various odds and ends in the type checker. He has worked as a research engineer at [Galois, Inc.](https://galois.com/) since 2020, where he works on a variety of program analysis tools such as [Cryptol](https://cryptol.net/), [Crux](https://crux.galois.com/), and [SAW](https://saw.galois.com/). In addition, Ryan maintains a large number of libraries on Hackage, and as a result, he contributes to the maintenance of [head.hackage](https://gitlab.haskell.org/ghc/head.hackage), which makes it possible to check if upcoming changes to GHC will affect the code that he maintains.
 
-### Sam Derbyshire
+### Sam Derbyshire, Well-Typed
 
 Sam is a GHC contributor who joined the Well-Typed team in late 2021. Despite being relatively new to GHC, Sam has already made significant contributions to the project, such as overhauling representation-polymorphism checking and more recently the handling of duplicate record fields. He attributes this success to the wonderful community of GHC contributors who helped him become familiar with the project. In addition to his work on GHC, Sam also developed a graphics shader library in Haskell; his latest project involves typesetting Japanese sheet music for the shakuhachi.
 
-### Sebastian Graf
+### Sebastian Graf, Karlsruhe Institute of Technology
 
 Sebastian is currently a PhD student at Karlsruhe Institute of Technology. Ever since he had started his Master's thesis, he is deeply invested in the Core optimisations and static analyses of GHC and regularly contributes improvements and bug fixes in those areas. In particular, his GHC interests revolve around demand analysis, arity analysis, specialization, the simplifier and pattern-match coverage checking. At university, Sebastian assists lectures in basics of Functional Programming as well as (imperative) Compiler Design and found research interest in programming language semantics as well as Abstract Interpretation. He also is an enthusiastic trumpet player.
 
-### Simon Peyton Jones
+### Simon Peyton Jones, Epic Games
 
 Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at Microsoft Research in Cambridge, England, where he started in 1998. He’s also an Honorary Professor of the Computing Science Department at Glasgow University, where he was a professor during 1990-1998. Simon is interested in the design, implementation, and application of lazy functional languages. He was one of the original designers of Haskell, and much of his work is focused around the Glasgow Haskell Compiler and its ramifications. Simon's earlier work was instrumental in discovering how to generate efficient code for lazy languages on stock hardware, but today, he focuses on the GHC type checker, constraint solver, and simplifier.
 
-### Sylvain Henry
+### Sylvain Henry, IOG
 
 Sylvain has a background in high-performance computing and has been contributing to GHC since 2015. He joined IOG in 2019 to work full-time on GHC. Since 2022, he has led a small team of engineers working on improving Haskell tooling. His contributions include `ghc-bignum` (an improved implementation of GHC's support for big numbers), improvements to GHC's constant-folding capabilities, various fixes to the RTS, and a lot of refactoring to make GHC's code more modular and to make GHC a better cross-compiler. In 2022, his team added a new JavaScript backend to GHC, adapted from GHCJS.
 
-### Zubin Duggal
+### Zubin Duggal, Well-Typed
 
 
 
