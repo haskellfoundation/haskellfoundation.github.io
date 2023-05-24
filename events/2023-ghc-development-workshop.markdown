@@ -37,7 +37,8 @@ This is a hands-on workshop, so please bring the equipment that you need to work
 
 Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
 
-Checklist:
+#### Checklist
+
  * Swiss power adapter(s), if necessary
  * Refillable water bottle
  * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
