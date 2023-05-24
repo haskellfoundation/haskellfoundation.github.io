@@ -54,7 +54,7 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th>11:30-12:20</th><td> The Renamer, part 1</td><td> Sam Derbyshire</td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
 <tr><th>13:40-14:40</th><td> The Renamer, part 2</td><td> Sam Derbyshire</td></tr>
-<tr><th>15:00-17:00</th><td> The Simplifier</td><td> Sebastian Graf</td></tr>
+<tr><th>15:00-17:00</th><td> Core Optimizations</td><td> Sebastian Graf</td></tr>
 
 <tr><th colspan="3">2023-06-08</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
