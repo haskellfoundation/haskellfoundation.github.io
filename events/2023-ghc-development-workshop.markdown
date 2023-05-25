@@ -14,8 +14,11 @@ In this three-day event, held on the lakeside campus of OST in lovely Rapperswil
 
 ## In-Person Attendance
 
-In-person attendance is now full. Please watch this space for information about free online participation.
+In-person attendance is now full. For those who have already registered, practical details are listed below.
 
+## Free Online Participation
+
+We will be using Zurihac's Discord server as a chat platform and livestreaming YouTube. Please fill out [this registration form](https://www.surveylegend.com/s/4z94) by June 5 in order to participate. Links to streams will be posted to the Discord server.
 
 ## The Workshop
 
