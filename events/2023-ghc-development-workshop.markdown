@@ -38,7 +38,7 @@ All talks and presentations will be held in room 4.112. This is an air-condition
 
 This is a hands-on workshop, so please bring the equipment that you need to work on GHC (laptop, power adapter, etc). Swiss electricity is 220 volts, 50 Hz AC. [Swiss power outlets](https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets#Swiss_SN_441011_(Type_J)) are different than in many European countries, so please bring an appropriate adapter if necessary. Drinking fountains are not common in Europe, so please bring a refillable water bottle.
 
-Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
+Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. In a separate checkout, please [build the JavaScript backend](https://gitlab.haskell.org/ghc/ghc/-/wikis/javascript-backend/building) as well. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
 
 #### Checklist
 
@@ -46,6 +46,7 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
  * Refillable water bottle
  * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
  * Checked out and built a recent GHC from source
+ * Checked out and built the JavaScript backend from source
 
 ### Program
 
