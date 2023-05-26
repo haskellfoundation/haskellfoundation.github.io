@@ -14,8 +14,11 @@ In this three-day event, held on the lakeside campus of OST in lovely Rapperswil
 
 ## In-Person Attendance
 
-In-person attendance is now full. Please watch this space for information about free online participation.
+In-person attendance is now full. For those who have already registered, practical details are listed below.
 
+## Free Online Participation
+
+We will be using Zurihac's Discord server as a chat platform and livestreaming YouTube. Please fill out [this registration form](https://www.surveylegend.com/s/4z94) by June 5 in order to participate. Links to streams will be posted to the Discord server.
 
 ## The Workshop
 
@@ -35,7 +38,7 @@ All talks and presentations will be held in room 4.112. This is an air-condition
 
 This is a hands-on workshop, so please bring the equipment that you need to work on GHC (laptop, power adapter, etc). Swiss electricity is 220 volts, 50 Hz AC. [Swiss power outlets](https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets#Swiss_SN_441011_(Type_J)) are different than in many European countries, so please bring an appropriate adapter if necessary. Drinking fountains are not common in Europe, so please bring a refillable water bottle.
 
-Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
+Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. In a separate checkout, please [build the JavaScript backend](https://gitlab.haskell.org/ghc/ghc/-/wikis/javascript-backend/building) as well. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
 
 #### Checklist
 
@@ -43,6 +46,7 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
  * Refillable water bottle
  * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
  * Checked out and built a recent GHC from source
+ * Checked out and built the JavaScript backend from source
 
 ### Program
 
