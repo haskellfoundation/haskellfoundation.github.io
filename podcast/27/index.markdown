@@ -3,7 +3,7 @@ title: Christiaan Baaij
 episode: 27
 buzzsproutId: 12919972
 recorded: 2023-03-21
-published: 2023-05-31 (?)
+published: 2023-05-30
 ---
 
 In this episode Christiaan Baaij is interviewed by Wouter Swierstra and Mattias Páll. Christiaan talks about his work on the Clash compiler, what it is like to found your own company, his desire for ergonomic dependent types, and the foundations to all his success, namely capitalising unlock.
