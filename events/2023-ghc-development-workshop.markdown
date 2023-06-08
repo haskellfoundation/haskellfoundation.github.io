@@ -70,6 +70,7 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>The WASM codegen, part 2 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
 <tr><th>15:00-17:00</th><td>The type checker</td><td>Simon Peyton Jones</td></tr>
+<tr><th>17:15-17:45</th><td>Higher-order Patterns in Rewrite Rules - From Proposal to MR</td><td>Jaro Reinders</td></tr>
 
 <tr><th colspan="3">2023-06-09</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
