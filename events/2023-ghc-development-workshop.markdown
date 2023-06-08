@@ -65,7 +65,7 @@ Please check this space for last minute program changes. As of now, the schedule
 
 <tr><th colspan="3">2023-06-08</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td>The RTS</td><td>Ben Gamari</td></tr>
+<tr><th>9:30-11:15</th><td>The RTS <a href="https://home.smart-cactus.org/~ben/2023-06-ghc-workshop-rts.pdf">(slides)</a></td><td>Ben Gamari</td></tr>
 <tr><th>11:30-12:20</th><td>The WASM codegen, part 1</td><td>Cheng Shao</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>The WASM codegen, part 2</td><td>Cheng Shao</td></tr>
@@ -128,6 +128,9 @@ Simon is an Engineering Fellow at Epic Games. Until 2022, he was a researcher at
 Sylvain has a background in high-performance computing and has been contributing to GHC since 2015. He joined IOG in 2019 to work full-time on GHC. Since 2022, he has led a small team of engineers working on improving Haskell tooling. His contributions include `ghc-bignum` (an improved implementation of GHC's support for big numbers), improvements to GHC's constant-folding capabilities, various fixes to the RTS, and a lot of refactoring to make GHC's code more modular and to make GHC a better cross-compiler. In 2022, his team added a new JavaScript backend to GHC, adapted from GHCJS.
 
 ### Zubin Duggal, Well-Typed
+
+Zubin discovered Haskell while in high school, searching for a better way to write programs after getting frustrated with Python and Java. He studied Mathematics and Computer Science as an undergraduate and completed a Master’s degree in Computer Science from the Chennai Mathematical Institute. During that time, he developed an interest in compilers, program analysis, software verification, computer-aided theorem proving and type systems. He has been a contributor to GHC and various incarnations of the Haskell IDE projects starting with Haskell IDE Engine as a Haskell Summer of Code participant in 2017 and continued being involved in the development of `ghcide` and Haskell Language Server.
+
 
 
 
