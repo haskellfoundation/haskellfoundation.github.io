@@ -129,6 +129,9 @@ Sylvain has a background in high-performance computing and has been contributing
 
 ### Zubin Duggal, Well-Typed
 
+Zubin discovered Haskell while in high school, searching for a better way to write programs after getting frustrated with Python and Java. He studied Mathematics and Computer Science as an undergraduate and completed a Master’s degree in Computer Science from the Chennai Mathematical Institute. During that time, he developed an interest in compilers, program analysis, software verification, computer-aided theorem proving and type systems. He has been a contributor to GHC and various incarnations of the Haskell IDE projects starting with Haskell IDE Engine as a Haskell Summer of Code participant in 2017 and continued being involved in the development of `ghcide` and Haskell Language Server.
+
+
 
 
 ## Participation
