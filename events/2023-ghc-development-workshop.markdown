@@ -65,7 +65,7 @@ Please check this space for last minute program changes. As of now, the schedule
 
 <tr><th colspan="3">2023-06-08</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td>The RTS</td><td>Ben Gamari</td></tr>
+<tr><th>9:30-11:15</th><td>The RTS <a href="https://home.smart-cactus.org/~ben/2023-06-ghc-workshop-rts.pdf">(slides)</a></td><td>Ben Gamari</td></tr>
 <tr><th>11:30-12:20</th><td>The WASM codegen, part 1</td><td>Cheng Shao</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>The WASM codegen, part 2</td><td>Cheng Shao</td></tr>
