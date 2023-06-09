@@ -75,9 +75,9 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th colspan="3">2023-06-09</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
 <tr><th>9:30-11:15</th><td>Tools and ecosystem <a href="/assets/other/Duncan Coutts - GHC Tool Ecosystem.pdf">(slides)</a></td><td>Duncan Coutts</td></tr>
-<tr><th>11:30-12:20</th><td>The JS codegen, part 1</td><td>Sylvain Henry</td></tr>
+<tr><th>11:30-12:20</th><td>The JS codegen, part 1 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
-<tr><th>13:40-14:40</th><td>The JS codegen, part 2</td><td>Sylvain Henry</td></tr>
+<tr><th>13:40-14:40</th><td>The JS codegen, part 2 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
 <tr><th>15:00-17:00</th><td>HLS</td><td>Zubin Duggal</td></tr>
 <tr><th>17:00-17:30</th><td>Farewell</td><td>David&nbsp;Thrane&nbsp;Christiansen and Farhad&nbsp;Mehta</td></tr>
 
