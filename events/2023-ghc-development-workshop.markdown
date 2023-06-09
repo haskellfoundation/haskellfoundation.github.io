@@ -74,7 +74,7 @@ Please check this space for last minute program changes. As of now, the schedule
 
 <tr><th colspan="3">2023-06-09</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td>Tools and ecosystem</td><td>Duncan Coutts</td></tr>
+<tr><th>9:30-11:15</th><td>Tools and ecosystem <a href="/assets/other/Duncan Coutts - GHC Tool Ecosystem.pdf">(slides)</a></td><td>Duncan Coutts</td></tr>
 <tr><th>11:30-12:20</th><td>The JS codegen, part 1</td><td>Sylvain Henry</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>The JS codegen, part 2</td><td>Sylvain Henry</td></tr>
@@ -107,6 +107,9 @@ Ben has been contributing to GHC for over a decade and been working as a full-ti
 Cheng Shao is a full-time software engineer at Tweag, where he has been working since 2018. His main contribution to GHC is the WebAssembly backend, which grew out of his early research project, a Haskell-to-WebAssembly compiler codenamed Asterius. He focuses on maintaining the GHC WebAssembly backend, adding new functionality, as well as other GHC work that involves code generation and the runtime system.
 
 ### Duncan Coutts, Well-Typed
+
+Duncan has been using Haskell since the end of the last century, founded a Haskell consultancy company fifteen years ago, and has had a hand in various Haskell libraries and tools over the years.
+
 
 ### Ryan Scott, Galois
 
