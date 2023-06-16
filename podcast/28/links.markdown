@@ -1,0 +1,6 @@
+* [Richard’s Website](https://richarde.dev/)
+* [Richard on Github](https://github.com/goldfirere/)
+* [Hasochism](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=9ff209527963fb71d3a2452dd3512158639993fb)
+* [2023 GHC Contributors' Workshop](https://haskell.foundation/events/2023-ghc-development-workshop.html)
+* [Vladislav Zavialov On Dependent Haskell](https://discourse.haskell.org/t/ghc-dh-weekly-update-4-2023-01-18/5608/2)
+* [The modules proposal](https://github.com/ghc-proposals/ghc-proposals/pull/283)
