@@ -57,28 +57,28 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th colspan="3">2023-06-07</th></tr>
 <tr><th>8:00-9:00</th><td> Registration</td><td></td></tr>
 <tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td> System Overview and Introduction to GHC Development <a href="https://ryanglscott.github.io/talk-slides/ghc-contributors-workshop-2023.pdf">(slides)</a></td><td> Ryan Scott</td></tr>
-<tr><th>11:30-12:20</th><td> The Renamer, part 1 <a href="https://github.com/sheaf/ghc-renamer">(slides)</a></td><td> Sam Derbyshire</td></tr>
+<tr><th>9:30-11:15</th><td> Getting Up, Running, and Contributing to GHC <a href="https://ryanglscott.github.io/talk-slides/ghc-contributors-workshop-2023.pdf">(slides)</a></td><td> Ryan Scott</td></tr>
+<tr><th>11:30-12:20</th><td> GHC's Renamer, part 1 <a href="https://github.com/sheaf/ghc-renamer">(slides)</a></td><td> Sam Derbyshire</td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
-<tr><th>13:40-14:40</th><td> The Renamer, part 2 <a href="https://github.com/sheaf/ghc-renamer">(slides)</a></td><td> Sam Derbyshire</td></tr>
-<tr><th>15:00-17:00</th><td> Core Optimizations <a href="https://docs.google.com/presentation/d/1vOrwTwHgob25CEg-KXZhCgtP7U1RrUGitz6dE8WXi_g/edit?usp=sharing">(slides)</a></td><td> Sebastian Graf</td></tr>
+<tr><th>13:40-14:40</th><td> GHC's Renamer, part 2 <a href="https://github.com/sheaf/ghc-renamer">(slides)</a></td><td> Sam Derbyshire</td></tr>
+<tr><th>15:00-17:00</th><td> GHC Core Optimisations <a href="https://docs.google.com/presentation/d/1vOrwTwHgob25CEg-KXZhCgtP7U1RrUGitz6dE8WXi_g/edit?usp=sharing">(slides)</a></td><td> Sebastian Graf</td></tr>
 
 <tr><th colspan="3">2023-06-08</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td>The RTS <a href="https://home.smart-cactus.org/~ben/2023-06-ghc-workshop-rts.pdf">(slides)</a></td><td>Ben Gamari</td></tr>
-<tr><th>11:30-12:20</th><td>The WASM codegen, part 1 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
+<tr><th>9:30-11:15</th><td>GHC's Runtime System <a href="https://home.smart-cactus.org/~ben/2023-06-ghc-workshop-rts.pdf">(slides)</a></td><td>Ben Gamari</td></tr>
+<tr><th>11:30-12:20</th><td>The GHC WebAssembly Backend, part 1 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
-<tr><th>13:40-14:40</th><td>The WASM codegen, part 2 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
-<tr><th>15:00-17:00</th><td>The type checker <a href="/assets/other/Simon Peyton Jones - 2023-06-08 - Type inference in GHC Jun 23.pdf">(slides)</a></td><td>Simon Peyton Jones</td></tr>
+<tr><th>13:40-14:40</th><td>The GHC WebAssembly Backend, part 2 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
+<tr><th>15:00-17:00</th><td>Secrets of the GHC Typechecker in 100 Type Declarations<a href="/assets/other/Simon Peyton Jones - 2023-06-08 - Type inference in GHC Jun 23.pdf">(slides)</a></td><td>Simon Peyton Jones</td></tr>
 <tr><th>17:15-17:45</th><td>Higher-order Patterns in Rewrite Rules - From Proposal to MR</td><td>Jaro Reinders</td></tr>
 
 <tr><th colspan="3">2023-06-09</th></tr>
 <tr><th>9:15-9:30</th><td>Practical Info</td><td>Farhad&nbsp;Mehta and David&nbsp;Thrane&nbsp;Christiansen</td></tr>
-<tr><th>9:30-11:15</th><td>Tools and ecosystem <a href="/assets/other/Duncan Coutts - GHC Tool Ecosystem.pdf">(slides)</a></td><td>Duncan Coutts</td></tr>
-<tr><th>11:30-12:20</th><td>The JS codegen, part 1 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
+<tr><th>9:30-11:15</th><td>The GHC Packaging Ecosystem <a href="/assets/other/Duncan Coutts - GHC Tool Ecosystem.pdf">(slides)</a></td><td>Duncan Coutts</td></tr>
+<tr><th>11:30-12:20</th><td>GHC's JavaScript Backend, part 1 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
-<tr><th>13:40-14:40</th><td>The JS codegen, part 2 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
-<tr><th>15:00-17:00</th><td>HLS</td><td>Zubin Duggal</td></tr>
+<tr><th>13:40-14:40</th><td>GHC's JavaScript Backend, part 2 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
+<tr><th>15:00-17:00</th><td>Haskell Language Server</td><td>Zubin Duggal</td></tr>
 <tr><th>17:00-17:30</th><td>Farewell</td><td>David&nbsp;Thrane&nbsp;Christiansen and Farhad&nbsp;Mehta</td></tr>
 
 </table>
