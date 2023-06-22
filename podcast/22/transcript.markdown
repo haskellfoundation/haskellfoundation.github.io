@@ -26,7 +26,7 @@ Today we have Alejandro Russo with us. Welcome.
 
 *Niki Vazou (0:03:24)*: But you had this proof *(0:03:24 unintelligible)* in the Haskell class too.
 
-*AR (0:03:28)*: Yeah. So we were like-- the classic example like proof that reverse access is equal access with a strong education in mathematics. So induction for us was supernatural. So yeah, we could reason all about that. So we could do this kind of proofs.
+*AR (0:03:28)*: Yeah. So we were like-- the classic example like proof that reverse of reverse of `xs` is equal to `xs` with a strong education in mathematics. So induction for us was supernatural. So yeah, we could reason all about that. So we could do this kind of proofs.
 
 *NV (0:03:35)*: But not mechanized?
 
