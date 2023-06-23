@@ -69,7 +69,7 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th>11:30-12:20</th><td>The GHC WebAssembly Backend, part 1 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>The GHC WebAssembly Backend, part 2 <a href="https://docs.google.com/presentation/d/1xMV6xK5gJHXCB5foWAUrYVvET_IeLfKM2Osbrbp9vKU/edit?usp=sharing">(slides)</a></td><td>Cheng Shao</td></tr>
-<tr><th>15:00-17:00</th><td>Secrets of the GHC Typechecker in 100 Type Declarations<a href="/assets/other/Simon Peyton Jones - 2023-06-08 - Type inference in GHC Jun 23.pdf">(slides)</a></td><td>Simon Peyton Jones</td></tr>
+<tr><th>15:00-17:00</th><td>Secrets of the GHC Typechecker in 100 Type Declarations <a href="/assets/other/Simon Peyton Jones - 2023-06-08 - Type inference in GHC Jun 23.pdf">(slides)</a></td><td>Simon Peyton Jones</td></tr>
 <tr><th>17:15-17:45</th><td>Higher-order Patterns in Rewrite Rules - From Proposal to MR</td><td>Jaro Reinders</td></tr>
 
 <tr><th colspan="3">2023-06-09</th></tr>
@@ -78,7 +78,7 @@ Please check this space for last minute program changes. As of now, the schedule
 <tr><th>11:30-12:20</th><td>GHC's JavaScript Backend, part 1 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
 <tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
 <tr><th>13:40-14:40</th><td>GHC's JavaScript Backend, part 2 <a href="https://github.com/hsyl20/ghc-workshop-2023/">(slides &amp; examples)</a></td><td>Sylvain Henry</td></tr>
-<tr><th>15:00-17:00</th><td>Haskell Language Server</td><td>Zubin Duggal</td></tr>
+<tr><th>15:00-17:00</th><td>Haskell Language Server <a href="/assets/other/Zubin Duggal - 2023-06-09 - Haskell Language Server.pdf">(slides)</a></td><td>Zubin Duggal</td></tr>
 <tr><th>17:00-17:30</th><td>Farewell</td><td>David&nbsp;Thrane&nbsp;Christiansen and Farhad&nbsp;Mehta</td></tr>
 
 </table>
