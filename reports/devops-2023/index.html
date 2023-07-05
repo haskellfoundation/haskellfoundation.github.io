@@ -31,7 +31,7 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 
 <p>In this log, I try not to assume much familiarity with DevOps or CI, so I will provide some background on the what and why. CI stands for "continuous integration". It is a process that integrates new software into a full system. CI can be arbitrarily complex, but typical hosted CI systems are structured as a pipeline of individual jobs. (Terminology may differ—for example, GitHub uses the term "workflow" instead of "pipeline".) A job corresponds to a single task, like "build the code" or "run the tests". A pipeline, meanwhile, is a sequence of jobs that may depend on each other. Here’s a cropped visualization of a GHC pipeline showing dependencies:</p>
 
-TODO: image
+<img alt="Screenshot of a pipeline visualization from GitLab's UI" src="pipeline-visualization.png">
 
 <p>In advanced forms, CI can be quite complex. It can be implemented as multiple pipelines, each of which is defined as a directed acyclic graph of jobs. Furthermore, many different products can be used to implement CI. Because of this complexity and the breadth of implementations, CI has become a generic term encompassing any automated processing of source code. Personally, I think of CI as a service for developers that makes them more effective and helps them produce higher-quality products.</p>
 
@@ -89,7 +89,7 @@ TODO: image
 
 <p>Furthermore, with the data collected by this service, I created a dashboard to monitor CI health:</p>
 
-TODO: add diagram
+<img alt="Screenshot of spurious failure timeline chart" src="failure-chart.png">
 
 <p>This dashboard, <a href="https://grafana.gitlab.haskell.org/d/167r9v6nk/ci-spurious-failures?orgId=2&refresh=15m&from=now-30d&to=now">which can be viewed live</a>, adds a bit of observability to CI. At a glance I can tell if something “odd” is happening—an intuition that can only develop with repeated observations.</p>
 
@@ -125,7 +125,7 @@ TODO: add diagram
 
 <p>But all other things are not equal! When I created a chart of pipeline results in April, there was no clear trend.</p>
 
-TODO graphs
+<img alt="Diagram of pipeline success ratio" src="post-merge-validate-pipeline.png">
 
 <p>Instead, there was a lot of noise, and the success ratio bounced between 40% and 80% both before and after I started working on the problem. It did not correlate with users' subjective reports of reduced frustration. This was a little surprising to me, and I would like to figure out what's happening. (Naively, I would expect the pipeline success rate to be the product of the success rates of the constituent jobs—which would visibly correlate.) But meanwhile, there were other things to try—which brings me to job success rate.</p>
 
@@ -135,7 +135,7 @@ TODO graphs
 
 <p>At any rate, I would be remiss not to look at the job success rate. So let’s look.</p>
 
-TODO graph
+<img alt="Diagram of success ratio per month, discussed below" src="post-merge-validate-jobs.png">
 
 <p>In this diagram, I have charted the success ratio per month for jobs in the Post-Merge Validate pipeline. I have included a chart showing the overall number of jobs for some extra context.</p>
 
@@ -149,19 +149,22 @@ TODO graph
 
 <h2>Addendum: Live Charts</h2>
 
-<p>Many of the charts in this log are now implemented as dashboards so I (or anybody else) can keep tabs on CI health. Click on the heading links to see them live!</p>
+<p>Many of the charts in this log are now implemented as dashboards so I (or anybody else) can keep tabs on CI health. Click on them to see them live!</p>
 
-<a href="https://grafana.gitlab.haskell.org/d/kv1oojs4z/ci-health?orgId=2&refresh=5s&kiosk"><h3>CI Health Overview</h3></a>
+<a href="https://grafana.gitlab.haskell.org/d/kv1oojs4z/ci-health?orgId=2&refresh=5s&kiosk"><h3>CI Health Overview</h3>
 
-TODO screenshot
+<img alt="Screenshot of CI Health Overview dashboard" src="ci-health-overview.png">
+</a>
 
-<a href="https://grafana.gitlab.haskell.org/d/phJc-UyVz/ci-success-stats?orgId=2"><h3>CI Success Stats</h3></a>
+<a href="https://grafana.gitlab.haskell.org/d/phJc-UyVz/ci-success-stats?orgId=2"><h3>CI Success Stats</h3>
 
-TODO Screenshot
+<img alt="Screenshot of CI Success Stats dashboard" src="ci-success-stats.png">
+</a>
 
-<a href="https://grafana.gitlab.haskell.org/d/167r9v6nk/ci-spurious-failures?orgId=2&refresh=15m"><h3>CI Spurious Failures</h3></a>
+<a href="https://grafana.gitlab.haskell.org/d/167r9v6nk/ci-spurious-failures?orgId=2&refresh=15m"><h3>CI Spurious Failures</h3>
 
-TODO screenshot
+<img alt="Screenshot of CI Spurious Failures dashboard" src="spurious-failures-dashboard.png">
+</a>
 
   </div>
 </div>
