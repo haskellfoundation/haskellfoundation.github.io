@@ -13,7 +13,15 @@ import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template.Context (defaultContext)
 import Data.Maybe (isJust, fromJust, fromMaybe)
 import Text.Pandoc as Pandoc
+    ( Pandoc(..),
+      WriterOptions,
+      Block(Para, Plain),
+      runPure,
+      writePlain, ReaderOptions (readerExtensions), disableExtension, Extension (Ext_tex_math_dollars) )
+import System.FilePath ((</>), dropExtension, splitFileName)
 import qualified Data.Text as T
+
+import Debug.Trace (trace)
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -232,6 +240,37 @@ main = hakyll $ do
         pandocCompiler
           >>= applyAsTemplate sponsors
           >>= loadAndApplyTemplate "templates/events/page.html" ctxt
+          >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+          >>= relativizeUrls
+
+-- Reports
+    create ["reports/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Reports")
+            ctx <- allReportsCtx <$> (recentFirst =<< loadAll ("reports/*.markdown" .&&. hasNoVersion))
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/reports/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
+    match "reports/*.markdown" $ do
+      route . customRoute $ \ ident ->
+        let (ctx, nameMd) = splitFileName $ toFilePath ident
+        in ctx </> dropExtension nameMd </> "index.html"
+      let ctxt = mconcat
+            [ defaultContext, reportCtx ]
+      compile $ do
+        sponsors <- buildBoilerplateCtx Nothing
+        let readerOpts = defaultHakyllReaderOptions {
+              readerExtensions =
+                disableExtension Ext_tex_math_dollars $
+                  readerExtensions defaultHakyllReaderOptions
+              }
+        pandocCompilerWith readerOpts defaultHakyllWriterOptions
+          >>= applyAsTemplate sponsors
+          >>= loadAndApplyTemplate "templates/reports/page.html" ctxt
           >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
           >>= relativizeUrls
 
@@ -461,6 +500,16 @@ activeEventsCtx :: [Item String] -> Context String
 activeEventsCtx evts =
   listField "events" defaultContext (ofMetadataField "status" "active" evts) <>
   defaultContext
+
+-- Reports
+
+allReportsCtx :: [Item String] -> Context String
+allReportsCtx evts =
+    listField "reports" (defaultContext <> reportCtx) (pure evts) <>
+    defaultContext
+
+reportCtx :: Context String
+reportCtx = dateField "date" "%B %d, %0Y"
 
 --------------------------------------------------------------------------------------------------------
 -- UTILS -----------------------------------------------------------------------------------------------
