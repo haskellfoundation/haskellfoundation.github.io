@@ -1,6 +1,7 @@
 ---
 title: 2023 GHC Contributor's Workshop - Retrospective
 published: 2023-07-14
+author: David Thrane Christiansen
 summary: A look back at the GHC Contributor's Workshop, 7-9 June, 2023, colocated with ZuriHac
 ---
 

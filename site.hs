@@ -274,6 +274,10 @@ main = hakyll $ do
           >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
           >>= relativizeUrls
 
+    match "reports/*/*.png" $ do
+      route idRoute
+      compile copyFileCompiler
+
 -- Description compiler --------------------------------------------------------------------------------
 --
 -- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field

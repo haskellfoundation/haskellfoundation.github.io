@@ -1,17 +1,10 @@
 ---
 title: Haskell Foundation DevOps Yearly Log - July 2023
+author: Bryan Richter
+date: 2023-07-14
+summary: Achievements and reflections from a year of improvements to GHC's CI
 ---
 
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  $partial("templates/corners.html")$
-  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-    <h1 class="text-2xl-5xl">Haskell Foundation DevOps Yearly Log - July 2023</h1>
-    <p>Bryan Richter</p>
-  </div>
-</div>
-
-<div class="px-4 sm:px-8 md:px-12 lg:px-16">
-  <div class="mx-auto prose md:prose-lg">
 
 <p>Hello, and welcome to the first Haskell Foundation DevOps <strong>yearly</strong> log, where I document my work to shape the Haskell of the future.</p>
 
@@ -35,9 +28,9 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 
 <p>In advanced forms, CI can be quite complex. It can be implemented as multiple pipelines, each of which is defined as a directed acyclic graph of jobs. Furthermore, many different products can be used to implement CI. Because of this complexity and the breadth of implementations, CI has become a generic term encompassing any automated processing of source code. Personally, I think of CI as a service for developers that makes them more effective and helps them produce higher-quality products.</p>
 
-<p>DevOps is even more vague. Microsoft calls it a “union of people, process, and technology to continually provide value to customers.” DevOps was an industry-wide response to the disconnect forming between software development, where potentially valuable stuff is created, and operations, where service is actually delivered to users. In some cases, this disconnect formed because busy beavers created organizational dams preventing value flowing downstream to users. No one is to blame, though—these are hard, decentralized problems that require a lot of coordination to overcome. The DevOps solution is not just to prevent dams from forming, but to move value delivery closer to product development. In other words, the way software is delivered should influence how it is created. Dams aren’t a problem if everybody is swimming in the same pond.</p>
+<p>DevOps is even more vague. Microsoft calls it a "union of people, process, and technology to continually provide value to customers." DevOps was an industry-wide response to the disconnect forming between software development, where potentially valuable stuff is created, and operations, where service is actually delivered to users. In some cases, this disconnect formed because busy beavers created organizational dams preventing value flowing downstream to users. No one is to blame, though—these are hard, decentralized problems that require a lot of coordination to overcome. The DevOps solution is not just to prevent dams from forming, but to move value delivery closer to product development. In other words, the way software is delivered should influence how it is created. Dams aren’t a problem if everybody is swimming in the same pond.</p>
 
-<p>How an organization “does DevOps” is where things get vague. It is often referred to as a “culture”, which kinda gives me happy fungus vibes. But I believe that—in the context of open source, Haskell, and GHC—DevOps should be focused on empowering contributors and reducing the workload for maintainers. For now, this means developing CI.</p>
+<p>How an organization "does DevOps" is where things get vague. It is often referred to as a "culture", which kinda gives me happy fungus vibes. But I believe that—in the context of open source, Haskell, and GHC—DevOps should be focused on empowering contributors and reducing the workload for maintainers. For now, this means developing CI.</p>
 
 <h2>CI - Challenges</h2>
 
@@ -57,7 +50,7 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 <p>Although the failure symptoms were diverse and hard to predict, the root problem could be formulated in a simple way: CI is complex, and GHC simply needed more human resources to handle the workload. The Haskell Foundation addressed the latter problem by creating the DevOps role. But the complexity is inherent to the system, and to address it, my job was threefold: (1) Simply pitch in to spread the workload across more people. (2) Reduce the workload with automation. (3) Increase individual efficiency by increasing observability and building tools.</p>
 
 <h3>Sidebar - Observability</h3>
-<p>Observability is one of my favorite concepts from DevOps culture. A system is observable if it has many different ways it can be inspected. Google says “observability is based on exploring properties and patterns not defined in advance”. One of the best methods for improving the health of a software-defined service is to improve observability.  Complex systems have emergent properties, and good observability gives operators emergent tools to actively debug them. Humans are very good at noticing patterns—we should capitalize on that!</p>
+<p>Observability is one of my favorite concepts from DevOps culture. A system is observable if it has many different ways it can be inspected. Google says "observability is based on exploring properties and patterns not defined in advance". One of the best methods for improving the health of a software-defined service is to improve observability.  Complex systems have emergent properties, and good observability gives operators emergent tools to actively debug them. Humans are very good at noticing patterns—we should capitalize on that!</p>
 
 <h3>Back to the DevOps role</h3>
 <p>As I mentioned before the sidebar, my job was to get GHC CI in good shape. The most impactful project I worked on was reducing spurious failures. I will focus on that project later, but first, I want to paint a full picture of my year by discussing other CI projects I worked on.</p>
@@ -70,7 +63,7 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 <li>I participated in GHC team discussions and issue triage.</li>
 <li>Using the tools I built to reduce spurious failures, I identified hard-to-reproduce bugs like <a href="https://gitlab.haskell.org/ghc/ghc/-/issues/22872">ticket #22872</a>.</li>
 <li>I built a dashboard that tracks GHC memory usage during nightly tests, making it easier to identify regressions.</li>
-<li>I cleaned up hundreds of instances of link spam that found its way on to GitLab. (This only counts as a “CI project” because we run our pipelines on our own GitLab instance.)</li>
+<li>I cleaned up hundreds of instances of link spam that found its way on to GitLab. (This only counts as a "CI project" because we run our pipelines on our own GitLab instance.)</li>
 </ol>
 
 <h2>Improving CI - Introducing spurious failures</h2>
@@ -91,7 +84,7 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 
 <img alt="Screenshot of spurious failure timeline chart" src="failure-chart.png">
 
-<p>This dashboard, <a href="https://grafana.gitlab.haskell.org/d/167r9v6nk/ci-spurious-failures?orgId=2&refresh=15m&from=now-30d&to=now">which can be viewed live</a>, adds a bit of observability to CI. At a glance I can tell if something “odd” is happening—an intuition that can only develop with repeated observations.</p>
+<p>This dashboard, <a href="https://grafana.gitlab.haskell.org/d/167r9v6nk/ci-spurious-failures?orgId=2&refresh=15m&from=now-30d&to=now">which can be viewed live</a>, adds a bit of observability to CI. At a glance I can tell if something "odd" is happening—an intuition that can only develop with repeated observations.</p>
 
 <h2>Improving CI - Measuring progress</h2>
 
@@ -166,5 +159,3 @@ title: Haskell Foundation DevOps Yearly Log - July 2023
 <img alt="Screenshot of CI Spurious Failures dashboard" src="spurious-failures-dashboard.png">
 </a>
 
-  </div>
-</div>
