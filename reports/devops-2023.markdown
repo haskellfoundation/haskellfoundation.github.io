@@ -140,6 +140,7 @@ summary: Achievements and reflections from a year of improvements to GHC's CI
 
 <p>If we consider the whole Haskell forest, my work on GHC CI is a small thing: little mushrooms under a great tree. But I’ve done what I can. I have reduced the workload with automation, pitched in to spread the work that remained, and made myself and others more efficient with more tools and data. The highlight of my work is the system I built for automatically repairing spurious failures. I can only hope that it wasn't a complete coincidence that GHC maintainers think 9.6 was the smoothest release in recent history. Besides, mushrooms aren't just funny-looking protuberances in the dirt—they are vast subterranean mesh networks that symbiotically connect other forest life! Small changes have big effects. That's why I'm happy to keep my hands dirty and keep chipping away at the problems, particularly with the new perspective and data I’ve gained through reflecting on this year of work.</p>
 
+<!--
 <h2>Addendum: Live Charts</h2>
 
 <p>Many of the charts in this log are now implemented as dashboards so I (or anybody else) can keep tabs on CI health. Click on them to see them live!</p>
@@ -159,3 +160,4 @@ summary: Achievements and reflections from a year of improvements to GHC's CI
 <img alt="Screenshot of CI Spurious Failures dashboard" src="spurious-failures-dashboard.png">
 </a>
 
+-->
