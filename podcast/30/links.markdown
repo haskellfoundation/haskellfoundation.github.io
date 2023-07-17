@@ -3,7 +3,7 @@
 * [Book C++ in Action](https://www.goodreads.com/book/show/2063116.C_In_Action)
 * [CodeCoop Distributed Version Control System](https://github.com/BartoszMilewski/CodeCoop)
 * [C++ blog posts by Bartosz](https://bartoszmilewski.com/category/c/)
-* [Categories for the Working Mathematician by Sauders Mac Lane](https://link.springer.com/book/10.1007/978-1-4757-4721-8)
+* [Categories for the Working Mathematician by Saunders Mac Lane](https://link.springer.com/book/10.1007/978-1-4757-4721-8)
 * [nLab](https://ncatlab.org/)
 * [Category Theory for Programmers book](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
 * [PDF version of above book](https://github.com/hmemcpy/milewski-ctfp-pdf)
