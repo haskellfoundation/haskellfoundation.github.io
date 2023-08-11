@@ -1,11 +1,15 @@
 ---
-status: ideation
-title: Security Advisory Database
-link: https://github.com/haskellfoundation/tech-proposals/blob/main/proposals/accepted/037-advisory-db.md
+status: inprogress
+title: The Haskell Security Response Team
+link: https://github.com/haskell/security-advisories
 link-text: Haskell Foundation Technical Proposal
 subtitle: Project Leader
-leader0name: David Thrane Christiansen
-leader0img: exec-team/dtc.png
-leader0mail: david@haskell.foundation
+leader0name: Fraser Tweedale
+leader0img: project-leads/ft.png
+leader0mail: frase+hasksec@frase.id.au
+leader1name: David Thrane Christiansen
+leader1img: exec-team/dtc.png
+leader1mail: david@haskell.foundation
 ---
-A security advisory database for Hackage, inspired by those for Rust and NPM.
+
+The Security Response Team maintains the Haskell Security Advisory Database. This database can serve as the basis for Haskell-aware tooling, and it is exported to OSV, the industry-standard data source, for use in multi-language tooling.
