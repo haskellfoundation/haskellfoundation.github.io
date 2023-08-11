@@ -267,6 +267,43 @@
       
       <div class="bg-gray-100 px-6 sm:px-12 py-12">
   <div class="space-y-4">
+    <h2 class="font-normal text-2xl-4xl">The Haskell Security Response Team</h2>
+    <p><p>The Security Response Team maintains the Haskell Security Advisory Database. This database can serve as the basis for Haskell-aware tooling, and it is exported to OSV, the industry-standard data source, for use in multi-language tooling.</p></p>
+    <div class="text-sm sm:text-base">
+      <a class="arrow-link" href="https://github.com/haskell/security-advisories" target="_blank">>> Haskell Security Advisory DB</a>
+    </div>
+    <div class="uppercase font-medium text-gray-500 pt-4">Project Leaders</div>
+  </div>
+  <div class="divide-y-2">
+    <div class="flex items-center py-4 space-x-6">
+      
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/project-leads/ft.png" alt="Fraser Tweedale">
+      </div>
+      <div>
+        <div class="font-medium">Fraser Tweedale</div>
+        <a class="block" href="mailto:frase+hasksec@frase.id.au">frase+hasksec@frase.id.au</a>
+      </div>
+      
+    </div>
+    
+    <div class="flex items-center py-4 space-x-6">
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/exec-team/dtc.png" alt="David Thrane Christiansen">
+      </div>
+      <div>
+        <div class="font-medium">David Thrane Christiansen</div>
+        <a class="block" href="mailto:david@haskell.foundation">david@haskell.foundation</a>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+      
+      <div class="bg-gray-100 px-6 sm:px-12 py-12">
+  <div class="space-y-4">
     <h2 class="font-normal text-2xl-4xl">The Haskell Error Index</h2>
     <p><p>The Haskell Error Index is a community-driven repository of detailed documentation for Haskell errors and warnings.</p></p>
     <div class="text-sm sm:text-base">
@@ -290,6 +327,7 @@
     
   </div>
 </div>
+
       
       <div class="bg-gray-100 px-6 sm:px-12 py-12">
   <div class="space-y-4">
@@ -316,22 +354,16 @@
     
   </div>
 </div>
-      
-    </div>
-    
 
-    
-    <div class="text-2xl-5xl text-center md:px-12">Planning</div>
-    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       
       <div class="bg-gray-100 px-6 sm:px-12 py-12">
   <div class="space-y-4">
-    <h2 class="font-normal text-2xl-4xl">Security Advisory Database</h2>
-    <p><p>A security advisory database for Hackage, inspired by those for Rust and NPM.</p></p>
+    <h2 class="font-normal text-2xl-4xl">Language Extension Lifecycle Framework</h2>
+    <p><p>Haskell language extensions are the mechanism by which language research and innovation are made optional. However, it is not always easy to see which extensions are expected to change and develop, and which are finished. The Haskell Foundation’s <a href="https://github.com/haskellfoundation/stability">Stability Working Group</a> is working on a simple, understandable classification that allows teams to make informed decisions about the tradeoffs between stability and innovation and to have their stability policy reflected in compiler warnings.</p></p>
     <div class="text-sm sm:text-base">
-      <a class="arrow-link" href="https://github.com/haskellfoundation/tech-proposals/blob/main/proposals/accepted/037-advisory-db.md" target="_blank">>> Haskell Foundation Technical Proposal</a>
+      <a class="arrow-link" href="https://github.com/ghc-proposals/ghc-proposals/pull/601" target="_blank">>> GHC Proposal</a>
     </div>
-    <div class="uppercase font-medium text-gray-500 pt-4">Project Leader</div>
+    <div class="uppercase font-medium text-gray-500 pt-4">Project Leaders</div>
   </div>
   <div class="divide-y-2">
     <div class="flex items-center py-4 space-x-6">
@@ -346,11 +378,34 @@
       
     </div>
     
+    <div class="flex items-center py-4 space-x-6">
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/board-members/no-image.png" alt="Trevis Elser">
+      </div>
+      <div>
+        <div class="font-medium">Trevis Elser</div>
+        <a class="block" href="mailto:trevis@flipstone.com">trevis@flipstone.com</a>
+      </div>
+    </div>
+    
+    
+    <div class="flex items-center py-4 space-x-6">
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/board-members/cd.png" alt="Chris Dornan">
+      </div>
+      <div>
+        <div class="font-medium">Chris Dornan</div>
+        
+      </div>
+    </div>
     
   </div>
 </div>
+
       
     </div>
+    
+
     
 
     
@@ -384,6 +439,81 @@
     
   </div>
 </div>
+
+      
+      <div class="bg-gray-100 px-6 sm:px-12 py-12">
+  <div class="space-y-4">
+    <h2 class="font-normal text-2xl-4xl">Nighly GHC Releases in GHCUp</h2>
+    <p><p>The Haskell Foundation coordinated a process of making nightly builds of the latest development version of GHC conveniently available in GHCUp, making it much easier for the GHC team to gather feedback, especially from closed-source applications. With nightly builds available, projects can schedule a regular CI job that checks whether recent changes with the compiler are still compatible with the codebase, allowing developers to notify the GHC team much earlier in a development cycle. Additionally, it is now much easier for the GHC team to seek feedback regarding changes to the compiler. An <a href="https://github.com/jappeace/haskell-nightly">example repository</a> has been created by the HF’s Stability Working Group to demonstrate the use of nightlies with scheduled jobs on CI.</p></p>
+    <div class="text-sm sm:text-base">
+      <a class="arrow-link" href="https://www.haskell.org/ghcup/guide/#nightlies" target="_blank">>> Usage Instructions</a>
+    </div>
+    <div class="uppercase font-medium text-gray-500 pt-4">Project Leaders</div>
+  </div>
+  <div class="divide-y-2">
+    <div class="flex items-center py-4 space-x-6">
+      
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/project-leads/jo.png" alt="Julian Ospald">
+      </div>
+      <div>
+        <div class="font-medium">Julian Ospald</div>
+        
+      </div>
+      
+    </div>
+    
+    <div class="flex items-center py-4 space-x-6">
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/project-leads/mp.png" alt="Matthew Pickering">
+      </div>
+      <div>
+        <div class="font-medium">Matthew Pickering</div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="flex items-center py-4 space-x-6">
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/exec-team/dtc.png" alt="David Thrane Christiansen">
+      </div>
+      <div>
+        <div class="font-medium">David Thrane Christiansen</div>
+        <a class="block" href="mailto:david@haskell.foundation">david@haskell.foundation</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      
+      <div class="bg-gray-100 px-6 sm:px-12 py-12">
+  <div class="space-y-4">
+    <h2 class="font-normal text-2xl-4xl">GHC Medium-Term Priority Feedback</h2>
+    <p><p>The Haskell Foundation assisted the GHC developers with getting feedback about short- to medium-term development priorities through a deliberative process, resulting in a list of priorities. The Haskell Foundation took care of contacting the users, clarifying their answers, sorting them by topic, and summarizing and analyzing the results. The HF then worked closely with the leadership of the GHC project to produce a report detailing their plans.</p></p>
+    <div class="text-sm sm:text-base">
+      <a class="arrow-link" href="https://discourse.haskell.org/t/ghc-medium-term-priorities/5600" target="_blank">>> Project Report</a>
+    </div>
+    <div class="uppercase font-medium text-gray-500 pt-4">Project Leader</div>
+  </div>
+  <div class="divide-y-2">
+    <div class="flex items-center py-4 space-x-6">
+      
+      <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
+        <img src="../assets/images/exec-team/dtc.png" alt="David Thrane Christiansen">
+      </div>
+      <div>
+        <div class="font-medium">David Thrane Christiansen</div>
+        <a class="block" href="mailto:david@haskell.foundation">david@haskell.foundation</a>
+      </div>
+      
+    </div>
+    
+    
+  </div>
+</div>
+
       
       <div class="bg-gray-100 px-6 sm:px-12 py-12">
   <div class="space-y-4">
@@ -420,6 +550,7 @@
     
   </div>
 </div>
+
       
     </div>
     
