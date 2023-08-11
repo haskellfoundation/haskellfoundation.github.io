@@ -2,8 +2,8 @@
 status: inprogress
 title: The Haskell Security Response Team
 link: https://github.com/haskell/security-advisories
-link-text: Haskell Foundation Technical Proposal
-subtitle: Project Leader
+link-text: Haskell Security Advisory DB
+subtitle: Project Leaders
 leader0name: Fraser Tweedale
 leader0img: project-leads/ft.png
 leader0mail: frase+hasksec@frase.id.au
