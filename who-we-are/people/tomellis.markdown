@@ -1,6 +1,6 @@
 ---
 name: Tom Ellis
-title: Vice Chair
+title: Vice Chair, Vice Treasurer
 executiveTeam: "False"
 tenureStart: 2021-02-01
 image: /assets/images/board-members/te.png
