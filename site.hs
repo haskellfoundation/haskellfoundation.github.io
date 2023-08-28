@@ -18,7 +18,7 @@ import Text.Pandoc as Pandoc
       Block(Para, Plain),
       runPure,
       writePlain, ReaderOptions (readerExtensions), disableExtension, Extension (Ext_tex_math_dollars) )
-import System.FilePath ((</>), dropExtension, splitFileName)
+import System.FilePath ((</>), dropExtension, splitFileName, takeBaseName)
 import qualified Data.Text as T
 
 import Debug.Trace (trace)
@@ -407,11 +407,18 @@ affiliatesCtx affiliates =
 -- | Partition projects into : Ideation | Proposed | In Progress | Completed
 projectsCtx :: [Item String] -> Context String
 projectsCtx projects =
-    listField "ideas" defaultContext (ofMetadataField "status" "ideation" projects)        <>
-    listField "proposals" defaultContext (ofMetadataField "status" "proposed" projects)    <>
-    listField "inprogress" defaultContext (ofMetadataField "status" "inprogress" projects) <>
-    listField "completed" defaultContext (ofMetadataField "status" "completed" projects)   <>
+    listField "ideas" projectContext (ofMetadataField "status" "ideation" projects)        <>
+    listField "proposals" projectContext (ofMetadataField "status" "proposed" projects)    <>
+    listField "inprogress" projectContext (ofMetadataField "status" "inprogress" projects) <>
+    listField "completed" projectContext (ofMetadataField "status" "completed" projects)   <>
     defaultContext
+  where projectContext =
+          slugField "id" <>
+          defaultContext
+
+slugField :: String -> Context a
+slugField name =
+  field name $ pure . takeBaseName . toFilePath . itemIdentifier
 
 -- news ------------------------------------------------------------------------------------------------
 -- | build group of news inside date of publishing (category)
