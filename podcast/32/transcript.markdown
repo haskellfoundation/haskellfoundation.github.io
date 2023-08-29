@@ -1,12 +1,12 @@
-*AL (0:00:15)*: This is the Haskell Interlude. I’m Andres Löh. My co-host today is Matthías Páll Gissurarson. 
+*Andres Löh (0:00:15)*: This is the Haskell Interlude. I’m Andres Löh. My co-host today is Matthías Páll Gissurarson. 
 
-*MPG (0:00:21)*: Hi.
+*Matthías Páll Gissurarson (0:00:21)*: Hi.
 
 *AL (0:00:22)*: Today’s guest is Ranjit Jhala. We will discuss how Ranjit developed Liquid Haskell as a litmus test, because if Haskell programmers won’t use Liquid Types, no one will. We’ll also hear how writing Haskell is a joy and how you should never underestimate your students. 
 
 Our guest today is Ranjit. Welcome, Ranjit.
 
-*RJ (0:00:43)*: Hi. Hi, Andres. Hi, Matti. Very glad to be on this podcast.
+*Ranjit Jhala (0:00:43)*: Hi. Hi, Andres. Hi, Matti. Very glad to be on this podcast.
 
 *AL (0:00:49)*: Our first question usually is, how did you get into Haskell? I guess that for you is a long story.
 
