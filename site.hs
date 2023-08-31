@@ -290,8 +290,7 @@ main = hakyll $ do
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
             podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
-            careers <- loadAll @String ("careers/*.markdown" .&&. hasNoVersion)
-            careersCtx <- careersCtx . reverse <$> loadAll "careers/*.markdown"
+            careersCtx <- careersCtx . reverse <$> loadAll ("careers/*.markdown" .&&. hasNoVersion)
             announces  <- take 1 <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
             let announceCtx = announcementsCtx announces
             eventsCtx <- activeEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
