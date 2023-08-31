@@ -1,15 +1,22 @@
-<div class="max-w-screen-xl mx-auto py-16 md:py-24">
-  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
-    <h1 class="text-2xl-5xl">$title$</h1>
+<div class="max-w-screen-xl mx-auto">
+  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16 py-16 md:py-24">
+    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">$title$</h2>
+      <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+        $summary$
+      </p>
+    </div>
   </div>
-  <div class="max-w-screen-xl mx-auto">
-    <div class="px-4 sm:px-8 md:px-12 lg:px-16">
-      <div class="mx-auto prose md:prose-lg">
-        <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12 bg-gray-100">
+</div>
+
+<div class="max-w-screen-xl mx-auto">
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12 bg-gray-100">
           <div class="text-lg"> <strong>Posted:</strong> $postedOn$ </div>
           <div class="text-lg"> <strong>Status:</strong> $status$ </div>
-        </div> $body$
       </div>
+      $body$
     </div>
   </div>
 </div>
