@@ -1,6 +1,6 @@
 ---
 name: Andres Löh
-title: Board Member
+title: Secretary
 executiveTeam: "False"
 tenureStart: 2023-04-01
 image: "/assets/images/board-members/andres.png"
