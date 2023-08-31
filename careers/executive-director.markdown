@@ -92,4 +92,4 @@ Interested candidates should submit a resume and thoughtful cover letter outlini
 
 Send to [careers@haskell.foundation](careers@haskell.foundation). If you have any questions about the position, feel free to email [chair@haskell.foundation](careers@haskell.foundation).
 
-All applications received by September 15, 2023, will get full consideration, although we will continue to accept applications until the position is filled.
+All applications received by September 29, 2023, will get full consideration, although we will continue to accept applications until the position is filled.
