@@ -1,6 +1,6 @@
 ---
 status: completed
-title: Nighly GHC Releases in GHCUp
+title: Nightly GHC Releases in GHCUp
 link: https://www.haskell.org/ghcup/guide/#nightlies
 link-text: Usage Instructions
 subtitle: Project Leaders
