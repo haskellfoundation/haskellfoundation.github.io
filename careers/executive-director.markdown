@@ -35,19 +35,19 @@ The ED reports to the Board of Directors. All other members of staff and volunte
  * Enhancing HF's image by being engaged with the community and by working closely with other professional and private organizations.
  * Acting as the public face of HF through public presentations at Haskell-related events. 
  * Cultivating excellent relationships with the community and operating HF’s social media presence.
- 
+
 **Organization Operations:** Oversees and implements appropriate resources to ensure the effectiveness of the organization. The ED will be responsible for:
 
  * Hiring and retention of competent, qualified staff and contractors as financial resources permit.
  * Effective administration of HF’s operations.
  * Signing all notes, agreements, and other instruments made and entered into and on behalf of the organization.
  * Fiscal management that generally anticipates operating within the approved budget, ensures maximum resource utilization, and maintenance of the organization in a positive financial position.
- 
+
 **Viability:** Develops financial resources sufficient to ensure the sustainability of the organization. The ED will be responsible for:
 
  * Fundraising and developing other revenues necessary to support HF’s mission.
  * Identifying and cultivating corporate, institutional and individual sponsors.
- 
+
 **Board Governance:** Works with the Board to help it enact HF’s mission. The ED will be responsible for:
 
  * Leading HF in a manner that supports the organization’s mission.
@@ -56,7 +56,7 @@ The ED reports to the Board of Directors. All other members of staff and volunte
  * Working with individual Board members and subcommittees as directed by the Board.
  * Informing the Board regularly of internal organization matters, including relevant staffing, funding and program success and priorities.
  * Fiscal integrity of HF, ensure that the Board is able to monitor the financial condition of HF. This means preparing budgets and financial statements which accurately reflect the financial condition of the organization and are kept up to date.
- 
+
 ## Salary and Employment
 
 The ED can live anywhere in the world – remote working is the standard within HF. Collaborators and partners work in many time zones, and so flexibility around scheduling is important. The ED should also expect several trips to conferences and other events annually.
@@ -83,13 +83,13 @@ Candidates are encouraged to apply with the expectation that the Board will assi
  * Experience in development and organizational leadership in a non-profit or business setting.
  * Experience in writing persuasive materials including successful appeals, proposals, presentations, stewardship materials, and other collateral.
  * Knowledge of the Haskell community and its dynamics
- 
+
  HF celebrates diversity and inclusion, and does not discriminate on an individual’s identity characteristics. Under-represented minorities are especially encouraged to apply.
- 
+
 ## Application Process
 
 Interested candidates should submit a resume and thoughtful cover letter outlining how their skills and experience meet the qualifications of the position, and their vision for the Foundation.
 
-Send to [careers@haskell.foundation](careers@haskell.foundation). If you have any questions about the position, feel free to email [chair@haskell.foundation](careers@haskell.foundation).
+Send to [careers@haskell.foundation](mailto:careers@haskell.foundation). If you have any questions about the position, feel free to email [chair@haskell.foundation](mailto:chair@haskell.foundation).
 
 All applications received by September 29, 2023, will get full consideration, although we will continue to accept applications until the position is filled.
