@@ -208,7 +208,7 @@ One thing that’s been a challenge for me is that I live in Denmark. I have to 
 
 *WS (0:46:24)*: Exactly. Yeah. Fair enough. Okay. Thanks very much.
 
-s 2: Can I have a few minutes to plug some of the things that we’ve done in the Haskell Foundation in the last little while? 
+*DTC (0:46:29)*: Can I have a few minutes to plug some of the things that we’ve done in the Haskell Foundation in the last little while? 
 
 *MPG (0:46:33)*: Yeah, yeah. 
 
