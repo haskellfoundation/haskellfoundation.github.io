@@ -19,9 +19,12 @@ cabal.sandbox.config
 .stack-work/
 _cache/
 _site/
-stack.yaml.lock
 dist-newstyle/
 
 ### General ###
 *~
 .DS_Store
+
+### Nix ###
+.direnv/
+.envrc

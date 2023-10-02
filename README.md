@@ -41,6 +41,26 @@ The site will be build in the `_site` directory, and you can open the files in y
 
 For further information, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) at the root of this project.
 
+### Nix
+
+The project also provides a Nix flake using
+[stacklock2nix](https://github.com/cdepillabout/stacklock2nix) following the
+"Advanced" example. Having activated the environment with `nix develop` or via
+a `.envrc` file with [direnv](https://github.com/nix-community/nix-direnv),
+you can then run all the `stack` commands with `stack --nix ...`, i.e.:
+
+```bash
+stack --nix build
+# Or, to run
+stack --nix -- watch
+```
+
+If you prefer, it can also be built with `cabal`:
+
+```
+cabal build
+```
+
 ## CI
 
 We use GitHub Actions `.github/workflows/main.yml` to build the site for production.
