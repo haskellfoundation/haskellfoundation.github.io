@@ -42,7 +42,7 @@ The monad-par library is an IVar library for Haskell. So it’s a library that�
 
 And so that’s what LVars are. They generalize IVars a little bit to let you do this multiple increasing or what we call inflationary reads, or sorry, writes. And then reads have to be what you call threshold reads, which means you can only ask this limited set of questions. And you can put those together to get – what it turns out is a data structure that’s useful for deterministic parallel programming. 
 
-*WS (0:09:52)*: So this *(0:09:53 unintelligible)* sounds a bit like CRDT. What is it? Like conflict-free replicated data structures, data types.
+*WS (0:09:52)*: So this monotonicity sounds a bit like CRDT. What is it? Like conflict-free replicated data structures, data types.
 
 *LK (0:10:00)*: Yes. Yes, yes. So yeah, that’s exactly right. So CRDT is – just at the time that I was doing my PhD, CRDTs were beginning to come on the scene, and it was, in fact, people from the distributed programming community reaching out to me and telling me, “By the way, the work that you’re doing is a lot like what we are doing with CRDTs.” That was what got me into distributed systems in the first place, in fact. So in the latter part of my PhD, I began hearing from people who were working with CRDTs, and they were telling me, “Hey, what you’re doing is a lot like what we’re doing. You should pay attention.” 
 
