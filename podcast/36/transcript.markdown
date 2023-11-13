@@ -226,7 +226,7 @@ But when I got interested in functional programming, I remember being very inspi
 
 *WS (1:00:46)*: Who knows? Maybe AI.
 
-*JH (1:00:49)*: I mean, Verse seems very interesting, where you add logic programming *(1:00:54 unintelligible)* to a language that in some ways is rather like Haskell. I mean, Tim Sweeney is very visionary about the potential of functional logic programming. Maybe there, there’s productivity to be fetched. I don’t know. I think the jury is still out on that one, but it’s certainly something that’s very interesting that a lot of people want to follow.
+*JH (1:00:49)*: I mean, Verse seems very interesting, where you add logic programming elements to a language that in some ways is rather like Haskell. I mean, Tim Sweeney is very visionary about the potential of functional logic programming. Maybe there, there’s productivity to be fetched. I don’t know. I think the jury is still out on that one, but it’s certainly something that’s very interesting that a lot of people want to follow.
 
 *WS (1:01:17)*: Yes, for sure. Okay, thanks very much, John, for your time.
 
