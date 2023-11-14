@@ -1,0 +1,8 @@
+* [John MacFarlane’s website](https://johnmacfarlane.net/)
+* [Greg Restall: Haskell and Logic](https://consequently.org/news/2004/05/10/haskell_and_logic/)
+* [Gentle intro to Haskell](https://www.haskell.org/tutorial/)
+* [pandoc](https://pandoc.org/)
+* [Beyond Markdown Essay](https://johnmacfarlane.net/beyond-markdown.html)
+* [CommonMark](https://commonmark.org/)
+* [Djot](https://djot.net/)
+* [skylighting](https://github.com/jgm/skylighting)
