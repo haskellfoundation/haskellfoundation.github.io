@@ -82,7 +82,7 @@ And so, it really became difficult to use filters. They had to have a lot of Has
 
 What else has been good? I don’t really use too many of the fancy IDE features. I mean, I guess I use the Haskell language server, but I don’t really care about it that much. I mean, if it doesn’t start up on my editor, I don’t really miss it that much. Usually, I don’t use that extensively. So, that’s not really an issue. But the package ecosystem has been good, and I think it works quite reliably now. There was a period where we had cabal hell, but I think we’re well beyond that now. 
 
-*DTC (0:20:53)*: Oh yeah, years and years. I don’t know if well beyond hell sounds good or bad. I guess it depends on the direction and whether the *(0:21:03 unintelligible)* the hell or not. 
+*DTC (0:20:53)*: Oh yeah, years and years. I don’t know if well beyond hell sounds good or bad. I guess it depends on the direction and whether it’s circular, the hell, or not.
 
 *DTC (0:21:06)*: I’ve felt like I’ve been in, not necessarily cabal heaven lately, but at least cabal purgatory.
 
