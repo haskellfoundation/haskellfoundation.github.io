@@ -2,7 +2,7 @@
 title: Executive Director
 summary: The Haskell Foundation seeks a new Executive Director.
 postedOn: 2023-08-31
-status: Open
+status: Closed
 ---
 
 
