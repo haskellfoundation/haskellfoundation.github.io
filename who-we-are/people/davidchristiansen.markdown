@@ -2,7 +2,7 @@
 name: David Thrane Christiansen
 email: david@haskell.foundation
 title: Executive Director
-executiveTeam: "True"
+executiveTeam: "False"
 tenureStart: 2022-05-02
 image: /assets/images/exec-team/dtc.png
 website: https://davidchristiansen.dk
