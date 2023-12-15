@@ -1,0 +1,6 @@
+* [Rebecca’s Webpage](https://rebeccaskinner.net/)
+* [Rebecca’s X](https://twitter.com/cercerilla)
+* [Rebecca’s Github](https://github.com/rebeccaskinner/)
+* [Effective Haskell](https://pragprog.com/titles/rshaskell/effective-haskell/)
+* [Mercury](https://mercury.com/)
+* [Haskell Org](https://www.haskell.org/)
