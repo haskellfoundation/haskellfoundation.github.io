@@ -1,0 +1,11 @@
+* [Active Group](https://www.active-group.de/)
+* [SICP (The Wizard Book](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html)
+* [R6RS](https://www.r6rs.org/)
+* [Scheme 48](https://s48.org/)
+* [Accelerate for GPU programming in Haskell](https://hackage.haskell.org/package/accelerate)
+* [Concat framework for compiling to categories](https://github.com/compiling-to-categories/concat)
+* [How to Design Programs](https://htdp.org/)
+* [Racket](https://www.racket-lang.org/)
+* [Schreibe Dein Program!](https://www.deinprogramm.de/sdp/)
+* [Datatypes A La Carte](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/data-types-a-la-carte/14416CB20C4637164EA9F77097909409)
+
