@@ -1,5 +1,5 @@
 ---
 title: Zurihac
-externalUrl: https://zfoh.ch/zurihac2021/
+externalUrl: https://zurihac.com/
 status: affiliated
 ---
