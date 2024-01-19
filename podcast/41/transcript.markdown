@@ -126,7 +126,7 @@ Since then, I’ve been at the same company, doing mostly cross-compilation and 
 
 *MA (0:16:13)*: Right. Right.
 
-*JB (0:16:14)*: So there’s still something. We had to convince somebody that Haskell is really more than just technical marvel that nerdy people with math friends, or no, you develop *(0:16:22 unintelligible)*—computer science friends want to do. 
+*JB (0:16:14)*: So there’s still something. We had to convince somebody that Haskell is really more than just technical marvel that nerdy people with math friends – or no, you were the math person with computer science friends – want to do. 
 
 *MA (0:16:25)*: Well, luckily, that was not my job. That was already set in stone before I started embarking on this. So, people had decided they wanted to use Haskell and then they were like, “Okay, but we don’t really want to use Windows and we don’t want to manage Windows in CI and whatnot, so can we do something about that?” And that’s how that basically happened. And from there, I was just like, “Okay, if we have built this infor – so, when we started, I was – okay, one step back. I was hired and was told we’re going to use Nix to do this. I was like, “Nix is what? I never heard Nix. What the hell is this? Okay, this sounds terrible.” This is just, “Oh God, what are they doing? Oh my, no. Why? I’m using Mac? What the hell is this? No, no, no, I’m not using – no.” So, okay. And that was Nix. And I was like, “Okay, let’s learn this.” 
 
