@@ -1,0 +1,7 @@
+* [Jezen Thomas’ blog](https://jezenthomas.com/)
+* [Supercede](https://supercede.com/)
+* [7 Languages in 7 Week](https://pragprog.com/titles/btlang/seven-languages-in-seven-weeks/)
+* [Cofounder’s lab](https://cofounderslab.com/)
+* [Yesod](https://www.yesodweb.com/)
+* [37 Signals](https://37signals.com/)
+* [State of Haskell](https://taylor.fausak.me/2022/11/18/haskell-survey-results/)
