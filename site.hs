@@ -29,9 +29,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = hakyll $ do
 -- statics ---------------------------------------------------------------------------------------------
-    match "assets/css/main.css" $ do
-        route   idRoute
-        compile compressCssCompiler
+    match "assets/css/tailwind.css" $ do
+        route idRoute
+        -- We concatenate a dev.css file that exists at the root of the repository so that people don't
+        -- need to have nodejs setup or working in order to get a functional development experience
+        -- "why yes this is very crimes why do you ask"
+        compile $ getResourceString >>= traverse (unixFilter "cat" ["-", "dev.css"])
+
+    -- Here is where interop with JS would happen if we felt like making every
+    -- haskell developer working on this site learn all of the nodejs nonsense
+    -- match "assets/css/*.css" $ do
+    --     route idRoute
+    --     undefined -- (insert some invoke "npm run build" step here)
 
     match "assets/**" $ do
         route idRoute
@@ -40,6 +49,7 @@ main = hakyll $ do
     match "sw.js" $ do
         route idRoute
         compile copyFileCompiler
+
 
 -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
@@ -282,7 +292,7 @@ main = hakyll $ do
 --
 -- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field
 
-    match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
+    match ("**/*.markdown" .&&. (complement "node_modules/**/*.markdown")) $ version "description" $ compile pandocPlainCompiler
 
 -- home page -------------------------------------------------------------------------------------------
     create ["index.html"] $ do
@@ -301,7 +311,7 @@ main = hakyll $ do
                 >>= relativizeUrls
 
 -- general 'static' pages ------------------------------------------------------------------------------
-    match "**/index.html" $ do
+    match ("**/index.html" .&&. (complement "node_modules/**/index.html")) $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
