@@ -1,7 +1,7 @@
 ---
 name: Scott Conley
 email: scott@flipstone.com
-title: Board Member
+title: Vice Secretary
 executiveTeam: "False"
 tenureStart: 2021-02-01
 image: /assets/images/board-members/sc.png
