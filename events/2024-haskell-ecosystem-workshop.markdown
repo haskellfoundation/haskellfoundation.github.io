@@ -1,6 +1,6 @@
 ---
 title: 2024 Haskell Ecosystem Workshop
-published: 2022-02-29
+published: 2024-02-29
 daterange: June 6-7, 2024
 status: active
 location: Rapperswil, Switzerland
@@ -12,7 +12,7 @@ We are excited to announce the **2024 Haskell Ecosystem Workshop, June 6-7 2024*
 
 In this two-day event, held on the lakeside campus of OST in lovely Rapperswil, Switzerland, you can learn what you need to know in order to get started working on these tools. We've asked the presenters to identify 'good first issues' for those wanting to get their feet wet on contributing. Because the workshop is immediately prior to [Zurihac 2024](https://zfoh.ch/zurihac2024/), you will have the opportunity to tackles one of these issues while the core developers are easily available!
 
-The following speakers have been confirmed:
+The following speakers have been confirmed, with more to follow:
 
 * Michael Peyton Jones: Haskell Language Server
 * Julian Ospald: GHCUp
@@ -20,12 +20,16 @@ The following speakers have been confirmed:
 * Alan Zimmerman: ghc-exactprint
 * Hécate Choutri: Haddock and Documentation
 
-We will update the list of confirmed speakers as the
+There will also be experts on ecosystem-wide issues (e.g. Security), in order to facilitate conversations about how to address cross-cutting issues in our tooling ecosystem.
+
+We will update the list of confirmed speakers as we receive confirmation.
 
 
 ## In-Person Attendance
 
-Registration for in-person attendance will be managed via eventbrite. Because of the space available participation will be limited to the first 70 participants. Monad and Applicative level sponsors to the Haskell Foundation have a set of reserved seats. These reserved seats will be released to the general pool if they go unused by the sponsors.
+Registration for in-person attendance will be managed via Eventbrite. Because of the space available registration will be limited to the first 70 participants. Monad and Applicative level sponsors to the Haskell Foundation have a set of reserved seats. These reserved seats will be released to the general pool if they go unused by the sponsors.
+
+The registration link is available [on Eventbrite](https://www.eventbrite.com/e/2024-haskell-ecosystem-workshop-tickets-851066431607?aff=oddtdtcreator)
 
 ## Video Recordings and Live Streaming
 
