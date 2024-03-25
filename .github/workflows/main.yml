@@ -77,6 +77,6 @@ jobs:
             cp -a -v _site/. .
             #  Commit
             git add --all
-            git commit -m "[`date '+%F %T %Z'`] New release [ci skip]"
+            git --allow-empty commit -m "[`date '+%F %T %Z'`] New release [ci skip]"
             # Push
             git push origin main:main
