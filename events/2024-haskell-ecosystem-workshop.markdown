@@ -19,6 +19,9 @@ The following speakers have been confirmed, with more to follow:
 * Richard Eisenberg: GHC
 * Alan Zimmerman: ghc-exactprint
 * Hécate Choutri: Haddock and Documentation
+* Fraser Tweedale: Security Response Team
+* Mike Pilgrim: Stack and Stackage
+* Same Derbyshire: Cabal
 
 There will also be experts on ecosystem-wide issues (e.g. Security), in order to facilitate conversations about how to address cross-cutting issues in our tooling ecosystem.
 
@@ -76,22 +79,28 @@ The full schedule of the program is still being drafted.
 
 <tr><th colspan="3">2024-06-06</th></tr>
 <tr><th>8:00-9:00</th><td> Registration</td><td></td></tr>
-<tr><th>9:00-9:20</th><td> Welcome and Intro <a href="https://youtu.be/1QIbqktJQUc">(video)</a></td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
-<tr><th>9:30-11:15</th><td> State of the Haskell Ecosystem </td><td> </td></tr>
-<tr><th>11:30-12:20</th><td> </td><td> </td></tr>
+<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
+<tr><th>9:30-10:30</th><td> A vision for Haskell Documentation </td><td>Hécate </td></tr>
+<tr><th>10:45-11:45</th><td> Talk </td><td> </td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
-<tr><th>13:40-14:40</th><td> </td><td> </td></tr>
-<tr><th>15:00-17:00</th><td> </td><td> </td></tr>
+<tr><th>13:30 - 14:30</th><td>Haskell Language Server	</td><td>Michael Peyton Jones</td></tr>
+<tr><th>14:45 - 15:45</th><td>	Haskell Security Response Team	</td><td>Fraser Tweedale</td></tr>
+<tr><th>16:00 - 17:00</th><td>	Haskell Error Index: Interactive Session	</td><td>David Binder</td></tr>
+<tr><th>17:00 - 17:50	</th><td>	Discussion Topic: Haskell Stability	</td><td></td></tr>
+<tr><th>17:50 - 18:00</th><td>		Closing Remarks	</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
 
 
 <tr><th colspan="3">2024-06-07</th></tr>
-<tr><th>9:15-9:30</th><td> Welcome Day 2 </td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
-<tr><th>9:30-11:15</th><td> Haddock and Docs </td><td> Hécate Choutri </td></tr>
-<tr><th>11:30-12:20</th><td> </td><td> </td></tr>
-<tr><th>12:30-13:30</th><td>Lunch</td><td></td></tr>
-<tr><th>13:40-14:40</th><td> </td><td> </td></tr>
-<tr><th>15:00-17:00</th><td> </td><td> </td></tr>
-<tr><th>17:00-17:30</th><td>Farewell </a></td><td></td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</tr>
+<tr><th>8:00-9:00</th><td> Unstructured time</td><td></td></tr>
+<tr><th>9:00-9:20</th><td> Welcome and Practical Information </td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
+<tr><th>9:30-10:30</th><td> GHC </td><td> Richard Eisenberg </td></tr>
+<tr><th>10:45-11:45</th><td> GHCUp </td><td> Julian Ospald </td></tr>
+<tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
+<tr><th>13:30 - 14:30</th><td> ghc-exactprint </td><td> Alan Zimmerman</td></tr>
+<tr><th>14:45 - 15:45</th><td>	Thoughts on Cabal	</td><td>Sam Derbyshire</td></tr>
+<tr><th>16:00 - 17:00</th><td>	HLS Issues </td><td>Zubin Duggal</td></tr>
+<tr><th>17:00 - 17:50	</th><td>	Stack and Stackage </td><td> Mike Pilgrim</td></tr>
+<tr><th>17:50 - 18:00</th><td>		Closing Remarks	</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
 
 </table>
 
