@@ -13,6 +13,12 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Also run weekly to keep the Github cache warm, else the next deploy
+  # takes >30mins
+  schedule:
+    - cron: '0 7 * * 1'  # 8AM CET/11PM PT on Mondays
+
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -38,7 +44,7 @@ jobs:
           ghc-version: ${{ matrix.ghc }}
           stack-version: ${{ matrix.stack }}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache/restore@v3
         name: Cache ~/.stack
         with:
           path: ~/.stack
@@ -47,6 +53,11 @@ jobs:
 
       - name: Build dependencies
         run: stack build --system-ghc --only-dependencies
+
+      - uses: actions/cache/save@v3
+        with:
+          path: ~/.stack
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
 
       - name: Build site executable
         run: stack build --system-ghc
@@ -66,6 +77,6 @@ jobs:
             cp -a -v _site/. .
             #  Commit
             git add --all
-            git commit -m "[`date '+%F %T %Z'`] New release [ci skip]"
+            git commit --allow-empty -m "[`date '+%F %T %Z'`] New release [ci skip]"
             # Push
             git push origin main:main
