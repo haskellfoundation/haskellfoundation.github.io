@@ -99,7 +99,7 @@ The full schedule of the program is still being drafted.
 <tr><th>13:30 - 14:30</th><td> ghc-exactprint </td><td> Alan Zimmerman</td></tr>
 <tr><th>14:45 - 15:45</th><td>	Thoughts on Cabal	</td><td>Sam Derbyshire</td></tr>
 <tr><th>16:00 - 17:00</th><td>	HLS Issues </td><td>Zubin Duggal</td></tr>
-<tr><th>17:00 - 17:50	</th><td>	Stack and Stackage </td><td> Mike Pilgrem and Bryan Richter </td></tr>
+<tr><th>17:00 - 17:50	</th><td>	Stack and Stackage </td><td> Bryan Richter and Mike Pilgrem </td></tr>
 <tr><th>17:50 - 18:00</th><td>		Closing Remarks	</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
 
 </table>
