@@ -21,7 +21,7 @@ The following speakers have been confirmed, with more to follow:
 * Hécate Choutri: Haddock and Documentation
 * Fraser Tweedale: Security Response Team
 * Mike Pilgrim: Stack and Stackage
-* Same Derbyshire: Cabal
+* Sam Derbyshire: Cabal
 
 There will also be experts on ecosystem-wide issues (e.g. Security), in order to facilitate conversations about how to address cross-cutting issues in our tooling ecosystem.
 
