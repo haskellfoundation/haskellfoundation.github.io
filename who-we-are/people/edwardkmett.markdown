@@ -6,6 +6,7 @@ executiveTeam: "False"
 interimBoard: "True"
 interimBoardTitle: Interim Board Member
 tenureStart: 2021-02-01
+tenureEnd: 2024-04-25
 image: /assets/images/board-members/ek.png
 committees: Technical Agenda
 ---

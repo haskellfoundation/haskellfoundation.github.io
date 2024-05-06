@@ -4,6 +4,7 @@ email: scott@flipstone.com
 title: Vice Secretary
 executiveTeam: "False"
 tenureStart: 2021-02-01
+tenureEnd: 2024-04-25
 image: /assets/images/board-members/sc.png
 committees: Sponsorship
 ---
