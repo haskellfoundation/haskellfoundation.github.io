@@ -4,7 +4,7 @@ email: jmct@haskell.foundation
 title: Executive Director
 executiveTeam: "True"
 tenureStart: 2023-11-09
-image: /assets/images/exec-team/jmct.jpg
+image: /assets/images/exec-team/jmct.png
 website: http://jmct.cc
 ---
 
