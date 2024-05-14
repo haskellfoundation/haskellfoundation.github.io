@@ -1,6 +1,6 @@
 ---
 name: Mike Pilgrem
-title: Board Member
+title: Secretary
 executiveTeam: "False"
 tenureStart: 2024-04-25
 image: /assets/images/board-members/mpilgrem.png
