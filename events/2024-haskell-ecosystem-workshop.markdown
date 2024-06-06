@@ -134,7 +134,14 @@ A certificate of completion will be available on advance request to students who
 
 Remote participation will make use of the Zurihac infrastructure. We will do our best to stream presentations and to post recordings as quickly as possible, and we will also have a chat system for remote participants.
 
+## Sponsors
+
+* [Heilmann Software](https://www.heilmannsoftware.com/de/)
+* [IOG](https://iog.io/)
+* [Flipstone Technology Partners](https://flipstone.com/)
+
 If you or your company would like to sponsor the event, enabling more students to have financial support to attend, please contact Jose Calderon at [jmct@haskell.foundation](mailto:jmct@haskell.foundation).
+
 
 
 <div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/ost_logo-400.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
