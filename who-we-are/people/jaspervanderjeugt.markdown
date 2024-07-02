@@ -1,5 +1,6 @@
 ---
 name: Jasper Van Der Jeugt
+title: Board Member
 executiveTeam: "False"
 interimBoard: "True"
 interimBoardTitle: Interim Board Member
