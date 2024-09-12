@@ -37,17 +37,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: haskell/actions/setup@v2
+      - uses: haskell-actions/setup@v2
         name: Setup Haskell Stack
         with:
           ghc-version: ${{ matrix.ghc }}
           stack-version: ${{ matrix.stack }}
 
-      - uses: actions/cache/restore@v3
+      - uses: actions/cache/restore@v4
+        id: cache
         name: Cache ~/.stack
         with:
           path: ~/.stack
@@ -57,7 +58,10 @@ jobs:
       - name: Build dependencies
         run: stack build --system-ghc --only-dependencies
 
-      - uses: actions/cache/save@v3
+      - uses: actions/cache/save@v4
+        # We shouldn't ever run into an exact key hit (in theory),
+        # but this prevents errors if we do.
+        if: steps.cache.outputs.cache-hit != 'true'
         with:
           path: ~/.stack
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
