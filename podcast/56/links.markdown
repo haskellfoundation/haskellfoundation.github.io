@@ -5,7 +5,7 @@
 * [Kubernetes](https://kubernetes.io/)
 * [FP castle](https://fpcastle.com/)
 * [Miranda](https://www.cs.kent.ac.uk/people/staff/dat/miranda/)
-* [BlueSpec](https://bluespec.com/)
+* [Bluespec](https://github.com/B-Lang-org/bsc)
 * [Dagstuhl](https://www.dagstuhl.de/en/seminars/dagstuhl-seminars)
 * [Arran (scottish island)](https://www.visitarran.com/)
 * [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro)
