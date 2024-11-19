@@ -1,5 +1,5 @@
 ---
-title: ICFP
+title: ICFP 2024
 episode: 58
 buzzsproutId: 16127172
 recorded: 2024-09-04
