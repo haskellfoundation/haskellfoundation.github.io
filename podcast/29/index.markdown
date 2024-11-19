@@ -1,5 +1,5 @@
 ---
-title: ZuriHac
+title: ZuriHac 2023
 episode: 29
 buzzsproutId: 13122509
 recorded: 2023-06-11
