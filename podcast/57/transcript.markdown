@@ -24,7 +24,7 @@ And then later at school, we had computer science, not as a regular subject at s
 
 Then we moved to Berlin. So, I also started basically studying, continued my studies in Berlin. And I worked as a basically teaching assistant there for first-year course, and that was in functional programming, but that was in Miranda, at least the first few years. And then when Gofer basically became a thing, we switched to Haskell. So, I mainly did some programming with programming assignments there, but I didn’t do a lot of programming, Haskell programming for applications for myself.
 
-*AL (0:04:55)*: Yeah, perhaps we should remind our audience with slightly less experience a little bit about what Miranda and Gaffer actually are, because I could imagine that many Haskellers these days don’t actually know. So, I mean, I guess, do you want to say yourself or --
+*AL (0:04:55)*: Yeah, perhaps we should remind our audience with slightly less experience a little bit about what Miranda and Goffer actually are, because I could imagine that many Haskellers these days don’t actually know. So, I mean, I guess, do you want to say yourself or --
 
 *GK (0:05:14)*: Yeah. So, I’m not completely familiar with the history of Miranda, but it was basically, I think, a predecessor of Haskell and had already a lot of Haskell features. Like not all the type system features, of course, that Haskell is now, but the core Haskell.
 
