@@ -1,0 +1,7 @@
+* [Twitter](https://twitter.com/tomjaguarpaw/)
+* [Blog](https://h2.jaguarpaw.co.uk/)
+* [Bluefin](https://hackage.haskell.org/package/bluefin)
+* [Strict Wrapper](https://hackage.haskell.org/package/strict-wrapper)
+* [Stability Working Group](https://github.com/haskellfoundation/stability?tab=readme-ov-file#haskell-foundation-stability-working-group)
+* [Upgrading from 8.10 to 9.6](https://h2.jaguarpaw.co.uk/posts/ghc-8.10-9.6-experience-report/)
+* [Groq](https://groq.com/)
