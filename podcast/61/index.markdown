@@ -1,6 +1,6 @@
 ---
 title: Sam Lindley
-episode: 60
+episode: 61
 buzzsproutId: 16485805
 recorded: 2024-11-15
 published: 2025-01-22
