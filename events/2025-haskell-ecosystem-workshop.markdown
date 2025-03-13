@@ -57,18 +57,11 @@ If you intend on
 Please make sure that you have [checked out and built](https://gitlab.haskell.org/ghc/ghc/-/wikis/building) a recent GHC from source **before arriving**. In a separate checkout, please [build the JavaScript backend](https://gitlab.haskell.org/ghc/ghc/-/wikis/javascript-backend/building) as well. You should also have a working [GHC GitLab account](https://gitlab.haskell.org/users/sign_up) prior to arrival. If you have difficulties, the GHC developers have recommended asking for support in `#ghc` on [Matrix](https://matrix.to/#/#ghc:libera.chat) or IRC. 
 -->
 
-#### Checklist
-
- * Swiss power adapter(s), if necessary
- * Refillable water bottle
- * Working account on [gitlab.haskell.org](https://gitlab.haskell.org)
- * Checked out and built a recent GHC from source
- * Checked out and built the JavaScript backend from source
-
 ### Program
 
 The full schedule of the program is still being drafted.
 
+<!--
 <table>
 
 <tr><th colspan="3">2024-06-06</th></tr>
@@ -102,6 +95,8 @@ All times are in CEST using a 24-hour clock. Speakers have been asked to plan ap
 
 We don't expect every participant to attend every presentation. It's perfectly acceptable to skip a topic that you're less interested in so you can hack on a topic that you are interested in, taking advantage of ready access to the experts for hands-on assistance.
 
+-->
+
 ### Lunch and Refreshments
 
 We will eat lunch in the OST canteen, called Mensa. While Mensa is open from 11:00-13:15, it is very busy from 11:45-12:30 because classes are in session, and they've asked that we go before or after. Talks have been scheduled to account for this.
@@ -115,11 +110,11 @@ Due to space constraints and to enable scholarships for student participants, th
 Fees will be used to cover travel costs for presenters, other direct costs of running the event, and students who don't have other funding to attend.
 The fee depends on participant category:
 
- * _Enrolled students_ ($$40) are participants who are enrolled full-time at an educational institution. 
+ * _Enrolled students_ ($$20) are participants who are enrolled full-time at an educational institution. 
 
- * _Individual professionals_ ($$400) are no longer students and are interested in working on GHC for their own purposes. 
+ * _Individual professionals_ ($$200) are no longer students and are interested in working on GHC for their own purposes. 
 
- * _Corporate participants_ ($$1200) are being paid by their employer to attend so that they can use the knowledge that they gain on the job. Corporate participants will have their company name on their name tag and their company will be listed on the event web page as a supporter of the event.
+ * _Corporate participants_ ($$600) are being paid by their employer to attend so that they can use the knowledge that they gain on the job. Corporate participants will have their company name on their name tag and their company will be listed on the event web page as a supporter of the event.
  
 All fees are in US dollars.
 We want the event to be as accessible as possible, given our limitations, so if the fee is a barrier to attending, please contact Jose Calderon at [jmct@haskell.foundation](mailto:jmct@haskell.foundation) to discuss a reduced or waived fee—this goes for all three categories of participant.
@@ -130,9 +125,11 @@ Remote participation will make use of the Zurihac infrastructure. We will do our
 
 ## Sponsors
 
+<!--
 * [Heilmann Software](https://www.heilmannsoftware.com/de/)
 * [IOG](https://iog.io/)
 * [Flipstone Technology Partners](https://flipstone.com/)
+-->
 
 If you or your company would like to sponsor the event, enabling more students to have financial support to attend, please contact Jose Calderon at [jmct@haskell.foundation](mailto:jmct@haskell.foundation).
 
