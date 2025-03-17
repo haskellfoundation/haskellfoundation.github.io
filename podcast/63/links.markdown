@@ -1,3 +1,4 @@
++ [Farhad](https://scholar.google.com/citations?user=aZ_uTPUAAAAJ)
 + [Scheme](https://conservatory.scheme.org/schemers/Documents/Standards/R5RS/)
 + [SML](https://smlfamily.github.io/)
 + [Scala](https://www.scala-lang.org/)
