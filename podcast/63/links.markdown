@@ -1,0 +1,8 @@
++ [Scheme](https://conservatory.scheme.org/schemers/Documents/Standards/R5RS/)
++ [SML](https://smlfamily.github.io/)
++ [Scala](https://www.scala-lang.org/)
++ [Benjamin Pierce: Types and Programming Languages]()
++ [Gotthard-Basistunnel](https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel)
++ [Block-based programming in Scratch](https://en.wikipedia.org/wiki/Scratch_(programming_language))
++ [Designing a Visual, Block-Based Environment to Create & Execute Haskell Code ](https://www.ost.ch/de/details/abstracts/designing-a-visual-block-based-environment-to-create-execute-haskell-code-19074)
++ [Conal Elliott](http://conal.net/)
