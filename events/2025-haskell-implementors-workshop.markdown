@@ -58,7 +58,7 @@ The following speakers will present at the event. A detailed program is provided
 
 ## In-Person Attendance
 
-Registration for in-person attendance will be opened soon and will be announced on this page as well as on Haskell community forums.
+Registration for in-person attendance is via EventBrite: [here](https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator).
 
 ## Video Recordings and Live Streaming
 
