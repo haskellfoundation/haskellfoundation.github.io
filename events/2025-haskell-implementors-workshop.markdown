@@ -58,7 +58,17 @@ The following speakers will present at the event. A detailed program is provided
 
 ## In-Person Attendance
 
-Registration for in-person attendance is via EventBrite: [here](https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator).
+Registration is open. Please sign up [on Eventbrite](https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator). Registrations for both the Haskell Ecosystem Workshop (HEW) and Haskell Implementors' Workshop (HIW) are managed using the same ticketing system. **Please make sure to include a Haskell Implementors' Workshop ticket in your booking.**
+
+Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation.
+Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation.
+The fee depends on participant category:
+
+ * _Enrolled students_ ($$10) are participants who are enrolled full-time at an educational institution. 
+
+ * _Other participants_ ($$20) are participants who do not meet the criterion above.
+ 
+All fees are in US dollars.
 
 ## Video Recordings and Live Streaming
 
@@ -97,19 +107,6 @@ The program will be announced after the call for proposals closed and the progra
 We will eat lunch in the OST canteen, called Mensa. While Mensa is open from 11:00-13:15, it is very busy from 11:45-12:30 because classes are in session, and they've asked that we go before or after. Talks have been scheduled to account for this.
 
 Coffee, tea, and fruit will be provided. There is also easy access to a tap for water. Dinner is on your own. There is a grocery store very near the campus where other products can be purchased as well.
-
-
-## Participation
-
-Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation.
-Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation.
-The fee depends on participant category:
-
- * _Enrolled students_ ($$10) are participants who are enrolled full-time at an educational institution. 
-
- * _Other participants_ ($$20) are participants who do not meet the criterion above.
- 
-All fees are in US dollars.
 
 ## Partners
 
