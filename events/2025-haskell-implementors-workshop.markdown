@@ -17,7 +17,7 @@ Talks and/or demos are proposed by submitting an abstract, and selected by a sma
 
 The CFP is open and talks can be submitted using [the online form](https://docs.google.com/forms/d/e/1FAIpQLSdczGbxJYGc4eusvPrxwBbZl561PnKeYnoZ2hYsdw_ZpSfupQ/viewform?usp=header).
 
-* CFP Deadline: April 4, 2025
+* Extended CFP Deadline: April 18, 2025
 * Speaker Notification: May 5, 2025
 * Talk format: 20min talk + 5min Q/A
 
