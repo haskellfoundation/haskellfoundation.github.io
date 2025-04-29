@@ -17,7 +17,7 @@
 + [Swiss Institute of Technology (ETH) Zurich](https://ethz.ch/en.html)
 + [Event-B (Formal Development Method)](https://en.wikipedia.org/wiki/B-Method#Event-B)
 + [Prof. Jean-Raymond Abrial](https://en.wikipedia.org/wiki/Jean-Raymond_Abrial)
-+ [Lötschberg Base Tunnel](https://en.wikipedia.org/wiki/L0tschberg_Base_Tunnel)
++ [Lötschberg Base Tunnel](https://en.wikipedia.org/wiki/Lötschberg_Base_Tunnel)
 + [Gotthard Base Tunnel](https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel)
 + [Eastern Switzerland University of Applied Sciences (OST)](https://www.ost.ch)
 + [Functional Programming (Course at OST)](https://studien.ost.ch/allModules/39143_M_FP.html)
