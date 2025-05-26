@@ -38,6 +38,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
 
   <tr><td>10:50</td><td>11:15</td><td><details>
     <summary>The GHC Debugger</summary>
+    <p>Collaborators: Matthew Pickering, Hannes Siebenhandl</p>
     <p>
       While using the Haskell debugger has been possible via GHCi for the last two decades, the lack
       of a modern integration with IDEs, and incomplete, slow, or unimplemented
@@ -78,6 +79,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
   </details></td><td>Teo Camarasu</td></tr>
   <tr><td>12:05</td><td>12:30</td><td><details>
     <summary>Making GHCi compatible with multiple home units</summary>
+    <p>Collaborators: Matthew Pickering, Rodrigo Mesquita</p>
     <p>
       The ability to compile multiple units within a single session was a key
       innovation for GHC API consumers like GHCi and HLS. Today, most Haskell
@@ -107,6 +109,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
 
   <tr><td>14:00</td><td>14:25</td><td><details>
     <summary>Explicit Level Imports</summary>
+    <p>Collaborators: Rodrigo Mesquita, Adam Gundry</p>
     <p>
       Explicit Level Imports is an extension to GHC which allows a programmer to be
       more precise about which dependencies are needed for Template Haskell.
@@ -127,6 +130,7 @@ finally reflect on future directions the extension makes possible.
   </details></td><td>Matthew Pickering</td></tr>
   <tr><td>14:25</td><td>14:50</td><td><details>
     <summary>Intensional Analysis of Typed Template Haskell Quotations</summary>
+    <p>Collaborators: Matthew Pickering</p>
     <p>
       Typed Template Haskell allows us to write Haskell code which generates other Haskell programs in a type-safe and principled manner. However, the generated programs are completely opaque and cannot be introspected, limiting the type of analysis and transformations that we can perform. We propose a system which allows the programmer to overload the meaning of quoted Template Haskell expressions by desugaring these expressions into a well-typed PHOAS representation. Being a regular datatype, the PHOAS representation is much more amenable to analysis and transformation, indirectly giving the programmer the ability to overload the meaning of quoted expressions by further processing the PHOAS representation. Primitive Haskell constructs such as variables (both free and bound), lambda expressions and patterns are all exposed in the PHOAS interface, giving the programmer a large amount of control over the meaning of their quoted expressions. We believe that this system has a variety of useful applications, particularly for creating EDSLs - we give motivating examples in practical areas such as distributed computing and program generation to demonstrate the effectiveness of this approach. More precisely, in this paper we discuss the design and implementation of this idea as a new Haskell extension implemented on top of GHC.
     </p>
