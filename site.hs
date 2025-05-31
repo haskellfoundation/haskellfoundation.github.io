@@ -335,7 +335,6 @@ main = hakyll $ do
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
 
 -- careers ---------------------------------------------------------------------------------------------
     create ["careers/index.html"] $ do
