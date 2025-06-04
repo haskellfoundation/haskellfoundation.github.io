@@ -249,7 +249,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Partnerships")
-            ctx <- allEventsCtx <$> (recentFirst =<< loadAll ("partnerships/*.markdown" .&&. hasNoVersion))
+            ctx <- partnershipCtx <$> (recentFirst =<< loadAll ("partnerships/*.markdown" .&&. hasNoVersion))
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/partnerships/list.html" ctx
