@@ -1,0 +1,18 @@
+---
+title: Partnerships
+---
+<div class="max-w-screen-xl mx-auto py-16 md:py-24">
+  $partial("templates/corners.html")$
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl-5xl">Events</h1>
+  </div>
+  $if(events)$
+  <div class="mt-16 md:mt-24">
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
+      $for(events)$
+      $partial("templates/events/tile.html")$
+      $endfor$
+    </div>
+  </div>
+  $endif$
+</div>
