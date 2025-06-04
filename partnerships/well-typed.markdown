@@ -1,5 +1,6 @@
 ---
 title: Haskell Ecosystem Support Packages by Well-Typed
+published: 2025-06-04
 status: active
 summary: Well-Typed and the Haskell Foundation have worked together to provide a way for companies to get the specific support they need while still supporting the wider Haskell ecosystem.
 ---
