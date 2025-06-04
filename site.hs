@@ -536,6 +536,11 @@ activeEventsCtx evts =
   listField "events" defaultContext (ofMetadataField "status" "active" evts) <>
   defaultContext
 
+partnershipCtx :: [Item String] -> Context String
+partnershipCtx evts =
+    listField "partnerships" defaultContext (pure evts) <>
+    defaultContext
+
 -- Reports
 
 allReportsCtx :: [Item String] -> Context String
