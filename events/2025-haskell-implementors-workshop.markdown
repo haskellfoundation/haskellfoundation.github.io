@@ -186,6 +186,8 @@ finally reflect on future directions the extension makes possible.
   <tr><td>17:50</td><td>18:00</td><td>closing</td><td></td></tr>
 </table>
 
+Please submit topics for lightning talks using [this form](https://forms.gle/tbJHf2wzWqHKQtZW7).
+
 ### In-Person Attendance
 
 Please sign up [on Eventbrite](https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator). Registrations for both the Haskell Ecosystem Workshop (HEW) and Haskell Implementors' Workshop (HIW) are managed using the same ticketing system. **Please make sure to include a Haskell Implementors' Workshop ticket in your booking.**
