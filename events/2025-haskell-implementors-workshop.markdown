@@ -4,7 +4,7 @@ published: 2025-02-14
 daterange: June 6, 2025
 status: active
 location: Rapperswil, Switzerland
-summary: Forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
+summary: Forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
 ---
 
 The 17th Haskell Implementors' Workshop is to be held on June 6th 2025 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
