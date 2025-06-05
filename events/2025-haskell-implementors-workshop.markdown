@@ -233,20 +233,6 @@ The scope covers any of the following topics. There may be some topics that peop
 The call for proposals is closed.
 Lightning talks will be scheduled on the day of the event.
 
-### Scope and Target Audience
-
-The Haskell Implementors' Workshop is an ideal place to describe a Haskell extension, describe works-in-progress, demo a new Haskell-related tool, or even propose future lines of Haskell development. Members of the wider Haskell community are encouraged to attend the workshop - we need your feedback to keep the Haskell ecosystem thriving. Students working with Haskell are especially encouraged to share their work.
-
-The scope covers any of the following topics. There may be some topics that people feel we've missed, so by all means submit a proposal even if it doesn't fit exactly into one of these buckets:
-
-* Compilation techniques
-* Language features and extensions
-* Type system implementation
-* Concurrency and parallelism: language design and implementation
-* Performance, optimization and benchmarking
-* Virtual machines and run-time systems
-* Libraries and tools for development or deployment
-
 ### Talks
 
 We invite proposals from potential speakers for talks and demonstrations. We are aiming for 20-minute talks with 5 minutes for questions and changeovers. We want to hear from people writing compilers, tools, or libraries, people with cool ideas for directions in which we should take the platform, proposals for new features to be implemented, and half-baked crazy ideas. Please submit a talk title and abstract of no more than 300 words.
