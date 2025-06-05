@@ -68,7 +68,7 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
 <tr><th>10:45-11:45</th><td> What we have learned about memory profiling in the last 5 years</td><td>Matthew Pickering </td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
 <tr><th>13:30 - 14:30</th><td>Not-So-Boring Haskell</td><td>Andrew Lelechenko</td></tr>
-<tr><th>14:45 - 15:45</th><td>Code Discipline	</td><td>Trevis Elser</td></tr>
+<tr><th>14:45 - 15:45</th><td>Falling Skies: Haskell Tooling and Ecosystem Growth	</td><td>Trevis Elser</td></tr>
 <tr><th>16:00 - 17:00</th><td>Template Haskell, a case study in (in)stability</td><td>Teo Camarasu</td></tr>
 <tr><th>17:00 - 17:50	</th><td>Ghost in the Haskell</td><td>Matthias Pall Gissurarson</td></tr>
 <tr><th>17:50 - 18:00</th><td>Closing Remarks	</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
