@@ -23,7 +23,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
   <tr><th>Start</th><th>End</th><th>Title</th><th>Speaker(s)</th></tr>
 
   <tr><td> 8:00</td><td>9:00</td><td>Registration</td><td></td></tr>
-  <tr><td> 9:00</td><td>9:15</td><td>Welcome & Introduction</td><td></td></tr>
+  <tr><td> 9:00</td><td>9:15</td><td>Welcome & Introduction</td><td><small>chair: Andreas Herrmann</small></td></tr>
 
   <tr><td> 9:15</td><td>10:15</td><td>GHC Status Report</td><td>Andreas Klebinger<br>& Ben Gamari</td></tr>
 
@@ -34,7 +34,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
     </p>
   </details></td><td>Vladislav Zavialov</td></tr>
 
-  <tr><td>10:40</td><td>10:50</td><td>break</td><td></td></tr>
+  <tr><td>10:40</td><td>10:50</td><td>break</td><td><small>chair: Jaro Reinders</small></td></tr>
 
   <tr><td>10:50</td><td>11:15</td><td><details>
     <summary>The GHC Debugger</summary>
@@ -105,7 +105,7 @@ All talks and presentations will be held in an air-conditioned classroom that wi
     </p>
   </details></td><td>Hannes&nbsp;Siebenhandl</td></tr>
 
-  <tr><td>12:30</td><td>14:00</td><td>lunch</td><td></td></tr>
+  <tr><td>12:30</td><td>14:00</td><td>lunch</td><td><small>chair: Luite Stegeman</small></td></tr>
 
   <tr><td>14:00</td><td>14:25</td><td><details>
     <summary>Explicit Level Imports</summary>
@@ -148,7 +148,7 @@ finally reflect on future directions the extension makes possible.
       </p>
   </details></td><td>Ian-Woo Kim</td></tr>
 
-  <tr><td>15:40</td><td>16:10</td><td>break</td><td></td></tr>
+  <tr><td>15:40</td><td>16:10</td><td>break</td><td><small>chair: Rodrigo Mesquita</small></td></tr>
 
   <tr><td>16:10</td><td>16:35</td><td><details>
     <summary>GHC's RISC-V Native Code Generation Backend</summary>
@@ -185,6 +185,8 @@ finally reflect on future directions the extension makes possible.
 
   <tr><td>17:50</td><td>18:00</td><td>closing</td><td></td></tr>
 </table>
+
+Please submit topics for lightning talks using [this form](https://forms.gle/tbJHf2wzWqHKQtZW7).
 
 ### In-Person Attendance
 
