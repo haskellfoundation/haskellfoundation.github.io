@@ -2,7 +2,7 @@
 
 *Niki Vazou (0:00:23)*: Hello.
 
-*MPG (0:00:24)*: Today, we’re joined by Tom Sydney, author of many tools like sydtest, decking, and nix-ci. He’ll tell us about the rules for sustainable Haskell, how Haskell lets one man do the job of 50, and the secret sauce for open source.
+*MPG (0:00:24)*: Today, we’re joined by Tom Sydney, author of many tools like sydtest, Dekking, and nix-ci. He’ll tell us about the rules for sustainable Haskell, how Haskell lets one man do the job of 50, and the secret sauce for open source.
 
 Welcome, Syd. So, how did you get into Haskell?
 
@@ -46,7 +46,7 @@ Welcome, Syd. So, how did you get into Haskell?
 
 *MPG (0:04:14)*: But you did a bunch of work on your testing framework, sydtest, right? 
 
-*TSK (0:04:22)*: Right. I had been using hspec at the time, and there were some things missing, some very small things missing all over the place. And then I thought, ‘I have some extra time.’ I think it was between jobs or something. ‘Let me just see what I can do if I try to do it myself.’ And then I wrote something, and it turns out that by choosing the right defaults or different defaults, let’s say, you can find a lot of extra problems with the same amount of testing effort. So, for example, if you run tests in parallel by default, you’ll find threat safety issues just by doing that. And if you run them in random order by default, then you’ll find problems where some – it’s called test pollution or, let’s say, I’ve called it test pollution. I don’t know what it’s actually called. It’s where two tests can either pass or fail, depending on whether they’re being run at the same time or before or after other tests. And you’ll find those problems by running tests in parallel, for example. And there are all sorts of defaults like that that I could choose because I was making the thing. And then I ended up choosing some things that are controversial, but then found a whole bunch of extra problems for me. 
+*TSK (0:04:22)*: Right. I had been using hspec at the time, and there were some things missing, some very small things missing all over the place. And then I thought, ‘I have some extra time.’ I think it was between jobs or something. ‘Let me just see what I can do if I try to do it myself.’ And then I wrote something, and it turns out that by choosing the right defaults or different defaults, let’s say, you can find a lot of extra problems with the same amount of testing effort. So, for example, if you run tests in parallel by default, you’ll find thread safety issues just by doing that. And if you run them in random order by default, then you’ll find problems where some – it’s called test pollution or, let’s say, I’ve called it test pollution. I don’t know what it’s actually called. It’s where two tests can either pass or fail, depending on whether they’re being run at the same time or before or after other tests. And you’ll find those problems by running tests in parallel, for example. And there are all sorts of defaults like that that I could choose because I was making the thing. And then I ended up choosing some things that are controversial, but then found a whole bunch of extra problems for me. 
 
 So, another is that I wanted this thing to be good for running in CI because that’s where I run my tests for the most part, which means that all of the randomness that was being generated when executing tests needed to be reproducible. So, there’s a set seed for all randomness, all controllable randomness, let’s say, when you run a test suite so that it’s easy to reproduce.
 
@@ -152,7 +152,7 @@ The second puzzle piece is that it turns out that individual test run times are 
 
 *MPG (0:20:19)*: So, that was just a sydtest finding something or –
 
-*TSK (0:20:22)*: So actually, no, someone found that in production because it turns out that there was a threat safety issue with the way that if you run the same SQL query at the same time, then you might have segfaults, something like that. And there was no way to find that unless you actually tried the exact same query at the same time for various threats. And so, that’s one thing we found there. I built this project called Decking, which is next-generation coverage reports for Haskell, which doesn’t work in some cases for complicated type safety reasons, but it produces some nice reports for me. And now I can see that the coverage that I get from my repositories, and I hope you’d be surprised to find out that the coverage is usually around 60%. So, it’s not astronomically higher, but I’m starting to measure it, which is already something weird, apparently.
+*TSK (0:20:22)*: So actually, no, someone found that in production because it turns out that there was a thread safety issue with the way that if you run the same SQL query at the same time, then you might have segfaults, something like that. And there was no way to find that unless you actually tried the exact same query at the same time for various threads. And so, that’s one thing we found there. I built this project called Dekking, which is next-generation coverage reports for Haskell, which doesn’t work in some cases for complicated type safety reasons, but it produces some nice reports for me. And now I can see that the coverage that I get from my repositories, and I hope you’d be surprised to find out that the coverage is usually around 60%. So, it’s not astronomically higher, but I’m starting to measure it, which is already something weird, apparently.
 
 *NV (0:21:07)*: The coverage of the code that is run, this is not about testing, right?
 
@@ -160,7 +160,7 @@ The second puzzle piece is that it turns out that individual test run times are 
 
 *NV (0:21:17)*: But 60% is the coverage that your unit test provides you on your code. And how do you measure that?
 
-*TSK (0:21:23)*: So, there’s this project called Decking. It replaces every expression in your code by unsafePerformIO, mark this thing as covered, and then return the value. But it turns out that that’s actually not something that preserves. It compiles according to GHC, which is really weird. But that way, you can see which parts of your tests were covered and which weren’t. And then you can have some really nice, colorful reports for them as well.
+*TSK (0:21:23)*: So, there’s this project called Dekking. It replaces every expression in your code by unsafePerformIO, mark this thing as covered, and then return the value. But it turns out that that’s actually not something that preserves. It compiles according to GHC, which is really weird. But that way, you can see which parts of your tests were covered and which weren’t. And then you can have some really nice, colorful reports for them as well.
 
 *MPG (0:21:46)*: How does this compare to the Haskell program coverage thing?
 
@@ -170,7 +170,7 @@ The second puzzle piece is that it turns out that individual test run times are 
 
 *TSK (0:21:59)*: That’s the big difference. And I wanted to do it that way so that the GHC maintainers didn’t have to maintain my coverage report.
 
-*MPG (0:22:06)*: So decking is like, it does a whole program transformation of the program when you’re compiling it?
+*MPG (0:22:06)*: So Dekking is like, it does a whole program transformation of the program when you’re compiling it?
 
 *TSK (0:22:11)*: I think so. To be honest, I’m not clear with the term, but it sounds like that would be what it is. Yes. So, there’s a GHC plugin that just goes and replaces the source code. And that was actually part of the issue because I couldn’t pinky promise to GHC that this was correct type-wise. It turns out that if you replace an expression of type A by identity function of A, sometimes that doesn’t compile anymore. That was part of the issue. So, I had to build in something where you could say, “Don’t try to cover this because it’s not going to compile if you do.” That’s part of what makes it different from HPC, is that you sometimes have to do stuff like that.
 
@@ -192,7 +192,7 @@ The second puzzle piece is that it turns out that individual test run times are 
 
 *MPG (0:24:37)*: Yeah. Because I think, I mean, HPC does something similar, but like you said, it’s not a – it’s called the STG level, right? So, down after the expressions. But I think you could combine the two really. I think you could just run the HPC and then not to use their libraries to produce nice output, right? Because the output library is a bit of a mess, right? Like there’s a C parser that parses these files. It’s a bit of a mess. Yeah.
 
-*TSK (0:25:02)*: It’s also terribly difficult to get the HPC files that are output from the right packages into the right places when you’re building stuff across packages. So, cross package code coverage reports are really difficult to do with HPC to the point that I never figured it out. And it took me less time to build decking to figure it out.
+*TSK (0:25:02)*: It’s also terribly difficult to get the HPC files that are output from the right packages into the right places when you’re building stuff across packages. So, cross package code coverage reports are really difficult to do with HPC to the point that I never figured it out. And it took me less time to build Dekking to figure it out.
 
 *MPG (0:25:21)*: Because we use this for program repair, right? Because you know which tests failed and you know what parts of the code that test touched, right? So then you can say, “Ah, if you want to fix something, you should probably look here first.” Right?
 
@@ -282,7 +282,7 @@ And then I started on a project called NixCI, which is taking advantage of the w
 
 *NV (0:36:01)*: But this is for the comments?
 
-*TSK (0:36:04)*: Yes, that’s right. That’s for any texts, really. So, for example, if you look at the decking source code, you’ll see all sorts of comments about linker issues that are figured out. And then if you refactor a lot of code, these get moved around, and sometimes these links breaks and then links break and then it doesn’t work anymore. So, that’s the second. And then there is HLint, which lets me catch a whole bunch of things, and it’s quite customizable. That’s nice. So, I usually put my entire Dangerous Functions list into HLint. So, that warns me when I use any of them. And I need to go and explicitly opt into using the dangerous function in order to do that. And then now there’s Weeder as well, which requires me to remove all the code that I’m not using, for example. 
+*TSK (0:36:04)*: Yes, that’s right. That’s for any texts, really. So, for example, if you look at the Dekking source code, you’ll see all sorts of comments about linker issues that are figured out. And then if you refactor a lot of code, these get moved around, and sometimes these links breaks and then links break and then it doesn’t work anymore. So, that’s the second. And then there is HLint, which lets me catch a whole bunch of things, and it’s quite customizable. That’s nice. So, I usually put my entire Dangerous Functions list into HLint. So, that warns me when I use any of them. And I need to go and explicitly opt into using the dangerous function in order to do that. And then now there’s Weeder as well, which requires me to remove all the code that I’m not using, for example. 
 
 *MPG (0:36:43)*: We need a book because everyone’s complaining about Haskell tooling, but it seems like all this stuff is out there. It’s just, nobody’s using it, right? So, you need something like real world Haskell 2.0, all the tools that you need or something like that, because people are complaining and they’re like just running GHC and looking at a lot of output. And you’re like, well, if you run the Java compiler and look at the output, you’re not going to do anything, right?
 
