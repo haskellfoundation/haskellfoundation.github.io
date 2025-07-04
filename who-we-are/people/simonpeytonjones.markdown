@@ -1,7 +1,7 @@
 ---
 name: Simon Peyton Jones
 email: simon.peytonjones@gmail.com
-title: Board Member
+title: Observer
 executiveTeam: "False"
 interimBoard: "True"
 interimBoardTitle: Chair
