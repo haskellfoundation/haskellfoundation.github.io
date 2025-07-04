@@ -2,7 +2,7 @@
 name: Graham Hutton
 title: Board Member
 executiveTeam: "False"
-tenureStart: 2022-04-01
+tenureStart:
 image: /assets/images/board-members/gh.png
 committees:
 website: http://www.cs.nott.ac.uk/~pszgmh/
