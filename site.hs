@@ -127,6 +127,18 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html"   sponsors
                 >>= relativizeUrls
 
+    match "news/*.markdown" $ do
+      route $ setExtension "html"
+      let ctxt = mconcat
+            [ defaultContext ]
+      compile $ do
+        sponsors <- buildBoilerplateCtx Nothing
+        pandocCompiler
+          >>= applyAsTemplate sponsors
+          >>= loadAndApplyTemplate "templates/news/page.html" ctxt
+          >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+          >>= relativizeUrls
+
 -- press -----------------------------------------------------------------------------------------------
     match "press/**.markdown" $ compile pandocCompiler
     create ["news/press/index.html"] $ do
