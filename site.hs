@@ -243,6 +243,31 @@ main = hakyll $ do
           >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
           >>= relativizeUrls
 
+-- Partnerships
+
+    create ["partnerships/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Partnerships")
+            ctx <- partnershipCtx <$> (recentFirst =<< loadAll ("partnerships/*.markdown" .&&. hasNoVersion))
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/partnerships/list.html" ctx
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
+    match "partnerships/*.markdown" $ do
+      route $ setExtension "html"
+      let ctxt = mconcat
+            [ defaultContext ]
+      compile $ do
+        sponsors <- buildBoilerplateCtx Nothing
+        pandocCompiler
+          >>= applyAsTemplate sponsors
+          >>= loadAndApplyTemplate "templates/partnerships/page.html" ctxt
+          >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+          >>= relativizeUrls
+
 -- Reports
     create ["reports/index.html"] $ do
         route idRoute
@@ -335,7 +360,6 @@ main = hakyll $ do
             getResourceBody
                 >>= applyAsTemplate sponsors
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
 
 -- careers ---------------------------------------------------------------------------------------------
     create ["careers/index.html"] $ do
@@ -510,6 +534,11 @@ activeEventsCtx :: [Item String] -> Context String
 activeEventsCtx evts =
   listField "events" defaultContext (ofMetadataField "status" "active" evts) <>
   defaultContext
+
+partnershipCtx :: [Item String] -> Context String
+partnershipCtx evts =
+    listField "partnerships" defaultContext (pure evts) <>
+    defaultContext
 
 -- Reports
 
