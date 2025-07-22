@@ -1,6 +1,6 @@
 ---
 name: Michael Peyton Jones
-title: Board Member
+title: Vice-Secretary
 executiveTeam: "False"
 tenureStart: 2024-04-25
 image: /assets/images/board-members/mpj.png
