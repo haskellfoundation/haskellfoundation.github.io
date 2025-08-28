@@ -1,5 +1,5 @@
 ---
-title: Ecosystem Contracts: Working with Partners toward a better Haskell Ecosystem
+title: "Ecosystem Contracts: Working with Partners toward a better Haskell Ecosystem"
 ---
 
 Introduction
