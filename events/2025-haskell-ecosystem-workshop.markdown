@@ -31,7 +31,7 @@ The registration link is available [on Eventbrite](https://www.eventbrite.com/e/
 
 ## Video Recordings
 
-Video recording will be managed by the team at the Zurich Friends of Haskell!
+The recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQe319u9EdkpxjibYFtGsugc).
 
 ## The Workshop
 
