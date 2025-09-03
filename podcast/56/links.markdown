@@ -1,7 +1,7 @@
 * [Raintown](https://raintown.org/abuse/)
 * [Mary Sheeran](https://www.cse.chalmers.se/~ms/)
 * [Groq](https://groq.com/)
-* [Lava (Xilinix)](https://raintown.org/lava/ )
+* [Lava (Xilinx)](https://raintown.org/lava/ )
 * [Kubernetes](https://kubernetes.io/)
 * [FP castle](https://fpcastle.com/)
 * [Miranda](https://www.cs.kent.ac.uk/people/staff/dat/miranda/)
