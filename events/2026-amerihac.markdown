@@ -33,7 +33,7 @@ The Haskell Foundation is excited to see you there!
 
 ## Registration
 
-Register here: https://forms.gle/3dZvn3VAvwa3JgJK8
+Register here: [https://forms.gle/3dZvn3VAvwa3JgJK8](https://forms.gle/3dZvn3VAvwa3JgJK8)
 
 
 <div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/ost_logo-400.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
