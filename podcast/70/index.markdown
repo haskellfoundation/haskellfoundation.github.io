@@ -1,7 +1,7 @@
 ---
 title: Phil Wadler
 episode: 70
-buzzsproutId: FIXME
+buzzsproutId: 17839717
 recorded: 2025-07-15
 published: 2025-09-14
 ---
