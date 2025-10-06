@@ -15,6 +15,16 @@ The event will take place on Feb 7th and Feb 8th 2026 within Jane Street’s [Ne
 York premises](https://maps.app.goo.gl/eHweQfEGkRJiYkct6). Registration will be
 free, thanks to Jane Street’s generosity as hosts.
 
+## Keynotes
+
+### [Ryan Scott](https://ryanglscott.github.io/)
+
+#### Title: Developing Tools for Formal Specification and Verification
+
+#### Abstract:
+
+Galois maintains and develops a broad suite of formal methods tools, which can specify the behavior of code, symbolically execute code in several imperative programming languages, formally verify that the behavior of code matches a spec, and more. A significant number of these tools are written in Haskell, including Cryptol, Crux, and SAW. I will describe the ecosystem of Haskell-based formal methods tools that Galois develops, lessons that we have learned in using varying styles of Haskell in different projects, and what challenges we have faced in using Haskell at this scale.
+
 ## Organization
 
 Much like ZuriHac, there will be dedicated space for specific projects (GHC,
