@@ -1,7 +1,7 @@
 ---
 title: Stefan Wehr
 episode: 71
-buzzsproutId: 1817535
+buzzsproutId: 18021330
 recorded: 2025-07-16
 published: 2025-10-16
 ---
