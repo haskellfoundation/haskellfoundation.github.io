@@ -4,6 +4,7 @@ email: moritz@haskell.foundation
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2025-04-23
+tenureEnd: 2025-12-22
 image: /assets/images/board-members/mangermann.png
 committees:
 website:
