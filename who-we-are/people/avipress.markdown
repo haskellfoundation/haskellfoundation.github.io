@@ -1,6 +1,6 @@
 ---
 name: Avi Press
-title: Board Member
+title: Vice Treasurer
 executiveTeam: "False"
 tenureStart: 2024-04-25
 image: /assets/images/board-members/ap.png
