@@ -14,4 +14,4 @@ well-modularized code, how to get into compiler development, and how
 to benefit from Domain-Driven Design.
 
 Jeff is currently on the job market - if you want to get in touch,
-email him at [`jmy6342@gmail.com'](mailto:jmy6342@gmail.com).
+email him at [`jmy6342@gmail.com`](mailto:jmy6342@gmail.com).
