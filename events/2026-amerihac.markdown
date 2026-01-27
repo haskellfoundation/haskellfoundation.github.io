@@ -15,35 +15,41 @@ The event will take place on Feb 7th and Feb 8th 2026 within Jane Street’s [Ne
 York premises](https://maps.app.goo.gl/eHweQfEGkRJiYkct6). Registration will be
 free, thanks to Jane Street’s generosity as hosts.
 
-## Keynotes
+## Schedule
+| Time     | Feb 7                            | Feb 8          |
+| -------- | --------------                   | -------------- |
+| 9:00 AM  | Breakfast                        | Breakfast      |
+| 10:00 AM | Opening and Keynote (Ryan Scott) | Keynote (Avi Press)       |
+| 11:00 AM | Hacking                          | Hacking        |
+| 12:30 PM | Lunch                            | Lunch          |
+| 1:30 PM  | Afternoon talk (Can Huzmeli)  | Afternoon Talk (Trevis Elser) |
+| 2:00 PM  | Hacking                          | Hacking        |
+| 5:00 PM  | Closing                          | Closing        |
 
-### [Ryan Scott](https://ryanglscott.github.io/)
+## Discord
 
-#### Title: Developing Tools for Formal Specification and Verification
-
-#### Abstract:
-
-Galois maintains and develops a broad suite of formal methods tools, which can specify the behavior of code, symbolically execute code in several imperative programming languages, formally verify that the behavior of code matches a spec, and more. A significant number of these tools are written in Haskell, including Cryptol, Crux, and SAW. I will describe the ecosystem of Haskell-based formal methods tools that Galois develops, lessons that we have learned in using varying styles of Haskell in different projects, and what challenges we have faced in using Haskell at this scale.
+We have a Discord server for those that want to socialize/plan/coordinate before and during the event: [Discord link](https://discord.gg/KsvvzQqA).
+Feel we'll make channels for specific projects upon request.
 
 ## Organization
 
 Much like ZuriHac, there will be dedicated space for specific projects (GHC,
 cabal, stack, etc.), with the full details being determined by registrant
-interest.
+interest. You can work on anything, and there's no competition!
+We're just working on projects that are interesting to us and learning from each other.
 
 ## Summary:
 
-* Who: Haskell Foundation and Jane Street␍
+* Who: Haskell Foundation and Jane Street
 * What: Weekend Haskell hackathon␍
 * Where: Jane Street NYC␍
 
-We will update this page when keynote speakers have been finalized.
 
 The Haskell Foundation is excited to see you there!
 
 ## Registration
 
-Register here: [https://forms.gle/3dZvn3VAvwa3JgJK8](https://forms.gle/3dZvn3VAvwa3JgJK8)
+Registration is now closed.
 
 
 <div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/Jane_Street.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
