@@ -16,19 +16,19 @@ York premises](https://maps.app.goo.gl/eHweQfEGkRJiYkct6). Registration will be
 free, thanks to Jane Street’s generosity as hosts.
 
 ## Schedule
-| Time     | Feb 7                            | Feb 8          |
-| -------- | --------------                   | -------------- |
-| 9:00 AM  | Breakfast                        | Breakfast      |
-| 10:00 AM | Opening and Keynote (Ryan Scott) | Keynote (Avi Press)       |
-| 11:00 AM | Hacking                          | Hacking        |
-| 12:30 PM | Lunch                            | Lunch          |
-| 1:30 PM  | Afternoon talk (Can Huzmeli)  | Afternoon Talk (Trevis Elser) |
-| 2:00 PM  | Hacking                          | Hacking        |
-| 5:00 PM  | Closing                          | Closing        |
+| Time     | Feb 7                                                                            | Feb 8          |
+| -------- | --------------                                                                   | -------------- |
+| 9:00 AM  | Breakfast                                                                        | Breakfast      |
+| 10:00 AM | Opening and Keynote (Ryan Scott) ([slides](assets/other/ryan-scott-keynote.pdf)) | Keynote (Avi Press)       |
+| 11:00 AM | Hacking                                                                          | Hacking        |
+| 12:30 PM | Lunch                                                                            | Lunch          |
+| 1:30 PM  | Afternoon talk (Can Huzmeli)                                                     | Afternoon Talk (Trevis Elser) |
+| 2:00 PM  | Hacking                                                                          | Hacking        |
+| 5:00 PM  | Closing                                                                          | Closing        |
 
 ## Discord
 
-We have a Discord server for those that want to socialize/plan/coordinate before and during the event: [Discord link](https://discord.gg/KsvvzQqA).
+We have a Discord server for those that want to socialize/plan/coordinate before and during the event: [Discord link](https://discord.gg/qFQDT4v3).
 Feel we'll make channels for specific projects upon request.
 
 ## Organization
