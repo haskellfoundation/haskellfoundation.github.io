@@ -19,7 +19,7 @@ free, thanks to Jane Street’s generosity as hosts.
 | Time     | Feb 7                                                                            | Feb 8          |
 | -------- | --------------                                                                   | -------------- |
 | 9:00 AM  | Breakfast                                                                        | Breakfast      |
-| 10:00 AM | Opening and Keynote (Ryan Scott) ([slides](/assets/other/ryan-scott-keynote.pdf)) | Keynote (Avi Press)       |
+| 10:00 AM | Opening and Keynote (Ryan Scott) ([slides](https://haskell.founcation/assets/other/ryan-scott-keynote.pdf)) | Keynote (Avi Press)       |
 | 11:00 AM | Hacking                                                                          | Hacking        |
 | 12:30 PM | Lunch                                                                            | Lunch          |
 | 1:30 PM  | Afternoon talk (Can Huzmeli)                                                     | Afternoon Talk (Trevis Elser) |
