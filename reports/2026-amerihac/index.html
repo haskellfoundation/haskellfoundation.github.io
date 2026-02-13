@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- other -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" data-ssr name="viewport">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Maven+Pro:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/regular.css" rel="stylesheet">
+  <link href="../../assets/fontawesome-free-5.15.2-web/css/brands.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" href="https://feeds.buzzsprout.com/1817535.rss">
+  <script src="../../assets/js/main.js" defer></script>
+  <!-- from https://stackoverflow.com/questions/33986976/how-can-i-remove-a-buggy-service-worker-or-implement-a-kill-switch/62154131#62154131
+        attempt to fix: https://github.com/haskellfoundation/haskellfoundation.github.io/issues/70
+  -->
+  <script>
+    if (navigator && navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
+      navigator.serviceWorker.getRegistration('/').then(function(registration) {
+        if (registration) {
+          registration.update();
+          registration.unregister();
+        }
+      });
+    }
+  </script>
+
+  <!-- metadata -->
+  <title>2026 AmeriHac - Retrospective</title>
+  <meta property="og:title" content="2026 AmeriHac - Retrospective">
+  
+  <meta property="og:description" content="This past weekend we held the first ever AmeriHac, a ZuriHac-style
+hackathon for the North American Haskell community. When I first
+proposed the idea of a North American event to the HF board, my
+criterion for success was simple: 100 attendees. We had 110, so by that
+measure we succeeded. But numbers are only part of the story, of course.
+">
+  
+
+</head>
+
+<body class="relative">
+
+  <!-- This is the mobile fly-out menu - outside document flow. -->
+  <div id="nav-backdrop" class="fixed z-10 inset-0 hidden"></div>
+
+<div id="mobile-nav" class="fixed z-20 top-0 right-0 w-full sm:w-1/2 max-h-full overflow-auto hidden rounded-b shadow-lg bg-white px-4">
+
+  <div class="pt-6 flex justify-between">
+
+    <div>
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" width="68" height="52" alt="Logo of the Haskell Foundation" />
+      <div class="text-sm mt-2 text-gray-500">The Haskell Foundation</div>
+    </div>
+
+    <div class>
+      <button id="mobile-nav-close" type="button" class="inline-flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mt-6">
+    <a href="../../" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Home</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">About</div>
+    <a href="../../who-we-are" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Current Board</a>
+    <a href="../../who-we-are/past-boards" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Past Boards</a>
+    <a href="../../contact" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Contact</a>
+    <a href="../../vision" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Vision</a>
+    <a href="../../careers" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Careers</a>
+
+    <a href="../../podcast" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Podcast</a>
+
+    <a href="../../projects" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Projects</a>
+
+    <a href="../../donations" class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Sponsorship</a>
+
+    <div class="block py-3 border-t border-gray-320 text-lg font-medium text-gray-500">Affiliates</div>
+    <a href="../../affiliates" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Affiliates</a>
+    <a href="../../affiliates/about" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">About Affiliating</a>
+
+    <div class="block py-3 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium text-gray-500">News and Info</div>
+    <a href="../../news" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">News</a>
+    <a href="https://haskell.foundation/events" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Events</a>
+    <a href="../../news/press" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Press</a>
+    <a href="../../resources" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">Resources</a>
+    <a href="../../faq" class="block py-3 pl-6 border-t border-gray-320 hover:bg-gray-100 text-lg font-medium">FAQ</a>
+
+  </div>
+
+</div>
+
+
+  <!-- Document flow begins here -->
+  <div class="min-h-screen flex flex-col">
+    <div>
+      <nav class="max-w-screen-xl mx-auto px-4 pt-6 sm:pt-12 sm:px-6 flex items-center justify-between justify-self-stretch">
+
+  <div>
+    <a href="../../">
+      <img src="../../assets/images/logos/hf-logo-100-alpha.png" alt="The Haskell Foundation homepage" />
+      <div class="text-sm mt-2 text-gray-500"></div>
+    </a>
+  </div>
+
+  <nav class="hidden lg:block">
+    <ul class="flex space-x-8 xl:space-x-12">
+
+
+      <li class="relative">
+        <a href="../../who-we-are" id="who-we-are-nav-item">About</a>
+
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="who-we-are-nav-item-menu">
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are">
+            Current Board
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../who-we-are/past-boards">
+            Past Boards
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../contact">Contact</a>
+
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../vision">Vision</a>
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../careers">Careers</a>
+        </div>
+
+      </li>
+
+      <li class="relative">
+        <a href="../../podcast">Podcast</a>
+      </li>
+
+      <li class="relative">
+        <a href="../../projects">Projects</a>
+
+      </li>
+
+      <li class="relative">
+        <a href="../../partnerships">Partnerships</a>
+      </li>
+
+      <li class="relative">
+        <a href="../../donations">Sponsorship</a>
+
+      </li>
+
+      <li class="relative">
+        <a href="../../affiliates" id="affiliates-nav-item">Affiliates</a>
+
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="affiliates-nav-item-menu">
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates">
+            Affiliates
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../affiliates/about">
+            About Affiliating
+          </a>
+
+        </div>
+
+      </li>
+
+      <li class="relative">
+        <a href="../../news" id="news-nav-item">News and Info</a>
+
+        <div class="pt-2 absolute top-full w-44 bg-white shadow-md z-10 hidden" id="news-nav-item-menu">
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news">
+            News
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="https://haskell.foundation/events">
+            Events
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../news/press">
+            Press
+          </a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../resources">Resources</a>
+
+          <a class="block p-4 border-t-2 hover:bg-gray-50 cursor-pointer" href="../../faq">FAQ</a>
+        </div>
+
+      </li>
+
+
+      <li class="relative">
+          <a class="dbox-donation-page-button" href="https://donorbox.org/donation-button-52?" style="background: rgb(94, 80, 134); color: rgb(255, 255, 255); text-decoration: none; font-family: Verdana, sans-serif; display: flex; gap: 8px; width: fit-content; font-size: 16px; border-radius: 5px; line-height: 24px; padding: 8px 24px;"><img src="https://donorbox.org/images/white_logo.svg">Donate</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="absolute right-0 lg:hidden self-start">
+    <button id="mobile-nav-open" type="button" class="mr-4 flex items-center justify-center p-2 rounded text-purple-800 shadow-lg focus:outline-none" aria-label="Main menu" aria-haspopup="true">
+      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+</nav>
+
+    </div>
+
+    <div class="flex-grow">
+      <div class="max-w-screen-xl mx-auto">
+  <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16 py-16 md:py-24">
+    <div class="bg-gray-800 shadow-lg shadow-xl shadow-md shadow-sm px-6 sm:px-12 md:px-12 lg:px-16 py-16 md:py-20">
+      <h2 class="text-gray-50 font-normal text-3xl-4xl text-center">2026 AmeriHac - Retrospective</h2>
+      <div class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+        <strong>Jose Manuel Calderon Trilla, February 12, 2026</strong>
+      </div>
+      
+      <p class="mt-10 lg:text-xl text-gray-300 leading-relaxed text-center">
+        A look back at the inaugural AmeriHac, 7-8 Feburary, 2026, in NYC
+      </p>
+      
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-xl mx-auto">
+  <div class="px-4 sm:px-8 md:px-12 lg:px-16">
+    <div class="mx-auto prose md:prose-lg">
+      <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12 bg-gray-100">
+      </div>
+      <p>This past weekend we held the first ever AmeriHac, a ZuriHac-style hackathon for the North American Haskell community. When I first proposed the idea of a North American event to the HF board, my criterion for success was simple: 100 attendees. We had 110, so by that measure we succeeded. But numbers are only part of the story, of course.</p>
+<h2 id="the-event">The Event</h2>
+<p>Jane Street hosted us at their offices in New York, it’s difficult to overstate how much we appreciate their generosity. The food was exemplary, the space was more than sufficient, and the staff were welcoming throughout. I want to call out Richard Eisenberg, who was instrumental in making the venue happen, and I’m very grateful.</p>
+<p>We had folks from all over: East and West coasts, Colorado, Michigan, Canada (not just me!), UK, The Netherlands, and even one attendee from Argentina! It’s clear that there was an appetite for such an event. Here’s an impromptu group photo:</p>
+<figure>
+<img src="https://haskell.foundation/assets/images/amerihac/amerihac-group-photo.jpg" alt="amerihac-group-photo|666x500, 75%" /><figcaption aria-hidden="true">amerihac-group-photo|666x500, 75%</figcaption>
+</figure>
+<p>These events are a great way to catch up with Haskellers that you’ve interacted with online for a while, but only meet rarely, if ever. It’s also a great way to <em>be introduced</em> to the Haskell community. Richard mentioned that five or so people came up to him saying something like, “I’ve been into Haskell for a few years, but this is the first time I’ve actually met another Haskeller in person.” That, to me, is the whole point. There is clearly pent-up demand for this kind of gathering.</p>
+<h2 id="talks-and-hacking">Talks and Hacking</h2>
+<p>The morning keynotes worked well, both as a way to get the day started and as a community touchstone. Each talk generated a good amount of discussion, with speakers being surrounded by attendees afterwards. This is great!</p>
+<figure>
+<img src="https://haskell.foundation/assets/images/amerihac/avi-talk.jpg" alt="avi-talk|666x500, 75%" /><figcaption aria-hidden="true">avi-talk|666x500, 75%</figcaption>
+</figure>
+<p>There were some healthy groups of folks working on projects togeher. GHC, Hackage, Transformers-MTL, Data-Haskell, folks working on Zero-Knowledge Proofs, among others. <span class="citation" data-cites="sclv">@sclv</span> did a great job helping folks get acquainted with the Hackage codebase, thank you!</p>
+<p>Gershom informally did exactly this by spending much of his time helping folks get started with the Hackage codebase, and I’m very appreciative of him for that. I’ll be sending out a survey to gather more opinions on this, but my instinct is that we should experiment with the format next year.</p>
+<h2 id="some-lessons">Some Lessons</h2>
+<p>The number one question I got all weekend was “will you be doing this again next year?”, so in that spirit, let’s talk about some lessons we learned:</p>
+<p><strong>Advertise to students directly</strong>: Aside from a contingent of UMD students (the group shown below decided to port their course compiler to Haskell), there weren’t many students around. I think this was a missed opportunity. We should target student communities and forums for advertising next year.</p>
+<figure>
+<img src="https://haskell.foundation/assets/images/amerihac/people-hacking-2.jpg" alt="people-hacking-2|666x500, 75%" /><figcaption aria-hidden="true">people-hacking-2|666x500, 75%</figcaption>
+</figure>
+<p><strong>Have an explicit beginner track</strong>: The lack of a beginner track was shortsighted. While I do believe that the self-organization of the event is one of its charms, beginners don’t know enough to know what they’re interested in or maybe don’t even know Haskell well enough to do much! Next year we should have an explicit beginner track with a tutorial or starter project, just like ZuriHac does.</p>
+<p><strong>Encourage ‘good first tickets’</strong>: Because we asked about it on our registration form, we had some idea of which projects would be represented. One thing we should have done is ask those projects ahead of time to set up some ‘good first ticket’ issues specifically so that newcomers could quickly grab onto something to work on. Some projects had this, and that was great. We should anticipate this is useful and give a heads up in advance.</p>
+<p><strong>Coordinate with non-present maintainers</strong>: Andreas and Rodrigo of the GHC team were indispensable during the event and they weren’t even present! It did not occur to me until the event was unfolding that there may be increased demands on certain maintainers during the hackathon and that them being ‘on call’ would be useful. Of course they don’t have to be, but a heads up would likely be appreciated.</p>
+<h2 id="thank-you">Thank You</h2>
+<p>I want to thank Jane Street for their extraordinary hospitality, Richard for making the venue happen, all of the board members who attended and provided feedback, our sponsors, and every single person who showed up.</p>
+<p>If this was your first Haskell event, I hope it wasn’t your last!</p>
+<p>Folks hacking: <img src="https://haskell.foundation/assets/images/amerihac/people-hacking.jpg" alt="people-hacking|666x500, 75%" /></p>
+<p>-Jose</p>
+<p>P.S. one attendee already wrote about their experience at the event: https://thedeveloper101.github.io/posts/2026/02/amerihac-experience/</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="max-w-screen-xl mx-auto text-center sm:px-12 md:px-12 lg:px-16 mt-32">
+  <div class="font-bold">SPONSORS</div>
+
+  <div class="mt-16">
+    <div class="font-bold">Gold</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    
+    <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
+    
+    <a href="https://mercury.com/" target="_blank" class="block w-48 m-4"><img alt="Mercury" src="../../assets/images/sponsors/mercury/mercury.png"></a>
+    
+    <a href="https://www.sc.com/en/" target="_blank" class="block w-48 m-4"><img alt="Standard Chartered" src="../../assets/images/sponsors/standard-chartered/scb-logo.png"></a>
+    
+  </div>
+
+  <div class="mt-16">
+    <div class="font-bold">Silver</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    
+  </div>
+
+  <div class="mt-16">
+    <div class="font-bold">Bronze</div>
+  </div>
+  <div class="flex flex-wrap items-center justify-center">
+    
+    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../../assets/images/sponsors/channable/channable-683.png" srcset="../../assets/images/sponsors/channable/channable-200.png 200w, /assets/images/sponsors/channable/channable-400.png 400w, /assets/images/sponsors/channable/channable-683.png 683w"></a>
+    
+    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, /assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, /assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
+    
+    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../../assets/images/sponsors/google/google-683.png" srcset="../../assets/images/sponsors/google/google-200.png 200w, /assets/images/sponsors/google/google-400.png 400w, /assets/images/sponsors/google/google-683.png 683w"></a>
+    
+    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, /assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, /assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
+    
+    <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
+    
+  </div>
+</div>
+
+<div class="mt-20 bg-gray-800 w-full py-20">
+  <div class="max-w-screen-xl mx-auto text-gray-300 text-lg px-6 lg:px-16">
+
+    <div class="flex flex-col space-y-8 text-center lg:flex-row lg:space-y-0">
+      <div class="lg:flex space-y-4 lg:gap-2 lg:flex-grow lg:space-y-0">
+        <div class="font-medium mt-1">To learn more about the Haskell Foundation </div>
+        <div class="ml-2">
+          <a href="../../contact" class="arrow-link light">>> contact us</a>
+        </div>
+      </div>
+
+      <div class="flex space-x-4">
+        <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
+        <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+        <a rel="me" href="https://mastodon.social/@haskell_foundation" target="_blank" class="text-4xl block"><span class="fab fa-mastodon"></span></a>
+        <a href="https://www.youtube.com/@HaskellFoundation" target="_blank" class="text-4xl block"><span class="fab fa-youtube"></span></a>
+        <a href="https://github.com/haskellfoundation" target="_blank" class="text-4xl block"><span class="fab fa-github"></span></a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="mt-16 flex flex-col text-center flex-grow lg:flex-row lg:space-x-8 lg:space-y-0">
+        <img src="../../assets/images/logos/hf-logo-100-alpha.png" class="h-8" alt="Logo of the Haskell Foundation" />
+        <div class="font-medium">2026 © Haskell Foundation, <a href="https://github.com/haskellfoundation/haskellfoundation.github.io">submit website bug reports and fixes on GitHub</a></div>
+      </div>
+
+      <div class="text-sm mt-6 flex ml-8 flex-col justify-items-start text-left">
+        <div>Haskell Foundation, Inc.</div>
+        <div>2093 Philadelphia Pike #8119</div>
+        <div>Claymont, DE 19703</div>
+        <div>USA</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </div>
+
+</body>
+
+</html>
