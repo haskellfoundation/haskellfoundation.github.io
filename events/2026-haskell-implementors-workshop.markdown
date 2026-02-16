@@ -15,7 +15,9 @@ In the past the Haskell Implementors' Workshop was co-located with ICFP (Interna
 
 The workshop will be held at the [Rapperswil-Jona campus of OST](https://www.ost.ch/en/university-of-applied-sciences/campus/rapperswil-jona-campus). It is right next to the Rapperswil train station, at [Oberseestrasse 10](https://goo.gl/maps/DkF6U9qdgdjcMfz29). The [Zurihac 2025 site](https://zfoh.ch/zurihac2025/) has instructions for transportation between Rapperswil and Zürich.
 
+<!--
 All talks and presentations will be held in an air-conditioned classroom that will be configured conference-style, which means that most seats won't have a table or desk attached. During the event, we'll let you know which additional spaces are good for compiler hacking. We will post the exact room number when that becomes available.
+-->
 
 ### Program
 
