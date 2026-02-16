@@ -9,7 +9,7 @@ summary: Forum for people involved in the design and development of Haskell impl
 
 The 18th Haskell Implementors' Workshop is to be held on June 5th 2026 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
 
-In the past the Haskell Implementors' Workshop was co-located with ICFP (International Conference on Functional Programming). However, in recent years it has become more and more challenging to attract a large enough audience and sufficiently many speakers for an appealing program. ZuriHac and the Haskell Ecosystem Workshop have become an important annual gathering of a large part of the Haskell community. This year the Haskell Implementors' Workshop will be co-located with these events to be accessible to a broader audience.
+In the past the Haskell Implementors' Workshop was co-located with ICFP (International Conference on Functional Programming). However, in recent years it has become more and more challenging to attract a large enough audience and sufficiently many speakers for an appealing program. ZuriHac and the Haskell Ecosystem Workshop have become an important annual gathering of a large part of the Haskell community. Following last year's success, the Haskell Implementors' Workshop will again be co-located with these events to be accessible to a broader audience.
 
 ## Practical Information and Schedule
 
@@ -18,6 +18,8 @@ The workshop will be held at the [Rapperswil-Jona campus of OST](https://www.ost
 All talks and presentations will be held in an air-conditioned classroom that will be configured conference-style, which means that most seats won't have a table or desk attached. During the event, we'll let you know which additional spaces are good for compiler hacking. We will post the exact room number when that becomes available.
 
 ### Program
+
+The exact program will follow at a later date.
 
 <!--
 <table>
@@ -220,26 +222,12 @@ Coffee, tea, and fruit will be provided. There is also easy access to a tap for 
 
 ### Video Recordings and Live Streaming
 
+The event will be recorded.
+<!--
 The recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQfpBPdVV3hUZ3_pDxmYhsbr).
-
-## The Workshop
-
-The Haskell Implementors' Workshop is an ideal place to describe a Haskell extension, describe works-in-progress, demo a new Haskell-related tool, or even propose future lines of Haskell development. Members of the wider Haskell community are encouraged to attend the workshop - we need your feedback to keep the Haskell ecosystem thriving. Students working with Haskell are especially encouraged to share their work.
-
-The scope covers any of the following topics. There may be some topics that people feel we've missed, so by all means submit a proposal even if it doesn't fit exactly into one of these buckets:
-
-* Compilation techniques
-* Language features and extensions
-* Type system implementation
-* Concurrency and parallelism: language design and implementation
-* Performance, optimization and benchmarking
-* Virtual machines and run-time systems
-* Libraries and tools for development or deployment
+-->
 
 ## Call for Proposals
-
-The call for proposals is closed.
-Lightning talks will be scheduled on the day of the event.
 
 ### Scope and Target Audience
 
@@ -261,16 +249,17 @@ We invite proposals from potential speakers for talks and demonstrations. We are
 
 We will also have a lightning talks session. Lightning talks should be ~7mins and are scheduled on the day of the workshop. Suggested topics for lightning talks are to present a single idea, a work-in-progress project, a problem to intrigue and perplex Haskell implementors, or simply to ask for feedback and collaborators.
 
+Submissions can be made via the follwoing form until __April 10, 2026__ (anywhere on earth): [https://forms.gle/S8fpAgFaFEvqoMqH6](https://forms.gle/S8fpAgFaFEvqoMqH6)
+
+Authors will be notified about the inclusion of their proposal in the final program by __May 8, 2026__.
+
 ### Program Committee
 
-<!--
-* Luite Stegeman
-* Jaro Reinders
-* Emily Pillmore
-* Rodrigo Mesquita
-* Ian-Woo Kim
-* Andreas Herrmann (chair)
--->
+* Andrew Lelechenko
+* Avi Press
+* Christiaan Baaij (chair)
+* Gergo Erdi
+* Jeffrey Young
 
 ## Partners
 
