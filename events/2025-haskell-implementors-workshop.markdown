@@ -4,10 +4,10 @@ published: 2025-02-14
 daterange: June 6, 2025
 status: active
 location: Rapperswil, Switzerland
-summary: Forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
+summary: Forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
 ---
 
-The 17th Haskell Implementors' Workshop is to be held on June 6th 2025 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
+The 17th Haskell Implementors' Workshop is to be held on June 6th 2025 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
 
 In the past the Haskell Implementors' Workshop was co-located with ICFP (International Conference on Functional Programming). However, in recent years it has become more and more challenging to attract a large enough audience and sufficiently many speakers for an appealing program. ZuriHac and the Haskell Ecosystem Workshop have become an important annual gathering of a large part of the Haskell community. This year the Haskell Implementors' Workshop will be co-located with these events to be accessible to a broader audience.
 
@@ -234,20 +234,6 @@ The scope covers any of the following topics. There may be some topics that peop
 
 The call for proposals is closed.
 Lightning talks will be scheduled on the day of the event.
-
-### Scope and Target Audience
-
-The Haskell Implementors' Workshop is an ideal place to describe a Haskell extension, describe works-in-progress, demo a new Haskell-related tool, or even propose future lines of Haskell development. Members of the wider Haskell community are encouraged to attend the workshop - we need your feedback to keep the Haskell ecosystem thriving. Students working with Haskell are especially encouraged to share their work.
-
-The scope covers any of the following topics. There may be some topics that people feel we've missed, so by all means submit a proposal even if it doesn't fit exactly into one of these buckets:
-
-* Compilation techniques
-* Language features and extensions
-* Type system implementation
-* Concurrency and parallelism: language design and implementation
-* Performance, optimization and benchmarking
-* Virtual machines and run-time systems
-* Libraries and tools for development or deployment
 
 ### Talks
 
