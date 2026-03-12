@@ -1,7 +1,7 @@
 ---
 name: Laurent P. René de Cotret
 email: laurent@haskell.foundation
-title: Vice Chair
+title: Chair
 executiveTeam: "False"
 tenureStart: 2025-04-23
 image: /assets/images/board-members/lprdc.png
