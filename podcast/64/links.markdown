@@ -3,7 +3,7 @@
 + [Thinking with Types](https://thinkingwithtypes.com/)
 + [Algebra-Driven Design](https://leanpub.com/algebra-driven-design)
 + [Certainty by Construction](https://leanpub.com/certainty-by-construction)
-+ [Santy's webpage](https://reasonablypolymorphic.com/)
++ [Sandy's webpage](https://reasonablypolymorphic.com/)
 + [Manifold Valley](https://www.manifoldvalley.com/)
 + [Nicolas Wu on Effects](https://dl.acm.org/doi/10.1145/3609026.3615581)
 + [Conal Elliott](http://conal.net/)
