@@ -7,5 +7,5 @@
 * [Vilem Liepelt](https://github.com/buggymcbugfix/not-not-a-blog#blog)
 * [Institute of Computing for Climate Science (ICCS)](https://iccs.cam.ac.uk/)
 * [Prog Lang Agenda for Science (D paper)](https://www.cs.kent.ac.uk/people/staff/dao7/publ/iccs14-orchard-rice.pdf)
-* [Daniel Marshell (D Phd)](https://starsandspira.ls/)
+* [Danielle Marshall (D Phd)](https://starsandspira.ls/)
 * [Summer School](https://iccs.cam.ac.uk/events/institute-computing-climate-science-annual-summer-school-2024)
