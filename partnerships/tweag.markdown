@@ -5,8 +5,6 @@ status: active
 summary: Tweag brings its expertise in language design, build systems, and distributed systems to present several offerings as part of the Haskell Foundation's Ecosystem Partnership program.
 ---
 
-I imagine a text like this posted in the Tweag website:
-
 **Haskell offerings**
 
 Tweag is now offering Development Partnerships leveraging their expertise in the Haskell language and its ecosystem.
@@ -20,7 +18,7 @@ significant supporters of Nix and Bazel, technologies that bring functional
 programming concepts to the realm of system management and software build
 infrastructure.
 
-**Offering 1** Because of its track record, Tweag is an ideal partner to
+**Offering 1** Because of their track record, Tweag is an ideal partner to
 develop, test, and fine tune large scale build infrastructure and
 cross-compilation, including projects that combine multiple programming
 languages.
@@ -42,4 +40,4 @@ backend, and maintain GHC plugins as Liquid Haskell and inline-java.
 Clients hiring Tweag through this partnership are also supporting the Haskell
 Foundation and the Haskell ecosystem.
 
-You can read more details on the [Tweag page](https://www.tweag.io/haskell-foundation/)
+You can read more details on the [Tweag/Haskell Foundation Partnership page](https://www.tweag.io/haskell-foundation/)
