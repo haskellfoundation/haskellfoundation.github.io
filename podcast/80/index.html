@@ -300,6 +300,456 @@ Foster.
   
 
   
+  <div class="mx-auto prose md:prose-lg my-6">
+    <div class="flex items-center space-x-4">
+      <!--
+       TODO: Insert nice icon
+       <div>
+         <img class="h-10 md:h-16 lg:h-20" src="/assets/images/affiliated.svg" alt="">
+       </div>
+       -->
+      <h2 class="text-2xl font-normal">Transcript</h2>
+    </div>
+    <div class="space-y-8 max-w-2xl my-7 mx-auto">
+      <em>This transcript may contain mistakes. Did you find any?
+      <a href="https://github.com/haskellfoundation/haskellfoundation.github.io/edit/hakyll/podcast/80/transcript.markdown">Feel free to fix them!</a></em>
+    </div>
+    <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
+      <p><em>Jessica Foster (0:00:16)</em>: Welcome to the Haskell Interlude. This is the first part of a mini-series on this year’s Symposium on Principles of Programming Languages, aka POPL 2026. </p>
+<p>Hi, I’m Jessica Foster, and I’m one of the editors of this podcast. But back in January, I took a couple of microphones to go to POPL 2026 in Rennes, France, and thought I’d give this whole interviewing thing a go. I got a little bit carried away and ended up interviewing 14 different people for a total of almost three hours of raw audio, hence why this is only part one. </p>
+<p>Now, I must warn you, the amount of actual Haskell discussed in each interview varies quite a lot. In my interview with Well-Typed’s Rodrigo Mesquita, which will be in a future episode, it’s wall-to-wall Haskell. In this episode, it gets only a handful of mentions, and that’s pretty representative of POPL itself. </p>
+<p>With this series, I want to give you a snapshot of POPL from many different perspectives, from academics to people in industry, professors to undergrads, organizers to attendees. You’ll hear from a wide variety of people with a wide range of interests who come from all over the world to get together, share their knowledge, and enjoy each other’s company, or at least the ones who enjoyed my company enough to not run a mile at the phrase, “Would you like to be on my podcast?” </p>
+<p>In this episode, we talk about undergrad funding and participation, the behind-the-scenes of AV, choreographic programming, quantum languages, conference catering, and the joy of theory. And at one point, you’ll even hear us get kicked out of the venue mid-interview. Enjoy. </p>
+<p>Okay. So it is Monday here at POPL in Rennes. I’m here with Nicola Assolini. Say hello.</p>
+<p><em>Nicola Assolini (0:02:11)</em>: Hi, everyone.</p>
+<p><em>JF (0:02:12)</em>: He is currently working at Quantinuum. And I’m also here with One An. Say hello.</p>
+<p><em>One An (0:02:17)</em>: Hello.</p>
+<p><em>JF (0:02:17)</em>: One An is a undergraduate student at University of Pennsylvania. But starting with you, Nicola, so what are you here for today?</p>
+<p><em>NA (0:02:25)</em>: I’m here as a AV chair of this conference. Me with other people, we care about the AV part of the conference, audio video, meaning that we record and stream all the various talks.</p>
+<p><em>JF (0:02:36)</em>: And quite an important part of the conference as well, right? Considering afterwards, what is the evidence of any of the stuff that we’ve done here today? It lives in our memories, but it also lives online, on SIGPLAN, on YouTube. Go check it out. Yeah, what kind of stuff do you do for AV? Like, what goes into this? Because lots of people don’t see what happens behind the scenes. Like, what’s the work that you have to put in to make any of this work?</p>
+<p><em>NA (0:02:57)</em>: That’s quite a good question. I mean, first of all, it’s very important because, as you said, it’s important not only to save papers but also to record and save the presentation of the people, because sometimes it can be more useful, the presentation, than the paper itself.</p>
+<p>Yeah, basically, what we did, it actually started quite before the conference when we basically worked with the general chair of the conference, helping them to organize, to review the contract with the venue, and all this kind of stuff. And then when the actual conference starts, we work with the venue team in setting up the room, because we have some other equipment that must interface with the venue equipment. So we make sure that everything is set properly and everything is connected together for work properly. And during the conference, we check if the recording and the streaming is going well.</p>
+<p><em>JF (0:03:47)</em>: How has it gone so far? Is there any difficulties or relatively smooth?</p>
+<p><em>NA (0:03:51)</em>: Yeah, it’s already smooth, I say.</p>
+<p><em>JF (0:03:52)</em>: Okay, good.</p>
+<p><em>NA (0:03:52)</em>: I’m quite happy so far. And also, the venue was pretty supportive. So yeah, I’m happy.</p>
+<p><em>JF (0:03:57)</em>: Okay, that’s good. They are kicking you out at seven today, though, so you’ve got to be speedy. But how many of you are there, the AV chairs?</p>
+<p><em>NA (0:04:05)</em>: For this conference, we are four.</p>
+<p><em>JF (0:04:07)</em>: Four. Okay.</p>
+<p><em>NA (0:04:07)</em>: Yes.</p>
+<p><em>JF (0:04:08)</em>: So, it’s quite a stripped-down team there. How many workshops do we have in parallel at once?</p>
+<p><em>NA (0:04:13)</em>: We have in parallel at most five workshop –</p>
+<p><em>JF (0:04:16)</em>: Okay.</p>
+<p><em>NA (0:04:16)</em>: – but we are covering up to three due to the reduced number of the AV staff. But we can rely on volunteers, too.</p>
+<p><em>JF (0:04:24)</em>: Well, there you go, folks. If you’re out there, if you’re a person who’s handy at AV, then get involved. You get a free trip around the world. You get to help out the programming languages community. Get involved. Get help with the staffing. So, moving on to the conference itself, you’re sort of attending. You’re doing the AV, but you also get the benefit of actually going to these workshops and going to the talks and things like that. So what have you seen today? What were you here for?</p>
+<p><em>NA (0:04:48)</em>: I mean, I work in quantum computing, so I also follow a bit of some talks of the quantum workshop at POPL that’s called PLanQC.</p>
+<p><em>JF (0:04:56)</em>: Any good ones?</p>
+<p><em>NA (0:04:58)</em>: Yeah, I think the keynote was good.</p>
+<p><em>JF (0:04:59)</em>: What was the keynote about? What did you want us to know?</p>
+<p><em>NA (0:05:01)</em>: Yeah, it was about like using path-sum representation to do verification in quantum. That is this different way to represent quantum state to try to limitate the exponential blowup of the quantum state, because when you are representing a quantum state in number, in metrics, let’s say, you have an exponential blowup. So there are some techniques that try to compress this representation.</p>
+<p><em>JF (0:05:23)</em>: Great. And what kind of stuff are you looking forward to? Is there anything in the coming days that looks interesting to you?</p>
+<p><em>NA (0:05:28)</em>: Okay. Yeah, I’m definitely interested to the two quantum track at POPL.</p>
+<p><em>JF (0:05:32)</em>: So there’s quantum at POPL as well. Okay, nice.</p>
+<p><em>NA (0:05:33)</em>: Yeah, there are two tracks. So it is, yeah. </p>
+<p><em>JF (0:05:35)</em>: Oh, two track.</p>
+<p><em>NA (0:05:35)</em>: Yeah.</p>
+<p><em>JF (0:05:36)</em>: Wow.</p>
+<p><em>NA (0:05:36)</em>: Yeah. Quantum is growing at POPL, yeah.</p>
+<p><em>JF (0:05:38)</em>: Only one functional programming track, but, okay, nice. Yeah. Any particular talks that – </p>
+<p><em>NA (0:05:42)</em>: I mean, I haven’t looked specific at the paper. I’m curious about one work that is about using tree automata in verification of quantum computing again. That is, again, another techniques to represent quantum state, or set of quantum state, in the most efficient way. I know some previous work from the same group, so I’m curious about the follow-up.</p>
+<p><em>JF (0:06:00)</em>: Okay, great. Cool, thank you. Okay, so One An, you are here as a undergraduate student.</p>
+<p><em>OA (0:06:05)</em>: Mm-hmm.</p>
+<p><em>JF (0:06:05)</em>: That’s exciting. What made you sort of interested in programming languages in the first place? </p>
+<p><em>OA (0:06:10)</em>: So, I liked logic a lot in high school. I liked math and logic. And then I chose my school that I go to University of Pennsylvania, because it’s actually one of the only two schools in the United States that offer a bachelor’s degree for logic. So I did not know any programming at all. My first language was OCaml because of this. Okay, technically, my first language was actually –</p>
+<p><em>JF (0:06:29)</em>: On the Haskell podcast.</p>
+<p><em>OA (0:06:30)</em>: Oh, I’m sorry.</p>
+<p><em>JF (0:06:32)</em>: Shame, shame.</p>
+<p><em>OA (0:06:33)</em>: Okay, I –</p>
+<p><em>JF (0:06:33)</em>: No, we love OCaml too.</p>
+<p><em>OA (0:06:35)</em>: I correct that. My first programming language was actually Lean because I tried Lean in high school. But I guess I wasn’t using it to program any – well, programs are proofs, but – okay, I was using it to program proofs.</p>
+<p><em>JF (0:06:47)</em>: Oh.</p>
+<p><em>OA (0:06:47)</em>: So I went to Penn because of how good the logic aspect of the math department is, and Penn is kind of the only place in the US, period, that even has a proof theorist.</p>
+<p><em>JF (0:07:00)</em>: Big claim. Here at the Haskell Interlude, we’re not sure if that’s true or not.</p>
+<p><em>OA (0:07:03)</em>: I think it might be true.</p>
+<p><em>JF (0:07:05)</em>: Okay.</p>
+<p><em>OA (0:07:05)</em>: He said it himself.</p>
+<p><em>JF (0:07:05)</em>: Maybe it’s true. Hey, well, this –</p>
+<p><em>OA (0:07:06)</em>: Yeah, he said that himself. </p>
+<p><em>JF (0:07:08)</em>: If it’s not, he’s in trouble.</p>
+<p><em>OA (0:07:09)</em>: Okay. I think the correct statement is that he’s the only ordinal analysis person –</p>
+<p><em>JF (0:07:14)</em>: Okay.</p>
+<p><em>OA (0:07:14)</em>: – in the United States.</p>
+<p><em>JF (0:07:15)</em>: That sounds constrained enough. That’s probably true. Yeah.</p>
+<p><em>OA (0:07:17)</em>: Yes. I’m sure that there are other people who work on proof theory in the US, but I know that there’s just far more in Europe. And US traditionally is a lot more on model theory, computability because the tradition is that Tarski was the first one who introduced logic to US, and he was obviously – he’s like a semantics guy. So, okay, but getting back on track. </p>
+<p><em>JF (0:07:40)</em>: Yeah, anyway. You wanted to come to POPL. What made you want to come to POPL?</p>
+<p><em>OA (0:07:43)</em>: Oh, I wanted to meet people so I can get into grad school.</p>
+<p><em>JF (0:07:47)</em>: That’s a great reason.</p>
+<p><em>OA (0:07:48)</em>: Yeah.</p>
+<p><em>JF (0:07:48)</em>: That’s a perfect reason. And so you were telling me earlier that you applied to PLMW.</p>
+<p><em>OA (0:07:53)</em>: Oh.</p>
+<p><em>JF (0:07:53)</em>: You’ve applied a few times.</p>
+<p><em>OA (0:07:54)</em>: Yes.</p>
+<p><em>JF (0:07:54)</em>: But this is your first time getting accepted. So, what does that mean to get accepted to PLMW?</p>
+<p><em>OA (0:07:58)</em>: Yeah. PLMW is the Programming Languages Mentoring Workshop, which I think is for maybe undergrads who are interested in PL, maybe early grad students, and also, I think, for industry people who might want to maybe get back into grad school.</p>
+<p><em>JF (0:08:12)</em>: People who aren’t already embedded in the PL community or are early in their careers in some way. Yeah.</p>
+<p><em>OA (0:08:18)</em>: Yeah. I guess because I haven’t been in the workshop yet, I don’t know what it’s going to be like.</p>
+<p><em>JF (0:08:23)</em>: That’s true. The workshop is tomorrow, so that’ll be exciting.</p>
+<p><em>OA (0:08:25)</em>: Yeah. Hopefully, they teach me how I can be a successful researcher in the PL community.</p>
+<p><em>JF (0:08:31)</em>: That is the goal. But do they pay for some stuff? Like, what is the –</p>
+<p><em>OA (0:08:34)</em>: Yes. They are basically covering this entire trip, which I’m really grateful for as –</p>
+<p><em>JF (0:08:39)</em>: Okay. So registration fees?</p>
+<p><em>OA (0:08:41)</em>: Yup.</p>
+<p><em>JF (0:08:42)</em>: Flights?</p>
+<p><em>OA (0:08:43)</em>: Yup.</p>
+<p><em>JF (0:08:43)</em>: Hotel?</p>
+<p><em>OA (0:08:44)</em>: Yup.</p>
+<p><em>JF (0:08:44)</em>: What a deal. If you’re out there, apply for PLMW. It’s a good deal. Okay, nice. So, how long have you been here? Have you been here just today, or were you here yesterday?</p>
+<p><em>OA (0:08:53)</em>: I was here actually from Saturday because I’m also a volunteer, and I had to attend the volunteer training.</p>
+<p><em>JF (0:09:00)</em>: Ah, okay. There you go. So volunteer as well, nice, along with Nicola. And you’re an AV volunteer as well, right? Nicola over there is an AV chair, so you’re sort of like, you have to do all the organizing beforehand and working with the venue and staying after and setting up and blah, blah, blah, blah. But then you, what is your role as a AV volunteer?</p>
+<p><em>OA (0:09:18)</em>: So, my role mostly is, I think, controlling the microphone so that there’s not maybe feedback issues with it, that it’s being recorded well. So, the AV chair directs everything, and we’re kind of the hand that actually clicks the things.</p>
+<p><em>JF (0:09:34)</em>: What have you seen so far, then? You’ve been here a little while already. Any interesting talks or anything like that? </p>
+<p><em>OA (0:09:38)</em>: Yeah. Yesterday I was at LAFI, Languages for Inference. I think that’s what the conference is called. I was there for volunteering mostly. Today, I went to Certified Proofs and Programs, which is one of the aspects, I think, of POPL that I was really excited for. Keynote was really good, which was mostly talking about how AI and machine learning techniques have been really useful in mathematics, specifically autoformalization. That was quite interesting. But other things that I’ve seen that I liked, there was one about constructive proof of Hilbert’s basis theorem, which is like a really, maybe one of the easier theorems in undergraduate-level algebra. It’s the one that everyone learns. So I learned it relatively recently, and then I get dropped with this bombshell that this is actually a very, very classical result. Even showing that Z, the integer, is Noetherian actually implies a law of excluded middle.</p>
+<p><em>JF (0:10:33)</em>: Oh, oh, classical in the logical sense.</p>
+<p><em>OA (0:10:35)</em>: Yes.</p>
+<p><em>JF (0:10:35)</em>: Right. Yeah, yeah, yeah.</p>
+<p><em>OA (0:10:35)</em>: Sorry, “classical” in the logical sense.</p>
+<p><em>JF (0:10:37)</em>: Wow, okay.</p>
+<p><em>OA (0:10:37)</em>: Not in the quantum –</p>
+<p><em>JF (0:10:38)</em>: Interesting.</p>
+<p><em>OA (0:10:39)</em>: Yes. So –</p>
+<p><em>JF (0:10:40)</em>: Not as in, like, constructive.</p>
+<p><em>OA (0:10:41)</em>: Yeah, exactly. So it’s –</p>
+<p><em>JF (0:10:41)</em>: It’s a classical law of excluded middle. Yes, okay.</p>
+<p><em>OA (0:10:43)</em>: It was trying to build some notion of Noetherian, which is, Noetherian is some class of rings that are nicely behaved in a sense. But it was trying to build this notion of Noetherian rings that is actually constructive, and it turns out you can actually use bar induction for this, which is also kind of neat. Not that I know too much about bar induction, but –</p>
+<p><em>JF (0:11:03)</em>: Yeah. Well, people can always go and watch the talk on the livestream VOD or once it gets released as a individual video. But, yeah, great. Is there anything you’re looking forward to in the future days?</p>
+<p><em>OA (0:11:13)</em>: There’s one paper that I’m excited to see out of Carnegie Mellon that’s essentially using substructural logic to model effect. I’m also looking towards, I guess, PLMW because that’s how I’m getting invited, but also I’m really excited for RocqPL.</p>
+<p><em>JF (0:11:28)</em>: Okay, great. Well, thank you both very much, and enjoy the rest of the conference. </p>
+<p>Okay. I’m here on Monday of POPL, and I’m here with some of the AV team. I’m here with Chris Lam. Say hello.</p>
+<p><em>Chris Lam (0:11:58)</em>: Hi. Hi.</p>
+<p><em>JF (0:11:59)</em>: And Chris, you are also a graduate student, or what do you do outside of AV here?</p>
+<p><em>CL (0:12:05)</em>: Yes. I am currently a graduate student in programming languages under Talia Ringer at University of Illinois. I’m doing work on a couple of different areas. Mostly, the projects with Talia, I’m doing some kind of compiler verification, a kind of proof compilation. So we want to take proofs at source-level programs and turning them into proofs at target-level programs and transforming them alongside the compiled code as we go, and then arriving at nice target-level proofs of programs from just having the source-level proof with no verified compiler in the middle. And so, that’s a fun time.</p>
+<p><em>JF (0:12:29)</em>: Neat. Okay. And also, I should say, it is currently quarter to seven. We’re getting kicked out at seven o’clock.</p>
+<p><em>CL (0:12:36)</em>: Yes.</p>
+<p><em>JF (0:12:36)</em>: But why are we here, Chris? Why are you still here? The conference is over. It finished at 5:30.</p>
+<p><em>CL (0:12:41)</em>: So really what we do, or what’s going on, is that after the end of every day, for each conference day, what we do is we have to, first of all, shut off all of the AV equipment that we have. And also, because you can’t really train the volunteers who are helping us run the rooms during the conference itself, because they need to be working it, we need to stay afterwards and train each of the volunteers that will be going on the subsequent days.</p>
+<p>Additionally, we have to set up the rooms that will be used on the next days because, once again, you can’t do that during the conference because it has to be in use. So, in order for each room to be up and ready to be recorded and streamed at the beginning of each day, we have to do it either sometime the day before or prior to that setup. We’re lucky today because tomorrow we’re using many of the same rooms, so we didn’t have to do that much of it today, but tomorrow is going to be a little bit rough because the set of rooms that the main tracks are on are disjoint from the set of rooms that the workshops have been in. It’s a set of three new rooms during the day because POPL is a little bit unique in organization this year, because we are getting kicked out at seven, whereas, usually, during many other conferences that are held in hotels instead of proper conference venues, we can pull all-nighters and set things up overnight, which is maybe not the healthiest.</p>
+<p><em>JF (0:13:39)</em>: Very unhealthy, the scene here. But you’ve been getting better, is what I understand. I hear that in Singapore, you had a curfew. Is that correct?</p>
+<p><em>CL (0:13:46)</em>: I believe so. Yeah. That was, on one hand, much healthier, but on the other hand, the nature of having two conferences in one place at the same time was very much a higher strain on people.</p>
+<p><em>JF (0:13:54)</em>: Yes. That was an absurd feat, which is very impressive that it got pulled off at all. </p>
+<p><em>CL (0:13:58)</em>: Yeah. And – yeah.</p>
+<p><em>JF (0:13:59)</em>: Yeah. So I’ve heard it’s a bit more chill this time?</p>
+<p><em>CL (0:14:02)</em>: Yes. It’s been a bit more chill this time. We’re very thankful to Sandrine and the venue staff here because they’ve been very, very helpful in getting things wired up and helping us with these things. But tomorrow is probably going to be the real test of what’s going on because of the more complicated nature of the main track rooms. There’s a lot of more advanced equipment in those rooms that we have not had to deal with yet. And so we’re going to have to be doing that setup during the day while also running the rest of the rooms, because once again, we are getting kicked out of the venue at seven, so we can’t pull all-nighters and fix stuff. </p>
+<p><em>JF (0:14:27)</em>: Right. And so, more advanced, like what kind of stuff’s going on there? Like sound system, or –</p>
+<p><em>CL (0:14:30)</em>: Sound systems, basically, we don’t know yet, which is the problem.</p>
+<p><em>JF (0:14:34)</em>: Fantastic. Yeah.</p>
+<p><em>CL (0:14:35)</em>: We just know that this venue has a bunch of very much more fancy recording equipment of their own as well. We do not know how well that interfaces with our recording equipment and streaming setup. And also, they have an in-house virtual network, which they’re hoping to use to simulcast the keynote events to the other rooms in POPL because we’re worried about overflow.</p>
+<p><em>JF (0:14:54)</em>: Oh, I see.</p>
+<p><em>CL (0:14:55)</em>: But also, that might require us to do some signal splitting to get that streamed on the YouTube channel for remote and archival stuff.</p>
+<p><em>JF (0:15:02)</em>: And that never goes wrong.</p>
+<p><em>CL (0:15:04)</em>: Of course. Yeah. Networking is easily a solved problem, of course.</p>
+<p><em>JF (0:15:07)</em>: Just add more stuff to it, add more nodes, and I’m sure nothing will break down. Everything will work perfectly.</p>
+<p><em>CL (0:15:12)</em>: Yeah.</p>
+<p><em>JF (0:15:13)</em>: Okay. Fantastic. It seems like you’ve been slowly building the resilience of the AV team. I’ve heard that you’ve got new microphones that you got at Singapore?</p>
+<p><em>CL (0:15:23)</em>: Yes.</p>
+<p><em>JF (0:15:23)</em>: Which is great because – so I was also one of the AV chairs in one of the past conferences, and yeah, sound is a big headache.</p>
+<p><em>CL (0:15:33)</em>: Yes.</p>
+<p><em>JF (0:15:33)</em>: So, how has that helped at all, having extra microphones? Oh, we’re getting kicked out.</p>
+<p><em>CL (0:15:37)</em>: Oh, yeah. We’re probably going to get kicked out.</p>
+<p><em>JF (0:15:37)</em>: Here we go. It’s live. It’s happening live.</p>
+<p><em>Unknown Speaker (0:15:39)</em>: Closing for 10 minutes.</p>
+<p><em>JF (0:15:40)</em>: Sounds good. Okay. Cheers.</p>
+<p><em>CL (0:15:41)</em>: Okay. Yes. We’ll be out of here soon.</p>
+<p><em>JF (0:15:42)</em>: Okay. We’re getting kicked out.</p>
+<p><em>CL (0:15:44)</em>: Yeah.</p>
+<p><em>JF (0:15:44)</em>: This is it. We’re up to the wire, people.</p>
+<p><em>CL (0:15:46)</em>: Yeah.</p>
+<p><em>JF (0:15:46)</em>: Yeah. So, have the microphones helped?</p>
+<p><em>CL (0:15:48)</em>: Oh, the microphones have helped a lot. Oftentimes, one of the big headaches on the run-up to the conference, before the conference actually starts, is negotiating contracts for AV equipment, also negotiating for contracts for AV equipment when neither you nor the people involved speak a shared language –</p>
+<p><em>JF (0:16:02)</em>: Great. Yes.</p>
+<p><em>CL (0:16:04)</em>: – which has been sometimes an interesting experience. But now that we have more in-house equipment, this simplifies this a lot and also saves a decent amount of money, because oftentimes, because people don’t want to just buy microphones for one event and then throw them away, venues can charge an arm and a leg. But because we run more than one conference and have persistent equipment, it is oftentimes cheaper for us to buy microphones and then reuse them for multiple conferences in a row. And we managed to do this for – or we managed to buy some in-house microphone sets at SPLASH and ICFP, and we’ve been using those since then.</p>
+<p><em>JF (0:16:32)</em>: Consistent equipment and a continuity of people as well, right? I mean, you’ve been at many of these conferences now. It felt like multiple years since I’ve seen you doing the AV.</p>
+<p><em>CL (0:16:40)</em>: Yeah. I think this is my third POPL that I’ve helped run.</p>
+<p><em>JF (0:16:42)</em>: Yeah.</p>
+<p><em>CL (0:16:42)</em>: Also, this venue –</p>
+<p><em>JF (0:16:43)</em>: The sound is going to be changing rapidly as we go through this building.</p>
+<p><em>CL (0:16:47)</em>: Yes. And –</p>
+<p><em>JF (0:16:48)</em>: The resonance will be changing.</p>
+<p><em>CL (0:16:50)</em>: The venue itself is a little bit of a maze. I’ve been very sore the past couple of days, just because of running up and down stairs and all over the place, because it’s just a lot of area to cover. And when you have to fix many different setups, then you end up getting a lot of steps in.</p>
+<p><em>JF (0:17:04)</em>: I can imagine.</p>
+<p><em>CL (0:17:05)</em>: Yeah.</p>
+<p><em>JF (0:17:05)</em>: So, how many people on the team have done this before? </p>
+<p><em>CL (0:17:08)</em>: This time I believe three of us are repeats. For one of us, Nicola, I believe, it is actually his last conference, or not his last conference ever, but his last conference running AV, because he has recently graduated and is doing a real-time job as a productive member of society, unlike the rest of us.</p>
+<p><em>JF (0:17:23)</em>: Yeah. I was just talking to him. Well, you guys are important too. You’re here. You’re doing research. This is your job too. I think we’re – oh, we should get coats, shouldn’t we? </p>
+<p><em>CL (0:17:31)</em>: Yes. We should get coats. I also have to stop off at the AV room and grab my backpack.</p>
+<p><em>JF (0:17:35)</em>: Okay, great. Well, thank you very much, Chris. That was a very interesting insight behind the scenes of AV here at POPL.</p>
+<p><em>CL (0:17:41)</em>: No worries. Thank you for having me.</p>
+<p><em>JF (0:17:42)</em>: Thanks.</p>
+<p>Cool, yes. I’m here with Satnam. You just got here today or yesterday? </p>
+<p><em>Satnam Singh (0:18:00)</em>: Yeah, I got here on Monday evening, so I sadly missed the first day. I’m looking forward to some talks at VMCAI. So it was a very interesting talk on translating VHDL hardware descriptions to Rocq. But I tracked down one of the officers today and talked to them. But yeah, I’ve been here for the morning and lots of interesting talks and people.</p>
+<p><em>JF (0:18:17)</em>: What have you seen? What have been the interesting talks?</p>
+<p><em>SS (0:18:19)</em>: Well, there was a talk on choreographic programming, right? </p>
+<p><em>JF (0:18:22)</em>: Oh, yeah. I’ve heard a little bit about that.</p>
+<p><em>SS (0:18:23)</em>: So, that builds on Haskell.</p>
+<p><em>JF (0:18:25)</em>: Yeah.</p>
+<p><em>SS (0:18:25)</em>: The work done by Lindsey Kuper and co.</p>
+<p><em>JF (0:18:29)</em>: Yeah.</p>
+<p><em>SS (0:18:29)</em>: They’ve got like a cloud version of that. And that involves doing lots of interesting trickery with the Haskell type system, the independent types –</p>
+<p><em>JF (0:18:36)</em>: Yeah, yeah.</p>
+<p><em>SS (0:18:36)</em>: – which is something I’m a big fan of. </p>
+<p><em>JF (0:18:39)</em>: Yeah, yeah. So explain that. So, choreographic programming, what is that? What’s the idea of that? </p>
+<p><em>SS (0:18:42)</em>: I don’t understand it deeply, but what I like about it is that it turns distributed systems programming back into something which looks like normal programming to me, right? Rather than having these broken-up bits of code which have send and receives between them, all stitched together in some incredible way. It gives you back your main.c, right? So, I like that perspective.</p>
+<p><em>JF (0:19:01)</em>: Yeah, I think I spoke to some people at ICFP, the last ICFP, and they were saying that you can write things in a sequential-looking way, but then you attach them somehow so that they end up working in a concurrent thing. Yeah, it seems like a cool idea. </p>
+<p><em>SS (0:19:14)</em>: People have tried to do similar things with client-server code, where they try to write logically with something which looks like one program. And then the tooling splits up into stuff that runs on a server and stuff that runs on a client and tries to make that as transparent as possible.</p>
+<p><em>JF (0:19:26)</em>: Yeah.</p>
+<p><em>SS (0:19:26)</em>: But yeah, it always has its limits, you know?</p>
+<p><em>JF (0:19:29)</em>: Of course.</p>
+<p><em>SS (0:19:29)</em>: Dealing with failure and so on, that all typically breaks lots of abstractions.</p>
+<p><em>JF (0:19:34)</em>: Yeah. And this talk that you were going to, what was the – so it was building on Haskell, you said it was?</p>
+<p><em>SS (0:19:38)</em>: Yeah. So it’s a team from Gothenburg.</p>
+<p><em>JF (0:19:41)</em>: Okay.</p>
+<p><em>SS (0:19:42)</em>: So they’ve built a library on top of, I guess, Haskell. I think that’s what Lindsey Kuper’s stuff is called. </p>
+<p><em>JF (0:19:46)</em>: Like Haskell Choreography, I think, yeah.</p>
+<p><em>SS (0:19:47)</em>: Yeah, yeah. I think there’s – what was it called again? CloudChor, something name of the version of cloud.</p>
+<p><em>JF (0:19:52)</em>: Right.</p>
+<p><em>SS (0:19:52)</em>: And they built something on top of that as a library.</p>
+<p><em>JF (0:19:54)</em>: Oh, cool. </p>
+<p><em>SS (0:19:54)</em>: You can talk in a civilized way about where a value lives, how it’s communicated, how it’s broadcast, et cetera. And that’s a part in the type. The types all look very nice. What I suspect is, off the top of a screen, is that there’s many lines of Haskell extensions.</p>
+<p><em>JF (0:20:11)</em>: I can imagine.</p>
+<p><em>SS (0:20:11)</em>: Possibly one or two plug-ins, knownnat solvers that we didn’t get to see.</p>
+<p><em>JF (0:20:16)</em>: Well, it could just be like GHC 2025 or 20 – I’m not sure what we’re at the moment. Also, we’re sitting here in the lunch hall. We’ve just had lunch. What do you think about the lunch? You’re a food person.</p>
+<p><em>SS (0:20:25)</em>: I’m one of the people that has a dietary restriction.</p>
+<p><em>JF (0:20:27)</em>: Yeah.</p>
+<p><em>SS (0:20:27)</em>: I’m celiac, so I can’t have gluten. And we have these tables here, which say “vegetarians” and “allergies.”</p>
+<p><em>JF (0:20:32)</em>: And allergies. Just all of them.</p>
+<p><em>SS (0:20:35)</em>: I think what’s happened here is very common, is that they’ve computed the lowest common denominator of everyone’s eating restrictions –</p>
+<p><em>JF (0:20:42)</em>: Yes.</p>
+<p><em>SS (0:20:43)</em>: – unioned with bread.</p>
+<p><em>JF (0:20:45)</em>: So there was still bread here?</p>
+<p><em>SS (0:20:46)</em>: Yeah. </p>
+<p><em>JF (0:20:47)</em>: Oh, wow.</p>
+<p><em>SS (0:20:47)</em>: So I had to get someone to move the bread away from my position because obviously I’m really 20 parts per million sensitivity.</p>
+<p><em>JF (0:20:52)</em>: Take it away from me. Yeah. Oh, my goodness.</p>
+<p><em>SS (0:20:54)</em>: And there were still crumbs kind of on the table.</p>
+<p><em>JF (0:20:55)</em>: Oh, no.</p>
+<p><em>SS (0:20:55)</em>: So I think the food was really tasty, but yeah, I’m not a vegetarian. I don’t want to be forced to eat –</p>
+<p><em>JF (0:21:02)</em>: Right. I see. You’re just like, well, you’re not in those normal categories, so you just get that. Yeah.</p>
+<p><em>SS (0:21:07)</em>: Lunch was on the light side, but yeah, it was fine. I’m going out to nice restaurants every night, so maybe I could save my appetite for dinner.</p>
+<p><em>JF (0:21:16)</em>: Nice. Yeah, yeah. Good. So are you looking forward to anything later in the conference?</p>
+<p><em>SS (0:21:19)</em>: I haven’t looked at the agenda in detail because I’ve been sent here by my company to recruit. So my job is to –</p>
+<p><em>JF (0:21:27)</em>: Ah, yes. Recruitment.</p>
+<p><em>SS (0:21:28)</em>: – hire people to come and work at Harmonic.</p>
+<p><em>JF (0:21:30)</em>: At Harmonic? Okay. What is Harmonic?</p>
+<p><em>SS (0:21:32)</em>: So, Harmonic – so we sponsor the conference. It’s a very small startup in California. The key technology it has is a tool based on machine learning. You give it a Lean theorem.</p>
+<p><em>JF (0:21:42)</em>: Okay.</p>
+<p><em>SS (0:21:42)</em>: And instead of proving the theorem, you write “sorry.”</p>
+<p><em>JF (0:21:44)</em>: Yeah.</p>
+<p><em>SS (0:21:44)</em>: And you send that by API request to our servers. And it hopefully gives you back your theorem with the sorry filled in. So it tries to –</p>
+<p><em>JF (0:21:53)</em>: Oh, okay.</p>
+<p><em>SS (0:21:53)</em>: It uses machine learning to prove theorems. Again, it’s a totally new take on theorems for free.</p>
+<p><em>JF (0:21:59)</em>: Ah. Are you sure you take theorems for – give it to us, and we’ll give it back to you for free. Yeah. </p>
+<p><em>SS (0:22:04)</em>: It’s incredible what it can do. It won –</p>
+<p><em>JF (0:22:06)</em>: Yeah.</p>
+<p><em>SS (0:22:07)</em>: So there’s a famous math competition, the International Math Olympiad. And in 2025, last year, it got a gold-level performance. So it did incredibly well. So did a submission from DeepMind, from OpenAI, and I think from ByteDance as well. But those are big companies with lots of people working there. This is, I think, at the time, a 14-person company or whatever that did this. So I think this is quite a superpower. And I think this year, 2026, is a year we’re going to see phenomenal advances at the intersection of machine learning, mathematics, and proving theorems, especially. But so far, the focus has been proving theorems for mathematicians, but I think we’re going to pivot now to proving theorems for hardware, for circuits, as well as for software, too. And so I think that’s quite – I’m very excited by that.</p>
+<p><em>JF (0:22:52)</em>: That sounds cool. And so you say “machine learning.” Is that like LLMs? Is that like something else? </p>
+<p><em>SS (0:22:55)</em>: Yeah, based on LLMs. And even here, I think we see the effect of it. So I think Ilya Sergey here has – actually, I’m looking forward to some of his talk –</p>
+<p><em>JF (0:23:03)</em>: Oh, yeah.</p>
+<p><em>SS (0:23:03)</em>: – because he uses our company’s tools to do his proofs for his papers, right?</p>
+<p><em>JF (0:23:06)</em>: Right. Okay.</p>
+<p><em>SS (0:23:07)</em>: So he writes a lemma, then submits API request, and we give him a proof back, and he puts the proof in his POPL paper, right?</p>
+<p><em>JF (0:23:13)</em>: You check the service. Oh, I see. Yeah, yeah.</p>
+<p><em>SS (0:23:14)</em>: So I think he’s maybe the first example of someone in this community who has written a paper that has a proof that’s been generated by AI, and that’s part of an accepted paper. So I think we’re going to see more and more of that, right? Whereas it’s routine to have proofs in these papers at POPL and other conferences, but proofs that are written by humans before. More and more of them are going to be written by LLMs in future, right? </p>
+<p><em>JF (0:23:36)</em>: So I’m quite an anti-LLM person, but this is one of the areas where I think it’s a more reasonable take, right? Because you can verify it. That’s the whole point.</p>
+<p><em>SS (0:23:44)</em>: That is one of the main strengths of our company, Harmonic, is that our system doesn’t hallucinate, right? So you put it into Lean, and it checks whether it actually is a inhabitant of the type or not, right? So I think that’s what makes it, I think, to me, particularly compelling. It’s an LLM that you know is not lying to you.</p>
+<p><em>JF (0:24:00)</em>: Yeah. And I think that seems to be the most reasonable application of LLMs. I mean, I don’t know how much you think that’s worth in terms of whether it adds up to this trillion-dollar industry, but I think that’s quite a useful use. So, yeah, that’s very interesting. Any other things that have been sort of – or if you want to talk about the role a bit more, like what are you recruiting for?</p>
+<p><em>SS (0:24:19)</em>: Well, I mean, I’m looking for people that have got experience in programming languages, program language semantics, and theorem proving people who have used Rocq or Lean or Agda, people who have the same level of excitement and interest about if you’ve got this big hammer that could crank out proofs for you, what can you do with that, right? So you don’t need to be a machine learning – I mean, I’m not a machine learning person. I’m not here to hire machine learning people. I’m interested in people that know about theorem proving, programming languages, semantics, because we want to connect this engine to the wider world to solve problems beyond just mathematics.</p>
+<p><em>JF (0:24:50)</em>: Right. Yeah.</p>
+<p><em>SS (0:24:51)</em>: So, whatever these problems are, somehow we have to map them to Lean to work with our engine.</p>
+<p><em>JF (0:24:56)</em>: Which is the thing that, as a PL community, we’ve had to be doing like this whole time anyway.</p>
+<p><em>SS (0:25:00)</em>: Yeah, yeah.</p>
+<p><em>JF (0:25:01)</em>: So this is the perfect place to find those people. So yeah, if that’s you, then get in contact with Satnam.</p>
+<p><em>SS (0:25:05)</em>: Yes, we’ve got some postcards down at the registration desk. You can look at our website, and actually, it’s free to access our service. You just sign up, you get your API key, you get a client, you run it on your machine, and you can upload a Lean file with a sorry in it, and hopefully it will come back with the sorry.</p>
+<p><em>JF (0:25:23)</em>: Do you want to plug the website? What’s the website?</p>
+<p><em>SS (0:25:25)</em>: Harmonic Fun, or just Google “Harmonic.”</p>
+<p><em>JF (0:25:27)</em>: Google Harmonic.</p>
+<p><em>SS (0:25:27)</em>: But the URL is harmonic.fun.</p>
+<p><em>JF (0:25:30)</em>: Harmonic.fun. Perfect, there you go. Harmonic.fun, check it out. Great. Well, thank you very much, and enjoy the rest of the conference.</p>
+<p><em>SS (0:25:35)</em>: Thank you.</p>
+<p><em>JF (0:25:42)</em>: Cool. So, I’m here with Kim Worrall. You are a PhD student at the University of Edinburgh. So, what kind of stuff do you work on?</p>
+<p><em>Kim Worrall (0:25:57)</em>: So, I work on quantum programming languages and their compilers, a little bit between trying to understand the denotational semantics as well as understanding how we get algorithms better represented in them so that we can adapt them to other algorithms, as well as then trying to understand, once we’ve written these programs, how do we compile them so that we can exploit the kind of parallelism that’s available in a quantum computer but is less obvious when we write the programs themselves?</p>
+<p><em>JF (0:26:21)</em>: Yeah. And so we were talking a little bit before this as well, talking about the representations of quantum computers, and I’ve done a little bit of quantum stuff, but I’ve learned a lot from our conversation before. But you’re talking about the structure of a quantum computer and how some of our conceptual models of what that is is maybe not as accurate to the hardware in certain ways. I don’t know. If you give a high-level overview of a quantum computer, what does it actually look like?</p>
+<p><em>KW (0:26:46)</em>: So, this is one of those things where, because quantum computers have only really been commercially available for the last five years, that it’s not really been able to reach the limelight, particularly in theory, which has been developing for the last 20. But a quantum computer these days may need to be understood via its control system. The qubits themselves are sort of usually physically static or in some kind of hardware modalities, like ion traps. They might move, but it’s where they’re controlled that the computation is happening. These are, at the moment, usually parallel sets of FPGAs, where a group of maybe four or six qubits are each controlled by a handful of FPGAs. So, one might do the readout, one might do modulating phases, and these can be synchronized so that you can achieve multi-qubit gates. Obviously, in some modalities, maybe one chip will do a multi-qubit gate. But it’s in these chips where you see the classical computer science instructions that’s happening –</p>
+<p><em>JF (0:27:41)</em>: Right.</p>
+<p><em>KW (0:27:42)</em>: – and the programming. Typically, at the moment, we have separate chips that are used for actually generating the kind of instructions sent to these control chips. Although this is less so the case in modalities that aren’t superconducting, because the clock cycles are much longer for these.</p>
+<p><em>JF (0:27:59)</em>: And longer, like, what kind of order of magnitude are we talking here?</p>
+<p><em>KW (0:28:02)</em>: Well, so for superconducting, we’re talking nanoseconds. And for things like ion traps, this can be going up to microseconds, so an order of magnitude. But those ones then you can actually do some of your compilation or choosing where you place your qubits on the fly. Whereas if you’re making those decisions for a superconducting computer, they happen so much faster that frequently the instructions are compiled the whole way out and then streamed to these FPGAs. But the main thing is that you have essentially many small classical chips, each of which may have some of its own compute power, and these may only kind of interact with their neighbors.</p>
+<p><em>JF (0:28:38)</em>: Okay, great. And you’re trying to bring out the parallelism that programmers might not be able to identify themselves. Can you give us an idea of any techniques for doing that? Like, how can a programmer write something and then find like, “Oh, there’s actually some more parallelism here than I thought there might be”?</p>
+<p><em>KW (0:28:51)</em>: So, there’s kind of two ways in which this is appearing in the literature at the moment. So, the first one is the obvious one, which is that if you’re writing quantum circuits, which is the predominant way these are written, you can view this as building a DAG, a directed acyclic graph, where you start at one end and you have some kind of time direction, and it shows you the connection of which qubits are being used at any time step, and then trying to greedily fill as many qubits at any given point, because you can think as a qubit doing nothing like a core idling on a GPU. And so in that case, it’d be ideal to use as many of them as possible at any given time, particularly if you want to just make sure your usage of the computer is maximized. And then there’s the other one, which is saying, “Within this mathematical representation of my algorithm, I can parallelize the implementation more.” So, that means kind of restructuring it. So, one circuit may contain more parallels and then another, and therefore be shorter in some way.</p>
+<p><em>JF (0:29:51)</em>: Right. Okay, makes sense.</p>
+<p><em>KW (0:29:53)</em>: And trying to find representations that have this more innately or allow us to extract implementations that do this is becoming more popular, as well as looking for abstractions that use our qubits in a more structured manner so that we’re using as many of them as possible at any one time.</p>
+<p><em>JF (0:30:10)</em>: Very cool. And so you were at PLanQC yesterday, I assume?</p>
+<p><em>KW (0:30:13)</em>: Yes. </p>
+<p><em>JF (0:30:14)</em>: How did you find that? Was there sort of any interesting talks that took your fancy?</p>
+<p><em>KW (0:30:18)</em>: I mean, I enjoyed pretty much all of them that I went to.</p>
+<p><em>JF (0:30:20)</em>: Okay. Okay. Great. Anyone to shout out? Or you can think of anything.</p>
+<p><em>KW (0:30:23)</em>: Is it too biased to shout out the ones from my research group?</p>
+<p><em>JF (0:30:27)</em>: No, absolutely not. You should absolutely shout out your research group. Yeah. What ones were –</p>
+<p><em>KW (0:30:31)</em>: Everyone should obviously check in on all the work we’re doing in Edinburgh. We’re very cool. We also have some talks.</p>
+<p><em>JF (0:30:36)</em>: Yeah. Which ones off the top of your head? Like, what were they?</p>
+<p><em>KW (0:30:39)</em>: So there were two yesterday. We had Louis talking about one rig to rule them all. If you’re interested in some category theory and completeness, that’s about modeling quantum control but structurally, by which we mean using one mathematical structure to reason about it. And – oh, wait, there weren’t two yesterday. There was – oh, well, Robert was also – so, the last talk of the day was another category thing. </p>
+<p><em>JF (0:31:00)</em>: Was that Robert Rand?</p>
+<p><em>KW (0:31:01)</em>: No, Robert Booth.</p>
+<p><em>JF (0:31:02)</em>: Robert Booth. Okay.</p>
+<p><em>KW (0:31:02)</em>: But he wasn’t talking. It was actually Cole.</p>
+<p><em>JF (0:31:05)</em>: Oh, I see. Okay.</p>
+<p><em>KW (0:31:06)</em>: In my head, it was two.</p>
+<p><em>JF (0:31:07)</em>: Okay. </p>
+<p><em>KW (0:31:07)</em>: There’s actually – I think that we’ve got three talks in the main conference.</p>
+<p><em>JF (0:31:11)</em>: Nice.</p>
+<p><em>KW (0:31:12)</em>: And so –</p>
+<p><em>JF (0:31:13)</em>: And POPL proper.</p>
+<p><em>KW (0:31:14)</em>: Yeah.</p>
+<p><em>JF (0:31:14)</em>: Oh, wow. Okay, great.</p>
+<p><em>KW (0:31:15)</em>: I forgot everyone’s here because of this.</p>
+<p><em>JF (0:31:18)</em>: Right. Yeah. No, no. </p>
+<p><em>KW (0:31:19)</em>: We’ve been busy.</p>
+<p><em>JF (0:31:20)</em>: So, was that the one with something about symmetric monoidal categories, or was that a different one I’m thinking of? Maybe a different one.</p>
+<p><em>KW (0:31:25)</em>: There were at least two that said –</p>
+<p><em>JF (0:31:27)</em>: Okay.</p>
+<p><em>KW (0:31:27)</em>: – symmetric monoidal categories.</p>
+<p><em>JF (0:31:28)</em>: Yeah, yeah. Well, it’s something I’m interested in as well in the – I’ve been doing some like arrows-related stuff, and there’s a –</p>
+<p><em>KW (0:31:35)</em>: Oh, okay. That makes sense.</p>
+<p><em>JF (0:31:36)</em>: There’s something there with a symmetric monoidal category thing, and part of what I’m thinking of is how to sell that and like –</p>
+<p><em>KW (0:31:41)</em>: Our group had some work. So Chris and Robin – so Chris is my supervisor. They had some work on using arrows to add measurement and discarding.</p>
+<p><em>JF (0:31:50)</em>: Interesting. Was that at this conference or at a previous –</p>
+<p><em>KW (0:31:54)</em>: A couple of POPLs ago, I think.</p>
+<p><em>JF (0:31:55)</em>: Okay. Interesting. I should maybe look into that one.</p>
+<p><em>KW (0:31:58)</em>: And then the other thing we do a lot of is rig categories.</p>
+<p><em>JF (0:32:00)</em>: Yes, yeah, the rig categories.</p>
+<p><em>KW (0:32:01)</em>: So that was what Louis was talking about.</p>
+<p><em>JF (0:32:03)</em>: Could you give a high-level idea of what a rig category is?</p>
+<p><em>KW (0:32:06)</em>: Yeah. Sorry, Louis forgot to do that yesterday.</p>
+<p><em>JF (0:32:08)</em>: Oh, okay. So one rig to rule them all, but what is a rig?</p>
+<p><em>KW (0:32:11)</em>: So a rig category is a category with two monoidal products that distribute over each other in a well-behaved way.</p>
+<p><em>JF (0:32:19)</em>: Okay.</p>
+<p><em>KW (0:32:19)</em>: You can think of them as the categorification of a ring without negation. And that means you’ve got a monoidal product, which is a plus, and it has a unit, which is zero, and you have a monoidal product, which is times, and it has a unit, which is one.</p>
+<p><em>JF (0:32:34)</em>: Right. Okay.</p>
+<p><em>KW (0:32:35)</em>: And these distribute over each other in the way that you would expect a plus and a times to.</p>
+<p><em>JF (0:32:39)</em>: Okay.</p>
+<p><em>KW (0:32:40)</em>: And the zero annihilates in the way you would expect, and the one disappears with respect to the times in the way you would expect. And we look at rig groupoids because we want to have local inverses that allows you to have things like a Hadamard morphism.</p>
+<p><em>JF (0:32:54)</em>: Okay. I just got it. It’s a ring without the negation, so it’s a ring without the n –</p>
+<p><em>KW (0:32:59)</em>: Yes.</p>
+<p><em>JF (0:32:59)</em>: – so it’s a rig. Nice. Very clever. Okay. Fun fact. </p>
+<p><em>KW (0:33:03)</em>: And we look at the categorification of this. So your morphisms aren’t necessarily natural numbers, and they happen to be useful for modeling quantum things. They were first studied for modeling reversible computing.</p>
+<p><em>JF (0:33:15)</em>: Right.</p>
+<p><em>KW (0:33:17)</em>: So you can say that 1 + 1 represents a Boolean. The object 1 + 1 has two possible states. So one of them is true, and one of them is false.</p>
+<p><em>JF (0:33:27)</em>: Oh, so we’re thinking in terms of like a sum type, almost like it’s like an either. It’s like a – yeah.</p>
+<p><em>KW (0:33:32)</em>: Yes.</p>
+<p><em>JF (0:33:33)</em>: This thing or this thing. Okay. Understood.</p>
+<p><em>KW (0:33:35)</em>: And then you can swap them, and this can be considered as the NOT operation, and that’s invertible. </p>
+<p><em>JF (0:33:42)</em>: Right. Yes.</p>
+<p><em>KW (0:33:43)</em>: And then you can have pairs of Booleans using the times operation.</p>
+<p><em>JF (0:33:48)</em>: Right. Okay.</p>
+<p><em>KW (0:33:49)</em>: And then my group has done some work on adapting this to quantum computing. They add some square roots of the NOT operation and of the identity, and this is sufficient for universal unitary programming.</p>
+<p><em>JF (0:34:02)</em>: Oh, really? Wow. Okay. Neat. So I can see you were talking earlier off-mic about the inductive way of defining a unitary transformation. So is that part of it? Because I can see there’s some sum types –</p>
+<p><em>KW (0:34:15)</em>: Yeah. </p>
+<p><em>JF (0:34:15)</em>: – and product types there, and –</p>
+<p><em>KW (0:34:16)</em>: That’s the work I’ve been doing –</p>
+<p><em>JF (0:34:17)</em>: Okay.</p>
+<p><em>KW (0:34:18)</em>: – is looking at ways to define these inductively. So these formalisms start with very simple sets of equations, but those aren’t so fun to actually write programs with.</p>
+<p><em>JF (0:34:27)</em>: Right. Yeah.</p>
+<p><em>KW (0:34:28)</em>: So you just tend to look for what is the sensible way to compose these. We found that it’s not just kind of post-composing as you would normally do in classical programming, but trying to take advantage of the kind of symmetries you get from things like conjugation of unitaries and even looking at steps between iterations and inserting things there, particularly as those are the ones that tend to cancel when you then compose one recursively defined unitary with another. </p>
+<p><em>JF (0:34:55)</em>: Okay. Great. Thanks very much. And is there anything that you’re looking forward to in the coming days at the conference?</p>
+<p><em>KW (0:35:00)</em>: I hadn’t thought about this one.</p>
+<p><em>JF (0:35:02)</em>: Obviously, your own group has a couple of things coming up there.</p>
+<p><em>KW (0:35:04)</em>: Yeah. Everyone should come see those.</p>
+<p><em>JF (0:35:06)</em>: Did you say you have three of them there?</p>
+<p><em>KW (0:35:09)</em>: Yeah.</p>
+<p><em>JF (0:35:09)</em>: Wow. There you go. So yeah, check out the University of Edinburgh POPL talks. </p>
+<p><em>KW (0:35:14)</em>: Well, the University of Edinburgh Quantum POPL talk, specifically.</p>
+<p><em>JF (0:35:16)</em>: Oh, specifically. Yeah. The other ones, don’t bother.</p>
+<p><em>KW (0:35:18)</em>: Yeah.</p>
+<p><em>JF (0:35:18)</em>: But the quantum ones, it’s the ones to see.</p>
+<p><em>KW (0:35:20)</em>: Actually, no, that’s not true because Cristina and Ohad did something cool, and Wenhao did something cool as well. Everyone did cool stuff. </p>
+<p><em>JF (0:35:27)</em>: Yeah. It seems like everyone is doing cool stuff over there, so yeah. Okay, great. Well, thank you very much.</p>
+<p><em>KW (0:35:31)</em>: Yeah.</p>
+<p><em>JF (0:35:31)</em>: And enjoy the rest of the conference.</p>
+<p>Okay. So I’m here with Roger Burtonpatel and Francille Zhuang. It is Tuesday here in Rennes. Francille, you were saying that you have been on the Type Theory Forall podcast. So, for context, Francille, you’re an undergraduate student at Purdue University, and you were on the Type Theory Forall podcast. So, what’s going on? How did you swing that gig?</p>
+<p><em>Francille Zhuang (0:36:03)</em>: Yeah. Well, okay. So, first of all, the way I knew Pedro, who’s the host of Type Theory Forall, was that he was my TA for one of my classes in the very beginning.</p>
+<p><em>JF (0:36:12)</em>: Oh.</p>
+<p><em>FZ (0:36:12)</em>: It was like discrete math or something like that. And then so I was like, “Okay.” And then he gave me this chalkboard, like talk about PL.</p>
+<p><em>JF (0:36:19)</em>: Nice.</p>
+<p><em>FZ (0:36:19)</em>: I was like, “Hmm, this is really interesting.” And then he left and did his own thing, and then he came back a couple of months ago to visit his friends here. And then I found him at a Halloween party, and I was like, “Hey, I have a proposal for you. I have a business proposal. So I’m applying for PhDs. Can I put an ad on your podcast?” Just advertising myself, trying to find a PhD advisor. He’s just like, “Okay. Do you just want to be on a podcast episode?” And he also invited one of our other friends, Raghav Malik, who just defended, but he is also in PL. And he interviewed both of us in this three-hour session.</p>
+<p><em>JF (0:36:58)</em>: Three hours?</p>
+<p><em>FZ (0:36:59)</em>: Yeah. </p>
+<p><em>JF (0:37:00)</em>: Oh my goodness. That’s quite an interview. That’s quite an advertisement. That’s good.</p>
+<p><em>FZ (0:37:03)</em>: Yeah. </p>
+<p><em>JF (0:37:03)</em>: Well, you can get another shorter advertisement. What’s your pitch? Like, why should a supervisor take on a Francille Zhuang?</p>
+<p><em>FZ (0:37:11)</em>: Okay. So right now, I’ve been doing research with property-based testing. So it’s kind of looking at things related with program synthesis, specifically with input generators when it comes to property-based testing. I think it’s really cool. There’s a lot of really cool professors, like Harrison Goldstein at Buffalo. I’m also maybe interested in other research topics as well, because I’ve done this for a year now. I know how this works. But coming here at POPL, there’s so much more interesting stuff.</p>
+<p><em>JF (0:37:38)</em>: Great. Yeah. Do you want to just rattle off some topics that you’re interested in, just to put some feelers out there? Anything?</p>
+<p><em>FZ (0:37:43)</em>: Yeah.</p>
+<p><em>JF (0:37:43)</em>: Yeah. What kind of stuff?</p>
+<p><em>FZ (0:37:44)</em>: I don’t know. Like, all those type theory stuff and logics are really cool to me. I feel like I only know much about it.</p>
+<p><em>JF (0:37:51)</em>: Yeah.</p>
+<p><em>FZ (0:37:51)</em>: But I’ve been hankering for something more abstract because property-based testing is obviously very applied.</p>
+<p><em>JF (0:37:57)</em>: I see.</p>
+<p><em>FZ (0:37:58)</em>: Yeah.</p>
+<p><em>JF (0:37:59)</em>: Okay. Yeah. Great, perfect. Roger, you’re a creative person. You’re a PL person, you’re a creative person. You were at FARM at ICFP recently doing the rock and roll performance, which I will get around to editing in – maybe not by the time this podcast is out, but at some point. </p>
+<p><em>Roger Burtonpatel (0:38:15)</em>: The fans are waiting.</p>
+<p><em>JF (0:38:16)</em>: The fans are waiting. The fans are waiting. It was a great performance. I’m looking forward to editing it and getting it out into the world.</p>
+<p><em>RB (0:38:20)</em>: No, you’re so fine. Thank you for recording it, and we really look forward to the edited version.</p>
+<p><em>JF (0:38:23)</em>: Yeah, yeah. I hope it will be good. But how have you enjoyed POPL so far? Also, maybe give some context. You’re a PhD student or –</p>
+<p><em>RB (0:38:30)</em>: That’s right. I just started my PhD. I work with Steve Zdancewic, and I really am enjoying POPL so far. It’s very different. I’ve been to a few other PL conferences. It’s really different from, I mean, even certainly just the last ICFP/SPLASH in terms of size, in terms of vibe. I think this really feels quite intimate and really focused on – of course, I think everyone knows this about POPL, but the love of theory here is tangible, right? You can feel that this is just what people want to talk about at lunch. I was just talking with Yves Bertot at lunch about this inductive representation of rational numbers with three data constructors that he sort of came up with in his bed one morning and then wrote a bunch of papers about some years ago. But it just sort of lit up his eyes and then lit up my eyes because I thought it was so cool, and you get this great proof that the square root of two is irrational. And it just is sort of like back to the roots, but in a really focused and exciting way.</p>
+<p><em>JF (0:39:24)</em>: How does that work? There are three constructors for these rationals? What’s the deal?</p>
+<p><em>RB (0:39:27)</em>: Sure. So it’s based on – I’m not an expert in this, but he explained it to me while writing it down. So we can do unary numbers with zero and the successor of a unary natural number.</p>
+<p><em>JF (0:39:37)</em>: Right. Yeah.</p>
+<p><em>RB (0:39:38)</em>: And we can do these where one of the constructors is one. One of the constructors you can call N, which is just one plus. So it’s one plus this representation, right? And then you can take D, which is one over one plus one over X, right, where X is one of these numbers. And the way that the math works out is that N and D are inverses basically –</p>
+<p><em>JF (0:39:58)</em>: Okay.</p>
+<p><em>RB (0:39:58)</em>: – because you’re sort of putting one on the top or putting one on the bottom of this representation that goes through Euclid’s algorithm. So when you’re computing GCD, basically the way that you do this iteratively is you’re manipulating ones on the top and bottom of a fraction until you get these relative prime numbers. And doing this, you can find the unique representation. And actually, every rational number has a unique word in this language, which is very cool because you can do equivalence, right? The problem with doing equivalence between rational numbers that you just represent as p over q is that two over four and three over six are not syntactically equal.</p>
+<p><em>JF (0:40:31)</em>: Right. I see.</p>
+<p><em>RB (0:40:32)</em>: Right? So you have to do computation, and things become complicated.</p>
+<p><em>JF (0:40:34)</em>: Oh, interesting.</p>
+<p><em>RB (0:40:34)</em>: But when you have unique words, then you get syntactic equivalence.</p>
+<p><em>JF (0:40:38)</em>: That’s really cool.</p>
+<p><em>RB (0:40:38)</em>: Yeah.</p>
+<p><em>JF (0:40:39)</em>: Yeah.</p>
+<p><em>RB (0:40:39)</em>: He’s a genius, and he plays trumpet, which I find extremely cool as just science and music.</p>
+<p><em>JF (0:40:44)</em>: Hell yeah. Hell yeah. </p>
+<p><em>RB (0:40:44)</em>: It always is something I’m looking for.</p>
+<p><em>JF (0:40:46)</em>: When’s his FARM performance? When are we going to see it?</p>
+<p><em>RB (0:40:47)</em>: That’s what I’m asking.</p>
+<p><em>JF (0:40:48)</em>: Yeah.</p>
+<p><em>RB (0:40:48)</em>: He’s carrying his trumpet everywhere, and I –</p>
+<p><em>JF (0:40:50)</em>: He’s carrying his trumpet everywhere?</p>
+<p><em>RB (0:40:51)</em>: I asked him, you know –</p>
+<p><em>JF (0:40:52)</em>: Get him down to FARM. We have to have him there.</p>
+<p><em>RB (0:40:54)</em>: – why, and he said, “Well, I might play.” So I hope he does.</p>
+<p><em>JF (0:40:57)</em>: I hope he does too. Fantastic. So, is there anything you’re looking forward to in the rest of the conference?</p>
+<p><em>RB (0:41:02)</em>: Yeah. I have a lot of talks starred. These days, I’ve been really interested in step-indexed logical relations and co-induction. So basically anything that has those words in it, I put a star next to.</p>
+<p><em>JF (0:41:11)</em>: Okay. Right. Yeah.</p>
+<p><em>RB (0:41:11)</em>: I’m still very new in the field. I have a lot that I need to learn, a lot of papers that I need to read or am in the process of reading. And it’s a real privilege to be around the authors of those papers. I got to ask Paul Levy about call-by-push value, just direct questions that I had highlighted in the paper.</p>
+<p><em>JF (0:41:26)</em>: Right. They’re just people, and they’re just there.</p>
+<p><em>RB (0:41:28)</em>: Yeah.</p>
+<p><em>JF (0:41:28)</em>: And you can just go talk to them.</p>
+<p><em>RB (0:41:28)</em>: And in this community, they’re very approachable.</p>
+<p><em>JF (0:41:30)</em>: Yeah. Exactly. Yeah, yeah. No, nice. And we’ll turn back over to Francille. Is there anything that you’re looking forward to in the rest of the conference?</p>
+<p><em>FZ (0:41:37)</em>: So there’s been a lot of really good quantum talks.</p>
+<p><em>JF (0:41:41)</em>: There has. I’ve been talking to a lot of people about quantum on this podcast as well, actually. But yeah.</p>
+<p><em>FZ (0:41:45)</em>: Yeah.</p>
+<p><em>JF (0:41:45)</em>: Yeah. What talks?</p>
+<p><em>FZ (0:41:45)</em>: But it’s more about POPL, I think. So I want to look into that more. I just think quantum is so interesting because it’s like the same kind of problems that we already solved in classical CS. We’re trying to do them again. It’s never how it has been working. You got to come up with a lot of new abstractions for it. So that’s kind of the reason it piques my interest.</p>
+<p><em>JF (0:42:05)</em>: Yeah. Abstractions for quantum is quite a difficult thing, and it’s a very unsolved problem.</p>
+<p><em>FZ (0:42:09)</em>: Yeah.</p>
+<p><em>JF (0:42:09)</em>: People are struggling, and yeah, it’s an interesting challenge.</p>
+<p><em>FZ (0:42:13)</em>: Yeah.</p>
+<p><em>JF (0:42:13)</em>: Okay, great. Thank you very much, both of you, Francille and Roger. And supervisors out there, Francille is looking to do a PhD. Well, is there any way they should contact you? </p>
+<p><em>FZ (0:42:24)</em>: You can email me at fzhuang@purdue.edu.</p>
+<p><em>JF (0:42:30)</em>: Okay. Perfect. Thank you both very much, and enjoy the rest of the conference.</p>
+<p><em>RB (0:42:33)</em>: Thank you.</p>
+<p><em>Narrator (0:42:38)</em>: The Haskell Interlude Podcast is a project of the Haskell Foundation, and it is made possible by the generous support of our sponsors, especially the Gold-level sponsors: Input Output, Juspay, and Mercury.</p>
+<p><em>Unknown Speaker (0:42:54)</em>: That was fun.</p>
+    </div>
+  </div>
+  
 </div>
 
     </div>
