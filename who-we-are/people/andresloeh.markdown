@@ -3,6 +3,7 @@ name: Andres Löh
 title: Vice Chair
 executiveTeam: "False"
 tenureStart: 2023-04-01
+tenureEnd: 2026-04-01
 image: "/assets/images/board-members/andres.png"
 website: https://www.andres-loeh.de/
 email: "andres@haskell.foundation"
