@@ -212,6 +212,8 @@ The fee depends on participant category:
  
 All fees are in US dollars.
 
+Tickets are available on [Eventbrite](https://www.eventbrite.com/e/2026-haskell-workshops-at-zurihac-tickets-1987550095840)
+
 ### Preparation
 
 You are invited to bring the necessary equipment to work on GHC (laptop, power adapter, etc). Swiss electricity is 220 volts, 50 Hz AC. [Swiss power outlets](https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets#Swiss_SN_441011_(Type_J)) are different than in many European countries, so please bring an appropriate adapter if necessary. Drinking fountains are not common in Europe, so please bring a refillable water bottle.

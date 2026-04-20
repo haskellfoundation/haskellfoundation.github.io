@@ -11,13 +11,13 @@ summary: Lessons from and for Large Haskell Deployments
 We are excited to announce the **2026 Haskell Ecosystem Workshop, June 4 2026**, organized by the Haskell Foundation and the OST Eastern Switzerland University of Applied Sciences! This is a workshop for those who want to gain a deeper understanding of using Haskell in large systems.
 
 In this one-day event, held on the lakeside campus of OST in lovely Rapperswil, Switzerland.
+Tickets are available on [Eventbrite](https://www.eventbrite.com/e/2026-haskell-workshops-at-zurihac-tickets-1987550095840)
 
-<!--
 The following speakers have been confirmed, with more to follow:
 
-* Simon Marlow: Lessons learned from Haskell at Scale
-* Andrew Lelechenko: Thoughts on choosing the right Haskell
-* Jose Calderon: State of the Haskell Ecosystem
+* Teo Camarasu: Debugging GHC build times
+* Laurent P. René de Cotret: Servant at Bitnomial
+* Théophile Choutri: TBD
 -->
 
 There will also be experts on ecosystem-wide issues (e.g. Security), in order to facilitate conversations about how to address cross-cutting issues in our tooling ecosystem.
@@ -108,6 +108,9 @@ The fee depends on participant category:
  * _Corporate participants_ ($$600) are being paid by their employer to attend so that they can use the knowledge that they gain on the job. Corporate participants will have their company name on their name tag and their company will be listed on the event web page as a supporter of the event.
  
 All fees are in US dollars.
+
+Tickets are available on [Eventbrite](https://www.eventbrite.com/e/2026-haskell-workshops-at-zurihac-tickets-1987550095840)
+
 We want the event to be as accessible as possible, given our limitations, so if the fee is a barrier to attending, please contact Jose Calderon at [jmct@haskell.foundation](mailto:jmct@haskell.foundation) to discuss a reduced or waived fee—this goes for all three categories of participant.
 
 A certificate of completion will be available on advance request to students who attend the entire event.
