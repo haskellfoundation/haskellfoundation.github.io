@@ -338,7 +338,7 @@ Additionally, we have to set up the rooms that will be used on the next days bec
 
 Cool, yes. I’m here with Satnam. You just got here today or yesterday? 
 
-*Satnam Singh (0:18:00)*: Yeah, I got here on Monday evening, so I sadly missed the first day. I’m looking forward to some talks at VMCAI. So it was a very interesting talk on translating VHDL hardware descriptions to Rocq. But I tracked down one of the officers today and talked to them. But yeah, I’ve been here for the morning and lots of interesting talks and people.
+*Satnam Singh (0:18:00)*: Yeah, I got here on Monday evening, so I sadly missed the first day. I’m looking forward to some talks at VMCAI. So it was a very interesting talk on translating VHDL hardware descriptions to Rocq. But I tracked down one of the authors today and talked to them. But yeah, I’ve been here for the morning and lots of interesting talks and people.
 
 *JF (0:18:17)*: What have you seen? What have been the interesting talks?
 
@@ -860,4 +860,4 @@ Okay. So I’m here with Roger Burtonpatel and Francille Zhuang. It is Tuesda
 
 *Narrator (0:42:38)*: The Haskell Interlude Podcast is a project of the Haskell Foundation, and it is made possible by the generous support of our sponsors, especially the Gold-level sponsors: Input Output, Juspay, and Mercury.
 
-*Unknown Speaker (0:42:54)*: That was fun.
+*FZ (0:42:54)*: That was fun.
