@@ -18,9 +18,8 @@ The following speakers have been confirmed, with more to follow:
 * Teo Camarasu: Debugging GHC build times
 * Laurent P. René de Cotret: Servant at Bitnomial
 * Théophile Choutri: TBD
--->
-
-There will also be experts on ecosystem-wide issues (e.g. Security), in order to facilitate conversations about how to address cross-cutting issues in our tooling ecosystem.
+* Fraser Tweedale: Haskell Security
+* Andreas Klebinger: The GHC we could have, if we want it.
 
 We will update the list of confirmed speakers as we receive confirmation.
 
