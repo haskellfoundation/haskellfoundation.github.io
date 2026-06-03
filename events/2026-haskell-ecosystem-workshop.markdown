@@ -56,10 +56,10 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
 
 <tr><th colspan="3">2025-06-05</th></tr>
 <tr><th>8:30-9:00</th><td> Registration</td><td></td></tr>
-<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P.Renet de Cotret</td></tr>
+<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P. René de Cotret</td></tr>
 <tr><th>9:20-10:20</th><td> Optimising for fast builds with GHC</td><td>Teo Camarasu </td></tr>
 <tr><th>10:20-10:30</th><td> Short Break</td><td> </td></tr>
-<tr><th>10:30-11:30</th><td> Servant at Bitnomial - Expanding type-safety from applications to systems</td><td> Laurent&nbsp;P.Renet de Cotret</td></tr>
+étr><th>10:30-11:30</th><td> Servant at Bitnomial - Expanding type-safety from applications to systems</td><td> Laurent&nbsp;P. René de Cotret</td></tr>
 <tr><th>11:30-12:30</th><td> The GHC we could have, if we want it.</td><td> Andreas Klebinger</td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
 <tr><th>13:30-14:30</th><td> Flora</td><td> Theophile Choutri de Tarle</td></tr>
@@ -67,7 +67,7 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
 <tr><th>15:30-15:45</th><td> Break</td><td> </td></tr>
 <tr><th>15:45-16:45</th><td> Stackage: a community Haskell source package distribution</td><td> Jens Petersen</td></tr>
 <tr><th>16:45-17:45</th><td> Haskell Security (not recorded)</td><td> Fraser Tweedale</td></tr>
-<tr><th>17:45-18:00</th><td> Closing Remarks	</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P.Renet de Cotret</td></tr>
+<tr><th>17:45-18:00</th><td> Closing Remarks	</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P. René de Cotret</td></tr>
 
 </table>
 
