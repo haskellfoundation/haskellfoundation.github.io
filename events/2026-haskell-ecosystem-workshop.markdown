@@ -13,16 +13,6 @@ We are excited to announce the **2026 Haskell Ecosystem Workshop, June 4 2026**,
 In this one-day event, held on the lakeside campus of OST in lovely Rapperswil, Switzerland.
 Tickets are available on [Eventbrite](https://www.eventbrite.com/e/2026-haskell-workshops-at-zurihac-tickets-1987550095840)
 
-The following speakers have been confirmed, with more to follow:
-
-* Teo Camarasu: Debugging GHC build times
-* Laurent P. René de Cotret: Servant at Bitnomial
-* Théophile Choutri: TBD
-* Fraser Tweedale: Haskell Security
-* Andreas Klebinger: The GHC we could have, if we want it.
-
-We will update the list of confirmed speakers as we receive confirmation.
-
 
 ## In-Person Attendance
 
@@ -69,15 +59,18 @@ Program is still being finalized. More details to come.
 
 <tr><th colspan="3">2025-06-05</th></tr>
 <tr><th>8:30-9:00</th><td> Registration</td><td></td></tr>
-<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
-<tr><th>9:30-10:30</th><td> Reflections on Haskell\@Meta </td><td>Simon Marlow </td></tr>
-<tr><th>10:45-11:45</th><td> What we have learned about memory profiling in the last 5 years</td><td>Matthew Pickering </td></tr>
+<tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P.Renet de Cotret</td></tr>
+<tr><th>9:20-10:20</th><td> Optimising for fast builds with GHC</td><td>Teo Camarasu </td></tr>
+<tr><th>10:20-10:30</th><td> Short Break</td><td> </td></tr>
+<tr><th>10:30-11:30</th><td> Servant at Bitnomial - Expanding type-safety from applications to systems</td><td> Laurent&nbsp;P.Renet de Cotret</td></tr>
+<tr><th>11:30-12:30</th><td> The GHC we could have, if we want it.</td><td> Andreas Klebinger</td></tr>
 <tr><th>12:30-13:30</th><td> Lunch at Mensa (Note: food is served only until 13:15)</td><td></td></tr>
-<tr><th>13:30 - 14:30</th><td>Not-So-Boring Haskell</td><td>Andrew Lelechenko</td></tr>
-<tr><th>14:45 - 15:45</th><td>Falling Skies: Haskell Tooling and Ecosystem Growth	</td><td>Trevis Elser</td></tr>
-<tr><th>16:00 - 17:00</th><td>Template Haskell, a case study in (in)stability</td><td>Teo Camarasu</td></tr>
-<tr><th>17:00 - 17:50	</th><td>Ghost in the Haskell</td><td>Matthias Pall Gissurarson</td></tr>
-<tr><th>17:50 - 18:00</th><td>Closing Remarks	</td><td>Farhad&nbsp;Mehta and Jose&nbsp;Calderon</td></tr>
+<tr><th>13:30-14:30</th><td> Flora</td><td> Theophile Choutri de Tarle</td></tr>
+<tr><th>14:30-15:30</th><td> 50,000 Lines of LLM Haskell: What Broke, What Held, and Letting Go</td><td> Jappie Klooster</td></tr>
+<tr><th>15:30-15:45</th><td> Break</td><td> </td></tr>
+<tr><th>15:45-16:45</th><td> Stackage: a community Haskell source package distribution</td><td> Jens Petersen</td></tr>
+<tr><th>16:45-17:45</th><td> Haskell Security (not recorded)</td><td> Fraser Tweedale</td></tr>
+<tr><th>17:45-18:00</th><td> Closing Remarks	</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P.Renet de Cotret</td></tr>
 
 </table>
 -->
