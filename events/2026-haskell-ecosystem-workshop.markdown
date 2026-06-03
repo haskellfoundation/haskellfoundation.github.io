@@ -52,9 +52,6 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
 
 ### Program
 
-Program is still being finalized. More details to come.
-
-<!--
 <table>
 
 <tr><th colspan="3">2025-06-05</th></tr>
@@ -73,7 +70,6 @@ Program is still being finalized. More details to come.
 <tr><th>17:45-18:00</th><td> Closing Remarks	</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P.Renet de Cotret</td></tr>
 
 </table>
--->
 
 All times are in CEST using a 24-hour clock. Speakers have been asked to plan appropriate breaks during their timeslots.
 
