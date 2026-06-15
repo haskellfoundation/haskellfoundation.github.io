@@ -6,7 +6,7 @@ recorded: 2026-01-17
 published: 2026-06-15
 ---
 
-This is the first part of a miniseries on this year’s Symposium on
+This is the second part of a miniseries on this year’s Symposium on
 Principles of Programming Languages, a.k.a. POPL 2026, hosted by
 Jessica Foster.
 
