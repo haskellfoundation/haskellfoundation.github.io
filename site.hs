@@ -487,7 +487,7 @@ newsWithCategoriesCtx categories =
     categoryCtx =
         listFieldWith "news" newsCtx getNews
             <> metadataField
-            <> urlField "url"
+            <> urlField "link"
             <> pathField "path"
             <> titleField "title"
             <> missingField
