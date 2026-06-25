@@ -2,10 +2,10 @@
   <h4 class="text-2xl-4xl font-normal text-right"><small>$category$</small></h4>
   <!-- I didn't formated the date for the moment to push fast I get feedbacks -->
   $for(news)$
-  <!-- 
-    I had to make an arbitrary choice about grid layout as it was hardcoded : 
+  <!--
+    I had to make an arbitrary choice about grid layout as it was hardcoded :
     - I remove the 2 columns grid on large screen, to avoid complexe computation based on news' count
-    - Happy (or not) side-effect is removing the margin difference between november news and the others 
+    - Happy (or not) side-effect is removing the margin difference between november news and the others
   -->
   <div>
     <div class="relative bg-white">
@@ -20,9 +20,11 @@
             $endif$
             <div class="mt-8 space-y-4">$body$</div>
           </div>
+          $if(link)$
           <div class="mt-4">
-            <a class="arrow-link" href="$url$">&gt;&gt; Read more</a>
+            <a class="arrow-link" href="$link$" target="_blank">&gt;&gt; Read more</a>
           </div>
+          $endif$
         </div>
       </div>
     </div>
