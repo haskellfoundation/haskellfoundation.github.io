@@ -16,7 +16,6 @@ This repository is for the [haskell.foundation](https://haskell.foundation) webs
   - [CI](#ci)
   - [License](#license)
 
-
 ## Building
 
 To build the project:
@@ -40,7 +39,7 @@ stack run -- site watch
 # alternatively: cabal run -- site watch
 ```
 
-The site will be build in the `_site` directory, and you can open the files in your browser of choice. Due to a Hakyll issue, some sponsor logos will not show up correctly. This is expected behavior, and should be fine for the deployed site.
+The site will be built in the `_site` directory, and you can open the files in your browser of choice. Due to a Hakyll issue, some sponsor logos will not show up correctly. This is expected behavior, and should be fine for the deployed site.
 
 For further information, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) at the root of this project.
 
