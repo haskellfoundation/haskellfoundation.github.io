@@ -40,8 +40,8 @@ main = hakyll $ do
         -- "why yes this is very crimes why do you ask"
         compile $ getResourceString >>= traverse (unixFilter "cat" ["-", "dev.css"])
 
-    -- Here is where interop with JS would happen if we felt like making every
-    -- haskell developer working on this site learn all of the nodejs nonsense
+    -- Here is where interop with JS would happen if we wanted every
+    -- Haskell developer working on this site to also set up a Node toolchain
     -- match "assets/css/*.css" $ do
     --     route idRoute
     --     undefined -- (insert some invoke "npm run build" step here)

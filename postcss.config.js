@@ -3,10 +3,10 @@
 /** @type {import('postcss-load-config').Config} */
 module.exports = {
   plugins: {
-    // This must come first. It's what makes the tailwind directives work.
-    'postcss-import': {},
-    // This invokes talwind with the tailwind.config.js file
-    'tailwindcss': { config: './tailwind.config.js' },
+    // Tailwind v4's PostCSS plugin handles @import internally, so plain
+    // postcss-import is no longer needed here. Config lives in
+    // assets/css/tailwind.css itself (@theme/@source/@plugin), not a JS file.
+    '@tailwindcss/postcss': {},
     // handles browser compatibility
     'autoprefixer': {},
     ...(process.env.NODE_ENV === "production"  ? {
