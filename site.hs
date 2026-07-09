@@ -33,12 +33,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = hakyll $ do
     -- statics ---------------------------------------------------------------------------------------------
+    match "dev.css" $ compile getResourceString
     match "assets/css/tailwind.css" $ do
         route idRoute
         -- We concatenate a dev.css file that exists at the root of the repository so that people don't
         -- need to have nodejs setup or working in order to get a functional development experience
         -- "why yes this is very crimes why do you ask"
-        compile $ getResourceString >>= traverse (unixFilter "cat" ["-", "dev.css"])
+        compile $ do
+            devCss <- loadBody "dev.css"
+            fmap ((devCss ++ "\n") ++) <$> getResourceString
 
     -- Here is where interop with JS would happen if we wanted every
     -- Haskell developer working on this site to also set up a Node toolchain
