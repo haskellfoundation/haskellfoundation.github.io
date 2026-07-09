@@ -5,7 +5,7 @@
 
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
-import Data.List (sortOn)
+import Data.List (sortOn, isPrefixOf)
 import Data.Maybe (fromJust, fromMaybe, isJust)
 import qualified Data.Text as T
 import Hakyll
@@ -28,10 +28,21 @@ import Text.Pandoc as Pandoc (
 import Debug.Trace (trace)
 
 --------------------------------------------------------------------------------------------------------
+-- CONFIG ----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+config :: Configuration
+config = defaultConfiguration
+    { ignoreFile = \file ->
+        "node_modules" `isPrefixOf` file ||
+        ignoreFile defaultConfiguration file
+    }
+
+--------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     -- statics ---------------------------------------------------------------------------------------------
     match "dev.css" $ compile getResourceString
     match "assets/css/tailwind.css" $ do
@@ -341,7 +352,7 @@ main = hakyll $ do
     --
     -- This identifier compiles the body the file to plain text, to be used in the OpenGraph description field
 
-    match ("**/*.markdown" .&&. (complement "node_modules/**/*.markdown")) $ version "description" $ compile pandocPlainCompiler
+    match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
 
     -- home page -------------------------------------------------------------------------------------------
     create ["index.html"] $ do
@@ -360,7 +371,7 @@ main = hakyll $ do
                 >>= relativizeUrls
 
     -- general 'static' pages ------------------------------------------------------------------------------
-    match ("**/index.html" .&&. (complement "node_modules/**/index.html")) $ do
+    match "**/index.html" $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
