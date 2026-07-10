@@ -60,9 +60,10 @@ Two files matter:
 
 **No, if you are only editing content or Haskell code.** Hakyll concatenates a checked-in snapshot, `dev.css`, onto `assets/css/tailwind.css` at build time (see the `match "assets/css/tailwind.css"` rule in `site.hs`). `dev.css` is a pre-generated copy of the real Tailwind output, so `stack exec -- site build` on its own produces a site that looks close enough to preview — no Node toolchain required. This keeps the site accessible to contributors of all skill sets.
 
-**Yes, if you are changing the appearance.** Because `dev.css` is only a snapshot, it does *not* reflect edits to `assets/css/tailwind.css`, `assets/css/main.css`, `postcss.config.js`, or any *newly used* Tailwind class. To regenerate the real CSS you need [Node.js](https://nodejs.org):
+**Yes, if you are changing the appearance.** Because `dev.css` is only a snapshot, it does *not* reflect edits to `assets/css/tailwind.css`, `assets/css/main.css`, `tools/tailwind/postcss.config.js`, or any *newly used* Tailwind class. To regenerate the real CSS you need [Node.js](https://nodejs.org). The Node/Tailwind toolchain lives in [`tools/tailwind/`](tools/tailwind/) (see its README), separate from the Hakyll project, so run npm from there:
 
 ```bash
+cd tools/tailwind
 npm ci                     # once, to install the toolchain
 npm run build              # compile -> _site/assets/css/tailwind.css
 npm run build:production   # minified build (NODE_ENV=production)
@@ -75,6 +76,7 @@ If your change alters the CSS, regenerate the checked-in `dev.css` snapshot and
 commit it:
 
 ```bash
+cd tools/tailwind
 npm run build:dev-snapshot   # recompile the dev.css snapshot in place
 ```
 
@@ -94,7 +96,7 @@ The general steps are:
 3. Restore the cached build artefacts
 4. Build the `site` executable
 5. Rebuild the site contents using the `site` executable
-6. Build the production CSS (`npm ci && npm run build:production`)
+6. Build the production CSS (`cd tools/tailwind && npm ci && npm run build:production`)
 7. Check out the `main` branch
 8. Copy the `_site` directory over the `main` branch contents
 9. Commit and push the site contents to the `main` branch.

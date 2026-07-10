@@ -26,7 +26,15 @@
  * New pages using Tailwind utility classes must add an @source line here,
  * or their classes will be missing from the production build.
  */
-@import "tailwindcss" source(none);
+/*
+ * The Node/Tailwind toolchain lives in tools/tailwind/ (see its README), so
+ * `node_modules` is not an ancestor of this file and Tailwind's bare-specifier
+ * resolution (`@import "tailwindcss"`) can't find it. We therefore point
+ * @import/@plugin at the toolchain's node_modules via a relative path. The
+ * build itself still runs from the repo root (required — Tailwind's @source
+ * only scans at/below the working directory), see tools/tailwind/package.json.
+ */
+@import "../../tools/tailwind/node_modules/tailwindcss/index.css" source(none);
 
 @source "../../board-nominations/**/*.html";
 @source "../../contact/**/*.html";
@@ -38,7 +46,7 @@
 @source "../../who-we-are/**/*.html";
 @source "../../404.html";
 
-@plugin "@tailwindcss/typography";
+@plugin "../../tools/tailwind/node_modules/@tailwindcss/typography";
 
 /*
  * fontFamily/colors below are the literal values from the Tailwind v2
