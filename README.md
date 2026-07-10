@@ -68,6 +68,9 @@ npm run build              # compile -> _site/assets/css/tailwind.css
 npm run build:production   # minified build (NODE_ENV=production)
 ```
 
+If you do not want to install `npm` globally and have `nix` available, drop into
+the Nix development shell which provides `npm` and a basic Haskell toolchain.
+
 > **Note:** `dev.css` can drift from the real production output. Don't treat it as authoritative when working on styles — always verify your changes with a real `npm run build`.
 
 ## CI
