@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "postcss build assets/css/tailwind.css -o _site/assets/css/tailwind.css",
-    "build:production": "NODE_ENV=production postcss build assets/css/tailwind.css -o _site/assets/css/tailwind.css"
+    "build:production": "NODE_ENV=production postcss build assets/css/tailwind.css -o _site/assets/css/tailwind.css",
+    "build:dev-snapshot": "postcss build assets/css/tailwind.css -o dev.css"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",

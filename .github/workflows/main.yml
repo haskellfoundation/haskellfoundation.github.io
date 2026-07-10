@@ -82,6 +82,18 @@ jobs:
           npm ci
           npm run build:production
 
+      # Gate every push/PR: dev.css is a checked-in snapshot of `npm run build`
+      # (concatenated onto tailwind.css by site.hs for Node-less previews).
+      # Regenerate it and fail if the committed copy has drifted.
+      - name: Check dev.css is in sync with Tailwind output
+        run: |
+          npm run build:dev-snapshot
+          if ! git diff --quiet -- dev.css; then
+            echo "::error file=dev.css::dev.css is out of date. Regenerate it with 'npm run build:dev-snapshot' and commit the result."
+            git --no-pager diff -- dev.css
+            exit 1
+          fi
+
       - name: Deploy
         # Deploy only from non-pull-request changes to hakyll branch
         if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/hakyll'}}

@@ -1,14 +1,3 @@
-/**
- * below is a hardcoded snapshot of `npm run build`'s output (Tailwind v4,
- * unminified) so that the site preview works without requiring interop
- * with nodejs or the tailwindcss compiler.
- *
- * IMPORTANT: this is *not* the CSS that you will see in production!
- * (I mean, it probably is, but the css could theoretically get out of sync
- * — regenerate by running `npm run build` and copying
- * `_site/assets/css/tailwind.css` here, below this comment.)
- */
-
 /*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
@@ -63,7 +52,6 @@
     --leading-relaxed: 1.625;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --font-weight-w-800: 800;
     --border-width-3: 3px;
     --color-trueGray-200: #e5e5e5;
   }
@@ -1183,10 +1171,6 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
-  }
-  .font-w-800 {
-    --tw-font-weight: var(--font-weight-w-800);
-    font-weight: var(--font-weight-w-800);
   }
   .break-all {
     word-break: break-all;

@@ -50,6 +50,8 @@ main = hakyllWith config $ do
         -- We concatenate a dev.css file that exists at the root of the repository so that people don't
         -- need to have nodejs setup or working in order to get a functional development experience
         -- "why yes this is very crimes why do you ask"
+        -- dev.css is a checked-in snapshot of `npm run build`; regenerate it with
+        -- `npm run build:dev-snapshot` and commit. CI fails if it drifts.
         compile $ do
             devCss <- loadBody "dev.css"
             fmap ((devCss ++ "\n") ++) <$> getResourceString

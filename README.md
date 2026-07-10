@@ -71,7 +71,17 @@ npm run build:production   # minified build (NODE_ENV=production)
 If you do not want to install `npm` globally and have `nix` available, drop into
 the Nix development shell which provides `npm` and a basic Haskell toolchain.
 
-> **Note:** `dev.css` can drift from the real production output. Don't treat it as authoritative when working on styles — always verify your changes with a real `npm run build`.
+If your change alters the CSS, regenerate the checked-in `dev.css` snapshot and
+commit it:
+
+```bash
+npm run build:dev-snapshot   # recompile the dev.css snapshot in place
+```
+
+CI runs this same command and fails the build if the committed `dev.css` is out
+of date, so a stale snapshot cannot slip through review.
+
+> **Note:** `dev.css` is only an *unminified* snapshot of `npm run build`; it still differs from the minified `npm run build:production` output shipped to production, so verify appearance-critical changes against a real production build.
 
 ## CI
 
