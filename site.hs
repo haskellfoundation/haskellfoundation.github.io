@@ -5,7 +5,7 @@
 
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
-import Data.List (sortOn)
+import Data.List (sortOn, isPrefixOf)
 import Data.Maybe (fromJust, fromMaybe, isJust)
 import qualified Data.Text as T
 import Hakyll
@@ -28,14 +28,42 @@ import Text.Pandoc as Pandoc (
 import Debug.Trace (trace)
 
 --------------------------------------------------------------------------------------------------------
+-- CONFIG ----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+config :: Configuration
+config = defaultConfiguration
+    { ignoreFile = \file ->
+        -- The Node/Tailwind toolchain (incl. its node_modules) lives under
+        -- tools/; nothing there should be compiled by Hakyll.
+        "tools" `isPrefixOf` file ||
+        ignoreFile defaultConfiguration file
+    }
+
+--------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     -- statics ---------------------------------------------------------------------------------------------
-    match "assets/css/main.css" $ do
+    match "dev.css" $ compile getResourceString
+    match "assets/css/tailwind.css" $ do
         route idRoute
-        compile compressCssCompiler
+        -- We concatenate a dev.css file that exists at the root of the repository so that people don't
+        -- need to have nodejs setup or working in order to get a functional development experience
+        -- "why yes this is very crimes why do you ask"
+        -- dev.css is a checked-in snapshot of the Tailwind build; regenerate it
+        -- with `npm run build:dev-snapshot` from tools/tailwind and commit. CI
+        -- fails if it drifts.
+        compile $ do
+            devCss <- loadBody "dev.css"
+            fmap ((devCss ++ "\n") ++) <$> getResourceString
+
+    -- Here is where interop with JS would happen if we wanted every
+    -- Haskell developer working on this site to also set up a Node toolchain
+    -- match "assets/css/*.css" $ do
+    --     route idRoute
+    --     undefined -- (insert some invoke "npm run build" step here)
 
     match "assets/**" $ do
         route idRoute

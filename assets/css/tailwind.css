@@ -1,0 +1,109 @@
+/**
+ * This is the Tailwind entry point (source). It is NOT overwritten by the
+ * build — its compiled *output* lands at _site/assets/css/tailwind.css (see
+ * steps below). Only put Tailwind config/directives here; hand-written CSS
+ * belongs in assets/css/main.css.
+ *
+ * NOTE: The underlying implementation details of how this works are as follows
+ * 1. tailwindcss needs these directives in order to know where to generate the
+ *    output
+ * 2. first, hakyll is run and copies this source file verbatim to
+ *    _site/assets/css/tailwind.css
+ * 3. then, after hakyll is done, postcss is run on _this_ source
+ *    assets/css/tailwind.css file. Postcss will, during execution, invoke
+ *    tailwindcss. tailwindcss (the compiler) will scan all the files in the
+ *    site for tailwind classes (including _this_ source file).
+ * 4. postcss's output file is configured to be _site/assets/css/tailwind.css,
+ *    so postcss overwrites the copy hakyll made in step 2 with the real,
+ *    compiled CSS. This source file is never modified.
+ */
+
+/*
+ * Tailwind v4 config lives here (CSS-native), not in tailwind.config.js.
+ * `source(none)` disables automatic content detection so only the
+ * @source paths below are scanned — mirrors the old
+ * topLevelFoldersWithTailwind/topLevelFilesWithTailwind purge.content list.
+ * New pages using Tailwind utility classes must add an @source line here,
+ * or their classes will be missing from the production build.
+ */
+/*
+ * The Node/Tailwind toolchain lives in tools/tailwind/ (see its README), so
+ * `node_modules` is not an ancestor of this file and Tailwind's bare-specifier
+ * resolution (`@import "tailwindcss"`) can't find it. We therefore point
+ * @import/@plugin at the toolchain's node_modules via a relative path. The
+ * build itself still runs from the repo root (required — Tailwind's @source
+ * only scans at/below the working directory), see tools/tailwind/package.json.
+ */
+@import "../../tools/tailwind/node_modules/tailwindcss/index.css" source(none);
+
+@source "../../board-nominations/**/*.html";
+@source "../../contact/**/*.html";
+@source "../../guidelines-for-respectful-communication/**/*.html";
+@source "../../resources/**/*.html";
+@source "../../templates/**/*.html";
+@source "../../vision/**/*.html";
+@source "../../whitepaper/**/*.html";
+@source "../../who-we-are/**/*.html";
+@source "../../404.html";
+
+@plugin "../../tools/tailwind/node_modules/@tailwindcss/typography";
+
+/*
+ * fontFamily/colors below are the literal values from the Tailwind v2
+ * palette this site was designed against (v2's `gray`/`blue`/`trueGray`
+ * colors and `violet`-as-`purple`) — v3/v4 changed the default gray/blue
+ * scales and dropped trueGray entirely, so these must be hardcoded rather
+ * than aliased to Tailwind's current built-in scales, or the site's colors
+ * would shift. main.css's hand-written rgba() values (e.g. `a` link color)
+ * are also drawn from this same palette, so keep them in sync.
+ */
+@theme {
+  --font-sans: 'Maven Pro', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --border-width-3: 3px;
+
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+
+  --color-trueGray-50: #fafafa;
+  --color-trueGray-100: #f5f5f5;
+  --color-trueGray-200: #e5e5e5;
+  --color-trueGray-300: #d4d4d4;
+  --color-trueGray-400: #a3a3a3;
+  --color-trueGray-500: #737373;
+  --color-trueGray-600: #525252;
+  --color-trueGray-700: #404040;
+  --color-trueGray-800: #262626;
+  --color-trueGray-900: #171717;
+
+  --color-purple-50: #f5f3ff;
+  --color-purple-100: #ede9fe;
+  --color-purple-200: #ddd6fe;
+  --color-purple-300: #c4b5fd;
+  --color-purple-400: #a78bfa;
+  --color-purple-500: #8b5cf6;
+  --color-purple-600: #7c3aed;
+  --color-purple-700: #6d28d9;
+  --color-purple-800: #5b21b6;
+  --color-purple-900: #4c1d95;
+}

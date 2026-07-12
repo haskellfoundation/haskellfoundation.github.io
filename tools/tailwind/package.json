@@ -1,0 +1,22 @@
+{
+  "name": "haskellfoundation.github.io",
+  "version": "0.0.1",
+  "author": "Haskell Foundation",
+  "private": true,
+  "scripts": {
+    "build": "cd ../.. && postcss build assets/css/tailwind.css -o _site/assets/css/tailwind.css --config tools/tailwind",
+    "build:production": "cd ../.. && NODE_ENV=production postcss build assets/css/tailwind.css -o _site/assets/css/tailwind.css --config tools/tailwind",
+    "build:dev-snapshot": "cd ../.. && postcss build assets/css/tailwind.css -o dev.css --config tools/tailwind"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.5.0",
+    "cssnano": "^8.0.0",
+    "postcss": "^8.5.14",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "4.2.4"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.4"
+  }
+}

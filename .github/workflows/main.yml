@@ -47,6 +47,11 @@ jobs:
           ghc-version: ${{ matrix.ghc }}
           stack-version: ${{ matrix.stack }}
 
+      - uses: actions/setup-node@v6
+        name: Setup NodeJS
+        with:
+          node-version: 24
+
       - uses: actions/cache/restore@v4
         id: cache
         name: Cache ~/.stack
@@ -71,6 +76,26 @@ jobs:
 
       - name: Build site
         run:  stack exec --system-ghc site rebuild
+
+      - name: Build CSS
+        # The Node/Tailwind toolchain lives in tools/tailwind/; its npm scripts
+        # cd back to the repo root before invoking postcss.
+        working-directory: tools/tailwind
+        run:  |
+          npm ci
+          npm run build:production
+
+      # Gate every push/PR: dev.css is a checked-in snapshot of `npm run build`
+      # (concatenated onto tailwind.css by site.hs for Node-less previews).
+      # Regenerate it and fail if the committed copy has drifted.
+      - name: Check dev.css is in sync with Tailwind output
+        run: |
+          npm --prefix tools/tailwind run build:dev-snapshot
+          if ! git diff --quiet -- dev.css; then
+            echo "::error file=dev.css::dev.css is out of date. Regenerate it with 'cd tools/tailwind && npm run build:dev-snapshot' and commit the result."
+            git --no-pager diff -- dev.css
+            exit 1
+          fi
 
       - name: Deploy
         # Deploy only from non-pull-request changes to hakyll branch
