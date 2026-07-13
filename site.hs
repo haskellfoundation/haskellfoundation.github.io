@@ -535,7 +535,7 @@ faqCtx entries =
 whoWeAreCtx :: [Item String] -> Context String
 whoWeAreCtx people =
     listField "currentexecutiveteam" defaultContext (ofMetadataFieldCurrent True "executiveTeam" "True" people)
-        <> listField "currentboard" defaultContext (ofMetadataFieldCurrent True "executiveTeam" "False" people)
+        <> listField "currentboard" defaultContext (ofMetadataFieldCurrent True "executiveTeam" "False" people >>= sortBoardByRole)
         <> listField "pastexecutiveteam" defaultContext (ofMetadataFieldCurrent False "executiveTeam" "True" people)
         <> listField "pastboard" defaultContext (ofMetadataFieldCurrent False "executiveTeam" "False" people)
         <> listField "interimboard" defaultContext (ofMetadataField "interimBoard" "True" people)
@@ -544,15 +544,21 @@ whoWeAreCtx people =
     ofMetadataFieldCurrent :: Bool -> String -> String -> [Item String] -> Compiler [Item String]
     ofMetadataFieldCurrent cur field value items = do
         items' <- ofMetadataField field value items
-        filterM
-            ( \item -> do
-                mbTenureStart <- getMetadataField (itemIdentifier item) "tenureStart"
-                mbTenureStop <- getMetadataField (itemIdentifier item) "tenureEnd"
-                pure $ case mbTenureStop of
-                    Nothing -> cur && isJust mbTenureStart
-                    Just date -> not cur
-            )
-            items'
+        current <-
+            filterM
+                ( \item -> do
+                    mbTenureStart <- getMetadataField (itemIdentifier item) "tenureStart"
+                    mbTenureStop <- getMetadataField (itemIdentifier item) "tenureEnd"
+                    pure $ case mbTenureStop of
+                        Nothing -> cur && isJust mbTenureStart
+                        Just date -> not cur
+                )
+                items'
+        -- Fail (rather than return an empty list) when nobody matches, so the
+        -- corresponding listField is *absent* and `$if(...)$` in templates is
+        -- False. Otherwise an empty list still counts as "present".
+        guard (not (null current))
+        pure current
 
 -- podcast ---------------------------------------------------------------------------------------------
 podcastListCtx :: [Item String] -> Context String
@@ -643,6 +649,53 @@ sortFromMetadataField field =
             b' <- getMetadataField (itemIdentifier b) field
             return $ compare a' b'
         )
+
+{- | A board member's role. The ordering of the constructors is significant: the
+derived 'Ord' instance ranks roles in the order they should appear on the
+"Who We Are" page (Chair first, officers next, plain members, then observers).
+Reorder the constructors to change the display order.
+-}
+data Role
+    = Chair
+    | ViceChair
+    | Treasurer
+    | ViceTreasurer
+    | Secretary
+    | ViceSecretary
+    | BoardMember
+    | Observer
+    deriving (Eq, Ord, Show)
+
+{- | Parse a board member's @title@ metadata into a 'Role'. Unknown titles are a
+build error, so any new role must be handled explicitly here.
+-}
+parseRole :: String -> Either String Role
+parseRole title = case title of
+    "Chair" -> Right Chair
+    "Vice Chair" -> Right ViceChair
+    "Treasurer" -> Right Treasurer
+    "Vice Treasurer" -> Right ViceTreasurer
+    "Secretary" -> Right Secretary
+    "Vice Secretary" -> Right ViceSecretary
+    "Vice-Secretary" -> Right ViceSecretary
+    "Board Member" -> Right BoardMember
+    "Observer" -> Right Observer
+    _ -> Left ("parseRole: unexpected board role " ++ show title)
+
+{- | Sort board members by their 'Role', so that officers appear first (Chair,
+then Vice Chair, Treasurer, and so on) and regular board members follow. A
+member with no @title@ is treated as a plain 'BoardMember'; members sharing a
+role keep their relative order thanks to the stable sort.
+-}
+sortBoardByRole :: [Item String] -> Compiler [Item String]
+sortBoardByRole items = do
+    ranked <- mapM tagWithRole items
+    pure $ map snd $ sortOn fst ranked
+  where
+    tagWithRole item = do
+        title <- fromMaybe "Board Member" <$> getMetadataField (itemIdentifier item) "title"
+        role <- either fail pure (parseRole title)
+        pure (role, item)
 
 --------------------------------------------------------------------------------------------------------
 -- Pandoc extensions -----------------------------------------------------------------------------------
