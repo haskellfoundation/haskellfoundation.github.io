@@ -4,6 +4,7 @@
 
 - [Bug Reports](#bug-reports)
 - [Documentation](#documentation)
+- [Style Guide](#style-guide)
 - [Code](#code)
 - [Building the site](#building-the-site)
 - [Styling (CSS / Tailwind)](#styling-css--tailwind)
@@ -19,6 +20,24 @@ The more detailed your report, the faster it can be resolved and will ensure it 
 ## Documentation
 
 Expansions to the documentation are welcome, and appreciated. Every contribution counts.
+
+## Style Guide
+
+We seek to adhere to the [SIGPLAN Proceedings Format](https://www.sigplan.org/Resources/ProceedingsFormat/).
+
+### Titles and headings
+
+Titles (page titles, news/blog post titles, etc.) and headings (e.g., section headings) should use [AP Title Case](https://titlecaseconverter.com/rules/#AP):
+
+- Capitalize the first word and the last word of the title
+- Capitalize the principal words
+- Capitalize to in infinitives
+- Capitalize all words of four letters or more
+- Do not capitalize articles, conjunctions, and prepositions of three letters or fewer
+
+Example: "How the Haskell Foundation Works With Affiliates".
+
+When in doubt, run the title through the [Title Case Converter](https://titlecaseconverter.com/) with the "AP" style selected.
 
 ## Code
 
