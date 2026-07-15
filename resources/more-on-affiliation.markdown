@@ -1,5 +1,5 @@
 ---
-title: More On Affiliation
+title: More on Affiliation
 link: /affiliates
 link-text: HF Affiliates
 ---

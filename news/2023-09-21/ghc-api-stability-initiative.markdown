@@ -1,5 +1,5 @@
 ---
-title: Charting a course toward a stable API for GHC
+title: Charting a Course Toward a Stable API for GHC
 link: https://discourse.haskell.org/t/charting-a-course-toward-a-stable-api-for-ghc/7646
 ---
 
