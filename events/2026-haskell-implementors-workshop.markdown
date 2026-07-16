@@ -4,10 +4,10 @@ published: 2026-02-13
 daterange: June 5, 2026
 status: active
 location: Rapperswil, Switzerland
-summary: Forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
+summary: Forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
 ---
 
-The 18th Haskell Implementors' Workshop is to be held on June 5th 2026 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people involved in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
+The 18th Haskell Implementors' Workshop is to be held on June 5th 2026 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
 
 In the past the Haskell Implementors' Workshop was co-located with ICFP (International Conference on Functional Programming). However, in recent years it has become more and more challenging to attract a large enough audience and sufficiently many speakers for an appealing program. ZuriHac and the Haskell Ecosystem Workshop have become an important annual gathering of a large part of the Haskell community. Following last year's success, the Haskell Implementors' Workshop will again be co-located with these events to be accessible to a broader audience.
 
