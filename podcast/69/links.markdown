@@ -1,0 +1,5 @@
+- [Jurriaan's home page](https://www.macs.hw.ac.uk/~jh2054/index.html)
+- [Helium for learning Haskell](https://github.com/Helium4Haskell/helium), [paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/helium.pdf)
+- [OutsideIn(X)](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/outsideinx-modular-type-inference-with-local-assumptions/65110D74CF75563F91F9C68010604329)
+- [Scripting the Type inference process](https://dl.acm.org/doi/10.1145/944746.944707)
+- [Haskell Type Error index](https://errors.haskell.org/)

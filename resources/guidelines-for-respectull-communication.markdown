@@ -1,5 +1,5 @@
 ---
-title: Guidelines For Respectful Communication
+title: Guidelines for Respectful Communication
 link: /guidelines-for-respectful-communication
 link-text: Guidelines for Respectful Communication
 ---

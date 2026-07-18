@@ -1,0 +1,8 @@
+- [Lennart Augustsson’s Wikipedia Page](https://en.wikipedia.org/wiki/Lennart_Augustsson)
+- [Type Theory Forall Podcast](https://www.typetheoryforall.com)
+- [ZuriHac 2025](https://zfoh.ch/zurihac2025/)
+- [Lazy ML](https://dl.acm.org/doi/pdf/10.1145/800055.802038)
+- [Cayenne](https://dl.acm.org/doi/10.1145/289423.289451)
+- [Bluespec](https://bluespec.dev)
+- [Obfuscated C Code Contest](https://www.ioccc.org/)
+- [MicroHS](https://github.com/augustss/MicroHs)

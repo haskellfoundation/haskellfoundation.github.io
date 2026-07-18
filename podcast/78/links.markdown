@@ -1,0 +1,7 @@
+- [Nicolas Wu](https://zenzike.com/)
+- [Higher-order functions for parsing](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/higherorder-functions-for-parsing/0490F2C8511F7625F9FC15BFFEDBB0AA)
+- [Scala](https://www.scala-lang.org/)
+- [Teaching programming to young learners using Scala and Kojo](https://portal.research.lu.se/files/5818581/4780255.pdf)
+- [Simon Peyton Jones](https://simon.peytonjones.org/)
+- [Martin Odersky](https://people.epfl.ch/martin.odersky)
+- [Design Patterns for Parser Combinators](https://dl.acm.org/doi/10.1145/3471874.3472984)

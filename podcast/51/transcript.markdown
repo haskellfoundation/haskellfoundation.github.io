@@ -2,7 +2,7 @@
 
 *Joachim Breitner (0:00:18)*: And I’m Joachim Breitner.
 
-*NV (0:00:19)*: And our guest today is Victor Miraldo. Victor fell in love with Haskell when foldr clicked, and later with Agda, when Haskell’s type system was not expressed enough. He introduced Agda to Oracle Labs, generically diff data structure for his PhD, and tested smart contracts until they made him use Rust. Today, he will tell us why the Haskell community is too smart, why there should be a safePerformIO, and that he hopes that software engineering could be less like alchemy. 
+*NV (0:00:19)*: And our guest today is Victor Miraldo. Victor fell in love with Haskell when foldr clicked, and later with Agda, when Haskell’s type system was not expressive enough. He introduced Agda to Oracle Labs, generically diff data structure for his PhD, and tested smart contracts until they made him use Rust. Today, he will tell us why the Haskell community is too smart, why there should be a safePerformIO, and that he hopes that software engineering could be less like alchemy. 
 
 Hello, Victor. Great to have you at the show.
 

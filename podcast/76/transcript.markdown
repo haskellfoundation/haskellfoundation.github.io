@@ -1,0 +1,305 @@
+*Mike Sperber (0:00:15)*: Welcome to the Haskell Interlude. Today, Matti —
+
+*Matthías Páll Gissurarson (0:00:18)*: Hey.
+
+*MS (0:00:18)*: — and I will be talking to Jeffrey Young. Jeff is a language engineer who works on the Verse language at Epic, and he’s had a long history of working with Haskell and on GHC itself. We talk about what makes Haskell so compelling, the good and the bad of highly optimized code, and the beauty of well-modularized code, how to get into compiler development, and how to benefit from Domain-Driven Design. We’ll get a lot of useful insights into performing Haskell code.
+
+So Jeff, what was your first contact with Haskell?
+
+*Jeffrey Young (0:00:48)*: Okay, so, well, first of all, thank you for having me, Matti and Michael. I have listened to this podcast for years, and I am privileged to be on it. So, thank you again. So, my first contact with Haskell was in 2012. I had just graduated with an undergraduate degree. Well, a double major in philosophy and microelectronic engineering. So I was making semiconductors. And I would just peruse Hacker News, and I just saw a thing about a weird language, and I had always programmed as a hobbyist. And at that time, my favorite language was Python, because it was so “simple.” And I thought I’d try this functional programming strange language called Haskell. So, I literally went to Haskell.org and just started reading and started working on Learn You a Haskell independently after work in my spare time. And that was my first experience with Haskell. It took me — I remember staring at my — I was using Vim. I was staring at a black Vim screen for like a half hour to an hour, thinking, “Where are the variables?”
+
+*MS (0:01:55)*: “And how do you change them?”
+
+*JY (0:01:56)*: Exactly, yeah. And I was like, “I just want to x plus equal one.” But I stuck with it and made it to the end of Learn You a Haskell, did some real-world Haskell. Took a diversion to Clojure. And then, eventually, in 2016, I decided to go back to graduate school, and I thought, “Well, I’ve programmed since I was 11 as a hobby, and I’ve never done any computer science. So, maybe I should try doing something that I actually — like, professionally, I should try doing something I enjoy, that I know I enjoy as a hobby.” So, I went into a PhD program with absolutely no computer science background in computer science.
+
+*MPG (0:02:40)*: So you emerged as a kind of unspoiled flower into computer science academics.
+
+*JY (0:02:46)*: Yeah, I guess so. And so, I went to Oregon State University. I went there because they had a good background in functional programming Haskell. So, Martin Erwig is one of the eldest professors there, and he wrote the Functional Graph Library and published on that. But also, it’s proximity to OGI and University of Oregon. There’s lots of functional programming in the Pacific Northwest of the United States. Yeah, so it was a little bit of an adjustment. And I should say that I don’t think that was my first encounter with functional programming. That would actually have probably been an R, but I didn’t know it was functional programming at the time. 
+
+So, I was doing yield analysis for semiconductor chips, right? So, you’re like, you’re going to make a wafer. I guess I should explain that. You’re going to make like 300 chips on a big silicon disk, which is called a wafer. Some of those chips will work, and some of them won’t because of natural variation in the manufacturing process and also because you’re trying to do something uniformly across an entire disk that’s like 300 millimeters wide. And so, to do all this data analytics, I was using R. And R has this beautiful library or suite of libraries written by Hadley Wickham, who I think is now at Microsoft Research, and he probably was at that time too, called the Tidyverse, or just tidy something, right? And those libraries define an operator that is composition. I didn’t know it was composition at the time. So, what you would do is you would say, “Oh, I’m going to make some kind of plot. It’s called ggplot, and I want it to be colored certain ways,” or “I want to do this kind of transformation or this kind of axis.” And you would say, “Oh, ggplot compose new colors, compose new axis.” Or maybe it’s function application then because it’s coming after the — it’s not in reverse order. 
+
+And I think that is my first encounter or the first time I encountered functional programming outside of Haskell. But that piqued my interest because when I was a hobbyist, I loved experimenting with other programming languages. And I remember this was like 2013, somewhere around there, and I was like, “Everyone’s talking about Ruby and Python, so I’ll try them.” And I just was like, “They’re all the same.” I didn’t have a deep enough understanding of languages to assess their differences. And so I was like, “Well, the loops are all the same. The syntax is basically — they’re all derived from ALGOL 60s, what I would say now, or something like this.” So I wanted to try something actually different. And that’s, I think, what led me to click on, check out this weird language on Hacker News. So yeah, truly, completely out of the blue, didn’t know anyone, just clicked on it and started learning on my own. 
+
+*MS (0:05:45)*: So presumably, there was a point in time where you got convinced that you wanted to do Haskell rather than Python?
+
+*JY (0:05:52)*: Yes. Or just data science. 
+
+*MS (0:05:53)*: Yeah. Okay. Well, how did that happen? Or was there any specific point in time or space or a part of the design that convinced you to rather try Haskell than continue in Python?
+
+*JY (0:06:06)*: Yeah. I have actually thought about this quite a bit, and I guess we can talk about that a little bit later. But what happened was, I think it was only like the third chapter of Learn You a Haskell. And I remember struggling to — you can only get so far on your own, right? And there’s no LLMs that you could just treat as a tutor, right? So I would just try to consume as much material, and then I would tinker. That’s still, to this day, how I prefer learning things. I think that’s probably fairly shared amongst people in computer science and probably programming languages. 
+
+So I remember learning that you can substitute to understand the evaluation strategy. And that was the first time I had seen that because that’s not true in these imperative, impure languages. I didn’t know anything, and I was trying to make my way through Learn You a Haskell, and I was very confused. And I remember learning that and thinking, “This is it. This is it.” And now I would conceptualize this differently. So I would conceptualize it as — or actually let me take a detour. 
+
+So two years ago, on the Type Theory Forall podcast, which everyone should listen to, and Michael was just on, and it was a great episode. You should listen to it. Pedro, he had Conal Elliott on. Conal Elliott made this huge deal about denotational semantics and how we’ve lost this conception of what languages are, what computation is. But one of the things that stuck with me in that episode was Conal Elliott gives a definition of what simple means, and he uses Murray Gell-Mann’s definition. He’s an American physicist. And I wrote it down in preparation for this podcast. But Murray Gell-Mann’s definition is something is simple or a theory appears beautiful or elegant when it’s simple. And what simple is, is it can be expressed very concisely in terms of mathematics that we’ve already learned for some other reason. And that was the revelation I had way back when I said, “This is it.” I just didn’t know it because I had started learning Haskell. And when I learned that the evaluation strategy you can do just by substitution, well, I know that very well. I know that from elementary school algebra, right? 
+
+And so I think that connects very beautifully to Murray Gell-Mann’s concept of simplicity. And as I was thinking about this podcast, I was like, “Yeah, that is what was happening to me. I intuited that.” And then I realized, like, I don’t know what this weird language is, but I know I have to do more of it. And my experience at that time was every time I touched Haskell or tried to write something in Haskell, I was doing the 100 Haskell Problems. This is old, I don’t know. I mean, it’s old for me. I don’t know if it’s still up. Yeah, so I was doing the 100 Haskell Problems, but every time I would learn something new and something that I thought was valuable. And this really has continued for years, right? So you get to a certain level of proficiency in Haskell, and then you’re like, “Okay, now I need to understand monads,” or “I need to understand applicatives.” And that gives you new information that is useful outside of Haskell. It is a concept that is mathematically rooted rather than rooted in the language, but the language is my path to that concept. It’s the lens through which I’ve learned it. I’ve understood it. And now that I understand it, I can see it everywhere. And that’s why I’m so frustrated with other languages.
+
+*MPG (0:09:44)*: Yeah, no, I think many of us have had the same experience. Once you start looking at monads and especially side effects, and then you go back to some other language, and you’re like, “There are side effects everywhere,” and like, “How can people live like this?” 
+
+*JY (0:09:56)*: Yeah.
+
+*MPG (0:09:57)*: Yeah, I get that. So that’s how you got into Haskell. But you’ve come quite far since then, right? 
+
+*JY (0:10:03)*: Well, it’s been like 15 years. 
+
+*MPG (0:10:05)*: Yeah, exactly. 
+
+*MS (0:10:06)*: That’s nothing if you’re me. 
+
+*MPG (0:10:08)*: Well, I mean, it’s half of the life of Haskell, right? Almost. 
+
+*JY (0:10:12)*: Yeah, depending on when you define Haskell starting. Yeah. 
+
+*MPG (0:10:16)*: Because we know you have this handbook, right? We’ll talk about that later, but —
+
+*JY (0:10:19)*: Yeah, Haskell Optimization Handbook. Yeah.
+
+*MPG (0:10:21)*: Exactly. But how do you get from starting to Haskell and applicatives to being so in tune with a compiler that you can start writing an optimization handbook?
+
+*JY (0:10:30)*: Yeah, well, and not finishing the optimization handbook. Yeah, I guess I can tell more of the story. So I knew I didn’t want to stay in semiconductors. And at that point, the semiconductor industry, it was leaving the shores of the US. But what I really didn’t like about semiconductors was if you wanted to be successful in it, you had to be next to a manufacturing plant, which means you’re in one of four cities in the United States. And so I found that to be really inflexible. 
+
+So I went to Oregon State. My advisor was Eric Walkingshaw. We were working on this thing called variational software that’s really functional programming adjacent. But I decided, be damned, I’m doing this project in Haskell. And it was frustrating at times. And it was hard because now you’re on a deadline, and you’re like, “I really need to know how to have a state monad over a reader or something in order to write the thing I need to write to meet the deadline.” But I got through it. 
+
+And then while I was there, I founded a functional programming club, which I don’t think is still active because I think I was really the driving force that was coalescing people around it. But that was the Oregon State University Functional Programming Club. It’s a functional programming club, or was. But really, what it was was I felt like there was missing advanced functional programming classes in the graduate curriculum, and I was like, “Well, I know enough to teach it.” So I started basically informally teaching people just how to do basic things, what I would consider basic things in Haskell, like creating your own monad, understanding what monad transformers are, how to use them, just how to write a test suite with Tasty, for example. Just really basic things. 
+
+So fast forward, and I graduate with my PhD. This is coming out of COVID. And there was a post. It was on Twitter. That’s where I found it. It was on Twitter. Richard Eisenberg had posted on Twitter looking for an intern when he was at Twig, and he was looking for someone to optimize the Glasgow Haskell Compiler. And I thought, “Well, I’m already making no money. I will just continue making no money for another three months or something.” And that’s how I got into GHC development. My trajectory was always towards some kind of compiler development, because I just like working on compilers and languages. So that was my foot in the door. 
+
+And once I started working with Richard, which is where I became serious about performance, I thought, “I know Haskell. I’m pretty proficient. I can work on GHC,” which is true. So, for anyone listening out there, please contribute to GHC or try to work on GHC. The more people we have, the better. And if you listen to the GHC Core team, which I am still listed as a member, everyone will always say, “Oh, we’re so strapped for resources,” which is true. So it’s not a lie. Please give us your labor. 
+
+So, back to the story with Richard. So I thought, “Okay. Well, I’m capable enough to work on the compiler.” So I started working on the compiler, trying to make things faster. But my understanding of performance at the time was, I would say, it was just plug leaks or do micro-optimization. So I tried some things. I tried to unroll the occurrence analyzer’s pass, do some loop unrolling with some strict data types there. And that really wasn’t successful. And then I tried to find a case of known constructors, that sort of thing. 
+
+When I had learned more of some performance techniques, I was more successful in doing little optimizations like that. For example, there’s an optimization that GHC will do called a SAT transformation, a static argument transformation. And this is a pattern in code where you are accumulating over some kind of structure, and when you hit your base case, then you just say, “Okay, the result is the accumulator. The result is some default that I’ve passed into the fold and just use that.” And that ends up being slightly inefficient because you are constantly keeping this static argument that you’re almost never using in some register or on the stack or wherever it is. And really, you can float that out. Now it would be top level. It would be on the heap, and you freed up some register or some space in the inner loop, which makes it more efficient. Yeah, so that’s an example of another micro-optimization. But I didn’t know that at the time. 
+
+So, okay. So, everything in GHC, or all what’s called the in-scope sets, everything that tracks variables, ends up being some kind of IntMap. And as I say IntMap, I can hear Andreas Klebinger saying, “Oh, here we go,” because this is like a whole saga. So I see you, Andreas. Anyway, so an IntMap from Chris Okasaki’s Purely Functional Data Structures book is a big-endian Patricia trie, right? So you’re just using the machine address of whatever you’re passing in as a key, the int, to create this tree that ends up being in the heap, and it’s optimal up to some amount of your address space. So your trees are guaranteed to never be deeper than n bits, right? I think in GHC, it’s 56. I think we reserved the top eight bits. It’s been some time. 
+
+Anyway, I thought that there was an interaction between these IntMaps and unique IDs. So we use unique IDs to figure out what variable or thunk or whatever is throughout the compilation process. But the unique IDs all tag the underlying data with some kind of integer. So it would be like 2 or 3 means this is a car or something like this. Or 22 means I have some kind of sum type. I’m not quite sure. The details escape me because this is several years now. 
+
+So what I had hypothesized was that these IntMaps and the way we’re growing our unique namespace when we ask the compiler give us a fresh name, which ends up being unique, have a bad interaction where what you really want in an IntMap is you want your keys for inserts to be very far apart, right? Because it will take the largest similar prefix and then split the tree there. If you don’t have sparse data, if you have very tight data, then what you’re doing is you’re splitting the tree all over the place. Now, you’ll still have similar lookup speed, but your tree will end up being very flat and shallow very quickly. 
+
+That turns out not to be the case. Sebastian Graf returned to this in 2023, I think, and found that is actually super optimal. So we’ve overcorrected the compiler to the behavior of IntMaps through the years. But the result of that internship with Richard Eisenberg was really this hypothesis and then my incorrect conclusion. But that’s what got me started in GHC development. Once I was in GHC development, the nice folks at IOG, Moritz Angermann, asked me if I wanted to work on the compiler full-time. And that’s when I joined the group at IOG. 
+
+*MS (0:18:24)*: If I can backtrack briefly, I mean, you told us how you learned Haskell, but of course, working on a compiler requires more than just knowing the language, right? You got to know things like what “floating out” means.
+
+*JY (0:18:35)*: Yeah.
+
+*MS (0:18:36)*: And what optimizations are and how machine code works, I guess. Did you learn those things on the job from Richard or any source that you went to, or what was that process? 
+
+*JY (0:18:46)*: I did not learn those things on the job from Richard. I learned those things in a number of ways. So one was through the GHC commentary, which is a bit of a graveyard but still has useful information. One piece that sticks out in my mind is this commentary page called “I know kung fu,” which describes exactly how to understand STG and how STG does evaluation. So that was one way. 
+
+Another way was just reading papers and looking for videos on YouTube, really. And then in those days, everyone was on IRC, so I’d also ask on IRC. And this is also a little bit of advice. I think I like to go research on my own because I’m used to do, or when I was a hobbyist, that’s how I would learn, mostly. And I think engaging, really, with the community is really an effective strategy, too. So if you find yourself being like me and you know you like to study on your own, I ask you to resist that urge and talk to the community because people will, someone out there knows. 
+
+*MPG (0:19:59)*: Yeah. Just to backtrack a bit again, could you explain what the GHC commentary are for those who haven’t worked on GHC?
+
+*JY (0:20:06)*: Oh, sure. So GHC is hosted in a GitLab instance, and the commentary is the wiki of that GitLab instance. And anyone can edit it. Anyone can, I think, view it because it costs nothing to sign up. And it’s essentially the GHC Core team’s notes since they migrated, which I think, I don’t know when they migrated to GitLab off of Phabricator, but it’s for several years now. So what that ends up being is a very good place to read about why the compiler makes certain decisions and where those decisions were made. For example, I know there’s literature in that commentary about how exactly and why exactly and when exactly GHC pointer tags certain things and what the engineering effort that went into that was, which is done by Well-Typed.
+
+*MPG (0:21:04)*: Right. So then you learned kung fu from having worked on GHC. And then, yeah, when did you start working on the handbook? Could you tell us a little bit about the handbook?
+
+*JY (0:21:19)*: Yeah, absolutely. So I guess I started working on it — I’m trying to think now. Okay, so at the internship at Twig, Emily Pillmore, I think, was her last name. I only know people through online handles until I meet them at conferences. She was the head of the Haskell Foundation, and they wanted an optimization handbook. And Richard suggested it to me because it aligned with my current role. And I think that’s when I agreed to it. But I don’t think I started it proper until David Christiansen was the head of the Haskell Foundation. And I was already working at IOG at the time, and IOG wanted the handbook as well because their flagship product is in Haskell and still is. 
+
+Yeah, so let’s talk about the Haskell Optimization Handbook. So this is also a bit of a journey. The Haskell Optimization Handbook, as it was originally conceived and shows in my first proposal, it’s supposed to be a handbook you could hand a Haskell developer who maybe doesn’t have a background in compilers or anything, and they could use that to optimize their code, whatever that means, right? Like, make their code run a little bit faster. That’s the main goal, but I don’t think that’s really — I mean, it’s an important goal, but it’s not what I wanted to get out of it and what I wanted it to be. 
+
+What I wanted it to be was an aggregation of the folklore of how to make Haskell programs faster that I had seen around the internet. This probably is similar to other people’s experiences. But there isn’t a single place where, if I’m serious about writing a system in Haskell, that tells me, “Well, avoid these things, do these things, and that is up to date.” You will find some pages on the HaskellWiki that says, “Oh, well, only use data constructors that have a single constructor and stuff like this because GHC 6 point whatever really likes that.” 
+
+Another good series is Joachim Breitner’s series on winter Haskell optimization, I think it was called, something with “winter” in the title, where he optimizes a library over five parts. And one of those ways, at least the one I’m recalling, was using a difference list to avoid actual allocations, and you’re just doing function composition, which ends up being faster. So, that was the secondary goal of the handbook. 
+
+And my original pitch for the handbook was, we have all this nice tooling now in GHC, and frankly, the documentation for how to use that tooling is bad, and I think it’s still bad. My apologies to the people who work hard on this, but I’ve tried to use ghc-debug five times, and every time I get confused. And I know there’s a two-hour YouTube video of Matthew Pickering explaining it to Zubin Duggal, and I fall asleep every time I watch it. So, I wanted to capture that information and condense it into a more digestible form. 
+
+If you look at the Rust optimization handbook, that’s basically what you get. You get, “Here’s a toolbox of different tools you can use to optimize your program.” So fast forward about a year, I fell out of love with that conception of the book, and I realized that while that is good and could be useful, I don’t think that’s where the value of the book comes from. I think the value of an optimization handbook for our community is not to assume that the developers in our community really know lots about performance optimization to begin with at all. So if you go into other communities, which, if you start looking at performance-type things, always ends up in game development communities and their culture, and I do think this is a cultural thing, is, well, we want to make the most use out of our machine that we have sitting in front of us as possible, right? Because this thing has to run at 60 FPS on an iPhone or whatever, on the Nintendo Switch, right? And so they just have much better, I would say, folklore on architecture. They just don’t architect things in a certain way such that you put yourself down this performance rabbit hole. 
+
+And that’s where I really started to think, what I have right now is it’s okay. I mean, you can go look at — I’m actually quite proud of the glossary of the Haskell Optimization Handbook because I think it explains a lot of terms of art that aren’t very commonly known. And you can learn things like lambda lifting or the SAT transformation. The issue list is also actually a good source of value if you’re interested in this sort of thing, because I was writing notes to myself. So if you go to the issue list, there’s a decoder on how GHC names certain things in Core. Dollar sign, whatever, means that GHC thinks this is some kind of data, right? So I think that’s valuable. 
+
+But it ended up missing the mark. And I really feel like now I need to reconceptualize it. And I had started doing some of this. So I added a chapter on how to debug, which was basically a summary of David Agan’s book on how to debug, which I cannot recommend enough. And the real takeaway from that book is use a scientific method to debug. Treat it like you’re a detective and think about what would be logical, right? And then divide and conquer. So I added that chapter. 
+
+I also added one on the philosophies of optimization. So if you’re interested in this sort of thing, I cannot highly recommend enough the work by Casey Muratori. He has an entire performance of weird programming series, which is where I’m learning a lot of this stuff. I’m still doing it, where you will make an 8086 disassembler, which is also quite fun if that’s what you want to do. It’s a Substack, but it’s called computerenhance.com, I think, or computerenhance.org. 
+
+The philosophies of optimization chapter is really where I decided this has to be something different because — and I’ll give some examples. So the philosophies of optimization, one of them is just do less. Just do as little as you need to, right? And so one of the ways this can show up in Haskell code is if you are, say, writing a compiler, you have your expression data type, right? And now, okay, you need the bound variables or free variables in some AST, right? What do you do? Oh, you’ll just traverse the AST, and you’ll create a list, right? And throughout the compiler, you might do that quite a bit. Well, that’s not fast. You’re traversing this AST all the time, right? And you might say, “Oh, computers are very fast right now, and that’s going to be not a dominating amount of speed.” And I agree with you, but that’s one example of an architecture decision that now has led you down a path that you will just never be as fast as your machine can go. There will always be quite substantial overhead. 
+
+So the way that performance, where people get around stuff like this, is they will use handles instead of pointers. So instead of, let’s say, you have an if and x for x for x for, right? Or if bool x for x for. Well, the x for x for, the recursive instances of that data type are pointers. That means they’re machine-word, right? So on x86-64, that’s going to be 64 bits. And that’s kind of a lot. Like, do you need that much? The bool without optimizations will also be a machine word to hold a single bit, right? And so, there’s instances in GHC where we just have, like, you need to store five bools for some reason, but each one is a machine word. So you end up just having this grossly inefficient memory representation. 
+
+And so that’s really what I have been meaning to return to with the optimization handbook now. Not just, “Here’s how to use perf or cachegrind and things to spot hotspots and then squash the hotspots and blah, blah, blah.” That stuff’s important, but also just general guidance on, “Here’s some architectural examples on how to write your system in Haskell so that it just doesn’t need to do as much as you’re asking it to do.” I know that was a lot. I’m sorry. 
+
+*MS (0:30:02)*: No, it felt familiar though. I’ve certainly written code to collect the free variables in a GHC expression node to do some plugin or other.
+
+*JY (0:30:11)*: Right. So once I started down that path, where I was like, “Okay, now, instead of having this nice recursive data type, I want to store int16 handles that I will treat as pointers to my own little buffer of Haskell stuff.” This is very non-Haskell, right? Once I started down that path, I realized that the optimizations I want to make to GHC are never going to be accepted, right? Like, even if that was like a 30% increase in speed, I think that would be quite a significant lift to get it accepted. And also, it’s a bit of a tragedy because I want GHC to be more beginner-friendly, right? And this is decidedly not beginner-friendly. Now to understand this, you’re going to have to understand memory allocation strategies like arenas, and you’re going to understand, is this int16 an int16, or is it some pointer that my little component is now handling for me? And you rapidly get into the world of — the complexity really increases. 
+
+So this is one of my mantras. When you’re doing any kind of performance of weird programming, you really want things to be faster. It’s just, kill your darlings. Everything you like about Haskell, you will have to sacrifice if you really want to get maximum speed. So the key there is just don’t want maximum speed. You want it to be faster, but you’re still the architect. You have to decide where you want to be on this balancing act. 
+
+*MS (0:31:46)*: I mean, if you go down that path and really want extreme performance, I guess you could switch to another language, right? And then that would sacrifice the good things about Haskell.
+
+*JY (0:31:55)*: Yeah.
+
+*MS (0:31:55)*: Is Haskell still the right language at that level?
+
+*JY (0:31:58)*: I think it is. So I’ve experimented with this a bit. I was looking to join this company called Bitnomial, which has written a clearinghouse for trading in Haskell. Shout out to Bitnomial. They still have a Haskell position open if you are looking for a job and want to write Haskell. They gave me a take-home programming assignment, and it was like, bring in some data, transform it, compute a thing. 
+
+And so this is an example I will give of doing less. Most people would read in that data, and it will be CSV or JSON. And so they’ll be like, “Okay, I’ll use Cassava,” or “I’ll use Aeson.” And then I’ll turn it into like my nice little pretty data type and then compute my thing. I didn’t do any of that because I wanted to experiment with how fast can I make this go. So I did everything in ByteString. I wrote the parser in ByteString. I did all the computation on ByteStrings, and I printed basically a ByteString until the very last moment I could. And was it fast? Yes, it was extraordinarily fast. GHC has an amazing runtime system. This is one of the things I like about GHC Haskell, is if you really are interested in going quickly, you can go quickly if you’re willing to program that way. 
+
+And so I submitted it, and I was very proud and all this stuff. And their response to me was, “This is wonderful. We’d be happy to have you.” I did get an offer. But it feels like a trauma response to writing GHC. Yeah. So I think it’s still the right language, but that’s also because I like it. I don’t want to use another language. Even if I’m using a highly restricted subset of Haskell GHC, I still want to use it.
+
+*MS (0:33:56)*: So now you’ve talked about making ugly Haskell code or Haskell code where you sacrifice a lot, but you’ve also done work to make GHC nicer, right, and to refactor the code there. Can you talk about that a little bit?
+
+*JY (0:34:10)*: Right. So this was the modularity project. I think I’ve been vocal about it, but it was really started by a colleague of mine at IOG, whose name is Sylvain Henry, who did the bignum implementation. He has a popular library called Haskus, I believe. Still works at IOG. And it was between Sylvain, me, and John Ericson, who works at Obsidian Systems. You should talk to Sylvain about how it really came up, but my earliest memory of it was that we wanted to write some tests that would separate components of the GHC pipeline. So we wanted to be able to write tests that started at STG and then ran the rest of the pipeline. And we found we couldn’t because of a type called dynamic flags. Dynamic flags are the flags you pass into GHC on the command line. But as GHC has grown older, they proliferated throughout the entire compiler to such an extent that I think when the modularity project started, just to make an integer, you had to have dynamic flags because you had to understand what the platform needed to represent an integer.
+
+*MS (0:35:21)*: There’s a lot of flags, right, in that data structure that you’re passing around. Yeah.
+
+*JY (0:35:25)*: It’s way too many. Yeah. I forget how many there was, but it’s hundreds. Hundreds of them.
+
+*MPG (0:35:30)*: I think because they configure how your errors look like. Anything that might error, you need all the flags, and it’s like, “Okay, great.” 
+
+*JY (0:35:36)*: Right. Yeah. So this was the first major project I started, I was put on when I started at IOG. So this work is still ongoing. It’s not hard to do. In fact, I actually was trying to do some of it this past weekend because I want to keep a foot in GHC development. I kind of feel obligated to. 
+
+Anyway, the strategy I had was we have this type, we need to pull it up from the compiler pipeline because it’s like it has its tendrils all the way down into code generation. And so what we’ll do is we’ll just start with the deepest module, right? And just see how can we refactor it by instead of passing in an entire record of stuff, you only pass in the exact arguments you need. So it’s the principle of least responsibility or something like this. If you’re architecting a system in Haskell, be wary of these records that have hundreds of fields, right? Because now one of the — this is, I guess, a tangent, but one of the benefits of Haskell is you get quite nice pattern matching, and you will be told by the compiler if you’re missing cases. But when you’re passing in a record of 200-something fields, you’re no longer in that world, right? You have so many possible edge cases that this function has to consider that you just won’t be able to do it. So you’re giving away some of the benefits of Haskell, GHC-flavored Haskell, unknowingly, right? I want you to give away the benefits, knowingly to write faster code, unknowingly to write more bug-ridden code.
+
+*MS (0:37:09)*: I mean, I also assume that when you’re testing stuff and you need to create this record, and you’re looking at a little function, the function just uses, let’s say, one field from that record, right? You’re just going to create a record that has just that one field, but then your code changes to use some of the other fields, and then your code, then your test trips, and it just sounds like a nightmare.
+
+*JY (0:37:27)*: Yeah, exactly. There’s another hazard, which is that in a project like GHC, there’s people that are contributing all the time for various different initiatives, and they might see your record and be like, “Oh, well, that’s convenient. I’ll just add another field.” And then now just your function that you wrote know that? Have they silently manipulated it in a way that your function doesn’t handle anymore? I do think it’s a real problem that only comes with long-lived, large-scale Haskell projects.
+
+*MS (0:37:59)*: But your Java project, which is, stick it in a global variable —
+
+*JY (0:38:02)*: Right. Yeah. 
+
+*MS (0:38:03)*: — and have a single object, right? Why can’t you do that in Haskell?
+
+*JY (0:38:06)*: Yeah, I guess, I mean, I think you can use implicits, right? I guess you can also use just a global IORef, but why are you using the language then? Right? If you’re interested in writing robust software, don’t use globals. Or I would say, as part of my performance work, I’m not strictly against using global variables, but I want them to be component-scoped. So I want just the globals to be not actually global but component variables, essentially. 
+
+Yeah, so the modularity project, we made a lot of progress in — I think that was 2022. And we were able to get dynamic flags lifted all the way up to Core. The Core-to-Core pass, I think, is still where dynamic flags are passed around fairly liberally. And if you’re interested in exactly how we did this, you should see the functional architecture paper that I wrote called Stretching the Glasgow Haskell Compiler, which has, I think, lots of useful advice for long-lived, large-scale Haskell projects.
+
+*MS (0:39:14)*: Which we’ll link in the show notes, of course.
+
+*JY (0:39:16)*: Okay. Yeah. Well, yeah. So the reason Core is difficult — and we did have a Google Summer of Haskell intern on it who did a lot of work, but sadly put it all in one PR or MR. So this merge request was impossible to review. But the reason that Core, as best I can remember, is still a sticking point is because it fails me now. This is also a rant I just had with Sylvain at the past ICFP in Singapore. So when you interview him, which you should, you can ask him, but I believe it’s something like the Core to Core pass is calling type checking to do some weird thing. And then the type checker, for some reason, needs dynamic flags. So like, you can’t cleanly just cut it off because you will semantically change the type checker and some of the simplifier. I’m not sure. This might be misinformation, but as far as I know right now, that’s where it’s been left. I had written a roadmap for the modularity project, and we were checking off each module with the corresponding merge requests. And so if you search on the GitLab issues, you probably can find that roadmap, and then it’ll tell you what the next thing to do is. 
+
+*MS (0:40:35)*: What I found compelling about your paper is that it showed awareness of Domain-Driven Design, which is little known in the functional community. How did you get to know about that?
+
+*JY (0:40:44)*: I was told about it by Sylvain. Sylvain, in his frustration with the modularity of GHC, started looking towards software architecture techniques, and he found the Domain-Driven Design book. And then we had learning calls, and he started just teaching Luite Stegeman and me about Domain-Driven Design. And then he had written a white paper that I edited with John Ericson that was just trying to list out all the issues that we had seen in the architecture of GHC, and then I synthesized that into the functional architecture paper. 
+
+Now, I do want to caveat here that refactoring in Haskell is very nice. And so some of the performance stuff I was talking about earlier will hurt some of that, right? But Simon Peyton Jones’ response to the white paper, once we publicized it, was, “Well, GHC has gone through some really substantial overhauls, and it’s come out the other end for the better.” And that’s true. It takes GHC on my machine 20 minutes or something to compile itself, which is slow. But for what it does, it is quite fast, I think, and the modularity work should make refactorings more easy, and it should make the compiler safer to work on, you know, create less bugs per commit. But I think that if you go back and look at this history, Simon pushed back on us a bit, and I think that was warranted. But the question was about Domain-Driven Design.
+
+*MS (0:42:14)*: Yeah. Maybe you could also tell us a little bit about what was useful and explain what that is.
+
+*JY (0:42:20)*: As applied to GHC, you mean?
+
+*MS (0:42:22)*: Yeah, yeah. 
+
+*JY (0:42:22)*: Yeah. Okay. So the Domain-Driven Design techniques, I think, we stole the most. And also, there’s a large discourse in Domain-Driven Design that I don’t claim to know all of, but the ones we use the most are layering violations and ubiquitous language. The dynamic flags are an instance of layering violations. So essentially what you want to have is cleanly separated layers, where I think the Domain-Driven Design layers that they define are presentation, application, domain, and infrastructure.
+
+So the infrastructure layer is everything that you need to actually write your system or that you want to write your system. So this is where the unique ID generator lives, logging any kind of reporting error, interfacing with the file system. The domain layer is where the meat of what you care about in your domain actually lives. So in GHC, that’s going to be dealing with Haskell programs, optimizing them, compiling them all the way down to code generation, to some kind of machine assembly code, right? Application layer is the layer that coordinates everything under it to make the system that you want work, right? So I think of the application layer in GHC is the compiler driver, right? It’s saying, “Oh, well, take this bit of code, parse it.” Right? Parse. And then take the result of that parsing, simplify it. And then take the result of the simplification, now do code generate. It’s coordinating those components. And then the presentation layer is the user interface. 
+
+And so, for working on GHC, we tried to coordinate roughly the architecture we had, and compilers lend themselves to this kind of architecture very nicely. And what it allowed us to do, though, was point out layering violations. The lowest layers infrastructure, then your domain is higher than that, then application is higher than that. And then you have presentation. Lower layers should not import higher layers, but higher layers should import lower layers. So it’s okay if your application layer, right, the compiler driver is calling some kind of error handling or logging that is provided by your infrastructure, or calling the file system adapters that you have, right? But it’s not okay if your logging layer is calling something in your application layer. That’s considered a layering violation because that’s exactly how you end up with these weird circular modules and architectural messes. 
+
+Really, the idea of layering violations was useful in re-architecting GHC in the modularity project because it allowed us to have a model through which to understand when is this import not a good import for a reason other than, “Oh, well, we have cyclic imports and we have some bug.” So it’s a way to understand in the abstract why this import is bad, rather than waiting for a bug or waiting for evidence to deem it bad. And I think that led to a much cleaner architecture. 
+
+The second thing I think we really used from Domain-Driven Design, which I also would advocate to other functional programmers, is a ubiquitous language. So what a ubiquitous language means is you are constructing a system. That system works in some kind of domain, right? So like, let’s say I’m making, I don’t know, a programming language that defines recipes to construct sandwiches or burgers or something like that. Something between two slices of bread, right? What you want is you want to use the same language throughout your system that refers to your domain. So, for example, I want the application or the driver of my little bread language to say, “Okay, between top slice and bottom slice, do something, something, something, layer these things together.” But the point is, I want the code to have the language that is descriptive of my domain. 
+
+In GHC, the way this happened was there is ambiguation on what is a package and what is a unit in the compilation pipeline and between the compilation pipeline and Cabal, right? So Cabal calls units something different than what GHC calls a unit. And this miscommunication led to bad assumptions between GHC and Cabal and then led to bugs that we eventually had to fix. So if you’re interested in that particular story, you can check out the talk I gave at Functional Architecture 2023, which described that exact dynamic, although I did have COVID at the time, so my voice is probably quite bad.
+
+*MS (0:47:12)*: One point with ubiquitous language and sort of Haskell culture, I mean, Haskell culture likes one letter names.
+
+*JY (0:47:18)*: Oh, yes.
+
+*MS (0:47:19)*: Especially if that name is a, right? When I teach functional architecture, I always show like xmonad, which is an exemplary code base, right? But somewhere in there, there’s a type that has eight type parameters, and they’re all one or two letters. Of course, the type variable for window is called a because it’s a window manager, right? Your bread program, the variable would probably call a also if it’s for bread, right? And so one of the lessons I really took from this idea of the ubiquitous language and Domain-Driven Design is that it really does help the readability of your code base if you spell those words out, not just that you have a glossary, but that you actually use those names. Of course, when you have abstract things, a is fine, right? But if there’s any sort of meaning or word that you can use for something, then you should use it, not just write x or a.
+
+*JY (0:48:07)*: Yeah. I also want to make a further point on this. First of all, I completely agree. But second of all, I think that — actually, I have two points to make. I think when you use ubiquitous language, your code becomes a better tool of thought, right? Because you’re expressing the semantics of the domain, if you’ve done it well, as your code. And then it becomes easy to tell when something is wrong. And you’ll know where something is wrong because your ubiquitous language starts to fall down, right? 
+
+The second thing I wanted to say with ubiquitous language is, as someone who didn’t have much guidance learning Haskell and was really left to my own devices, it makes it easier to onboard into a project and learn about that project, how it does things. I think this is really a point that is not talked about very much, that even if you are an expert at a language, well, every large-scale project in that language has its own idioms, its own code quality standards, its own way of doing things. And that onboarding really takes quite a long time, and there’s really no avoiding it other than just putting time in the saddle. But ubiquitous language there really, I think, is helpful for beginners outside of an academic teaching context, like you said, Michael.
+
+*MS (0:49:21)*: Yeah. But I mean, that’s also exactly, I think, the place where using functional programming or Haskell really shines is that you express your thoughts about the domain in code, right? Which is something that the Domain-Driven Design community, as a rule, does not do. The hints in Eric Evans’ original book notwithstanding, it’s something that I do too, right? But whenever I talk to Domain-Driven Design people or software architects, they find that idea quite alien. So putting ubiquitous language and then using that ubiquitous language to put your thoughts into code is a really powerful way to structure your domain.
+
+*JY (0:49:53)*: Yeah. It seems so natural to me to put my thoughts into code. So I wonder what it is for them that they are resistant to it, or have I misunderstood?
+
+*MS (0:50:03)*: It’s a mystery to me too. I think there’s more. There’s work to be done, right? I think we had a conversation a couple of months ago, Jeff and I, where we talked a little bit about what’s relevant when we design code. One of them was that we do a lot of data modeling in Haskell or in functional programming in general. If you look at sort of the modeling techniques in Domain-Driven Design is they almost exclusively focus on process, right? And when you do that, your code doesn’t do all that much for you. If you’re just looking at the process side of things, you’re maybe better off with a bunch of sticky notes on a whiteboard. We have all these means to put things into code that are not available to you when you use Java. So maybe that’s another factor, is that the languages that are in use in the Domain-Driven Design communities tend not to be so good at helping you think.
+
+*JY (0:50:48)*: Yeah. Yeah. I have another way we use Domain-Driven Design in the modularity project. So I think we stole the idea of component-wise configuration straight from some of the Domain-Driven Design folk. I don’t know if that comes from the Domain-Driven Design book or if it’s just from that general community. But the idea there is every component you have in your system gets a configuration record, and then we split the dynamic flags into that configuration record. If you go way back, that’s how we started writing tests that just began at STG. That was the key. Now you only have 10 fields or whatever instead of hundreds.
+
+*MS (0:51:30)*: Yeah. I mean, that follows the idea of having bounded contexts, right?
+
+*JY (0:51:33)*: Oh, yes. That’s what it was. Bounded context. Yeah.
+
+*MS (0:51:35)*: Sort of a very simple way of doing bounded contexts and where you have different models and different parts of your system. I mean, the fundamental problem there from the Domain-Driven Design point of view is that you have one data model for your dynamic flags across the entire system, even though you have, or should have, separate bounded contexts.
+
+*JY (0:51:51)*: Yeah.
+
+*MPG (0:51:52)*: We’re starting to run out of time, I guess. So I wanted to ask you quickly about the JavaScript backend that you worked on as well, right?
+
+*JY (0:51:59)*: Yeah, that’s right. So that was another initiative by IOG, but sadly, I haven’t kept up with its development. So the work for the JavaScript backend was migrating GHCJS to GHC upstreaming it. So Luite was the lead developer on the JavaScript backend. So he was a good resource. And then Sylvain and I were basically in supporting roles. 
+
+But there’s lots of things that you would do in a normal Haskell project that you would not do in GHC. For example, using lenses, right? So you have to trim down dependencies if you want to add something into GHC. I think that migration took us about a year. I still would like to write more documentation on how to use the JavaScript backend, but like I said, I really haven’t been active in it. Who has been active in it is a — I think he’s a German developer, Serge Laguin. I’m not quite sure, but the last I knew, he was basically the lead force behind the JavaScript backend in the GHC team. And I bring him up because I actually onboarded him. He just blindly emailed me one night and asked me, “How do I get started working with GHC? I’m interested in working on the JavaScript backend.” And so I had my IOG email in comments in the JavaScript backend code, and that’s where he got the emails from. So I went back and forth, and then I gave him a tutorial on exactly how to get started and how to start compiling, and here’s what we think nice first steps would be. And now he’s, I think, essentially running that side of the GHC project. 
+
+So if you are a listener out there and you feel like you want to get started and you find some poor person’s email somewhere in some code, feel free to reach out because they might just help you. But yeah, I would say I can’t really speak to its current status even. I’ve only been using the Wasm backend. Sadly. Yeah.
+
+*MPG (0:54:03)*: Right. Well, I was mainly curious about, you know, you think so much about optimization. What do we do differently when we’re targeting JavaScript versus targeting LLVM or whatever, right?
+
+*JY (0:54:13)*: Yeah. Well, JavaScript only understands 32-bit integers, right? So it’s quite a different platform. I don’t think that optimizing to a platform goes very far unless you’re doing something very large. I know Serge reduced the code generation size of the JavaScript backend quite significantly. I think it was — we were adding a Unicode table we didn’t need to add or something like this. And binary sizes, frankly, are kind of out of control with GHC anyway. So that was good work. 
+
+But with something like JavaScript, the performance part of my brain goes, you’re already so many levels above the machine, and what really — like, I mean, what can you expect? So for real code, you just need something that basically works, and you basically treat the machine as if it has infinite memory and everything’s okay living in the heap. And you just are relying so much on the JavaScript JIT to really make your performance decent. 
+
+But the extra caveat in there as well, we have a little embedded runtime system. So you really have all this indirection. But if you’re going to be writing JavaScript to be fast, why are you even writing JavaScript? So maybe that’s a little bit elitist of me. Like some people I know will write games in JavaScript just because it’s easy. It’s what they know. It’s what they can do. It’s like you have an easy way to test, a debugger is already available in Chrome, all these things. But for code generation of a compiler, I just like, you’re going to accept some kind of performance loss, but you’re not really running something that’s computation-heavy. So maybe I’m naive there, but I think that it would be a mistake to kind of over-optimize in that direction. 
+
+*MPG (0:56:03)*: Right. Because I feel, I think you said also what people say about Haskell. 
+
+*JY (0:56:07)*: Yeah. Right. 
+
+*MPG (0:56:08)*: Like, you’re so far away from the machine. Why would it be fast? And it’s like, oh, well, you know, you do the IntMap. It can be quite good, right? 
+
+*JY (0:56:14)*: So that’s a great observation. Yeah, you’re right. But I guess I think it’s closer to the machine than the JavaScript runtime that’s running a Haskell runtime that’s running this compiled Haskell code. Like one of the things I really want to experiment with, probably over the upcoming holidays, is writing memory arenas in Haskell. I would really like an unlifted do notation where everything that I’m doing is unlifted and maybe unboxed, and I don’t have to explicitly sink into low-level Haskell and pass around real-world tokens and stuff like this. And part of that is I want to explore, kind of what Michael had referenced, the bounded contexts or bounded scopes with components. Like I want to write a component for a system that does all of its own memory allocation, if I need to, right? So I want to just be able to say, “Don’t worry, GHC’s garbage collector. I have this.” And that’s breaking some guarantees of the language. But I think that I want to be able to break those guarantees, do it in a Haskell-y algebraic way, and have that scoped in a component that it can’t escape from. So maybe that’s a bit of a tangent of when we started from JavaScript, but that’s where my interests lie right now. So I think it’s a monad, of course. Yeah.
+
+*MPG (0:57:39)*: Yeah. So the last question we usually ask people is, where do you see the future of Haskell? 
+
+*JY (0:57:46)*: I have so many thoughts about this. So yeah, where to begin? When David Christiansen was the head of the Haskell Foundation, he gave a talk at the Haskell Symposium saying that he felt like the future of Haskell was not in language development, but in tooling and easing the onboarding and ergonomics. And I’m very sympathetic to that. I think that the kind of pain that people experience and come to love in Haskell development is a right of initiation that does, unfortunately, keep the community small in the greater scheme of things. 
+
+So what I would like to see is I would like to see more better tooling that’s just friendlier. It’s just friendlier to me, but there is some work in this area, again, from my friends at IOG that I did want to plug. So here’s the plug. But they’re working on this, a light fork, they call it. What that means is it’s a fork of GHC that is expressed via patches that we can then, or they can eventually, upstream. They’d already done some of this with the Haskell.nix work, but the initiative is called Stable Haskell, and the idea is to try to shore up a lot of the engineering decisions of GHC so that you have a GHC that you can build with just cabal install, for example. You don’t need to now understand entirely a second build system, which is Hadrian, for the uninitiated. They want to have improved capabilities for building static binaries. They want to have first-class cross-compilation support. And these sorts of things, multi-target support for stage two compilers, a lot of these things are going to be well known to people in GHC development, but not well known to people outside of GHC development. 
+
+But if you’d like to, I think, make the Haskell of the future, they do accept contributions on the Stable Haskell GitHub repo, so you can just look it up. Or you can just go on IRC and ping Sylvain, Luite, or Moritz. I’m sure they’d be more than happy for any contributions or just eyes on the project. 
+
+So the reason I bring that up, though, is because if you look at languages that have come about in the last 10 years or so, that have gained traction, that are popular, they all have better cross-compilation support. They all have better tooling. They all have more friendly error messages than I think some of the stuff you get in GHC. And maybe not so much error messages. I’m mostly thinking of Rust when I think that. But other languages like Zig, right? Zig cross-compiles to Wasm, to JavaScript, like all this stuff, right? Same thing with Rust. And I think that it would just be an absolute shame if Haskell didn’t follow in those footsteps. But also, I want it to follow in those footsteps because what I don’t want is the discourse around Haskell and GHC to think, “Oh, they couldn’t do some technical thing because of lazy, pure functional programming.” And there’s a real hazard in the programming language in our discourse that, because we only have really one flagship compiler, technical limitations then reflect on the language design and the choices of the language. And I just don’t think that’s warranted. So, plug for Stable Haskell. Go check it out. To answer your question, I would like better tooling. I think there’s lots of little things we could do that make the experience better. Word. Yeah. 
+
+*MS (1:01:24)*: Word.
+
+*JY (1:01:25)*: Yeah. I didn’t think I’d get a lot of pushback here. Yeah.
+
+*MPG (1:01:30)*: I think we can all get behind that. It’s not a very controversial opinion, I think. 
+
+*JY (1:01:34)*: Yeah, I don’t think so too, but I think it’s not controversial until you start trying to change things.
+
+*MPG (1:01:39)*: Yeah. Yeah.
+
+*JY (1:01:40)*: And I am not even sure what I want to change, other than I want Cobble to have a watch flag —
+
+*MPG (1:01:47)*: Yeah.
+
+*JY (1:01:48)*: — which has been an issue that’s been open for God knows how long. It always seems like these things that should be very straightforward and easy are very hard. And when I hear something like that, things that should be straightforward and easy are hard, I think, “Oh, there’s architecture problems,” because when you have architecture problems in a long-lived language or system, you want to add a feature, and you end up not being able to because you’ve migrated the system down this highly coupled path. That’s probably one of the things that’s happening there. But I don’t know. I haven’t worked on Cabal. But if you do want to work on Cabal, Andrea Bedini, who’s also at, or he contracts with IOG, has been working on making Cabal a more friendly experience. So maybe ask him. 
+
+*MPG (1:02:41)*: Yeah, I think we could talk way longer about these things. But yeah, thanks for coming on. I think we’ve run not way past, but a little past our frame. But yeah, thanks for coming on, and maybe we’ll do an episode 2 on even more. 
+
+*JY (1:02:58)*: Sure. I’d be more than happy. So Matti, I don’t know if you remember this, but do you remember how we met?
+
+*MPG (1:03:04)*: We met in Slovenia, right?
+
+*JY (1:03:05)*: That’s right.
+
+*MPG (1:03:06)*: At the ICFP.
+
+*JY (1:03:07)*: Yes. 
+
+*MPG (1:03:07)*: Yeah. And it was one of those moments where it was like, I knew you by your username. You knew me by my username. 
+
+*JY (1:03:13)*: Yes.
+
+*MPG (1:03:13)*: But we’d never met in person, and we didn’t know each other’s real names. So it was like, I saw your badge, and I’m like, “It feels familiar, but —”
+
+*JY (1:03:20)*: You were like, “Oh, yeah, that name.” Yeah, no, I think you sat on me next to the bus going to the ICFP venue from the airport.
+
+*MPG (1:03:27)*: Yeah, yeah, yeah, yeah.
+
+*JY (1:03:28)*: And then we kind of like did the pointing thing. 
+
+*MPG (1:03:32)*: Yeah.
+
+*JY (1:03:32)*: Yeah. So, yeah. Thank you for having me. It’s been an absolute pleasure. And yeah, I think this sort of podcast is a touchstone that aggregates the community. It’s one of the things that makes the community a community. So I very much value your work. I hope you continue to do it.
+
+*MPG (1:03:50)*: Yeah. Thank you very much.
+
+*MS (1:03:51)*: Thanks so much, Jeff.
+
+*JY (1:03:52)*: Yeah, thank you.
+
+*Narrator (1:03:55)*: The Haskell Interlude Podcast is a project of the Haskell Foundation, and it is made possible by the generous support of our sponsors, especially the Gold-level sponsors: Input Output, Juspay, and Mercury.

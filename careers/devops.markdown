@@ -24,7 +24,7 @@ The successful candidate will have exceptional DevOps skills in the current tech
 
 Additionally, this position is responsible for maintaining operating system dependent packaging of GHC and related tools.
 
-## Likely future responsibilities
+## Likely Future Responsibilities
 
 * Work with the [Haskell Infrastructure Team](https://github.com/haskell-infra/haskell-admins/).
 * Improvements and expansion of the GHC performance dashboard.

@@ -1,0 +1,8 @@
++ [Daniele's homepage](https://cseweb.ucsd.edu/~daniele/) 
++ [Introduction to Lattice-based Cryptography](https://cims.nyu.edu/~regev/papers/pqc.pdf)
++ [Lattice Cryptography on Wikipedia](https://en.wikipedia.org/wiki/Lattice-based_cryptography)
++ [Lattice Cryptography in Haskell](https://hackage.haskell.org/package/lol)
++ [Computational Soundness, Co-induction, and Encryption Cycles](https://link.springer.com/chapter/10.1007/978-3-642-13190-5_19)
++ [Miranda](https://en.wikipedia.org/wiki/Miranda_(programming_language))
++ [Post-quantum cryptography](https://en.wikipedia.org/wiki/Post-quantum_cryptography)
++ [Daniele’s automata class](https://cseweb.ucsd.edu/classes/sp15/cse191-e/)
