@@ -24,7 +24,7 @@ The registration link is available [on Eventbrite](https://www.eventbrite.com/e/
 
 ## Video Recordings
 
-Recordings will be made available shortly after the event. Last year's recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQe319u9EdkpxjibYFtGsugc).
+The recordings [are available online](https://www.youtube.com/playlist?list=PLApZHRDK3cFc).
 
 ## The Workshop
 
