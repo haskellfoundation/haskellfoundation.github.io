@@ -18,8 +18,34 @@ cabal run social-draft -- news/2026-07-18/hiw-hew-2026-videos.markdown
 cabal run social-draft -- hiw-hew-2026-videos
 ```
 
-Run from the repo root. Output is grouped under `=== Channel ===` headers;
-copy each block into the corresponding channel by hand.
+Run from the repo root. Each channel gets a colour-coded header stating its
+kind (forum / microblog / mailing list), **which account to post from**, and
+a clickable link to the channel; below it is the plain draft body to copy.
+
+Copy only the draft body (between the header and the next header) — the
+coloured chrome is never part of what you paste.
+
+## Which account
+
+The header's `account` line says who should post:
+
+- **Haskell Foundation account** — the HF owns this channel. Currently
+  Twitter/X ([@haskellfound](https://twitter.com/haskellfound)) and Mastodon
+  ([@haskell_foundation](https://mastodon.social/@haskell_foundation)).
+- **your PRIVATE account / email** — no HF identity here; post from your own
+  account (Discourse, Reddit) or send from your own address (haskell-cafe).
+- **HF or private? — unconfirmed** — LinkedIn; not yet decided, check before
+  posting.
+
+## Colour and links
+
+Two disjoint colour families keep the roles distinct: each channel's chrome
+uses a muted, cool hue, while the `account` flag uses saturated traffic-light
+colours (green = HF/safe, yellow = unconfirmed, red = your private identity).
+
+Colour and clickable links are emitted only when writing to an interactive
+terminal, so piping to a file or pager gives clean plain text. Colour also
+honours the standard `NO_COLOR` environment variable.
 
 ## Known rough edges (first draft)
 
