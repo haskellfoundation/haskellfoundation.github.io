@@ -31,8 +31,8 @@ jobs:
 
     strategy:
       matrix:
-        stack: ["2.7.3"]
-        ghc: ["8.10.7"]
+        stack: ["3.11.1"]
+        ghc: ["9.10.3"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -71,7 +71,7 @@ jobs:
           path: ~/.stack
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
 
-      - name: Build site executable
+      - name: Build site executables
         run: stack build --system-ghc
 
       - name: Build site
