@@ -6,13 +6,13 @@
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
 import Data.List (sortOn, isPrefixOf)
-import Data.Maybe (fromJust, fromMaybe, isJust)
+import Data.Maybe (fromMaybe, isJust)
 import qualified Data.Text as T
 import Hakyll
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template (loadAndApplyTemplate)
 import Hakyll.Web.Template.Context (defaultContext)
-import System.FilePath (dropExtension, splitFileName, takeBaseName, (</>))
+import System.FilePath (dropExtension, splitFileName, takeBaseName, takeDirectory, takeFileName, (</>))
 import System.IO (SeekMode (RelativeSeek))
 import Text.Pandoc as Pandoc (
     Block (Para, Plain),
@@ -241,8 +241,8 @@ main = hakyllWith config $ do
         route $ setExtension "html"
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
-            -- extract the captures path fragment. really no easier way?
-            episode <- head . fromJust . capture "podcast/*/index.markdown" <$> getUnderlying
+            -- the episode slug is the directory name in podcast/<slug>/index.markdown
+            episode <- takeFileName . takeDirectory . toFilePath <$> getUnderlying
 
             let ctxt =
                     mconcat
@@ -551,7 +551,7 @@ podcastListCtx episodes =
         <> defaultContext
 
 podcastOrd :: Item String -> Integer
-podcastOrd = read . head . fromJust . capture "podcast/*/index.markdown" . itemIdentifier
+podcastOrd = read . takeFileName . takeDirectory . toFilePath . itemIdentifier
 
 -- careers ---------------------------------------------------------------------------------------------
 careersCtx :: [Item String] -> Context String
