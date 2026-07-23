@@ -6,13 +6,13 @@
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
 import Data.List (sortOn, isPrefixOf)
-import Data.Maybe (fromJust, fromMaybe, isJust)
+import Data.Maybe (fromMaybe, isJust)
 import qualified Data.Text as T
 import Hakyll
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template (loadAndApplyTemplate)
 import Hakyll.Web.Template.Context (defaultContext)
-import System.FilePath (dropExtension, splitFileName, takeBaseName, (</>))
+import System.FilePath (dropExtension, splitFileName, takeBaseName, takeDirectory, takeFileName, (</>))
 import System.IO (SeekMode (RelativeSeek))
 import Text.Pandoc as Pandoc (
     Block (Para, Plain),
@@ -130,13 +130,25 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
 
     -- news ------------------------------------------------------------------------------------------------
-    match "news/**.markdown" $ compile pandocCompiler
+    -- An entry is either a full article (own page) or a headline linking out
+    -- (front matter `link`, no own page). `hasLink` splits the two.
+    let hasLink = isJust . lookupString "link"
+    matchMetadata "news/**.markdown" (not . hasLink) $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildBoilerplateCtx Nothing
+            pandocCompiler
+                >>= loadAndApplyTemplate "templates/news/page.html" newsItemCtx
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+    matchMetadata "news/**.markdown" hasLink $ compile pandocCompiler
+
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
 
     tagsRules categories $ \category catId -> compile $ do
         news <- recentFirst =<< loadAll catId
         let ctx =
-                listField "news" (newsWithCategoriesCtx categories) (pure news)
+                listField "news" newsItemCtx (pure news)
                     <> dateField "category" "%B %e, %Y"
                     <> defaultContext
 
@@ -156,19 +168,6 @@ main = hakyllWith config $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/news/list.html" ctx
-                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
-                >>= relativizeUrls
-
-    match "news/*.markdown" $ do
-        route $ setExtension "html"
-        let ctxt =
-                mconcat
-                    [defaultContext]
-        compile $ do
-            sponsors <- buildBoilerplateCtx Nothing
-            pandocCompiler
-                >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/news/page.html" ctxt
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -242,8 +241,8 @@ main = hakyllWith config $ do
         route $ setExtension "html"
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
-            -- extract the captures path fragment. really no easier way?
-            episode <- head . fromJust . capture "podcast/*/index.markdown" <$> getUnderlying
+            -- the episode slug is the directory name in podcast/<slug>/index.markdown
+            episode <- takeFileName . takeDirectory . toFilePath <$> getUnderlying
 
             let ctxt =
                     mconcat
@@ -500,30 +499,15 @@ slugField name =
 
 -- news ------------------------------------------------------------------------------------------------
 
--- | build group of news inside date of publishing (category)
-newsWithCategoriesCtx :: Tags -> Context String
-newsWithCategoriesCtx categories =
-    listField "categories" categoryCtx getAllCategories
+-- | Context for a single news entry, shared by the index tiles, the homepage
+-- announcement and the standalone article page. `teaser` is the entry's first
+-- paragraph as plain text (from the "description" version), used as a preview
+-- so the index links to the full article rather than inlining it.
+newsItemCtx :: Context String
+newsItemCtx =
+    field "teaser" (loadBody . setVersion (Just "description") . itemIdentifier)
+        <> dateField "date" "%B %e, %Y"
         <> defaultContext
-  where
-    getAllCategories :: Compiler [Item (String, [Identifier])]
-    getAllCategories = pure . map buildItemFromTag $ tagsMap categories
-      where
-        buildItemFromTag :: (String, [Identifier]) -> Item (String, [Identifier])
-        buildItemFromTag c@(name, _) = Item (tagsMakeId categories name) c
-    categoryCtx :: Context (String, [Identifier])
-    categoryCtx =
-        listFieldWith "news" newsCtx getNews
-            <> metadataField
-            <> urlField "link"
-            <> pathField "path"
-            <> titleField "title"
-            <> missingField
-      where
-        getNews :: Item (String, [Identifier]) -> Compiler [Item String]
-        getNews (itemBody -> (_, ids)) = mapM load ids
-        newsCtx :: Context String
-        newsCtx = newsWithCategoriesCtx categories
 
 -- faq -------------------------------------------------------------------------------------------------
 faqCtx :: [Item String] -> Context String
@@ -567,7 +551,7 @@ podcastListCtx episodes =
         <> defaultContext
 
 podcastOrd :: Item String -> Integer
-podcastOrd = read . head . fromJust . capture "podcast/*/index.markdown" . itemIdentifier
+podcastOrd = read . takeFileName . takeDirectory . toFilePath . itemIdentifier
 
 -- careers ---------------------------------------------------------------------------------------------
 careersCtx :: [Item String] -> Context String
@@ -585,7 +569,7 @@ hiringSponsorsCtx sponsors =
 
 announcementsCtx :: [Item String] -> Context String
 announcementsCtx ads =
-    listField "announcements" defaultContext (pure ads)
+    listField "announcements" newsItemCtx (pure ads)
 
 -- Events
 

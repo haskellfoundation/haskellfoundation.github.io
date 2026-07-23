@@ -18,13 +18,15 @@
                 $author$
               </div>
             $endif$
-            <div class="mt-8 space-y-4">$body$</div>
+            <div class="mt-8 space-y-4"><p>$teaser$</p></div>
           </div>
-          $if(link)$
           <div class="mt-4">
+            $if(link)$
             <a class="arrow-link" href="$link$" target="_blank">&gt;&gt; Read more</a>
+            $else$
+            <a class="arrow-link" href="$url$">&gt;&gt; Read more</a>
+            $endif$
           </div>
-          $endif$
         </div>
       </div>
     </div>

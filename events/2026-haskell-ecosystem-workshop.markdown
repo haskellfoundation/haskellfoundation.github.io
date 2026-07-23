@@ -24,7 +24,7 @@ The registration link is available [on Eventbrite](https://www.eventbrite.com/e/
 
 ## Video Recordings
 
-Recordings will be made available shortly after the event. Last year's recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQe319u9EdkpxjibYFtGsugc).
+The recordings [are available online](https://www.youtube.com/playlist?list=PLApZHRDK3cFc).
 
 ## The Workshop
 
@@ -54,7 +54,7 @@ Please make sure that you have [checked out and built](https://gitlab.haskell.or
 
 <table>
 
-<tr><th colspan="3">2025-06-05</th></tr>
+<tr><th colspan="3">2026-06-04</th></tr>
 <tr><th>8:30-9:00</th><td> Registration</td><td></td></tr>
 <tr><th>9:00-9:20</th><td> Welcome and Intro</td><td>Farhad&nbsp;Mehta and Laurent&nbsp;P. René de Cotret</td></tr>
 <tr><th>9:20-10:20</th><td> Optimising for fast builds with GHC</td><td>Teo Camarasu </td></tr>

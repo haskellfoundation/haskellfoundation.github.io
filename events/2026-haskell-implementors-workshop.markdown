@@ -161,10 +161,7 @@ Coffee, tea, and fruit will be provided. There is also easy access to a tap for 
 
 ### Video Recordings and Live Streaming
 
-The event will be recorded.
-<!--
-The recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQfpBPdVV3hUZ3_pDxmYhsbr).
--->
+The recordings [are available online](https://www.youtube.com/playlist?list=PLV9Q98f69SkA).
 
 ## Call for Proposals
 
