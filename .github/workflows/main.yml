@@ -60,8 +60,8 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
           restore-keys: ${{ runner.os }}-${{ matrix.ghc }}-
 
-      - name: Build dependencies
-        run: stack build --system-ghc --only-dependencies
+      - name: Build site dependencies
+        run: stack build --system-ghc --only-dependencies haskell-foundation:exe:site
 
       - uses: actions/cache/save@v4
         # We shouldn't ever run into an exact key hit (in theory),
@@ -71,8 +71,15 @@ jobs:
           path: ~/.stack
           key: ${{ runner.os }}-${{ matrix.ghc }}-${{ github.sha }}
 
-      - name: Build site executables
-        run: stack build --system-ghc
+      - name: Build site executable
+        run: stack build --system-ghc haskell-foundation:exe:site
+
+      # The social cross-post script is a developer tool, not part of the
+      # deployed site. Compile it on PRs to catch breakage, but skip it on
+      # pushes to hakyll so deploys don't depend on it.
+      - name: Build social cross-post script
+        if: ${{ github.event_name == 'pull_request' }}
+        run: stack build --system-ghc haskell-foundation:exe:social-draft
 
       - name: Build site
         run:  stack exec --system-ghc site rebuild
