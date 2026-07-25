@@ -42,13 +42,14 @@
   <title>Peter Thiemann</title>
   <meta property="og:title" content="Peter Thiemann">
   
-  <meta property="og:description" content="In this Interlude, we're joined by Peter Thiemann. Peter is a professor
-at the University of Freiburg, and he was doing functional programming
-right when Haskell got started. So naturally we asked him about the
-early days of Haskell, and how from the start Peter pushed the envelope
-on what you could do with the type system and specifically with the type
-classes, from early web programming to program generation to session
-types. Come with us on a trip down memory lane!
+  <meta property="og:description" content="In this Interlude, we're joined by Peter Thiemann. Peter is a
+professor at the University of Freiburg, and he was doing functional
+programming right when Haskell got started. So naturally we asked him
+about the early days of Haskell, and how from the start Peter pushed
+the envelope on what you could do with the type system and
+specifically with the type classes, from early web programming to
+program generation to session types. Come with us on a trip down
+memory lane!
 ">
   
 
@@ -266,7 +267,14 @@ types. Come with us on a trip down memory lane!
       
       <p><em>Recorded 2025-12-15. Published 2026-03-23.</em></p>
       
-      <p>In this Interlude, we’re joined by Peter Thiemann. Peter is a professor at the University of Freiburg, and he was doing functional programming right when Haskell got started. So naturally we asked him about the early days of Haskell, and how from the start Peter pushed the envelope on what you could do with the type system and specifically with the type classes, from early web programming to program generation to session types. Come with us on a trip down memory lane!</p>
+      <p>In this Interlude, we’re joined by Peter Thiemann. Peter is a
+professor at the University of Freiburg, and he was doing functional
+programming right when Haskell got started. So naturally we asked him
+about the early days of Haskell, and how from the start Peter pushed
+the envelope on what you could do with the type system and
+specifically with the type classes, from early web programming to
+program generation to session types. Come with us on a trip down
+memory lane!</p>
     </div>
   </div>
 
@@ -322,7 +330,7 @@ types. Come with us on a trip down memory lane!
       <a href="https://github.com/haskellfoundation/haskellfoundation.github.io/edit/hakyll/podcast/79/transcript.markdown">Feel free to fix them!</a></em>
     </div>
     <div class="border-l-3 border-gray-300 ml-5 md:ml-8 lg:ml-10 pl-4 md:pl-8 lg:pl-14 pr-4">
-      <p><em>Mike Sperber (0:00:15)</em>: So Matti and I sat down with Peter Thiemann. Peter is a professor at the University of Freiburg, and he was doing functional programming right when Haskell got started in the ’90s. So naturally, we asked him about the early days of Haskell and how, from the start, Peter pushed the envelope on what you could do with Haskell’s type system, and specifically with the type classes, from early web programming to program generation to session types. Come with us on a trip down memory lane.</p>
+      <p><em>Mike Sperber (0:00:15)</em>: So Matti and I sat down with Peter Thiemann. Peter is a professor at the University of Freiburg, and he was doing functional programming right when Haskell got started in the ‘90s. So naturally, we asked him about the early days of Haskell and how, from the start, Peter pushed the envelope on what you could do with Haskell’s type system, and specifically with the type classes, from early web programming to program generation to session types. Come with us on a trip down memory lane.</p>
 <p>So Peter, how did you first get in contact with Haskell?</p>
 <p><em>Peter Thiemann (0:00:46)</em>: Oh, you got me scratching my head. So that was a long time ago. While we were kind of doing the pre-talk, I noticed that there is some history of the Haskell Workshop, and I believe I was in one of the first ones in 1995. So I guess by that time, I was already fluent in Haskell. And I still remember the first versions of the Glorious Haskell compiler, as it was called back then, where Simon and his team of two people—essentially, two extra people—which was Simon PJ and Simon Marlow, and then there was some guy who I never met in person, Will Partain, and he was doing all the dirty stuff. And so I was kind of using their bleeding-edge implementation. And so we were exposed to various things, like front ends written in Perl, and Simon Marlow being upset about that. And finally, he got around to rewriting it. So that must have been pretty much before 1995. </p>
 <p>I think by that time, also Gofer was around. So Gofer was Mark Jones’ playground for implementing his type class stuff before his way got implemented in Haskell. And so I guess at that point, many people switched to using Gofer and calling it Haskell and kind of secretly turning off the features before he got less adventurous, not to say tired, with maintaining the stuff and turning it into Hugs and kind of freezing it to do other things.</p>
@@ -334,7 +342,7 @@ types. Come with us on a trip down memory lane!
 <p><em>PT (0:05:08)</em>: Yeah. So when you’re using that, you had – I think it was even a C program that would translate the Haskell syntax into Lazy ML, and then you would run the Lazy ML compiler, and you would have your code. So yeah, that was around. There was also Paul Hudak’s system, and I have to admit, shamefully, that I never played with that system. I guess mostly because the back-end was some Scheme or Lisp dialect. I think it was T, right? T?</p>
 <p><em>MS (0:05:41)</em>: Yeah. I think it was basically a continuation of Yale’s T project, which had been a Scheme compiler, but I think the actual Yale Haskell then ran on top of Common Lisp. But I remember everything was kind of annoying to install, right? Except for Gofer, which is why a lot of people used Gofer.</p>
 <p><em>PT (0:06:01)</em>: Yeah. I mean, the thing with Gofer was that it would actually fit on a PC, right? I mean, on an IBM PC. Try that with GHC. Okay. No way. Absolutely no way.</p>
-<p><em>MPG (0:06:16)</em>: Right. But then I have to ask, how did people learn about Haskell in ’95? Did you bump into someone at a conference, or was there a newsletter? Like, how did it work?</p>
+<p><em>MPG (0:06:16)</em>: Right. But then I have to ask, how did people learn about Haskell in ‘95? Did you bump into someone at a conference, or was there a newsletter? Like, how did it work?</p>
 <p><em>PT (0:06:28)</em>: On the internet, of course. No, I mean, there was something. Well, the Usenet, right? So there were newsgroups like comp.lang.functional, and you would be subscribed to various email lists. And that’s the way that you would get information. I mean, back then, our university was kind of barely connected to the internet.</p>
 <p><em>MS (0:06:53)</em>: Yeah. We had a 64k line for the entire computer science department.</p>
 <p><em>PT (0:06:57)</em>: Yeah. And I think, I don’t know if Mike was still around, but at some point—this was probably a few years earlier—we had to move into a new building. And as Mike was saying, this building was connected to the main computer science – well, actually, to the main sciences building, where the computing center maintained some sort of hub by a 64k-bit line, which nobody can understand today anymore. So basically we had to rely on emails and Usenet. So, I mean, big downloads? No way. It was absolutely not possible.</p>
@@ -378,7 +386,7 @@ types. Come with us on a trip down memory lane!
 <p><em>MS (0:19:30)</em>: But as your programs get larger, it’s not just about the contents of individual files. It’s about sort of the structure of your IO. </p>
 <p><em>PT (0:19:39)</em>: I mean, the structure would be very rotten because you would always have to handle this pair of request and response streams. And wherever you wanted to do IO, you would have to somehow supply these two lists, right? </p>
 <p><em>MS (0:19:53)</em>: Yeah. And so I think everybody who was using Haskell was conscious of the fact that IO remains sort of an unsolved problem. And so when the monads came out, and then the idea for monadic IO came out, I distinctly remember, Peter, that we were sitting in an office, and we were, I think, looking at Phil Wadler’s paper. And I think we very quickly realized this is going to do the job, and this is going to be big. But until then, things were unsolved, right? And there was this distinct epochal change, I guess, in that things were sort of stream-based before, and people were doing stream-based UI toolkits also. I think the Fudgets toolkit still lives on, right? Which also deals well with sort of simple input-output relationships but deals less well with your IO composition changes. And so the monads kind of did away with – I mean, we thought it would do away with all the problems, but it took a long time to then realize what the problems were that they brought in. But back in the day, we were just in heaven that we could finally do these things in lazy functional languages, and it opened the door to thinking about maybe doing more real-world projects in Haskell.</p>
-<p><em>PT (0:21:12)</em>: Yeah. And that paper, that was ’94, I think, right? So that’s the Imperative Functional Programming by Simon PJ and Phil Wadler.</p>
+<p><em>PT (0:21:12)</em>: Yeah. And that paper, that was ‘94, I think, right? So that’s the Imperative Functional Programming by Simon PJ and Phil Wadler.</p>
 <p><em>MS (0:21:19)</em>: Yeah. Yeah.</p>
 <p><em>PT (0:21:20)</em>: I mean, it was truly a revelation, right? And then everybody was reading the other papers by Phil about monads, and everybody was saying, “Oh, the M thing.”</p>
 <p><em>MS (0:21:32)</em>: Yeah. There was this really cursed phase when everybody was, “Don’t say the M word,” because it’s going to put off people from getting into Haskell because they don’t like the monad word. Of course, that –</p>
@@ -407,7 +415,7 @@ types. Come with us on a trip down memory lane!
 <p><em>MPG (0:37:40)</em>: Right. But I think at the Haskell Workshop, there’s been a lot of very good papers at the Haskell Workshop. I feel like it’s more than just a workshop in this community, at least, right? </p>
 <p><em>PT (0:37:59)</em>: Hmm. I would say it has changed over time.</p>
 <p><em>MPG (0:38:04)</em>: Yeah.</p>
-<p><em>PT (0:38:05)</em>: So initially, people were kind of talking about crazy ideas there. And some people, like Mark Jones, would use the Haskell Workshop as a sounding board, and they would present some really cool stuff. And then a year later, it would appear in POPL, for example, or at ICFP. Did it exist then? Yeah, ’95. Yeah. And then, I mean, it expanded, and it became two days, and it became Haskell Symposium, and so on. But what can I say? So the last few times that I attended the Haskell Symposium, I wasn’t that pleased, I have to say. I mean, this is just my personal impression. Maybe my own focus has changed. It just didn’t feel so adventurous and interesting to me than it was in the beginning.</p>
+<p><em>PT (0:38:05)</em>: So initially, people were kind of talking about crazy ideas there. And some people, like Mark Jones, would use the Haskell Workshop as a sounding board, and they would present some really cool stuff. And then a year later, it would appear in POPL, for example, or at ICFP. Did it exist then? Yeah, ‘95. Yeah. And then, I mean, it expanded, and it became two days, and it became Haskell Symposium, and so on. But what can I say? So the last few times that I attended the Haskell Symposium, I wasn’t that pleased, I have to say. I mean, this is just my personal impression. Maybe my own focus has changed. It just didn’t feel so adventurous and interesting to me than it was in the beginning.</p>
 <p><em>MPG (0:39:12)</em>: Right. And I think, I mean, this has been discussed before, but it’s also just that Haskell has changed as a platform, right? It used to be very adventurous, and then people started doing more concrete things with it. As a language grows older, people move on with their crazy ideas to other languages, right? Because now we have like Agda, and we have Idris, and we have all these kinds of languages that were built on the ideas that kind of Haskell molded in its time. And that’s why the Symposium is now kind of, you know? It’s not the same Symposium as it was, because people are just focusing on other things, right? They’re not like, “Oh, let me show you how I can do this crazy session types and type classes,” right? Yeah.</p>
 <p><em>MS (0:40:08)</em>: I think there’s still plenty of craziness left, but I want to continue a little bit with that theme of using the type classes for programming, right? So, I seem to remember this was not your first paper that was called Hahaha with Class. So, in your bibliography, I see one on Program Generation with Class as well, right? I don’t know if you remember that one. </p>
 <p><em>PT (0:40:31)</em>: Yeah. I mean, that comes from a time where Mike and I were interested in partial evaluation. We were looking at this particular flavor of partial evaluation, which was called offline. I guess nobody cares about that today anymore. But essentially, the idea was that before you run your program, you would know that some parts of the inputs are available early, like at compile time, and others are available late. And this knowledge you would propagate throughout your program in a program analysis, and then annotate everything as either available at compile time or available only at runtime. And then the idea is that you would run this program at compile time on the available data and just get a specialized program that you can then later on run again. </p>
@@ -448,8 +456,8 @@ types. Come with us on a trip down memory lane!
 <p><em>PT (0:57:08)</em>: Yeah. So the systems that we were interested in for JavaScript, they were sound, but they wouldn’t type-check some things that people would want to be type-checked, right?</p>
 <p><em>MPG (0:57:20)</em>: Yeah. People care more about being able to turn it on when it says yes or no and then what the actual “yes” means, right?</p>
 <p><em>PT (0:57:30)</em>: Yeah, exactly. Yeah. So for most programming things, I’m still doing Haskell, although most of the time now I’m writing stuff in Agda, so I don’t even get to program in Haskell. But every second year, I pull out my Haskell hat for teaching, because then I’m regularly teaching a course on Haskell. Well, then I need to remind myself of Haskell programs. And in the end, we usually design some sort of project for the students. And then somebody has to implement it before to check that it works. And that’s another round of Haskell. Although this also – I mean, designing exercises and exam questions is nowadays also a thing where you have lots of assistants, right? From LLMs, for example.</p>
-<p><em>MS (0:58:28)</em>: Yeah. I was going to ask you about what has changed about teaching Haskell since. I mean, you’ve been doing it for 30 years, it seems, right? How does – I mean, okay, there’s LLMs, but does the course now differ in other fundamental ways from the course in the ’90s?</p>
-<p><em>PT (0:58:44)</em>: Well, I mean, in the ’90s we didn’t have monads.</p>
+<p><em>MS (0:58:28)</em>: Yeah. I was going to ask you about what has changed about teaching Haskell since. I mean, you’ve been doing it for 30 years, it seems, right? How does – I mean, okay, there’s LLMs, but does the course now differ in other fundamental ways from the course in the ‘90s?</p>
+<p><em>PT (0:58:44)</em>: Well, I mean, in the ‘90s we didn’t have monads.</p>
 <p><em>MS (0:58:46)</em>: Right. Okay.</p>
 <p><em>PT (0:58:47)</em>: We didn’t have IO in this form. I’m now putting monads much earlier, and I’m still – maybe I call them monads, but first you use them just as vehicles for IO. And then later on, you reveal, well, there’s more to it, and there’s monad transformers and all that. And nowadays, you don’t have to implement any of that. So the only time that you ask for the implementation of the operations of the state monad is in the exercise and maybe in the exam. But you never do it yourself. I mean, in a real program, you would use the stuff that’s in the library and just instantiate it. Well, I mean, I would say, in order to instantiate it, you need to understand what’s going on. </p>
 <p>But I talked to people from the Haskell Committee a couple of years back, and that’s because there are some weirdnesses, as usual. But he just said – well, I’m not naming him because probably he was here on your podcast before. And he just said, “Okay, no, that’s not an issue, right? So everybody can…” I mean, there are a few weird things that still bite beginners in the design, and to the point that some people – yeah, I mean, my favorite gripe is that at some point somebody put applicatives between functor and monad. I would say that applicatives is a more complicated structure than monads. So I would like to be able to talk about monads first and to define monad instances first in the lecture. But in order to do so, I have to implement my own version of the standard library, which kind of omits applicatives. It only holds for, like, two weeks, because then I teach applicatives anyway. But this first step is a bit annoying, right?</p>
@@ -489,7 +497,7 @@ types. Come with us on a trip down memory lane!
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, ../../assets/images/sponsors/iohk/iohk-400.png 400w, ../../assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
     <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
@@ -504,11 +512,11 @@ types. Come with us on a trip down memory lane!
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, ../../assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, ../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, ../../assets/images/sponsors/tweag/tweag-400.png 400w, ../../assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, ../../assets/images/sponsors/well-typed/well-typed-400.png 400w, ../../assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -517,13 +525,13 @@ types. Come with us on a trip down memory lane!
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../../assets/images/sponsors/channable/channable-683.png" srcset="../../assets/images/sponsors/channable/channable-200.png 200w, /assets/images/sponsors/channable/channable-400.png 400w, /assets/images/sponsors/channable/channable-683.png 683w"></a>
+    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../../assets/images/sponsors/channable/channable-683.png" srcset="../../assets/images/sponsors/channable/channable-200.png 200w, ../../assets/images/sponsors/channable/channable-400.png 400w, ../../assets/images/sponsors/channable/channable-683.png 683w"></a>
     
-    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, /assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, /assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
+    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, ../../assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, ../../assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
     
-    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../../assets/images/sponsors/google/google-683.png" srcset="../../assets/images/sponsors/google/google-200.png 200w, /assets/images/sponsors/google/google-400.png 400w, /assets/images/sponsors/google/google-683.png 683w"></a>
+    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../../assets/images/sponsors/google/google-683.png" srcset="../../assets/images/sponsors/google/google-200.png 200w, ../../assets/images/sponsors/google/google-400.png 400w, ../../assets/images/sponsors/google/google-683.png 683w"></a>
     
-    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, /assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, /assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
+    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, ../../assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, ../../assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
     
     <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
@@ -544,7 +552,7 @@ types. Come with us on a trip down memory lane!
       <div class="flex space-x-4">
         <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
         <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
-        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
         <a rel="me" href="https://mastodon.social/@haskell_foundation" target="_blank" class="text-4xl block"><span class="fab fa-mastodon"></span></a>
         <a href="https://www.youtube.com/@HaskellFoundation" target="_blank" class="text-4xl block"><span class="fab fa-youtube"></span></a>
         <a href="https://github.com/haskellfoundation" target="_blank" class="text-4xl block"><span class="fab fa-github"></span></a>

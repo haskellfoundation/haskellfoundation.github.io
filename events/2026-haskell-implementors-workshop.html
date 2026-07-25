@@ -42,15 +42,7 @@
   <title>2026 Haskell Implementors' Workshop</title>
   <meta property="og:title" content="2026 Haskell Implementors' Workshop">
   
-  <meta property="og:description" content="The 18th Haskell Implementors' Workshop is to be held on June 5th 2026
-alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The
-event is organized by the Haskell Community and hosted by the Haskell
-Foundation at the University of Applied Sciences of Eastern Switzerland
-(OST) lakeside campus in Rapperswil, Switzerland. It is a forum for
-people interested in the design and development of Haskell
-implementations, tools, libraries, and supporting infrastructure to
-share their work and to discuss future directions and collaborations
-with others.
+  <meta property="og:description" content="The 18th Haskell Implementors' Workshop is to be held on June 5th 2026 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
 ">
   
 
@@ -379,13 +371,23 @@ Lennart Augustsson
 Lightweight profiling with <code>ghc-stack-profiler</code>
 </summary>
 <p>
-Profiling provides insight into the run-time performance characteristics of a program. GHC supports compiling programs with additional instrumentation for profiling. Instrumented programs can produce detailed reports about their runtime. However, instrumentation has a significant compile-time cost and performance impact, both in memory allocations and execution time. Additionally, cost-centre instrumentation affects optimisations, which can further distance the profiled program from its runtime behaviour under non-profiled conditions.
+Profiling provides insight into the run-time performance characteristics of a program.
+GHC supports compiling programs with additional instrumentation for profiling.
+Instrumented programs can produce detailed reports about their runtime.
+However, instrumentation has a significant compile-time cost and performance impact, both in memory allocations and execution time.
+Additionally, cost-centre instrumentation affects optimisations, which can further distance the profiled program from its runtime behaviour under non-profiled conditions.
 </p>
 <p>
-<a href="https://github.com/well-typed/ghc-stack-profiler"><code>ghc-stack-profiler</code></a> is a lightweight alternative to existing profiling mechanisms in GHC. Unlike the existing profiling instrumentation in GHC, it doesn’t need specific support from the RTS, and dependencies don’t need to be recompiled either. It takes a snapshot of the RTS callstack of a running Haskell thread, serialises this snapshot sample and writes it to the eventlog at fixed intervals. The frames of the RTS callstack have source information attached to them via <code>-finfo-table-map</code>, yielding human-readable stack traces with file and line information. Since raw RTS callstacks can be difficult to interpret, <code>ghc-stack-profiler</code> supports <a href="https://www.well-typed.com/blog/2025/09/better-haskell-stack-traces/">GHC’s stack annotation</a> frames. This gives developers more control over profiling, while noticeably improving readability.
+<a href="https://github.com/well-typed/ghc-stack-profiler"><code>ghc-stack-profiler</code></a> is a lightweight alternative to existing profiling mechanisms in GHC.
+Unlike the existing profiling instrumentation in GHC, it doesn’t need specific support from the RTS, and dependencies don’t need to be recompiled either.
+It takes a snapshot of the RTS callstack of a running Haskell thread, serialises this snapshot sample and writes it to the eventlog at fixed intervals.
+The frames of the RTS callstack have source information attached to them via <code>-finfo-table-map</code>, yielding human-readable stack traces with file and line information.
+Since raw RTS callstacks can be difficult to interpret, <code>ghc-stack-profiler</code> supports <a href="https://www.well-typed.com/blog/2025/09/better-haskell-stack-traces/">GHC’s stack annotation</a> frames.
+This gives developers more control over profiling, while noticeably improving readability.
 </p>
 <p>
-In this talk, we present <code>ghc-stack-profiler</code>, discuss its implementation details, and its relation to stack annotations. Moreover, we cover how to use it effectively, and showcase different tools to visualize the performance profiles it produces.
+In this talk, we present <code>ghc-stack-profiler</code>, discuss its implementation details, and its relation to stack annotations.
+Moreover, we cover how to use it effectively, and showcase different tools to visualize the performance profiles it produces.
 </p>
 <p>
 Collaborators: Matthew Pickering, Wen Kokke
@@ -409,7 +411,8 @@ Hannes Siebenhandl
 Evolving the Haskell Debugger
 </summary>
 <p>
-The new Haskell debugger is an increasingly robust and useful tool to find bugs in your codebase. In fact, the debugger is already being useful in debugging both GHC and the debugger itself.
+The new Haskell debugger is an increasingly robust and useful tool to find bugs in your codebase.
+In fact, the debugger is already being useful in debugging both GHC and the debugger itself.
 </p>
 <p>
 Besides fixing bugs and supporting more Debug Adapter Protocol (DAP) features, a few recent changes are particularly important for debugging reasonably complex programs:
@@ -464,7 +467,12 @@ lunch
 Is There a Future for a Formally Specified Haskell Report
 </summary>
 <p>
-Despite giant leaps in both our theoretical understanding of programming languages on the one hand, and the usability of proof assistants on the other hand, we are still living with languages that are specified in natural, semi-formal language. For a while I have been asking myself what the essential difficulties are when it comes to writing a completely formal, mechanized specification of Haskell. Haskell has been specified in multiple official Haskell reports, as well as academic articles which describe many different aspects in more detail. From precise grammars for indentation sensitive languages, to the specification of its module system, type inference system and type classes, most non-trivial aspects of Haskell have been the subject of some detailed investigation. Most of these articles can be formalized by a competent proof assistant user in a relatively short amount of time. How much more work would be required if we tried to combine them all? I will present my work on writing a fully verified Haskell frontend in the proof assistant Lean, as well as a mechanized version of K-F Faxen’s declarative specification of Haskell’s type system.
+Despite giant leaps in both our theoretical understanding of programming languages on the one hand, and the usability of proof assistants on the other hand, we are still living with languages that are specified in natural, semi-formal language.
+For a while I have been asking myself what the essential difficulties are when it comes to writing a completely formal, mechanized specification of Haskell.
+Haskell has been specified in multiple official Haskell reports, as well as academic articles which describe many different aspects in more detail.
+From precise grammars for indentation sensitive languages, to the specification of its module system, type inference system and type classes, most non-trivial aspects of Haskell have been the subject of some detailed investigation.
+Most of these articles can be formalized by a competent proof assistant user in a relatively short amount of time.
+How much more work would be required if we tried to combine them all? I will present my work on writing a fully verified Haskell frontend in the proof assistant Lean, as well as a mechanized version of K-F Faxen’s declarative specification of Haskell’s type system.
 </p>
 <p>
 (Content will be similar to a presentation I gave at our research group in Kent: <a href="https://binderdavid.github.io/talks/haskell-spec-plas.pdf">https://binderdavid.github.io/talks/haskell-spec-plas.pdf</a>)
@@ -488,7 +496,9 @@ David Binder
 Towards better implicit parameters
 </summary>
 <p>
-GHC provides an implementation of dynamic scoping via the ImplicitParams extension. Unfortunately this feature suffers from various limitations, in particular lack of abstraction and no way to solve naming conflicts. As an attempt to improve on the current situation, I submitted a GHC proposal called “Scoped values”, which introduces a new mechanism for dynamic scoping. The main difference from ImplicitParams is that keys are not flat Symbols but nominal data types. While the proposal was met with mixed reactions and was ultimately closed, I believe the exercise was valuable: it presented interesting compiler design choices, and the discussion helped surface a more general solution, itself with its own trade-offs and open questions.
+GHC provides an implementation of dynamic scoping via the ImplicitParams extension. Unfortunately this feature suffers from various limitations, in particular lack of abstraction and no way to solve naming conflicts.
+As an attempt to improve on the current situation, I submitted a GHC proposal called “Scoped values”, which introduces a new mechanism for dynamic scoping. The main difference from ImplicitParams is that keys are not flat Symbols but nominal data types.
+While the proposal was met with mixed reactions and was ultimately closed, I believe the exercise was valuable: it presented interesting compiler design choices, and the discussion helped surface a more general solution, itself with its own trade-offs and open questions.
 </p>
 </details>
 </td>
@@ -564,7 +574,9 @@ closing
 Please sign up [on Eventbrite](https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator).
 -->
 <p>Registrations for both the Haskell Ecosystem Workshop (HEW) and Haskell Implementors’ Workshop (HIW) are managed using the same ticketing system. <strong>Please make sure to include a Haskell Implementors’ Workshop ticket in your booking.</strong></p>
-<p>Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation. Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation. The fee depends on participant category:</p>
+<p>Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation.
+Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation.
+The fee depends on participant category:</p>
 <ul>
 <li><p><em>Enrolled students</em> ($10) are participants who are enrolled full-time at an educational institution.</p></li>
 <li><p><em>Other participants</em> ($20) are participants who do not meet the criterion above.</p></li>
@@ -577,9 +589,7 @@ Please sign up [on Eventbrite](https://www.eventbrite.com/e/2025-workshops-at-zu
 <p>We will eat lunch in the OST canteen, called Mensa. While Mensa is open from 11:00-13:15, it is very busy from 11:45-12:30 because classes are in session, and they’ve asked that we go before or after. Talks have been scheduled to account for this.</p>
 <p>Coffee, tea, and fruit will be provided. There is also easy access to a tap for water. Dinner is on your own. There is a grocery store very near the campus where other products can be purchased as well.</p>
 <h3 id="video-recordings-and-live-streaming">Video Recordings and Live Streaming</h3>
-<p>The event will be recorded. <!--
-The recordings [are available on YouTube](https://www.youtube.com/playlist?list=PLQpeDZt0_xQfpBPdVV3hUZ3_pDxmYhsbr).
---></p>
+<p>The recordings <a href="https://www.youtube.com/playlist?list=PLV9Q98f69SkA">are available online</a>.</p>
 <h2 id="call-for-proposals">Call for Proposals</h2>
 <h3 id="scope-and-target-audience">Scope and Target Audience</h3>
 <p>The Haskell Implementors’ Workshop is an ideal place to describe a Haskell extension, describe works-in-progress, demo a new Haskell-related tool, or even propose future lines of Haskell development. Members of the wider Haskell community are encouraged to attend the workshop - we need your feedback to keep the Haskell ecosystem thriving. Students working with Haskell are especially encouraged to share their work.</p>
@@ -625,7 +635,7 @@ The recordings [are available on YouTube](https://www.youtube.com/playlist?list=
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, ../assets/images/sponsors/iohk/iohk-400.png 400w, ../assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
     <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
@@ -640,11 +650,11 @@ The recordings [are available on YouTube](https://www.youtube.com/playlist?list=
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, ../assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, ../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, ../assets/images/sponsors/tweag/tweag-400.png 400w, ../assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, ../assets/images/sponsors/well-typed/well-typed-400.png 400w, ../assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -653,13 +663,13 @@ The recordings [are available on YouTube](https://www.youtube.com/playlist?list=
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../assets/images/sponsors/channable/channable-683.png" srcset="../assets/images/sponsors/channable/channable-200.png 200w, /assets/images/sponsors/channable/channable-400.png 400w, /assets/images/sponsors/channable/channable-683.png 683w"></a>
+    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../assets/images/sponsors/channable/channable-683.png" srcset="../assets/images/sponsors/channable/channable-200.png 200w, ../assets/images/sponsors/channable/channable-400.png 400w, ../assets/images/sponsors/channable/channable-683.png 683w"></a>
     
-    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, /assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, /assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
+    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, ../assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, ../assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
     
-    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../assets/images/sponsors/google/google-683.png" srcset="../assets/images/sponsors/google/google-200.png 200w, /assets/images/sponsors/google/google-400.png 400w, /assets/images/sponsors/google/google-683.png 683w"></a>
+    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../assets/images/sponsors/google/google-683.png" srcset="../assets/images/sponsors/google/google-200.png 200w, ../assets/images/sponsors/google/google-400.png 400w, ../assets/images/sponsors/google/google-683.png 683w"></a>
     
-    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, /assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, /assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
+    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, ../assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, ../assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
     
     <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
@@ -680,7 +690,7 @@ The recordings [are available on YouTube](https://www.youtube.com/playlist?list=
       <div class="flex space-x-4">
         <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
         <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
-        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
         <a rel="me" href="https://mastodon.social/@haskell_foundation" target="_blank" class="text-4xl block"><span class="fab fa-mastodon"></span></a>
         <a href="https://www.youtube.com/@HaskellFoundation" target="_blank" class="text-4xl block"><span class="fab fa-youtube"></span></a>
         <a href="https://github.com/haskellfoundation" target="_blank" class="text-4xl block"><span class="fab fa-github"></span></a>

@@ -42,11 +42,7 @@
   <title>Sandy Maguire</title>
   <meta property="og:title" content="Sandy Maguire">
   
-  <meta property="og:description" content="In this episode Mike Sperber and Niki Vazou talk with Sandy Maguire,
-lead compiler engineer at Manifold Valley. They talk about the benefits
-of using Haskell of course, about all the books Sandy has written, on
-effects and the problem with monads, on combinator libraries and
-programming with laws.
+  <meta property="og:description" content="In this episode Mike Sperber and Niki Vazou talk with Sandy Maguire, lead compiler engineer at Manifold Valley. They talk about the benefits of using Haskell of course, about all the books Sandy has written, on effects and the problem with monads, on combinator libraries and programming with laws.
 ">
   
 
@@ -472,7 +468,7 @@ programming with laws.
 <p><em>MS (0:41:54)</em>: Is that a general direction that, I mean, if we like programming Haskell today, should we want to program in some descendant of Agda in the future at some point?</p>
 <p><em>SM (0:42:06)</em>: I’m on the fence about this because, Agda, the barrier for getting things done is so much higher. And that’s both in terms of ergonomics, but it’s also in terms of the things I think about are deeper, and because of that, I get less done. And so in Agda, I often find myself proving things that are clearly true, but proving them is nontrivial. </p>
 <p>And so, for example, at work right now, I’m trying to compile a stack machine. And so I’ve got a stack somewhere, and I want to say I’m just going to find the lambda calculus down to a stack machine, and I want to say, “Well, the things like the left bindings in the lambda calculus never go off the stack until it’s fine.” And so to prove this is quite challenging in Agda because all of a sudden I need to model what the stack is, and I need to model where things are on the stack, and I need to give a proof that says this thing can’t come off the stack until sometime. And if I were to just write the compile function, it’d be clear that it doesn’t happen. But as soon as I switch to the Agda mode, I’m like, “Oh, I need to prove it.” And because of that, I don’t get anything done. It’s very satisfying. It’s a lot of fun, but I don’t get anything done. </p>
-<p><em>MS (0:43:20)</em>: That’s a good point. I think we need to watch out for that. I talk to people from the Domain-Driven Design Community, who were around in the ’80s. And at least in Germany in the ’80s, a formalization craze swept through the country, apparently, and everybody. And you were not considered a serious computer science person if you didn’t prove your programs correct or if you didn’t prove everything about your programs correct. </p>
+<p><em>MS (0:43:20)</em>: That’s a good point. I think we need to watch out for that. I talk to people from the Domain-Driven Design Community, who were around in the ‘80s. And at least in Germany in the ‘80s, a formalization craze swept through the country, apparently, and everybody. And you were not considered a serious computer science person if you didn’t prove your programs correct or if you didn’t prove everything about your programs correct. </p>
 <p><em>SM (0:43:47)</em>: I love it. </p>
 <p><em>MS (0:43:48)</em>: People are still traumatized by that. They feel great about having won that fight against the formalization people. But of course, the whole field kind of overcompensated if that’s what it did. </p>
 <p><em>SM (0:44:05)</em>: I’m pretty woefully ignorant of the approaches that exist. So, Niki, I know that you’re very involved with LiquidHaskell, which I must admit I’ve never actually tried, but it seems like a good trade off in the space of saying, “Here are some properties that hold and figure it out for me,” rather than I need to go through the proof of of doing it. It’s like, get the computer down, you know? It’s like find a different space in the ergonomics where Agda is very clearly a Haskell descendant of what if we make the type system way more expressive, but in the same sort of way where all of it I just have pattern matching and now I have equalities that can come out of it and what can we do with that? And you can do a lot, but a lot of things around numbers are not very ergonomic because I need to think about how do I model the rationals, for example. And now do I want to say that division by zero is impossible by construction? And if so, just propagating all of that sucks. Just every time I went to do anything in Agda, I found myself in a deep rabbit hole trying to solve a completely unrelated problem because either I couldn’t find where in the library was solved or the solution didn’t work for me or I was just proving some lemma that turned out to be false, but I spent a day on it. </p>
@@ -509,7 +505,7 @@ programming with laws.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../../assets/images/sponsors/iohk/iohk-683.png" srcset="../../assets/images/sponsors/iohk/iohk-200.png 200w, ../../assets/images/sponsors/iohk/iohk-400.png 400w, ../../assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
     <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
@@ -524,11 +520,11 @@ programming with laws.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, ../../assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, ../../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../../assets/images/sponsors/tweag/tweag-683.png" srcset="../../assets/images/sponsors/tweag/tweag-200.png 200w, ../../assets/images/sponsors/tweag/tweag-400.png 400w, ../../assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../../assets/images/sponsors/well-typed/well-typed-200.png 200w, ../../assets/images/sponsors/well-typed/well-typed-400.png 400w, ../../assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -537,13 +533,13 @@ programming with laws.
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../../assets/images/sponsors/channable/channable-683.png" srcset="../../assets/images/sponsors/channable/channable-200.png 200w, /assets/images/sponsors/channable/channable-400.png 400w, /assets/images/sponsors/channable/channable-683.png 683w"></a>
+    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../../assets/images/sponsors/channable/channable-683.png" srcset="../../assets/images/sponsors/channable/channable-200.png 200w, ../../assets/images/sponsors/channable/channable-400.png 400w, ../../assets/images/sponsors/channable/channable-683.png 683w"></a>
     
-    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, /assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, /assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
+    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, ../../assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, ../../assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
     
-    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../../assets/images/sponsors/google/google-683.png" srcset="../../assets/images/sponsors/google/google-200.png 200w, /assets/images/sponsors/google/google-400.png 400w, /assets/images/sponsors/google/google-683.png 683w"></a>
+    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../../assets/images/sponsors/google/google-683.png" srcset="../../assets/images/sponsors/google/google-200.png 200w, ../../assets/images/sponsors/google/google-400.png 400w, ../../assets/images/sponsors/google/google-683.png 683w"></a>
     
-    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, /assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, /assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
+    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, ../../assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, ../../assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
     
     <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
@@ -564,7 +560,7 @@ programming with laws.
       <div class="flex space-x-4">
         <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
         <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
-        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
         <a rel="me" href="https://mastodon.social/@haskell_foundation" target="_blank" class="text-4xl block"><span class="fab fa-mastodon"></span></a>
         <a href="https://www.youtube.com/@HaskellFoundation" target="_blank" class="text-4xl block"><span class="fab fa-youtube"></span></a>
         <a href="https://github.com/haskellfoundation" target="_blank" class="text-4xl block"><span class="fab fa-github"></span></a>

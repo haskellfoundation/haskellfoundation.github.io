@@ -42,15 +42,7 @@
   <title>2025 Haskell Implementors' Workshop</title>
   <meta property="og:title" content="2025 Haskell Implementors' Workshop">
   
-  <meta property="og:description" content="The 17th Haskell Implementors' Workshop is to be held on June 6th 2025
-alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The
-event is organized by the Haskell Community and hosted by the Haskell
-Foundation at the University of Applied Sciences of Eastern Switzerland
-(OST) lakeside campus in Rapperswil, Switzerland. It is a forum for
-people interested in the design and development of Haskell
-implementations, tools, libraries, and supporting infrastructure to
-share their work and to discuss future directions and collaborations
-with others.
+  <meta property="og:description" content="The 17th Haskell Implementors' Workshop is to be held on June 6th 2025 alongside ZuriHac and the Haskell Ecosystom Workshop near Zurich. The event is organized by the Haskell Community and hosted by the Haskell Foundation at the University of Applied Sciences of Eastern Switzerland (OST) lakeside campus in Rapperswil, Switzerland. It is a forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure to share their work and to discuss future directions and collaborations with others.
 ">
   
 
@@ -359,10 +351,19 @@ The GHC Debugger
 Collaborators: Matthew Pickering, Hannes Siebenhandl
 </p>
 <p>
-While using the Haskell debugger has been possible via GHCi for the last two decades, the lack of a modern integration with IDEs, and incomplete, slow, or unimplemented features, has greatly hindered its adoption.
+While using the Haskell debugger has been possible via GHCi for the last two decades, the lack
+of a modern integration with IDEs, and incomplete, slow, or unimplemented
+features, has greatly hindered its adoption.
 </p>
 <p>
-In this talk, we introduce our progress and plans to create a first-class debugger for Haskell. We’ve developed a standalone application using the GHC library that conforms to the Debug Adaptor Protocol (DAP), making Haskell debugging possible with all compatible IDEs. In the process, we’ve fixed long-standing performance and usability issues in the existing debugger implementation. Our goal is to bring debugging of Haskell programs to the same level as other language ecosystems. Finally, we’ll also reflect on the architectural limitations of the current debugger and outline our vision for the future of debugging in Haskell.
+In this talk, we introduce our progress and plans to create a first-class
+debugger for Haskell. We’ve developed a standalone application using the
+GHC library that conforms to the Debug Adaptor Protocol (DAP), making Haskell
+debugging possible with all compatible IDEs. In the process, we’ve fixed long-standing performance
+and usability issues in the existing debugger implementation. Our goal is to bring
+debugging of Haskell programs to the same level as other language ecosystems.
+Finally, we’ll also reflect on the architectural limitations of the current debugger and
+outline our vision for the future of debugging in Haskell.
 </p>
 </details>
 </td>
@@ -392,7 +393,8 @@ But what might a type signature like <code>filter :: (!Int -&gt; Bool) -&gt; [In
 In this talk I will briefly cover the intuition of BangPatterns as they are today. How they change the meaning of programs but also how GHC can exploit these changes to make our programs faster.
 </p>
 <p>
-From there we lift the idea one level up. How might things look if bangs were not just syntactic sugar but type modifiers instead? What would those modified types look like? But most importantly which benefits would this have for the expressiveness of Haskell itself, and how could both Haskell implementors and users make use of them to squeeze more performance out of their programs?
+From there we lift the idea one level up. How might things look if bangs were not just syntactic sugar but type modifiers instead? What would those modified types look like?
+But most importantly which benefits would this have for the expressiveness of Haskell itself, and how could both Haskell implementors and users make use of them to squeeze more performance out of their programs?
 </p>
 </details>
 </td>
@@ -437,16 +439,30 @@ Making GHCi compatible with multiple home units
 Collaborators: Matthew Pickering, Rodrigo Mesquita
 </p>
 <p>
-The ability to compile multiple units within a single session was a key innovation for GHC API consumers like GHCi and HLS. Today, most Haskell projects involve multiple local packages that developers actively modify, so tooling must support this workflow seamlessly.
+The ability to compile multiple units within a single session was a key
+innovation for GHC API consumers like GHCi and HLS. Today, most Haskell
+projects involve multiple local packages that developers actively modify, so
+tooling must support this workflow seamlessly.
 </p>
 <p>
-However, GHCi’s support for multiple home units remains limited. This significantly hampers productivity when working on multi-package projects. When developers start using multiple unit repl support, they expect the same experience as the old single-unit session.
+However, GHCi’s support for multiple home units remains limited.
+This significantly hampers productivity when working on
+multi-package projects. When developers start using multiple unit repl support,
+they expect the same experience as the old single-unit session.
 </p>
 <p>
-In this talk, we present our approach to making GHCi fully compatible with multiple home units. Our goal is to deliver a seamless user experience: using GHCi with multiple home units should feel no different from working with a single unit. To achieve this, we are redesigning GHC’s interactive session management with multiple home units as the default model, treating single-unit sessions as a special case.
+In this talk, we present our approach to making GHCi fully compatible with
+multiple home units. Our goal is to deliver a seamless user experience: using
+GHCi with multiple home units should feel no different from working with a
+single unit. To achieve this, we are redesigning GHC’s interactive session
+management with multiple home units as the default model, treating single-unit
+sessions as a special case.
 </p>
 <p>
-This unification eliminates fragile, infrequently used code paths, reduces test duplication and provides feature parity. Furthermore, GHCi’s built-in debugger will work transparently across unit boundaries, for example, allowing you to set breakpoints in a library component whilst debugging an executable.
+This unification eliminates fragile, infrequently used code paths, reduces
+test duplication and provides feature parity. Furthermore, GHCi’s built-in
+debugger will work transparently across unit boundaries, for example, allowing
+you to set breakpoints in a library component whilst debugging an executable.
 </p>
 </details>
 </td>
@@ -484,13 +500,21 @@ Explicit Level Imports
 Collaborators: Rodrigo Mesquita, Adam Gundry
 </p>
 <p>
-Explicit Level Imports is an extension to GHC which allows a programmer to be more precise about which dependencies are needed for Template Haskell. In a module, each import is annotated with which level it will be needed at, some modules will be needed for use in splices, some in quotes and some in normal contexts.
+Explicit Level Imports is an extension to GHC which allows a programmer to be
+more precise about which dependencies are needed for Template Haskell.
+In a module, each import is annotated with which level it will be needed at,
+some modules will be needed for use in splices, some in quotes and some in
+normal contexts.
 </p>
 <p>
-This precision means it is straightforward for the compiler to work out what is exactly needed at each stage, and only provide that. The result is faster compilation times and the potential for improved cross-compilation support.
+This precision means it is straightforward
+for the compiler to work out what is exactly needed at each stage, and
+only provide that. The result is faster compilation times and the potential
+for improved cross-compilation support.
 </p>
 <p>
-In this talk we will explain the design of the extension, the implementation and finally reflect on future directions the extension makes possible.
+In this talk we will explain the design of the extension, the implementation and
+finally reflect on future directions the extension makes possible.
 </p>
 </details>
 </td>
@@ -591,13 +615,25 @@ break
 GHC’s RISC-V Native Code Generation Backend
 </summary>
 <p>
-RISC-V is an exciting, new architecture that has received a lot of attention by the Open Source community lately. We will start by understanding where this excitement comes from and why RISC-V is not just “yet another architecture”. We will also introduce some basic vocabulary to better understand requirements for compiler engineers and software packagers.
+RISC-V is an exciting, new architecture that has received a lot of attention by
+the Open Source community lately. We will start by understanding where this
+excitement comes from and why RISC-V is not just “yet another architecture”.
+We will also introduce some basic vocabulary to better understand requirements
+for compiler engineers and software packagers.
 </p>
 <p>
-Then, we will take a look at the current state of RISC-V support in GHC with a focus on the Native Code Generation Backend (“NCG”.) Furthermore, future improvements will be discussed (finally, we’re at the dawn of Zurihac 2025 ;) .) A look at the innovative approaches to handle variable vector register widths in the instruction set may even inspire further research.
+Then, we will take a look at the current state of RISC-V support in GHC with a
+focus on the Native Code Generation Backend (“NCG”.) Furthermore, future
+improvements will be discussed (finally, we’re at the dawn of Zurihac 2025 ;)
+.) A look at the innovative approaches to handle variable vector register
+widths in the instruction set may even inspire further research.
 </p>
 <p>
-Implementing the RISC-V NCG was a challenge regarding software development environment setup, debugging and problem-solving strategies. There are a couple of tricks and hints be shared with future NCG developers. Most of them could be useful to tackle other tasks in the lower parts of the compiler pipeline as well.
+Implementing the RISC-V NCG was a challenge regarding software development
+environment setup, debugging and problem-solving strategies. There are a couple
+of tricks and hints be shared with future NCG developers. Most of them could be
+useful to tackle other tasks in the lower parts of the compiler pipeline as
+well.
 </p>
 </details>
 </td>
@@ -659,7 +695,9 @@ closing
 <p>Please submit topics for lightning talks using <a href="https://forms.gle/tbJHf2wzWqHKQtZW7">this form</a>.</p>
 <h3 id="in-person-attendance">In-Person Attendance</h3>
 <p>Please sign up <a href="https://www.eventbrite.com/e/2025-workshops-at-zurihac-tickets-1247256801669?aff=oddtdtcreator">on Eventbrite</a>. Registrations for both the Haskell Ecosystem Workshop (HEW) and Haskell Implementors’ Workshop (HIW) are managed using the same ticketing system. <strong>Please make sure to include a Haskell Implementors’ Workshop ticket in your booking.</strong></p>
-<p>Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation. Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation. The fee depends on participant category:</p>
+<p>Due to space constraints and to ensure that registered participant slots do not go unused, there will be a fee for participation.
+Fees will be used to cover some of the costs of running the event, the remainder of the cost is sponsored by the Haskell Foundation.
+The fee depends on participant category:</p>
 <ul>
 <li><p><em>Enrolled students</em> ($10) are participants who are enrolled full-time at an educational institution.</p></li>
 <li><p><em>Other participants</em> ($20) are participants who do not meet the criterion above.</p></li>
@@ -685,7 +723,8 @@ closing
 <li>Libraries and tools for development or deployment</li>
 </ul>
 <h2 id="call-for-proposals">Call for Proposals</h2>
-<p>The call for proposals is closed. Lightning talks will be scheduled on the day of the event.</p>
+<p>The call for proposals is closed.
+Lightning talks will be scheduled on the day of the event.</p>
 <h3 id="talks">Talks</h3>
 <p>We invite proposals from potential speakers for talks and demonstrations. We are aiming for 20-minute talks with 5 minutes for questions and changeovers. We want to hear from people writing compilers, tools, or libraries, people with cool ideas for directions in which we should take the platform, proposals for new features to be implemented, and half-baked crazy ideas. Please submit a talk title and abstract of no more than 300 words.</p>
 <p>We will also have a lightning talks session. Lightning talks should be ~7mins and are scheduled on the day of the workshop. Suggested topics for lightning talks are to present a single idea, a work-in-progress project, a problem to intrigue and perplex Haskell implementors, or simply to ask for feedback and collaborators.</p>
@@ -717,7 +756,7 @@ closing
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, /assets/images/sponsors/iohk/iohk-400.png 400w, /assets/images/sponsors/iohk/iohk-683.png 683w"></a>
+    <a href="https://iohk.io/" target="_blank" class="block w-48 m-4"><img alt="IOHK" src="../assets/images/sponsors/iohk/iohk-683.png" srcset="../assets/images/sponsors/iohk/iohk-200.png 200w, ../assets/images/sponsors/iohk/iohk-400.png 400w, ../assets/images/sponsors/iohk/iohk-683.png 683w"></a>
     
     <a href="https://juspay.in" target="_blank" class="block w-48 m-4"><img alt="Juspay" src="../assets/images/sponsors/juspay/juspay_logo.png"></a>
     
@@ -732,11 +771,11 @@ closing
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, /assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, /assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
+    <a href="https://obsidian.systems/" target="_blank" class="block w-36 m-4"><img alt="Obsidian Systems" src="../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png" srcset="../assets/images/sponsors/obsidian-systems/obsidian-systems-200.png 200w, ../assets/images/sponsors/obsidian-systems/obsidian-systems-400.png 400w, ../assets/images/sponsors/obsidian-systems/obsidian-systems-683.png 683w"></a>
     
-    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, /assets/images/sponsors/tweag/tweag-400.png 400w, /assets/images/sponsors/tweag/tweag-683.png 683w"></a>
+    <a href="https://tweag.io/" target="_blank" class="block w-36 m-4"><img alt="Tweag" src="../assets/images/sponsors/tweag/tweag-683.png" srcset="../assets/images/sponsors/tweag/tweag-200.png 200w, ../assets/images/sponsors/tweag/tweag-400.png 400w, ../assets/images/sponsors/tweag/tweag-683.png 683w"></a>
     
-    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, /assets/images/sponsors/well-typed/well-typed-400.png 400w, /assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
+    <a href="https://well-typed.com/" target="_blank" class="block w-36 m-4"><img alt="Well-Typed" src="../assets/images/sponsors/well-typed/well-typed-683.png" srcset="../assets/images/sponsors/well-typed/well-typed-200.png 200w, ../assets/images/sponsors/well-typed/well-typed-400.png 400w, ../assets/images/sponsors/well-typed/well-typed-683.png 683w"></a>
     
   </div>
 
@@ -745,13 +784,13 @@ closing
   </div>
   <div class="flex flex-wrap items-center justify-center">
     
-    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../assets/images/sponsors/channable/channable-683.png" srcset="../assets/images/sponsors/channable/channable-200.png 200w, /assets/images/sponsors/channable/channable-400.png 400w, /assets/images/sponsors/channable/channable-683.png 683w"></a>
+    <a href="https://www.channable.com/" target="_blank" class="block w-24 m-4"><img alt="Channable" src="../assets/images/sponsors/channable/channable-683.png" srcset="../assets/images/sponsors/channable/channable-200.png 200w, ../assets/images/sponsors/channable/channable-400.png 400w, ../assets/images/sponsors/channable/channable-683.png 683w"></a>
     
-    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, /assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, /assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
+    <a href="https://www.digitalocean.com" target="_blank" class="block w-24 m-4"><img alt="DigitalOcean" src="../assets/images/sponsors/digital-ocean/DO-logo-683.png" srcset="../assets/images/sponsors/digital-ocean/DO-logo-200.png 200w, ../assets/images/sponsors/digital-ocean/DO-logo-400.png 400w, ../assets/images/sponsors/digital-ocean/DO-logo-683.png 683w"></a>
     
-    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../assets/images/sponsors/google/google-683.png" srcset="../assets/images/sponsors/google/google-200.png 200w, /assets/images/sponsors/google/google-400.png 400w, /assets/images/sponsors/google/google-683.png 683w"></a>
+    <a href="https://opensource.google/" target="_blank" class="block w-24 m-4"><img alt="Google" src="../assets/images/sponsors/google/google-683.png" srcset="../assets/images/sponsors/google/google-200.png 200w, ../assets/images/sponsors/google/google-400.png 400w, ../assets/images/sponsors/google/google-683.png 683w"></a>
     
-    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, /assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, /assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
+    <a href="https://qbaylogic.com/" target="_blank" class="block w-24 m-4"><img alt="QBayLogic" src="../assets/images/sponsors/qbaylogic/qbaylogic-683.png" srcset="../assets/images/sponsors/qbaylogic/qbaylogic-200.png 200w, ../assets/images/sponsors/qbaylogic/qbaylogic-400.png 400w, ../assets/images/sponsors/qbaylogic/qbaylogic-683.png 683w"></a>
     
     <a href="https://tripshot.com/" target="_blank" class="block w-24 m-4"><img alt="TripShot" src="../assets/images/sponsors/tripshot/Tripshot_Logo_RGB.png"></a>
     
@@ -772,7 +811,7 @@ closing
       <div class="flex space-x-4">
         <a href="https://twitter.com/haskellfound" target="_blank" class="text-4xl block"><span class="fab fa-twitter"></span></a>
         <a href="https://www.linkedin.com/company/haskell-foundation-inc" target="_blank" class="text-4xl block"><span class="fab fa-linkedin-in"></span></a>
-        <a href="https://discourse.haskell.org/c/haskell-foundation/11" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
+        <a href="https://discourse.haskell.org/c/haskell-foundation" target="_blank" class="text-4xl block"><span class="fab fa-discourse"></span></a>
         <a rel="me" href="https://mastodon.social/@haskell_foundation" target="_blank" class="text-4xl block"><span class="fab fa-mastodon"></span></a>
         <a href="https://www.youtube.com/@HaskellFoundation" target="_blank" class="text-4xl block"><span class="fab fa-youtube"></span></a>
         <a href="https://github.com/haskellfoundation" target="_blank" class="text-4xl block"><span class="fab fa-github"></span></a>
