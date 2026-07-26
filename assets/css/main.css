@@ -14,30 +14,34 @@ textarea::placeholder {
   opacity: 1;
 }
 
-a {
-  cursor: pointer;
-  --tw-text-opacity: 1;
-  color: rgba(109, 40, 217, var(--tw-text-opacity));
-}
+/*
+ * Element defaults for text colour live in `@layer base` so that Tailwind's
+ * `text-*` utilities (later `utilities` layer) can override them — e.g. the
+ * light paragraph/link colours on the dark panels. Everything outside this
+ * block stays unlayered on purpose and therefore beats utilities.
+ */
+@layer base {
+  a {
+    cursor: pointer;
+    color: #6d28d9; /* purple-700 */
+  }
 
-a:hover {
-  text-decoration: underline;
-}
+  a:hover {
+    color: #4c1d95; /* purple-900 */
+    text-decoration: underline;
+  }
 
-a:hover,
-a:visited {
-  --tw-text-opacity: 1;
-  color: rgba(139, 92, 246, var(--tw-text-opacity));
+  p {
+    color: #52525b; /* gray-600 */
+  }
 }
 
 .arrow-link {
-  --tw-border-opacity: 1;
-  border-color: rgba(109, 40, 217, var(--tw-border-opacity));
+  border-color: #6d28d9;
 }
 
 .arrow-link:hover {
-  --tw-border-opacity: 1;
-  border-color: rgba(139, 92, 246, var(--tw-border-opacity));
+  border-color: #4c1d95;
 }
 
 .arrow-link {
@@ -186,11 +190,6 @@ h6 {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(2px * (1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
-}
-
-p {
-  --tw-text-opacity: 1;
-  color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
 .youtube-video {
   position: relative;
