@@ -76,36 +76,39 @@ The site will be built in the `_site` directory, and you can open the files in y
 
 The site is styled with [Tailwind CSS](https://tailwindcss.com) (v4). Tailwind is a CSS framework whose classes are short abbreviations for inline styles (e.g. `pt-4`, `text-center`), scattered directly across the HTML templates and content. At build time the Tailwind compiler acts as a kind of "CSS tree-shaker": it scans the site for the Tailwind classes actually in use and emits only the CSS needed for them.
 
-Two files matter:
+Three files matter:
 
-- `assets/css/tailwind.css` — the Tailwind entry point. It holds the v4 CSS-native configuration (`@theme` colors/fonts, `@plugin`, and the `@source` lines that tell the compiler which directories to scan). **New pages that use Tailwind classes must add an `@source` line here**, or those classes will be dropped from the production build.
+- `assets/css/tailwind.css` — the Tailwind entry point. It holds the v4 CSS-native configuration (`@theme` colors/fonts, `@plugin`, and the `@source` lines that tell the compiler which directories to scan). **New pages that use Tailwind classes must add an `@source` line here**, or those classes will be dropped from the build. This file is compiler *input*; it is never served.
+- `assets/css/tailwind.built.css` — the compiler's output, **checked into the repository** and served as `assets/css/tailwind.css`. This is the CSS the live site loads, so it must be regenerated and committed whenever it changes (see below).
 - `assets/css/main.css` — hand-written CSS that is *not* processed by Tailwind. This is the place for ordinary, non-Tailwind styles.
 
 ### Do I need Node installed?
 
-**No, if you are only editing content or Haskell code.** Hakyll concatenates a checked-in snapshot, `dev.css`, onto `assets/css/tailwind.css` at build time (see the `match "assets/css/tailwind.css"` rule in `site.hs`). `dev.css` is a pre-generated copy of the real Tailwind output, so `stack exec -- site build` on its own produces a site that looks close enough to preview — no Node toolchain required. This keeps the site accessible to contributors of all skill sets.
+**No, if you are only editing content or Haskell code.** Hakyll copies the checked-in `assets/css/tailwind.built.css` into the site, so `stack exec -- site build` alone gives you the real stylesheet — no Node toolchain required. This keeps the site accessible to contributors of all skill sets.
 
-**Yes, if you are changing the appearance.** Because `dev.css` is only a snapshot, it does *not* reflect edits to `assets/css/tailwind.css`, `assets/css/main.css`, `tools/tailwind/postcss.config.js`, or any *newly used* Tailwind class. To regenerate the real CSS you need [Node.js](https://nodejs.org). The Node/Tailwind toolchain lives in [`tools/tailwind/`](tools/tailwind/) (see its README), separate from the Hakyll project, so run npm from there:
+**Yes, if you are changing the appearance** — that is, editing `assets/css/tailwind.css`, `assets/css/main.css`, `tools/tailwind/postcss.config.js`, or *using a Tailwind class the site did not use before* (Tailwind only emits the classes it finds, so a brand-new class has no CSS until the compiler runs). You will need [Node.js](https://nodejs.org). The toolchain lives in [`tools/tailwind/`](tools/tailwind/) (see its README), separate from the Hakyll project, so run npm from there:
 
 ```bash
 cd tools/tailwind
-npm ci                     # once, to install the toolchain
-npm run build              # compile -> _site/assets/css/tailwind.css
-npm run build:production   # minified build (NODE_ENV=production)
+npm ci            # once, to install the toolchain
+npm run build     # compile -> assets/css/tailwind.built.css
+npm run watch     # same, then recompile on source/content changes
 ```
 
 If you do not want to install `npm` globally and have `nix` available, drop into the Nix development shell which provides `npm` and a basic Haskell toolchain.
 
-If your change alters the CSS, regenerate the checked-in `dev.css` snapshot and commit it:
+**Commit the regenerated `assets/css/tailwind.built.css` with your change.** CI reruns `npm run build` on every push and PR and fails if the committed copy has drifted, so a stale stylesheet cannot reach the live site.
+
+### Live preview
+
+Run both watchers and the two chain into each other — postcss writes `assets/css/tailwind.built.css`, which Hakyll then copies into `_site` and reloads:
 
 ```bash
-cd tools/tailwind
-npm run build:dev-snapshot   # recompile the dev.css snapshot in place
+cabal run site -- watch &            # or: stack exec -- site watch
+cd tools/tailwind && npm run watch
 ```
 
-CI runs this same command and fails the build if the committed `dev.css` is out of date, so a stale snapshot cannot slip through review.
-
-> **Note:** `dev.css` is only an *unminified* snapshot of `npm run build`; it still differs from the minified `npm run build:production` output shipped to production, so verify appearance-critical changes against a real production build.
+> **Note:** `npm run watch` is *additive* — it picks up newly used classes, but a class you removed keeps its CSS until the next one-shot `npm run build`. So finish with `npm run build` before committing, or CI's check will complain about the leftovers.
 
 ## CI
 
@@ -117,8 +120,8 @@ The general steps are:
 2. Install Haskell and Node.js
 3. Restore the cached build artefacts
 4. Build the `site` executable
-5. Rebuild the site contents using the `site` executable
-6. Build the production CSS (`cd tools/tailwind && npm ci && npm run build:production`)
+5. Rebuild the site contents using the `site` executable (this copies the checked-in CSS into `_site`)
+6. Recompile the CSS (`cd tools/tailwind && npm ci && npm run build`) and fail if the committed `assets/css/tailwind.built.css` has drifted
 7. Check out the `main` branch
 8. Copy the `_site` directory over the `main` branch contents
 9. Commit and push the site contents to the `main` branch.

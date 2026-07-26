@@ -9,9 +9,8 @@ module.exports = {
     '@tailwindcss/postcss': {},
     // handles browser compatibility
     'autoprefixer': {},
-    ...(process.env.NODE_ENV === "production"  ? {
-      // Minify via cssnano, but only if NODE_ENV is set to production
-      cssnano: {},
-    }: {})
+    // No minifier: the output is checked in as assets/css/tailwind.built.css and
+    // shipped as-is, and a readable diff is worth more than the ~800 gzipped
+    // bytes cssnano saved.
   }
 }

@@ -4,24 +4,27 @@
 Needs the Nix dev shell, which provides python3 with playwright and the
 browsers (`nix develop`, or automatically via direnv).
 
-Full loop — generate the site, build the real CSS over it, serve, shoot:
+Start the two watchers once, then shoot as often as you like — postcss keeps
+`assets/css/tailwind.built.css` current and Hakyll copies it into `_site`:
 
-    cabal run site -- build && (cd tools/tailwind && npm run build)
-    cabal run site -- server &                       # http://127.0.0.1:8000
+    cabal run site -- watch &                    # http://127.0.0.1:8000
+    (cd tools/tailwind && npm run watch) &
     ./tools/screenshot/shoot.py /tmp/shots --slice 1100 home=/ news=/news/
     ./tools/screenshot/shoot.py /tmp/shots --width 390 --slice 900 mhome=/
 
-After editing templates or CSS, repeat the first line — `site server` only
-serves `_site`, it does not rebuild, so it will happily keep serving stale
-pages. There is no need to restart it.
+For a one-shot look, build by hand and serve without recompiling:
 
-Serve with `server`, not `watch`. `watch` recompiles on change, and Hakyll's
-rule for `assets/css/tailwind.css` concatenates the checked-in `dev.css`
-snapshot (so that contributors without Node get a styled site), which
-overwrites what `npm run build` just wrote into `_site`. Since `dev.css` is a
-*snapshot*, it lacks any utility class you have only just used in a template,
-so the page silently renders without those classes. See
-`.ai/todo/2026-07-26-unify-dev-css-preview.md` for fixing this properly.
+    (cd tools/tailwind && npm run build) && cabal run site -- build
+    cabal run site -- server &
+    ./tools/screenshot/shoot.py /tmp/shots --slice 1100 home=/
+
+Here you must repeat the first line after every template or CSS edit: `server`
+only serves `_site`, it does not rebuild, so it will happily keep serving stale
+pages (no need to restart it, though).
+
+Either way the CSS is the real thing — but `npm run watch` only ever *adds*
+utilities, so a class you deleted still has styles until the next one-shot
+`npm run build`. If a removal seems not to take effect, that is why.
 
 Targets are `name=path` (resolved against --base) or `name=full-url`:
 

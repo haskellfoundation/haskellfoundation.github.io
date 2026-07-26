@@ -84,23 +84,18 @@ jobs:
       - name: Build site
         run:  stack exec --system-ghc site rebuild
 
-      - name: Build CSS
-        # The Node/Tailwind toolchain lives in tools/tailwind/; its npm scripts
-        # cd back to the repo root before invoking postcss.
-        working-directory: tools/tailwind
-        run:  |
-          npm ci
-          npm run build:production
-
-      # Gate every push/PR: dev.css is a checked-in snapshot of `npm run build`
-      # (concatenated onto tailwind.css by site.hs for Node-less previews).
-      # Regenerate it and fail if the committed copy has drifted.
-      - name: Check dev.css is in sync with Tailwind output
+      # assets/css/tailwind.built.css is the checked-in Tailwind output, which
+      # `site rebuild` above copied into _site — i.e. it is what ships. So this
+      # gate is what keeps a stale stylesheet from being deployed: rebuild it
+      # from source (the Node/Tailwind toolchain lives in tools/tailwind/, whose
+      # npm scripts cd back to the repo root before invoking postcss) and fail
+      # if the committed copy differs.
+      - name: Check assets/css/tailwind.built.css is in sync with Tailwind output
         run: |
-          npm --prefix tools/tailwind run build:dev-snapshot
-          if ! git diff --quiet -- dev.css; then
-            echo "::error file=dev.css::dev.css is out of date. Regenerate it with 'cd tools/tailwind && npm run build:dev-snapshot' and commit the result."
-            git --no-pager diff -- dev.css
+          (cd tools/tailwind && npm ci && npm run build)
+          if ! git diff --quiet -- assets/css/tailwind.built.css; then
+            echo "::error file=assets/css/tailwind.built.css::The checked-in CSS is out of date. Regenerate it with 'cd tools/tailwind && npm run build' and commit the result."
+            git --no-pager diff -- assets/css/tailwind.built.css
             exit 1
           fi
 

@@ -1,21 +1,18 @@
 /**
- * This is the Tailwind entry point (source). It is NOT overwritten by the
- * build — its compiled *output* lands at _site/assets/css/tailwind.css (see
- * steps below). Only put Tailwind config/directives here; hand-written CSS
- * belongs in assets/css/main.css.
+ * This is the Tailwind entry point (source), and it is never served: only put
+ * Tailwind config/directives here, and hand-written CSS in assets/css/main.css.
  *
- * NOTE: The underlying implementation details of how this works are as follows
- * 1. tailwindcss needs these directives in order to know where to generate the
- *    output
- * 2. first, hakyll is run and copies this source file verbatim to
- *    _site/assets/css/tailwind.css
- * 3. then, after hakyll is done, postcss is run on _this_ source
- *    assets/css/tailwind.css file. Postcss will, during execution, invoke
- *    tailwindcss. tailwindcss (the compiler) will scan all the files in the
- *    site for tailwind classes (including _this_ source file).
- * 4. postcss's output file is configured to be _site/assets/css/tailwind.css,
- *    so postcss overwrites the copy hakyll made in step 2 with the real,
- *    compiled CSS. This source file is never modified.
+ * How it reaches the browser:
+ * 1. postcss runs tailwindcss over this file (`npm run build` in
+ *    tools/tailwind), scanning the @source paths below for utility classes, and
+ *    writes the compiled CSS to assets/css/tailwind.built.css. That output is
+ *    checked into the repo, so building the site needs no Node toolchain.
+ * 2. hakyll copies assets/css/tailwind.built.css to
+ *    _site/assets/css/tailwind.css — the URL the templates link. This source
+ *    file is neither modified nor copied.
+ *
+ * So: regenerate and commit the built file whenever you touch this one, use a
+ * new utility class, or edit the postcss config. CI fails on any drift.
  */
 
 /*
@@ -24,7 +21,7 @@
  * @source paths below are scanned — mirrors the old
  * topLevelFoldersWithTailwind/topLevelFilesWithTailwind purge.content list.
  * New pages using Tailwind utility classes must add an @source line here,
- * or their classes will be missing from the production build.
+ * or their classes will be missing from the compiled CSS.
  */
 /*
  * The Node/Tailwind toolchain lives in tools/tailwind/ (see its README), so
