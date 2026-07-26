@@ -3,21 +3,12 @@
     <div class="space-y-4">
       <h2 class="text-center text-2xl md:text-4xl leading-tight font-normal">$title$</h2>
       <p>$summary$</p>
-      <table>
-        <!-- the p tags here are to work around Tailwind being incomprehensible - DTC 2023-03-01 -->
-        <tr>
-          <th scope="row" style="text-align: right;">Dates:</th>
-          <td>
-            <p>$daterange$</p>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align: right;">Location:</th>
-          <td>
-            <p>$location$</p>
-          </td>
-        </tr>
-      </table>
+      <dl class="mx-auto grid w-fit grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-left">
+        <dt class="font-medium">Dates:</dt>
+        <dd>$daterange$</dd>
+        <dt class="font-medium">Location:</dt>
+        <dd>$location$</dd>
+      </dl>
       <div class="mt-4">
         <a class="arrow-link" href="$url$">&gt;&gt; Read more</a>
       </div>

@@ -185,12 +185,6 @@ h6 {
 * {
   --tw-ring-inset: var(--tw-empty);
 }
-
-.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-y-reverse: 0;
-  border-top-width: calc(2px * (1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
-}
 .youtube-video {
   position: relative;
   width: 100%;
