@@ -32,9 +32,17 @@
               pkgs.ghc
               pkgs.haskell-language-server
 
+              # Screenshotting pages during design work.
+              (pkgs.python3.withPackages (ps: [ ps.playwright ]))
+
               # System.
               pkgs.zlib
             ];
+
+            env = {
+              PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+              PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+            };
           };
         };
       flake = { };
