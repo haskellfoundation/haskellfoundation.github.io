@@ -40,32 +40,31 @@ config = defaultConfiguration
         ignoreFile defaultConfiguration file
     }
 
+-- | The Tailwind entry point and its checked-in build output. Neither is served
+-- under its own name: the entry point (@import@/@\@theme@/@\@source@) is
+-- compiler input a browser cannot use, and the build output is routed to the
+-- entry point's URL instead.
+tailwindFiles :: Pattern
+tailwindFiles = tailwindEntryPoint .||. tailwindBuilt
+
+tailwindEntryPoint, tailwindBuilt :: Pattern
+tailwindEntryPoint = "assets/css/tailwind.css"
+tailwindBuilt = "assets/css/tailwind.built.css"
+
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 main :: IO ()
 main = hakyllWith config $ do
     -- statics ---------------------------------------------------------------------------------------------
-    match "dev.css" $ compile getResourceString
-    match "assets/css/tailwind.css" $ do
-        route idRoute
-        -- We concatenate a dev.css file that exists at the root of the repository so that people don't
-        -- need to have nodejs setup or working in order to get a functional development experience
-        -- "why yes this is very crimes why do you ask"
-        -- dev.css is a checked-in snapshot of the Tailwind build; regenerate it
-        -- with `npm run build:dev-snapshot` from tools/tailwind and commit. CI
-        -- fails if it drifts.
-        compile $ do
-            devCss <- loadBody "dev.css"
-            fmap ((devCss ++ "\n") ++) <$> getResourceString
+    -- The Tailwind build output is checked in, so a Node toolchain is needed to
+    -- *change* the CSS but not to build the site with the real thing. Regenerate
+    -- it with `npm run build` from tools/tailwind; CI fails if it has drifted.
+    match tailwindBuilt $ do
+        route $ constRoute "assets/css/tailwind.css"
+        compile copyFileCompiler
 
-    -- Here is where interop with JS would happen if we wanted every
-    -- Haskell developer working on this site to also set up a Node toolchain
-    -- match "assets/css/*.css" $ do
-    --     route idRoute
-    --     undefined -- (insert some invoke "npm run build" step here)
-
-    match "assets/**" $ do
+    match ("assets/**" .&&. complement tailwindFiles) $ do
         route idRoute
         compile copyFileCompiler
 
