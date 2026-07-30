@@ -1,8 +1,9 @@
 # Social cross-posting draft generator
 
 Prints ready-to-copy-paste drafts of a news item for each external channel
-(Discourse, Reddit, Twitter/X, LinkedIn, Mastodon, haskell-cafe). It only prints
-text — there is no posting, no API keys, no bot behavior.
+(Discourse, Reddit, Twitter/X, LinkedIn, Mastodon, haskell-cafe, Haskell
+Weekly). It only prints text — there is no posting, no API keys, no bot
+behavior.
 
 It's a second executable in the root `haskell-foundation.cabal` (not a
 separate package): it re-parses the news item's front matter + first
@@ -19,11 +20,16 @@ cabal run social-draft -- hiw-hew-2026-videos
 ```
 
 Run from the repo root. Each channel gets a colour-coded header stating its
-kind (forum / microblog / mailing list), **which account to post from**, and
-a clickable link to the channel; below it is the plain draft body to copy.
+kind (forum / microblog / mailing list / newsletter), its format and length
+constraint, **which account to post from**, and a clickable link to the
+channel.
 
-Copy only the draft body (between the header and the next header) — the
-coloured chrome is never part of what you paste.
+Below the header come the draft's sections — `title`, `link`, `post`, `body`,
+… — each an indented dim label on its own line, then the text itself at
+column 0 with blank lines around it. So a line- or block-select grabs exactly
+what you paste and never a label: everything indented or coloured is chrome,
+including the microblog character count, which sits in the `post` label
+rather than in the post.
 
 ## Which account
 
@@ -32,8 +38,9 @@ The header's `account` line says who should post:
 - **Haskell Foundation account** — the HF owns this channel. Currently
   Twitter/X ([@haskellfound](https://twitter.com/haskellfound)) and Mastodon
   ([@haskell_foundation](https://mastodon.social/@haskell_foundation)).
-- **your PRIVATE account / email** — no HF identity here; post from your own
-  account (Discourse, Reddit) or send from your own address (haskell-cafe).
+- **your PRIVATE account / email / GitHub account** — no HF identity here;
+  post from your own account (Discourse, Reddit), send from your own address
+  (haskell-cafe), or open the pull request yourself (Haskell Weekly).
 - **HF or private? — unconfirmed** — LinkedIn; not yet decided, check before
   posting.
 
@@ -52,8 +59,17 @@ honours the standard `NO_COLOR` environment variable.
 - Hashtags are a single fixed set (`#haskell #haskellfoundation`) applied to
   every microblog; not yet varied per channel or per topic.
 - Twitter/Mastodon trimming cuts the blurb with an ellipsis to fit the char
-  budget (280 / 500); the reported char count is a slight overestimate when
-  the blurb is dropped entirely, so it will never come in over budget.
+  budget (280 / 500). Only the blurb is ever trimmed, so a title long enough
+  to blow the budget on its own comes out over — visibly, since the reported
+  count is exact (`301/280`).
+- Only a whole-post limit is enforced; Reddit's title limit is displayed as
+  advice, not checked.
+- The Haskell Weekly entry credits the `author` front matter field verbatim,
+  including any role ("Bryan Richter, DevOps Engineer") — the newsletter's own
+  style is bare names, so trim it when it reads oddly. Without an `author`
+  field it credits the HF for a site article, and prints a `??` placeholder
+  for a link-out (whoever wrote the linked post isn't recorded in the front
+  matter).
 - The canonical URL is the item's `link` front-matter field if present
   (link-out news items), otherwise `https://haskell.foundation/<route>.html`
   mirroring `site.hs`'s route for that item — it isn't computed from the
@@ -73,6 +89,12 @@ Microblogs:
 Mailing list:
 - haskell-cafe
 
+Newsletter:
+- [Haskell Weekly](https://github.com/haskellweekly/haskellweekly) — curated
+  in Git, so an entry is a pull request adding one Markdown list item to the
+  issue being assembled (`data/newsletter/<year>/issue-NNN.markdown`). Its
+  editors sort entries into the issue's sections.
+
 ## Analysis — why not one "post everywhere" script
 
 The channels split into three tiers by how automatable they *should* be,
@@ -91,3 +113,8 @@ which differs from how automatable they *can* be:
 A single "post everywhere" script concentrates the worst APIs, adds
 key-management + maintenance burden, and risks damaging automated posts to
 community spaces where tone matters. Rejected.
+
+Haskell Weekly is the one channel where automation is an option: a pull request
+is reviewed by its editors before anything is published. If it ever becomes
+routine, opening that pull request could be automated (`gh pr create` against
+the current issue file).

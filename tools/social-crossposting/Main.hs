@@ -48,11 +48,23 @@ hashtags = ["#haskell", "#haskellfoundation"]
 
 data NewsItem = NewsItem
     { niTitle :: T.Text
+    , niByline :: Byline
     , niBlurb :: T.Text
     -- ^ First paragraph, plain text.
     , niUrl :: T.Text
     -- ^ Canonical site URL, or the external `link` for a link-out item.
     }
+
+{- | Who to credit, for the channels that name an author. A link-out item
+(one with a `link` front matter field) points at somebody else's post, so
+with no `author` field there is nobody we know to name: 'Unattributed' says
+so loudly in the draft instead of crediting the HF for a post it didn't
+write.
+-}
+data Byline
+    = Named T.Text
+    | HaskellFoundation
+    | Unattributed
 
 main :: IO ()
 main = do
@@ -91,9 +103,13 @@ loadNewsItem path = do
     title <- case metaText meta "title" of
         Just t -> pure t
         Nothing -> die (path ++ ": missing 'title' front matter")
-    let url = fromMaybe (T.pack (siteRoot </> dropExtension path <.> "html")) (metaText meta "link")
-        blurb = plainFirstPara blocks
-    pure NewsItem{niTitle = title, niBlurb = blurb, niUrl = url}
+    let linkOut = metaText meta "link"
+        url = fromMaybe (T.pack (siteRoot </> dropExtension path <.> "html")) linkOut
+        byline = case (metaText meta "author", linkOut) of
+            (Just author, _) -> Named author
+            (Nothing, Just _) -> Unattributed
+            (Nothing, Nothing) -> HaskellFoundation
+    pure NewsItem{niTitle = title, niByline = byline, niBlurb = plainFirstPara blocks, niUrl = url}
 
 metaText :: Meta -> T.Text -> Maybe T.Text
 metaText meta key = stringify <$> lookupMeta key meta
@@ -114,7 +130,209 @@ plainFirstPara blocks = case runPure (writePlain plainOpts (Pandoc nullMeta (fir
     firstPara (b@Plain{} : _) = [b]
     firstPara (_ : bs) = firstPara bs
 
+-- CHANNELS -------------------------------------------------------------------
+
+-- | Where a channel sits in the social landscape; sets the tone expected
+-- there as much as the mechanics of posting.
+data ChannelKind
+    = Forum
+    | Microblog
+    | MailingList
+    | Newsletter
+    -- ^ Curated elsewhere: we propose an entry, its editors decide.
+
+-- | The markup a channel renders.
+data Format
+    = Markdown
+    | PlainText
+
+-- | What bounds a channel's length. 'PostAtMost' is the only one the
+-- generator enforces (via 'budgetedPost', which trims to the same number it
+-- displays); the others are advisory, for the human writing the post.
+data Length
+    = Unlimited
+    | PostAtMost Int
+    | TitleAtMost Int
+
+-- | Social norms that shape a draft but can't be checked mechanically.
+data Etiquette
+    = ListEtiquette
+    -- ^ Plain-text list read by humans; a visibly automated blast reads badly.
+    | ImportantNewsOnly
+    -- ^ Curated by volunteers: propose the milestones, not every item.
+
+-- | How a draft for this channel must be shaped. Shown next to the channel
+-- kind in the header.
+data Constraint = Constraint
+    { conFormat :: Format
+    , conLength :: Length
+    , conEtiquette :: [Etiquette]
+    }
+
+-- | Which account/identity to post from. This is the main thing a human has
+-- to get right, so each channel states it explicitly.
+data PostAs
+    = AsHF
+    | AsPrivate
+    | AsPrivateEmail
+    | AsPrivateGitHub
+    | AsUnknown
+
+data Channel = Channel
+    { chName :: T.Text
+    , chKind :: ChannelKind
+    , chConstraint :: Constraint
+    , chUrl :: T.Text
+    -- ^ Where to post; rendered as a clickable link.
+    , chAccount :: PostAs
+    , chColor :: Int
+    -- ^ 256-colour foreground code for this channel's chrome. Drawn from a
+    -- cool, muted palette that is disjoint from the saturated traffic-light
+    -- colours 'accountText' uses, so channel hue never clashes with the
+    -- "who posts this" flag.
+    , chDraft :: NewsItem -> Draft
+    }
+
+channels :: [Channel]
+channels = [discourse, reddit, twitterX, linkedIn, mastodon, haskellCafe, haskellWeekly]
+
+discourse :: Channel
+discourse =
+    Channel
+        { chName = "Discourse"
+        , chKind = Forum
+        , chConstraint = Constraint{conFormat = Markdown, conLength = Unlimited, conEtiquette = []}
+        , chUrl = "https://discourse.haskell.org/c/haskell-foundation"
+        , chAccount = AsPrivate
+        , chColor = 74
+        , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
+            [section "post" (T.unlines ["# " <> niTitle, "", niBlurb, "", niUrl])]
+        }
+
+reddit :: Channel
+reddit =
+    Channel
+        { chName = "Reddit"
+        , chKind = Forum
+        , chConstraint = Constraint{conFormat = Markdown, conLength = TitleAtMost 300, conEtiquette = []}
+        , chUrl = "https://www.reddit.com/r/haskell/"
+        , chAccount = AsPrivate
+        , chColor = 173
+        , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
+            [ section "title" niTitle
+            , section "link" niUrl
+            , section "suggested first comment" niBlurb
+            ]
+        }
+
+twitterX :: Channel
+twitterX =
+    Channel
+        { chName = "Twitter/X"
+        , chKind = Microblog
+        , chConstraint = Constraint{conFormat = PlainText, conLength = PostAtMost limit, conEtiquette = []}
+        , chUrl = "https://twitter.com/haskellfound"
+        , chAccount = AsHF
+        , chColor = 80
+        , chDraft = \item -> [budgetedPost limit item]
+        }
+  where
+    limit = 280
+
+{- | LinkedIn's limit is high enough that a news draft never approaches it, so
+the blurb runs in full and the link gets an introduction instead of a budget.
+-}
+linkedIn :: Channel
+linkedIn =
+    Channel
+        { chName = "LinkedIn"
+        , chKind = Microblog
+        , chConstraint = Constraint{conFormat = PlainText, conLength = PostAtMost 3000, conEtiquette = []}
+        , chUrl = "https://www.linkedin.com/company/haskell-foundation-inc"
+        , chAccount = AsUnknown
+        , chColor = 62
+        , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
+            [ section
+                "post"
+                (T.unlines [niTitle, "", niBlurb, "", "Read more: " <> niUrl, "", T.unwords hashtags])
+            ]
+        }
+
+mastodon :: Channel
+mastodon =
+    Channel
+        { chName = "Mastodon"
+        , chKind = Microblog
+        , chConstraint = Constraint{conFormat = PlainText, conLength = PostAtMost limit, conEtiquette = []}
+        , chUrl = "https://mastodon.social/@haskell_foundation"
+        , chAccount = AsHF
+        , chColor = 140
+        , chDraft = \item -> [budgetedPost limit item]
+        }
+  where
+    limit = 500
+
+haskellCafe :: Channel
+haskellCafe =
+    Channel
+        { chName = "haskell-cafe"
+        , chKind = MailingList
+        , chConstraint = Constraint{conFormat = PlainText, conLength = Unlimited, conEtiquette = [ListEtiquette]}
+        , chUrl = "mailto:haskell-cafe@haskell.org"
+        , chAccount = AsPrivateEmail
+        , chColor = 66
+        , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
+            [ section "subject" niTitle
+            , section "body" (T.unlines [niBlurb, "", niUrl])
+            ]
+        }
+
+{- | Haskell Weekly is curated in a Git repository, so an entry is a pull
+request against the issue being assembled -- @issue-NNN.markdown@ under the
+current year. Its editors sort entries into the issue's sections, so the
+draft is just the one list item, in their established shape.
+-}
+haskellWeekly :: Channel
+haskellWeekly =
+    Channel
+        { chName = "Haskell Weekly"
+        , chKind = Newsletter
+        , chConstraint = Constraint{conFormat = Markdown, conLength = Unlimited, conEtiquette = [ImportantNewsOnly]}
+        , chUrl = "https://github.com/haskellweekly/haskellweekly/tree/main/data/newsletter"
+        , chAccount = AsPrivateGitHub
+        , chColor = 108
+        , chDraft = \NewsItem{niTitle, niByline, niBlurb, niUrl} ->
+            [ section
+                "entry"
+                ( T.unlines
+                    [ "- [" <> niTitle <> "](" <> niUrl <> ") by " <> bylineText niByline
+                    , "  > " <> niBlurb
+                    ]
+                )
+            ]
+        }
+  where
+    bylineText = \case
+        Named author -> author
+        HaskellFoundation -> "The Haskell Foundation"
+        Unattributed -> "?? (fill in who wrote it)"
+
 -- PRESENTATION -------------------------------------------------------------
+
+{- | One block of a draft to copy as a whole. The label is chrome: it is
+printed dim and indented, on its own line, while the block itself starts at
+column 0 with blank lines around it -- so selecting by line or by block
+grabs exactly the text to paste and nothing else.
+-}
+data Section = Section
+    { secLabel :: T.Text
+    , secBody :: T.Text
+    }
+
+type Draft = [Section]
+
+section :: T.Text -> T.Text -> Section
+section secLabel secBody = Section{secLabel, secBody}
 
 -- | Terminal decoration switches, resolved once at startup. Colour and
 -- clickable links are emitted only for an interactive terminal, so piping
@@ -133,92 +351,10 @@ detectStyle = do
     noColor <- lookupEnv "NO_COLOR"
     pure Style{styColor = tty && isNothing noColor, styLinks = tty}
 
--- | Which account/identity to post from. This is the main thing a human has
--- to get right, so each channel states it explicitly.
-data PostAs
-    = AsHF
-    | AsPrivate
-    | AsPrivateEmail
-    | AsUnknown
-
-data Channel = Channel
-    { chName :: T.Text
-    , chKind :: T.Text
-    -- ^ "forum" / "microblog" / "mailing list".
-    , chConstraint :: T.Text
-    -- ^ Short note on the channel's main posting constraint (character
-    -- limit, format, etiquette), shown next to the kind. For a hard limit
-    -- that the draft also enforces, use the 'microblog' smart constructor so
-    -- the displayed number and the enforced budget share one source.
-    , chUrl :: T.Text
-    -- ^ Where to post; rendered as a clickable link.
-    , chAccount :: PostAs
-    , chColor :: Int
-    -- ^ 256-colour foreground code for this channel's chrome. Drawn from a
-    -- cool, muted palette that is disjoint from the saturated traffic-light
-    -- colours 'accountText' uses, so channel hue never clashes with the
-    -- "who posts this" flag.
-    , chDraft :: NewsItem -> T.Text
-    }
-
--- | A microblog with a hard character limit. The limit feeds both the
--- displayed constraint and the draft's budget, so the two can't drift.
-microblog :: T.Text -> T.Text -> PostAs -> Int -> Int -> Channel
-microblog name url account color limit =
-    Channel
-        { chName = name
-        , chKind = "microblog"
-        , chConstraint = "plain text \x00b7 \x2264 " <> T.pack (show limit) <> " chars"
-        , chUrl = url
-        , chAccount = account
-        , chColor = color
-        , chDraft = \NewsItem{niTitle, niBlurb, niUrl} -> withBudget limit niTitle niBlurb niUrl hashtags
-        }
-
-channels :: [Channel]
-channels =
-    [ Channel
-        { chName = "Discourse"
-        , chKind = "forum"
-        , chConstraint = "Markdown \x00b7 no length limit"
-        , chUrl = "https://discourse.haskell.org/c/haskell-foundation"
-        , chAccount = AsPrivate
-        , chColor = 74
-        , chDraft = discourseDraft
-        }
-    , Channel
-        { chName = "Reddit"
-        , chKind = "forum"
-        , chConstraint = "Markdown \x00b7 title \x2264 300"
-        , chUrl = "https://www.reddit.com/r/haskell/"
-        , chAccount = AsPrivate
-        , chColor = 173
-        , chDraft = redditDraft
-        }
-    , microblog "Twitter/X" "https://twitter.com/haskellfound" AsHF 80 280
-    , Channel
-        { chName = "LinkedIn"
-        , chKind = "microblog"
-        , chConstraint = "plain text \x00b7 \x2264 3000 chars"
-        , chUrl = "https://www.linkedin.com/company/haskell-foundation-inc"
-        , chAccount = AsUnknown
-        , chColor = 62
-        , chDraft = linkedInDraft
-        }
-    , microblog "Mastodon" "https://mastodon.social/@haskell_foundation" AsHF 140 500
-    , Channel
-        { chName = "haskell-cafe"
-        , chKind = "mailing list"
-        , chConstraint = "plain text \x00b7 list etiquette"
-        , chUrl = "mailto:haskell-cafe@haskell.org"
-        , chAccount = AsPrivateEmail
-        , chColor = 66
-        , chDraft = haskellCafeDraft
-        }
-    ]
-
+-- | Two blank lines between channels, so a channel's drafts read as one
+-- group and the eye finds the next header without hunting.
 renderDrafts :: Style -> NewsItem -> String
-renderDrafts s item = T.unpack . T.intercalate "\n\n" $ banner : map (renderChannel s item) channels
+renderDrafts s item = T.unpack (T.intercalate "\n\n\n" (banner : map (renderChannel s item) channels) <> "\n")
   where
     banner =
         T.intercalate
@@ -230,20 +366,37 @@ renderDrafts s item = T.unpack . T.intercalate "\n\n" $ banner : map (renderChan
 
 renderChannel :: Style -> NewsItem -> Channel -> T.Text
 renderChannel s item Channel{chName, chKind, chConstraint, chUrl, chAccount, chColor, chDraft} =
-    T.intercalate
-        "\n"
-        [ boldFg s chColor ("\x2501\x2501\x2501 " <> chName <> " ") <> fg s chColor (T.replicate (max 3 (24 - T.length chName)) "\x2501") <> "  " <> dim s chKind <> constraint
+    T.intercalate "\n" (header ++ concatMap renderSection (chDraft item))
+  where
+    header =
+        [ boldFg s chColor ("\x2501\x2501\x2501 " <> chName <> " ") <> fg s chColor (T.replicate (max 3 (24 - T.length chName)) "\x2501") <> "  " <> dim s (kindText chKind) <> dim s " \x00b7 " <> fg s chColor (constraintText chConstraint)
         , "  " <> dim s "account " <> accountText s chAccount
         , "  " <> dim s "post at " <> link s chUrl (fg s chColor (displayUrl chUrl))
-        , ""
-        , T.stripEnd (chDraft item)
         ]
+    renderSection Section{secLabel, secBody} = ["", "  " <> dim s secLabel, "", T.stripEnd secBody]
+
+kindText :: ChannelKind -> T.Text
+kindText = \case
+    Forum -> "forum"
+    Microblog -> "microblog"
+    MailingList -> "mailing list"
+    Newsletter -> "newsletter"
+
+-- | The channel's format, length limit and etiquette as one line of chrome.
+constraintText :: Constraint -> T.Text
+constraintText Constraint{conFormat, conLength, conEtiquette} =
+    T.intercalate " \x00b7 " ([formatText conFormat, lengthText conLength] ++ map etiquetteText conEtiquette)
   where
-    -- Kind stays dim; the constraint gets the channel's own hue so the
-    -- useful limit reads a touch louder without leaving the channel palette.
-    constraint
-        | T.null chConstraint = ""
-        | otherwise = dim s " \x00b7 " <> fg s chColor chConstraint
+    formatText = \case
+        Markdown -> "Markdown"
+        PlainText -> "plain text"
+    lengthText = \case
+        Unlimited -> "no length limit"
+        PostAtMost n -> "\x2264 " <> tshow n <> " chars"
+        TitleAtMost n -> "title \x2264 " <> tshow n
+    etiquetteText = \case
+        ListEtiquette -> "list etiquette"
+        ImportantNewsOnly -> "important news only"
 
 -- | Human-readable "who posts this" line, coloured as a traffic light:
 -- green = HF-owned/safe, yellow = unconfirmed, red = needs your personal
@@ -254,16 +407,20 @@ accountText s = \case
     AsHF -> fg s 40 "Haskell Foundation account"
     AsPrivate -> boldFg s 203 "your PRIVATE account"
     AsPrivateEmail -> boldFg s 203 "your PRIVATE email address"
+    AsPrivateGitHub -> boldFg s 203 "your PRIVATE GitHub account (as a pull request)"
     AsUnknown -> boldFg s 220 "HF or private? \x2014 unconfirmed, check before posting"
 
 displayUrl :: T.Text -> T.Text
 displayUrl url = fromMaybe url (T.stripPrefix "mailto:" url)
 
+tshow :: (Show a) => a -> T.Text
+tshow = T.pack . show
+
 -- ANSI helpers. Each is a no-op when the corresponding Style flag is off.
 
 sgr :: Style -> [Int] -> T.Text -> T.Text
 sgr Style{styColor} codes t
-    | styColor = "\ESC[" <> T.intercalate ";" (map (T.pack . show) codes) <> "m" <> t <> "\ESC[0m"
+    | styColor = "\ESC[" <> T.intercalate ";" (map tshow codes) <> "m" <> t <> "\ESC[0m"
     | otherwise = t
 
 bold :: Style -> T.Text -> T.Text
@@ -285,50 +442,21 @@ link Style{styLinks} url label
     | styLinks = "\ESC]8;;" <> url <> "\ESC\\" <> label <> "\ESC]8;;\ESC\\"
     | otherwise = label
 
--- DRAFTS ---------------------------------------------------------------------
-
-discourseDraft :: NewsItem -> T.Text
-discourseDraft NewsItem{niTitle, niBlurb, niUrl} =
-    T.unlines ["# " <> niTitle, "", niBlurb, "", niUrl]
-
-redditDraft :: NewsItem -> T.Text
-redditDraft NewsItem{niTitle, niBlurb, niUrl} =
-    T.unlines
-        [ "Title: " <> niTitle
-        , "Link: " <> niUrl
-        , ""
-        , "Suggested first comment:"
-        , niBlurb
-        ]
-
-linkedInDraft :: NewsItem -> T.Text
-linkedInDraft NewsItem{niTitle, niBlurb, niUrl} =
-    T.unlines
-        [ niTitle
-        , ""
-        , niBlurb
-        , ""
-        , "Read more: " <> niUrl
-        , ""
-        , T.unwords hashtags
-        ]
-
-haskellCafeDraft :: NewsItem -> T.Text
-haskellCafeDraft NewsItem{niTitle, niBlurb, niUrl} =
-    T.unlines ["Subject: " <> niTitle, "", niBlurb, "", niUrl]
-
--- | Assemble title/blurb/url/hashtags on their own lines, trimming the
--- blurb (with an ellipsis) so the whole post fits `budget` characters.
--- Title, url and hashtags are never trimmed.
-withBudget :: Int -> T.Text -> T.Text -> T.Text -> [T.Text] -> T.Text
-withBudget budget title blurb url tags =
-    let tagsLine = T.unwords tags
-        sep = "\n\n" :: T.Text
-        fixedLen = T.length title + T.length url + T.length tagsLine + 3 * T.length sep
-        blurbBudget = budget - fixedLen
-        blurb'
-            | blurbBudget <= 0 = ""
-            | T.length blurb <= blurbBudget = blurb
-            | otherwise = T.stripEnd (T.take (blurbBudget - 1) blurb) <> "\x2026"
-        post = T.intercalate sep (filter (not . T.null) [title, blurb', url, tagsLine])
-     in post <> T.pack ("\n(" ++ show (T.length post) ++ "/" ++ show budget ++ " chars)")
+{- | Assemble title/blurb/url/hashtags on their own lines, trimming the blurb
+(with an ellipsis) so the whole post fits @limit@ characters. Title, url and
+hashtags are never trimmed. The character count goes in the section's chrome
+label rather than the body, so what you paste is exactly the post.
+-}
+budgetedPost :: Int -> NewsItem -> Section
+budgetedPost limit NewsItem{niTitle, niBlurb, niUrl} =
+    section ("post \x00b7 " <> tshow (T.length post) <> "/" <> tshow limit <> " chars") post
+  where
+    tagsLine = T.unwords hashtags
+    sep = "\n\n" :: T.Text
+    fixedLen = T.length niTitle + T.length niUrl + T.length tagsLine + 3 * T.length sep
+    blurbBudget = limit - fixedLen
+    blurb
+        | blurbBudget <= 0 = ""
+        | T.length niBlurb <= blurbBudget = niBlurb
+        | otherwise = T.stripEnd (T.take (blurbBudget - 1) niBlurb) <> "\x2026"
+    post = T.intercalate sep (filter (not . T.null) [niTitle, blurb, niUrl, tagsLine])
