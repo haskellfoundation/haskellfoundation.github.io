@@ -2,7 +2,7 @@
 status: inprogress
 title: The Revised Haskell 2010 Report Working Group
 link: https://github.com/haskellfoundation/haskell-2010-revised-report
-link-text: https://github.com/haskellfoundation/haskell-2010-revised-report
+link-text: Source Repository
 subtitle: Project Lead
 leader0name: David Binder
 leader0img: project-leads/db.png
