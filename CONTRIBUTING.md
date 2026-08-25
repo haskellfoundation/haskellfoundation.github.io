@@ -95,7 +95,7 @@ npm run build     # compile -> assets/css/tailwind.built.css
 npm run watch     # same, then recompile on source/content changes
 ```
 
-If you do not want to install `npm` globally and have `nix` available, drop into the Nix development shell which provides `npm` and a basic Haskell toolchain.
+If you do not want to install `npm` globally and have `nix` available, `nix develop` drops you into a shell with `npm` and the Haskell toolchain, including every dependency of the site generator prebuilt — so `cabal build` compiles only `site.hs` instead of spending half an hour on Pandoc. `nix build` alone gives you the `site` executable without a shell.
 
 **Commit the regenerated `assets/css/tailwind.built.css` with your change.** CI reruns `npm run build` on every push and PR and fails if the committed copy has drifted, so a stale stylesheet cannot reach the live site.
 
