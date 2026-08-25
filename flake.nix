@@ -18,25 +18,41 @@
       ];
       perSystem =
         {
+          lib,
           pkgs,
           ...
         }:
+        let
+          haskellPkgs = pkgs.haskellPackages;
+
+          # Only the Haskell sources; the site content is read at run time.
+          src = lib.fileset.toSource {
+            root = ./.;
+            fileset = lib.fileset.unions [
+              ./haskell-foundation.cabal
+              ./site.hs
+              ./tools/social-crossposting
+            ];
+          };
+
+          haskell-foundation = haskellPkgs.callCabal2nix "haskell-foundation" src { };
+        in
         {
-          devShells.default = pkgs.mkShell {
+          packages.default = haskell-foundation;
+
+          devShells.default = haskellPkgs.shellFor {
+            packages = _: [ haskell-foundation ];
+
             nativeBuildInputs = [
               # Node; pinned to same version as CI.
               pkgs.nodejs_24
 
               # Haskell.
               pkgs.cabal-install
-              pkgs.ghc
               pkgs.haskell-language-server
 
               # Screenshotting pages during design work.
               (pkgs.python3.withPackages (ps: [ ps.playwright ]))
-
-              # System.
-              pkgs.zlib
             ];
 
             env = {
