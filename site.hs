@@ -68,6 +68,17 @@ featuredCuration = "featured.markdown"
 homepageNewsCount :: Int
 homepageNewsCount = 2
 
+{- | Pages that have been retired, and where a reader should end up instead.
+'createRedirects' turns each into a meta-refresh stub at the old URL, so links
+already out in the wild keep working. Add an entry here rather than leaving a
+page in place purely so that its URL resolves.
+-}
+retiredPages :: [(Identifier, String)]
+retiredPages =
+    -- Was an announcement whose only content was a pointer to the job ad; the
+    -- ad is now pinned on the home page directly (see 'featuredCuration').
+    [("news/2026-08-10/head-of-development.html", "/careers/head-of-development.html")]
+
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
@@ -158,6 +169,8 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
     matchMetadata "news/**.markdown" hasLink $ compile pandocCompiler
+
+    createRedirects retiredPages
 
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
 
