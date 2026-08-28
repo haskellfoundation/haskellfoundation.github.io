@@ -527,8 +527,8 @@ whoWeAreCtx people =
     ofMetadataFieldCurrent :: Bool -> String -> String -> [Item String] -> Compiler [Item String]
     ofMetadataFieldCurrent cur field value items = do
         items' <- ofMetadataField field value items
-        current <-
-            filterM
+        nonEmpty
+            =<< filterM
                 ( \item -> do
                     mbTenureStart <- getMetadataField (itemIdentifier item) "tenureStart"
                     mbTenureStop <- getMetadataField (itemIdentifier item) "tenureEnd"
@@ -537,11 +537,6 @@ whoWeAreCtx people =
                         Just date -> not cur
                 )
                 items'
-        -- Fail (rather than return an empty list) when nobody matches, so the
-        -- corresponding listField is *absent* and `$if(...)$` in templates is
-        -- False. Otherwise an empty list still counts as "present".
-        guard (not (null current))
-        pure current
 
 -- podcast ---------------------------------------------------------------------------------------------
 podcastListCtx :: [Item String] -> Context String
@@ -601,6 +596,14 @@ reportCtx = dateField "date" "%B %d, %0Y"
 -- UTILS -----------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 
+{- | Fail (rather than return an empty list) when nothing is left, so that the
+'listField' built from the result is *absent* and `$if(...)$` in templates is
+False. Otherwise an empty list still counts as "present" and a template renders
+a section heading above no tiles at all.
+-}
+nonEmpty :: [a] -> Compiler [a]
+nonEmpty items = guard (not (null items)) >> pure items
+
 -- | filter list of item string based on whether or not the field exists
 filterMetadataField :: String -> [Item String] -> Compiler [Item String]
 filterMetadataField field =
@@ -612,16 +615,14 @@ filterMetadataField field =
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
-ofMetadataField field value items = do
-    matching <-
-        filterM
+ofMetadataField field value items =
+    nonEmpty
+        =<< filterM
             ( \item -> do
                 mbField <- getMetadataField (itemIdentifier item) field
                 return $ Just value == mbField
             )
             items
-    guard (not (null matching))
-    pure matching
 
 -- | sort list of item based on the given metadata field
 sortFromMetadataField :: String -> [Item String] -> Compiler [Item String]
