@@ -55,6 +55,19 @@ tailwindEntryPoint, tailwindBuilt :: Pattern
 tailwindEntryPoint = "assets/css/tailwind.css"
 tailwindBuilt = "assets/css/tailwind.built.css"
 
+{- | The curation file behind the pinned tiles at the top of the home page. It
+holds no content of its own, only an ordered list of paths of pages elsewhere in
+the site, so a pinned tile still has a single source of truth. It is compiled
+(to pick up edits) but never routed.
+-}
+featuredCuration :: Identifier
+featuredCuration = "featured.markdown"
+
+-- | How many news entries the home page shows below the pinned tiles. Even, so
+-- that the two-column grid comes out square.
+homepageNewsCount :: Int
+homepageNewsCount = 2
+
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
@@ -359,18 +372,24 @@ main = hakyllWith config $ do
     match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
 
     -- home page -------------------------------------------------------------------------------------------
+    --
+    -- Four bands of tiles: the curated pins from 'featuredCuration' first, then
+    -- the latest news, the events still to come, and the latest podcast
+    -- episode. Anything pinned is dropped from the automatic bands so it is not
+    -- shown twice.
+    match (fromList [featuredCuration]) $ compile getResourceBody
+
     create ["index.html"] $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
+            featured <- loadFeatured
             podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
-            careersCtx <- careersCtx . reverse <$> loadAll ("careers/*.markdown" .&&. hasNoVersion)
-            announces <- take 1 <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
-            let announceCtx = announcementsCtx announces
-            eventsCtx <- upcomingEventsCtx <$> loadAll ("events/*.markdown" .&&. hasNoVersion)
+            announces <- take homepageNewsCount . excluding featured <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
+            events <- excluding featured <$> loadAll ("events/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx <> announceCtx <> eventsCtx)
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> featuredCtx featured <> announcementsCtx announces <> upcomingEventsCtx events)
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -500,14 +519,18 @@ slugField name =
 -- news ------------------------------------------------------------------------------------------------
 
 -- | Context for a single news entry, shared by the index tiles, the homepage
--- announcement and the standalone article page. `teaser` is the entry's first
--- paragraph as plain text (from the "description" version), used as a preview
--- so the index links to the full article rather than inlining it.
+-- announcement and the standalone article page.
 newsItemCtx :: Context String
 newsItemCtx =
-    field "teaser" (loadBody . setVersion (Just "description") . itemIdentifier)
+    teaserFromDescription
         <> dateField "date" "%B %e, %Y"
         <> defaultContext
+
+-- | The item's first paragraph as plain text (from the "description" version),
+-- used as a tile preview so the tile links to the full page rather than
+-- inlining it.
+teaserFromDescription :: Context String
+teaserFromDescription = field "teaser" (loadBody . setVersion (Just "description") . itemIdentifier)
 
 -- faq -------------------------------------------------------------------------------------------------
 faqCtx :: [Item String] -> Context String
@@ -564,7 +587,27 @@ hiringSponsorsCtx sponsors =
 
 announcementsCtx :: [Item String] -> Context String
 announcementsCtx ads =
-    listField "announcements" newsItemCtx (pure ads)
+    listField "announcements" newsItemCtx (nonEmpty ads)
+
+-- Featured ---------------------------------------------------------------------------------------------
+
+{- | The pages pinned to the top of the home page, in the order 'featuredCuration'
+lists them. A path that does not name a compiled page fails the build, so a
+renamed or deleted page cannot silently leave a hole on the front page.
+-}
+loadFeatured :: Compiler [Item String]
+loadFeatured = do
+    paths <- fromMaybe [] . lookupStringList "featured" <$> getMetadata featuredCuration
+    traverse (load . fromFilePath) paths
+
+{- | A pinned tile. Pins point at pages from any section, so the tile only uses
+what every section has: a title, a blurb (the page's own @summary@ where it has
+one, otherwise its first paragraph) and a link (the external @link@ of a
+link-out news entry, otherwise the page's own URL).
+-}
+featuredCtx :: [Item String] -> Context String
+featuredCtx items =
+    listField "featured" (teaserFromDescription <> defaultContext) (nonEmpty items)
 
 -- Events -----------------------------------------------------------------------------------------------
 
@@ -650,6 +693,10 @@ a section heading above no tiles at all.
 -}
 nonEmpty :: [a] -> Compiler [a]
 nonEmpty items = guard (not (null items)) >> pure items
+
+-- | Drop the items already shown elsewhere on the same page.
+excluding :: [Item a] -> [Item b] -> [Item b]
+excluding shown = filter ((`notElem` map itemIdentifier shown) . itemIdentifier)
 
 -- | Sort by a key that can only be computed in the 'Compiler' monad.
 sortOnM :: (Ord b) => (a -> Compiler b) -> [a] -> Compiler [a]
