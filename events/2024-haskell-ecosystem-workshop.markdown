@@ -1,8 +1,8 @@
 ---
 title: 2024 Haskell Ecosystem Workshop
 published: 2024-02-29
-daterange: June 6-7, 2024
-status: active
+starts: 2024-06-06
+ends: 2024-06-07
 location: Rapperswil, Switzerland
 summary: Building on-ramps for the Haskell Ecosystem and its Tools
 ---

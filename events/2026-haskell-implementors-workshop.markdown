@@ -1,8 +1,7 @@
 ---
 title: 2026 Haskell Implementors' Workshop
 published: 2026-02-13
-daterange: June 5, 2026
-status: active
+starts: 2026-06-05
 location: Rapperswil, Switzerland
 summary: Forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
 ---

@@ -1,8 +1,7 @@
 ---
 title: 2026 Haskell Ecosystem Workshop
 published: 2026-02-13
-daterange: June 4, 2026
-status: active
+starts: 2026-06-04
 location: Rapperswil, Switzerland
 summary: Lessons from and for Large Haskell Deployments
 ---

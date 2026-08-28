@@ -1,8 +1,7 @@
 ---
 title: 2025 Haskell Implementors' Workshop
 published: 2025-02-14
-daterange: June 6, 2025
-status: active
+starts: 2025-06-06
 location: Rapperswil, Switzerland
 summary: Forum for people interested in the design and development of Haskell implementations, tools, libraries, and supporting infrastructure.
 ---

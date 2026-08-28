@@ -1,8 +1,7 @@
 ---
 title: 2025 Haskell Ecosystem Workshop
 published: 2024-03-05
-daterange: June 5, 2025
-status: active
+starts: 2025-06-05
 location: Rapperswil, Switzerland
 summary: Lessons from and for Large Haskell Deployments
 ---
