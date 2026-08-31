@@ -7,7 +7,11 @@ import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
 import Data.List (sortOn, isPrefixOf)
 import Data.Maybe (fromMaybe, isJust)
+import Data.Ord (Down (..))
 import qualified Data.Text as T
+import Data.Time.Calendar (Day, toGregorian)
+import Data.Time.Clock (getCurrentTime, utctDay)
+import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 import Hakyll
 import Hakyll.Web.Html.RelativizeUrls (relativizeUrls)
 import Hakyll.Web.Template (loadAndApplyTemplate)
@@ -50,6 +54,30 @@ tailwindFiles = tailwindEntryPoint .||. tailwindBuilt
 tailwindEntryPoint, tailwindBuilt :: Pattern
 tailwindEntryPoint = "assets/css/tailwind.css"
 tailwindBuilt = "assets/css/tailwind.built.css"
+
+{- | The curation file behind the pinned tiles at the top of the home page. It
+holds no content of its own, only an ordered list of paths of pages elsewhere in
+the site, so a pinned tile still has a single source of truth. It is compiled
+(to pick up edits) but never routed.
+-}
+featuredCuration :: Identifier
+featuredCuration = "featured.markdown"
+
+-- | How many news entries the home page shows below the pinned tiles. Even, so
+-- that the two-column grid comes out square.
+homepageNewsCount :: Int
+homepageNewsCount = 2
+
+{- | Pages that have been retired, and where a reader should end up instead.
+'createRedirects' turns each into a meta-refresh stub at the old URL, so links
+already out in the wild keep working. Add an entry here rather than leaving a
+page in place purely so that its URL resolves.
+-}
+retiredPages :: [(Identifier, String)]
+retiredPages =
+    -- Was an announcement whose only content was a pointer to the job ad; the
+    -- ad is now pinned on the home page directly (see 'featuredCuration').
+    [("news/2026-08-10/head-of-development.html", "/careers/head-of-development.html")]
 
 --------------------------------------------------------------------------------------------------------
 -- MAIN GENERATION -------------------------------------------------------------------------------------
@@ -141,6 +169,8 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
     matchMetadata "news/**.markdown" hasLink $ compile pandocCompiler
+
+    createRedirects retiredPages
 
     categories <- buildCategories "news/**.markdown" (fromCapture "news/categories/**.html")
 
@@ -268,7 +298,7 @@ main = hakyllWith config $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Events")
-            ctx <- allEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
+            ctx <- allEventsCtx <$> loadAll ("events/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/events/list.html" ctx
@@ -277,14 +307,11 @@ main = hakyllWith config $ do
 
     match "events/*.markdown" $ do
         route $ setExtension "html"
-        let ctxt =
-                mconcat
-                    [defaultContext]
         compile $ do
             sponsors <- buildBoilerplateCtx Nothing
             pandocCompiler
                 >>= applyAsTemplate sponsors
-                >>= loadAndApplyTemplate "templates/events/page.html" ctxt
+                >>= loadAndApplyTemplate "templates/events/page.html" eventCtx
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -358,18 +385,24 @@ main = hakyllWith config $ do
     match "**/*.markdown" $ version "description" $ compile pandocPlainCompiler
 
     -- home page -------------------------------------------------------------------------------------------
+    --
+    -- Four bands of tiles: the curated pins from 'featuredCuration' first, then
+    -- the latest news, the events still to come, and the latest podcast
+    -- episode. Anything pinned is dropped from the automatic bands so it is not
+    -- shown twice.
+    match (fromList [featuredCuration]) $ compile getResourceBody
+
     create ["index.html"] $ do
         route idRoute
         compile $ do
             sponsors <- buildBoilerplateCtx (Just "Haskell Foundation")
+            featured <- loadFeatured
             podcastsCtx <- podcastListCtx . take 1 . reverse . sortOn podcastOrd <$> loadAll ("podcast/*/index.markdown" .&&. hasVersion "raw")
-            careersCtx <- careersCtx . reverse <$> loadAll ("careers/*.markdown" .&&. hasNoVersion)
-            announces <- take 1 <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
-            let announceCtx = announcementsCtx announces
-            eventsCtx <- activeEventsCtx <$> (recentFirst =<< loadAll ("events/*.markdown" .&&. hasNoVersion))
+            announces <- take homepageNewsCount . excluding featured <$> (recentFirst =<< loadAll @String ("news/*/**.markdown" .&&. hasNoVersion))
+            events <- excluding featured <$> loadAll ("events/*.markdown" .&&. hasNoVersion)
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> careersCtx <> announceCtx <> eventsCtx)
+                >>= loadAndApplyTemplate "templates/homepage.html" (podcastsCtx <> featuredCtx featured <> announcementsCtx announces <> upcomingEventsCtx events)
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
@@ -499,14 +532,18 @@ slugField name =
 -- news ------------------------------------------------------------------------------------------------
 
 -- | Context for a single news entry, shared by the index tiles, the homepage
--- announcement and the standalone article page. `teaser` is the entry's first
--- paragraph as plain text (from the "description" version), used as a preview
--- so the index links to the full article rather than inlining it.
+-- announcement and the standalone article page.
 newsItemCtx :: Context String
 newsItemCtx =
-    field "teaser" (loadBody . setVersion (Just "description") . itemIdentifier)
+    teaserFromDescription
         <> dateField "date" "%B %e, %Y"
         <> defaultContext
+
+-- | The item's first paragraph as plain text (from the "description" version),
+-- used as a tile preview so the tile links to the full page rather than
+-- inlining it.
+teaserFromDescription :: Context String
+teaserFromDescription = field "teaser" (loadBody . setVersion (Just "description") . itemIdentifier)
 
 -- faq -------------------------------------------------------------------------------------------------
 faqCtx :: [Item String] -> Context String
@@ -527,8 +564,8 @@ whoWeAreCtx people =
     ofMetadataFieldCurrent :: Bool -> String -> String -> [Item String] -> Compiler [Item String]
     ofMetadataFieldCurrent cur field value items = do
         items' <- ofMetadataField field value items
-        current <-
-            filterM
+        nonEmpty
+            =<< filterM
                 ( \item -> do
                     mbTenureStart <- getMetadataField (itemIdentifier item) "tenureStart"
                     mbTenureStop <- getMetadataField (itemIdentifier item) "tenureEnd"
@@ -537,11 +574,6 @@ whoWeAreCtx people =
                         Just date -> not cur
                 )
                 items'
-        -- Fail (rather than return an empty list) when nobody matches, so the
-        -- corresponding listField is *absent* and `$if(...)$` in templates is
-        -- False. Otherwise an empty list still counts as "present".
-        guard (not (null current))
-        pure current
 
 -- podcast ---------------------------------------------------------------------------------------------
 podcastListCtx :: [Item String] -> Context String
@@ -568,19 +600,85 @@ hiringSponsorsCtx sponsors =
 
 announcementsCtx :: [Item String] -> Context String
 announcementsCtx ads =
-    listField "announcements" newsItemCtx (pure ads)
+    listField "announcements" newsItemCtx (nonEmpty ads)
 
--- Events
+-- Featured ---------------------------------------------------------------------------------------------
 
+{- | The pages pinned to the top of the home page, in the order 'featuredCuration'
+lists them. A path that does not name a compiled page fails the build, so a
+renamed or deleted page cannot silently leave a hole on the front page.
+-}
+loadFeatured :: Compiler [Item String]
+loadFeatured = do
+    paths <- fromMaybe [] . lookupStringList "featured" <$> getMetadata featuredCuration
+    traverse (load . fromFilePath) paths
+
+{- | A pinned tile. Pins point at pages from any section, so the tile only uses
+what every section has: a title, a blurb (the page's own @summary@ where it has
+one, otherwise its first paragraph) and a link (the external @link@ of a
+link-out news entry, otherwise the page's own URL).
+-}
+featuredCtx :: [Item String] -> Context String
+featuredCtx items =
+    listField "featured" (teaserFromDescription <> defaultContext) (nonEmpty items)
+
+-- Events -----------------------------------------------------------------------------------------------
+
+-- | All events, the ones happening soonest last, as an archive reads.
 allEventsCtx :: [Item String] -> Context String
 allEventsCtx evts =
-    listField "events" defaultContext (pure evts)
+    listField "events" eventCtx (sortOnM (fmap (Down . eventStarts) . eventDates) evts)
         <> defaultContext
 
-activeEventsCtx :: [Item String] -> Context String
-activeEventsCtx evts =
-    listField "events" defaultContext (ofMetadataField "status" "active" evts)
+-- | Only the events that have not finished yet, the ones happening soonest first.
+upcomingEventsCtx :: [Item String] -> Context String
+upcomingEventsCtx evts =
+    listField "events" eventCtx (nonEmpty =<< upcomingEvents evts)
         <> defaultContext
+  where
+    upcomingEvents es = do
+        today <- utctDay <$> unsafeCompiler getCurrentTime
+        sortOnM (fmap eventStarts . eventDates) =<< filterM (fmap ((>= today) . eventEnds) . eventDates) es
+
+-- | A single event, with the date range the templates show derived from 'EventDates'.
+eventCtx :: Context String
+eventCtx =
+    field "daterange" (fmap formatDateRange . eventDates)
+        <> defaultContext
+
+{- | The span of days an event covers, from its @starts@ and (for a multi-day
+event) @ends@ front matter fields. Keeping the dates as data rather than as the
+prose field they replace lets the home page drop past events by itself, and
+leaves one place where a range is worded.
+-}
+data EventDates = EventDates {eventStarts :: Day, eventEnds :: Day}
+
+eventDates :: Item a -> Compiler EventDates
+eventDates item = do
+    starts <- isoDay "starts" =<< getMetadataField' ident "starts"
+    ends <- traverse (isoDay "ends") =<< getMetadataField ident "ends"
+    pure $ EventDates starts (fromMaybe starts ends)
+  where
+    ident = itemIdentifier item
+    isoDay name raw =
+        maybe (fail $ show ident <> ": " <> name <> " is not a YYYY-MM-DD date: " <> raw) pure $
+            parseTimeM True defaultTimeLocale "%Y-%m-%d" raw
+
+{- | Word a span the way a person would: @June 4, 2026@ for a single day,
+@June 7-9, 2023@ within one month, @May 30 - June 2, 2026@ within one year, and
+both dates in full across years.
+-}
+formatDateRange :: EventDates -> String
+formatDateRange (EventDates starts ends)
+    | starts == ends = fmt "%B %-d, %Y" starts
+    | (startYear, startMonth) == (endYear, endMonth) = fmt "%B %-d" starts <> "-" <> fmt "%-d, %Y" ends
+    | startYear == endYear = fmt "%B %-d" starts <> " - " <> fmt "%B %-d, %Y" ends
+    | otherwise = fmt "%B %-d, %Y" starts <> " - " <> fmt "%B %-d, %Y" ends
+  where
+    (startYear, startMonth, _) = toGregorian starts
+    (endYear, endMonth, _) = toGregorian ends
+    fmt :: String -> Day -> String
+    fmt = formatTime defaultTimeLocale
 
 partnershipCtx :: [Item String] -> Context String
 partnershipCtx evts =
@@ -601,6 +699,22 @@ reportCtx = dateField "date" "%B %d, %0Y"
 -- UTILS -----------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 
+{- | Fail (rather than return an empty list) when nothing is left, so that the
+'listField' built from the result is *absent* and `$if(...)$` in templates is
+False. Otherwise an empty list still counts as "present" and a template renders
+a section heading above no tiles at all.
+-}
+nonEmpty :: [a] -> Compiler [a]
+nonEmpty items = guard (not (null items)) >> pure items
+
+-- | Drop the items already shown elsewhere on the same page.
+excluding :: [Item a] -> [Item b] -> [Item b]
+excluding shown = filter ((`notElem` map itemIdentifier shown) . itemIdentifier)
+
+-- | Sort by a key that can only be computed in the 'Compiler' monad.
+sortOnM :: (Ord b) => (a -> Compiler b) -> [a] -> Compiler [a]
+sortOnM key items = map fst . sortOn snd <$> traverse (\x -> (,) x <$> key x) items
+
 -- | filter list of item string based on whether or not the field exists
 filterMetadataField :: String -> [Item String] -> Compiler [Item String]
 filterMetadataField field =
@@ -612,16 +726,14 @@ filterMetadataField field =
 
 -- | filter list of item string based on the given value to match on the given metadata field
 ofMetadataField :: String -> String -> [Item String] -> Compiler [Item String]
-ofMetadataField field value items = do
-    matching <-
-        filterM
+ofMetadataField field value items =
+    nonEmpty
+        =<< filterM
             ( \item -> do
                 mbField <- getMetadataField (itemIdentifier item) field
                 return $ Just value == mbField
             )
             items
-    guard (not (null matching))
-    pure matching
 
 -- | sort list of item based on the given metadata field
 sortFromMetadataField :: String -> [Item String] -> Compiler [Item String]

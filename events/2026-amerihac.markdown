@@ -1,8 +1,8 @@
 ---
 title: 2026 Haskell Foundation North American Hackathon (AmeriHac)
 published: 2025-09-13
-daterange: Feb 7-8, 2026
-status: active
+starts: 2026-02-07
+ends: 2026-02-08
 location: New York, New York
 summary: Open Source Haskell hackathon
 ---

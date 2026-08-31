@@ -15,42 +15,59 @@
     </div>
   </div>
 
-  <div class="max-w-screen-xl mx-auto mt-12 md:mt-16 px-4 sm:px-12 lg:px-16">
-    <div class="grid gap-8 md:grid-cols-2">
-      $if(openreqs)$
-      $for(openreqs)$
-      $partial("templates/careers/tile.html")$
-      $endfor$
-      $endif$
+  <div class="max-w-screen-xl mx-auto mt-12 md:mt-16 px-4 sm:px-12 lg:px-16 space-y-16 md:space-y-24">
 
-      $if(announcements)$
-      $for(announcements)$
-      $partial("templates/news/frontpage.html")$
+    $if(featured)$
+    <section class="grid gap-8 md:grid-cols-2">
+      $for(featured)$
+      $partial("templates/featured/tile.html")$
       $endfor$
-      $endif$
-      $for(episodes)$
-        <div class="bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
-          <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-6 lg:py-24 h-full">
-            <h2 class="text-center text-2xl md:text-4xl leading-tight font-normal">
-              <b>$episode$</b> – $title$
-            </h2>
-            <div class="mt-8  space-y-8 max-w-2xl mx-auto">
-              $body$
-              <div class="mt-4">
-                <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
-              </div>
+    </section>
+    $endif$
+
+    $if(announcements)$
+    <section>
+      <h2 class="text-center text-2xl sm:text-3xl md:text-4xl">Latest news</h2>
+      <div class="mt-8 md:mt-12 grid gap-8 md:grid-cols-2">
+        $for(announcements)$
+        $partial("templates/news/frontpage.html")$
+        $endfor$
+      </div>
+      <p class="mt-8 text-center"><a class="arrow-link" href="/news">&gt;&gt; All news</a></p>
+    </section>
+    $endif$
+
+    $if(events)$
+    <section>
+      <h2 class="text-center text-2xl sm:text-3xl md:text-4xl">Upcoming events</h2>
+      <div class="mt-8 md:mt-12 grid gap-8 md:grid-cols-2">
+        $for(events)$
+        $partial("templates/events/tile.html")$
+        $endfor$
+      </div>
+      <p class="mt-8 text-center"><a class="arrow-link" href="/events">&gt;&gt; All events</a></p>
+    </section>
+    $endif$
+
+    $for(episodes)$
+    <section>
+      <h2 class="text-center text-2xl sm:text-3xl md:text-4xl">Latest podcast episode</h2>
+      <div class="mt-8 md:mt-12 bg-white border border-gray-300 rounded py-8 px-6 sm:px-12 text-center">
+        <div class="bg-gray-100 px-6 sm:px-12 lg:px-16 py-12">
+          <h3 class="text-center text-2xl md:text-4xl leading-tight font-normal">
+            <b>$episode$</b> – $title$
+          </h3>
+          <div class="mt-8 space-y-8 max-w-2xl mx-auto">
+            $body$
+            <div class="mt-4">
+              <a class="arrow-link" href="/podcast/$episode$">&gt;&gt; Listen to $title$</a>
             </div>
           </div>
         </div>
-      $endfor$
+      </div>
+    </section>
+    $endfor$
 
-      $if(events)$
-      $for(events)$
-      $partial("templates/events/tile.html")$
-      $endfor$
-      $endif$
-
-    </div>
   </div>
 
   <div class="relative bg-white mt-24 lg:w-2/3">

@@ -1,8 +1,8 @@
 ---
 title: 2023 GHC Contributors' Workshop
 published: 2023-03-01
-daterange: June 7-9, 2023
-status: inactive
+starts: 2023-06-07
+ends: 2023-06-09
 location: Rapperswil, Switzerland
 summary: A hands-on introduction to working on GHC, colocated with Zurihac 2023
 ---
