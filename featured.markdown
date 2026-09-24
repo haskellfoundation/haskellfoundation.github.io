@@ -12,5 +12,5 @@
 # path that names no page fails the build.
 featured:
   - careers/head-of-development.markdown
-  - news/2026-08-05/technical-leadership-committee.markdown
+  - news/2026-09-23/save-the-date-hew-hiw-2027.markdown
 ---
