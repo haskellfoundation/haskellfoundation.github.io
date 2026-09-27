@@ -12,5 +12,5 @@
 # path that names no page fails the build.
 featured:
   - news/2026-09-23/save-the-date-hew-hiw-2027.markdown
-  - news/2026-09-25/save-the-date-amerihac-2027.markdown
+  - news/2026-09-27/save-the-date-amerihac-2027.markdown
 ---

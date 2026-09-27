@@ -1,6 +1,6 @@
 ---
 title: AmeriHac 2027
-published: 2026-09-25
+published: 2026-09-27
 starts: 2027-02-06
 ends: 2027-02-07
 location: New York, New York
