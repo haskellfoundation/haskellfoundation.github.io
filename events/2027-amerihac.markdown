@@ -14,4 +14,8 @@ The event will take place on Feb 6^th^ and Feb 7^th^ 2027, in downtown Manhattan
 
 More details will be added to this page as we get closer to the event.
 
+## Discord
+<!-- The discord invite link below doesn't have an expiry date -->
+[Join the Discord server](https://discord.gg/3QWgvUAWYT) to plan your trip, discuss ideas, and socialize!
+
 <div class="flex flex-wrap items-center justify-center"><a class="block w-48" style="margin-right: 4rem"><img src="/assets/images/partners/Jane_Street.png"></a><a class="block w-48" style="margin-left: 4rem;"><img src="/assets/images/logos/hf-logo-400px-alpha.png"></a></div>
