@@ -156,6 +156,25 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
+    -- Technical leadership committee --------------------------------------------------------------------------------------------
+    --
+    -- This committee is special in that it needs a space to report what projects it's currently running
+    -- TODO: once there are funded projects, we should have a mechanism that lists
+    -- them on this page
+    match "technical-leadership/members/*.markdown" $ compile pandocCompiler
+    create ["technical-leadership/index.html"] $ do
+        route idRoute
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Technical Leadership Committee")
+
+            (members :: [Item String]) <- sortTLCByRole =<< loadAll ("technical-leadership/members/*.markdown" .&&. hasNoVersion)
+            let tlcContext = listField "members" (metadataField <> defaultContext) (pure members) <> defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/technical-leadership/page.html" tlcContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
     -- news ------------------------------------------------------------------------------------------------
     -- An entry is either a full article (own page) or a headline linking out
     -- (front matter `link`, no own page). `hasLink` splits the two.
@@ -790,6 +809,30 @@ sortBoardByRole items = do
     tagWithRole item = do
         title <- fromMaybe "Board Member" <$> getMetadataField (itemIdentifier item) "title"
         role <- either fail pure (parseRole title)
+        pure (role, item)
+
+{- | A TLC member's role -}
+data TLCRole
+    = TLCChair
+    | TLCBoardLiaison
+    | TLCMember
+    deriving (Eq, Ord, Show)
+
+parseTLCRole :: String -> Either String TLCRole
+parseTLCRole title = case title of
+    "Chair" -> Right TLCChair
+    "Board Liaison" -> Right TLCBoardLiaison
+    "Member" -> Right TLCMember
+    _ -> Left ("parseRole: unexpected TLC role " ++ show title)
+
+sortTLCByRole :: [Item String] -> Compiler [Item String]
+sortTLCByRole items = do
+    ranked <- mapM tagWithRole items
+    pure $ map snd $ sortOn fst ranked
+  where
+    tagWithRole item = do
+        title <- fromMaybe "Member" <$> getMetadataField (itemIdentifier item) "role"
+        role <- either fail pure (parseTLCRole title)
         pure (role, item)
 
 --------------------------------------------------------------------------------------------------------
