@@ -1,5 +1,5 @@
 ---
-status: inprogress
+status: completed
 title: GHC API Stability Initiative
 link: https://discourse.haskell.org/t/charting-a-course-toward-a-stable-api-for-ghc/7646
 link-text: Project Announcement

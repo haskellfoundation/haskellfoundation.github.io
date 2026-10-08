@@ -1,5 +1,5 @@
 ---
-status: inprogress
+status: completed
 title: Language Extension Lifecycle Framework
 link: https://github.com/ghc-proposals/ghc-proposals/pull/601
 link-text: GHC Proposal
