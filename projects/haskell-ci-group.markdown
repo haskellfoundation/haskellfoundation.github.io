@@ -1,5 +1,5 @@
 ---
-status: inprogress
+status: completed
 title: The Haskell CI Group
 link: https://github.com/haskellfoundation/haskell-ci-group
 link-text: Group Repository
