@@ -156,6 +156,21 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
                 >>= relativizeUrls
 
+    -- Technical leadership committee --------------------------------------------------------------------------------------------
+    --
+    -- This committee is special in that it needs a space to report what projects it's currently running
+    -- TODO: once there are funded projects, we should have a mechanism that lists
+    -- them on this page
+    match "technical-leadership/index.markdown" $ do
+        route $ setExtension "html"
+        compile $ do
+            sponsors <- buildBoilerplateCtx (Just "Technical Leadership Committee")
+
+            pandocCompiler
+                >>= loadAndApplyTemplate "templates/technical-leadership/page.html" defaultContext
+                >>= loadAndApplyTemplate "templates/boilerplate.html" sponsors
+                >>= relativizeUrls
+
     -- news ------------------------------------------------------------------------------------------------
     -- An entry is either a full article (own page) or a headline linking out
     -- (front matter `link`, no own page). `hasLink` splits the two.
