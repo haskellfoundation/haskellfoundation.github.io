@@ -1,0 +1,42 @@
+<div class="max-w-screen-xl mx-auto py-16 md:py-24">
+  $partial("templates/corners.html")$
+
+  <div class="text-center pt-12 md:pt-20 px-12 sm:px-16 md:px-24 lg:px-36 ">
+    <h1 class="text-2xl sm:text-4xl md:text-5xl">Technical Leadership Committee</h1>
+  </div>
+
+  <div class="mt-16 md:mt-24">
+    <div class="xl:max-w-screen-xl mx-auto md:px-12 lg:px-16">
+      <div class="bg-gray-800 shadow-sm px-6 sm:px-12 lg:px-16 py-12 md:py-16">
+        <div class="max-w-3xl mx-auto space-y-4 lg:text-xl text-gray-300">
+          <p class="text-gray-300">
+            The Technical Leadership Committee is the body behind the Haskell Foundation’s technical vision. The committee is responsible for expressing a technical vision for the Haskell community and allocating the Haskell Foundation’s resources towards achieving this vision.
+
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto mt-8 space-y-2 text-gray-400">
+          <p class="text-gray-400">
+            If you wish to contact the Technical Leadership Committee, you may do so via <a href="mailto:technical-leadership@haskell.foundation">technical-leadership@haskell.foundation</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-12 lg:px-16 py-16 md:py-24">
+    <h2 class="font-normal text-3xl md:text-4xl text-center">Committee Members</h2>
+    <div class="mt-10 md:mt-12 lg:mt-16 xl:mt-20 grid gap-8 md:grid-cols-2">
+      $for(members)$
+      $partial("templates/technical-leadership/member.html")$
+      $endfor$
+    </div>
+  </div>
+
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-12 lg:px-16 py-16 md:py-24">
+    <h2 class="font-normal text-3xl md:text-4xl text-center">Projects</h2>
+    <p class="mt-10 lg:text-xl text-center">
+      Come back soon!
+    </p>
+  </div>
+</div>
