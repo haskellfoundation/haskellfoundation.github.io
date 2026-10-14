@@ -14,10 +14,10 @@ import Control.Monad (filterM)
 import Data.List (intercalate)
 import Data.Maybe (fromMaybe, isNothing)
 import qualified Data.Text as T
-import System.Directory (doesFileExist, listDirectory)
+import System.Directory (doesFileExist, listDirectory, makeRelativeToCurrentDirectory)
 import System.Environment (getArgs, lookupEnv)
 import System.Exit (die)
-import System.FilePath (dropExtension, (<.>), (</>))
+import System.FilePath (dropExtension, normalise, (<.>), (</>))
 import System.IO (hIsTerminalDevice, stdout)
 import Text.Pandoc (
     Block (Para, Plain),
@@ -41,8 +41,7 @@ import Text.Pandoc.Shared (stringify)
 siteRoot :: String
 siteRoot = "https://haskell.foundation"
 
--- | Hashtags to append; same set for every microblog for now (see the
--- "Hashtag set per channel" open question in the todo).
+-- | Hashtags to append; same set for every microblog for now.
 hashtags :: [T.Text]
 hashtags = ["#haskell", "#haskellfoundation"]
 
@@ -78,12 +77,13 @@ main = do
     putStr (renderDrafts style item)
 
 -- | Accept either a path to a markdown file or a bare slug, looked up under
--- every `news/YYYY-MM-DD/` directory.
+-- every `news/YYYY-MM-DD/` directory. A path comes back relative to the repo
+-- root and normalised, since 'loadNewsItem' derives the site URL from it.
 resolvePath :: FilePath -> IO FilePath
 resolvePath arg = do
     isFile <- doesFileExist arg
     if isFile
-        then pure arg
+        then normalise <$> makeRelativeToCurrentDirectory arg
         else do
             dates <- listDirectory "news"
             let candidates = [("news" </> d </> arg) <.> "markdown" | d <- dates]
@@ -176,7 +176,6 @@ data PostAs
     | AsPrivate
     | AsPrivateEmail
     | AsPrivateGitHub
-    | AsUnknown
 
 data Channel = Channel
     { chName :: T.Text
@@ -206,7 +205,9 @@ discourse =
         , chAccount = AsPrivate
         , chColor = 74
         , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
-            [section "post" (T.unlines ["# " <> niTitle, "", niBlurb, "", niUrl])]
+            [ section "title" niTitle
+            , section "body" (T.unlines [niBlurb, "", niUrl])
+            ]
         }
 
 reddit :: Channel
@@ -249,7 +250,7 @@ linkedIn =
         , chKind = Microblog
         , chConstraint = Constraint{conFormat = PlainText, conLength = PostAtMost 3000, conEtiquette = []}
         , chUrl = "https://www.linkedin.com/company/haskell-foundation-inc"
-        , chAccount = AsUnknown
+        , chAccount = AsHF
         , chColor = 62
         , chDraft = \NewsItem{niTitle, niBlurb, niUrl} ->
             [ section
@@ -399,16 +400,15 @@ constraintText Constraint{conFormat, conLength, conEtiquette} =
         ImportantNewsOnly -> "important news only"
 
 -- | Human-readable "who posts this" line, coloured as a traffic light:
--- green = HF-owned/safe, yellow = unconfirmed, red = needs your personal
--- identity (the easy thing to get wrong). These three saturated colours are
--- reserved for this flag and never used for channel chrome (see 'chColor').
+-- green = HF-owned/safe, red = needs your personal identity (the easy thing
+-- to get wrong). These saturated colours are reserved for this flag and never
+-- used for channel chrome (see 'chColor').
 accountText :: Style -> PostAs -> T.Text
 accountText s = \case
     AsHF -> fg s 40 "Haskell Foundation account"
-    AsPrivate -> boldFg s 203 "your PRIVATE account"
-    AsPrivateEmail -> boldFg s 203 "your PRIVATE email address"
-    AsPrivateGitHub -> boldFg s 203 "your PRIVATE GitHub account (as a pull request)"
-    AsUnknown -> boldFg s 220 "HF or private? \x2014 unconfirmed, check before posting"
+    AsPrivate -> boldFg s 203 "Your private account"
+    AsPrivateEmail -> boldFg s 203 "Your private email address"
+    AsPrivateGitHub -> boldFg s 203 "Your private GitHub account (as a pull request)"
 
 displayUrl :: T.Text -> T.Text
 displayUrl url = fromMaybe url (T.stripPrefix "mailto:" url)
@@ -446,14 +446,19 @@ link Style{styLinks} url label
 (with an ellipsis) so the whole post fits @limit@ characters. Title, url and
 hashtags are never trimmed. The character count goes in the section's chrome
 label rather than the body, so what you paste is exactly the post.
+
+Twitter/X and Mastodon, the two channels using this, both count a link as
+'linkWeight' characters whatever its real length, so the count does too.
 -}
 budgetedPost :: Int -> NewsItem -> Section
 budgetedPost limit NewsItem{niTitle, niBlurb, niUrl} =
-    section ("post \x00b7 " <> tshow (T.length post) <> "/" <> tshow limit <> " chars") post
+    section ("post \x00b7 " <> tshow weightedLen <> "/" <> tshow limit <> " chars") post
   where
+    linkWeight = 23
+    weightedLen = T.length post - T.length niUrl + linkWeight
     tagsLine = T.unwords hashtags
     sep = "\n\n" :: T.Text
-    fixedLen = T.length niTitle + T.length niUrl + T.length tagsLine + 3 * T.length sep
+    fixedLen = T.length niTitle + linkWeight + T.length tagsLine + 3 * T.length sep
     blurbBudget = limit - fixedLen
     blurb
         | blurbBudget <= 0 = ""

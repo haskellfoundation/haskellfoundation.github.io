@@ -1,120 +1,87 @@
-# Social cross-posting draft generator
+# Social cross-posting drafts
 
-Prints ready-to-copy-paste drafts of a news item for each external channel
-(Discourse, Reddit, Twitter/X, LinkedIn, Mastodon, haskell-cafe, Haskell
-Weekly). It only prints text — there is no posting, no API keys, no bot
-behavior.
+`social-draft` takes a news item and prints a draft post for each channel we
+announce news on. You copy each draft and post it by hand. The tool never
+posts anything itself and needs no API keys.
 
-It's a second executable in the root `haskell-foundation.cabal` (not a
-separate package): it re-parses the news item's front matter + first
-paragraph directly with `pandoc`, the same library `site.hs` already uses,
-rather than re-implementing Markdown/YAML parsing or standing up a second
-build.
+It is a second executable in `haskell-foundation.cabal`. It reads the news
+item with `pandoc`, the library `site.hs` uses, so the blurb is the same
+first paragraph the site shows in its link previews.
 
 ## Usage
 
+Run it from the repo root, with the path to a news item or just its slug:
+
 ```bash
 cabal run social-draft -- news/2026-07-18/hiw-hew-2026-videos.markdown
-# or, equivalently, by slug:
 cabal run social-draft -- hiw-hew-2026-videos
 ```
 
-Run from the repo root. Each channel gets a colour-coded header stating its
-kind (forum / microblog / mailing list / newsletter), its format and length
-constraint, **which account to post from**, and a clickable link to the
-channel.
+Each channel starts with a header. It names the kind of channel, the format
+and length limit, the account to post from, and links to where you post.
 
-Below the header come the draft's sections — `title`, `link`, `post`, `body`,
-… — each an indented dim label on its own line, then the text itself at
-column 0 with blank lines around it. So a line- or block-select grabs exactly
-what you paste and never a label: everything indented or coloured is chrome,
-including the microblog character count, which sits in the `post` label
-rather than in the post.
+Then come the parts of the draft, such as `title`, `link`, `post` or `body`.
+Each part has a dim, indented label, followed by the text itself. Copy the
+text and leave the label: anything indented or coloured is not part of the
+draft. The character count of a microblog post is in its label, too.
 
-## Which account
+## Channels and accounts
 
-The header's `account` line says who should post:
+Watch the `account` line. Green means the Haskell Foundation account, red
+means your own.
 
-- **Haskell Foundation account** — the HF owns this channel. Currently
-  Twitter/X ([@haskellfound](https://twitter.com/haskellfound)) and Mastodon
-  ([@haskell_foundation](https://mastodon.social/@haskell_foundation)).
-- **your PRIVATE account / email / GitHub account** — no HF identity here;
-  post from your own account (Discourse, Reddit), send from your own address
-  (haskell-cafe), or open the pull request yourself (Haskell Weekly).
-- **HF or private? — unconfirmed** — LinkedIn; not yet decided, check before
-  posting.
+| Channel | Post as |
+|---|---|
+| [Discourse](https://discourse.haskell.org/c/haskell-foundation) | yourself |
+| [r/haskell](https://www.reddit.com/r/haskell/) | yourself |
+| [Twitter/X](https://twitter.com/haskellfound) | Haskell Foundation |
+| [LinkedIn](https://www.linkedin.com/company/haskell-foundation-inc) | Haskell Foundation |
+| [Mastodon](https://mastodon.social/@haskell_foundation) | Haskell Foundation |
+| haskell-cafe mailing list | yourself, from your own email address |
+| [Haskell Weekly](https://github.com/haskellweekly/haskellweekly) | yourself, as a pull request |
+
+Haskell Weekly lives in a Git repository. To suggest an entry, open a pull
+request that adds one list item to the issue being put together
+(`data/newsletter/<year>/issue-NNN.markdown`). The editors decide where it
+goes, and they only want important news.
 
 ## Colour and links
 
-Two disjoint colour families keep the roles distinct: each channel's chrome
-uses a muted, cool hue, while the `account` flag uses saturated traffic-light
-colours (green = HF/safe, yellow = unconfirmed, red = your private identity).
+Colour and clickable links only appear in a terminal. Pipe the output to a
+file or a pager and you get plain text. Set `NO_COLOR` to turn colour off.
 
-Colour and clickable links are emitted only when writing to an interactive
-terminal, so piping to a file or pager gives clean plain text. Colour also
-honours the standard `NO_COLOR` environment variable.
+## Limitations
 
-## Known rough edges (first draft)
+- Every microblog gets the same hashtags, `#haskell #haskellfoundation`.
+- On Twitter/X (280) and Mastodon (500), the tool shortens the blurb to fit,
+  counting the link as 23 characters like both sites do. It never shortens
+  the title, so a very long title can still go over. The count then shows
+  it, for example `301/280`.
+- Reddit allows at most 300 characters in a title. The tool shows the limit
+  but does not check it.
+- The Haskell Weekly entry names the `author` field as written, including a
+  role like "Bryan Richter, DevOps Engineer". The newsletter uses plain
+  names, so shorten it if needed. With no `author`, a site article is
+  credited to the Haskell Foundation. A link to someone else's post gets a
+  `??` instead, because the news item does not say who wrote it.
+- The link is the item's `link` field if it has one. Otherwise the tool
+  builds `https://haskell.foundation/<path>.html` the same way `site.hs`
+  routes news items, without running the site build.
 
-- Hashtags are a single fixed set (`#haskell #haskellfoundation`) applied to
-  every microblog; not yet varied per channel or per topic.
-- Twitter/Mastodon trimming cuts the blurb with an ellipsis to fit the char
-  budget (280 / 500). Only the blurb is ever trimmed, so a title long enough
-  to blow the budget on its own comes out over — visibly, since the reported
-  count is exact (`301/280`).
-- Only a whole-post limit is enforced; Reddit's title limit is displayed as
-  advice, not checked.
-- The Haskell Weekly entry credits the `author` front matter field verbatim,
-  including any role ("Bryan Richter, DevOps Engineer") — the newsletter's own
-  style is bare names, so trim it when it reads oddly. Without an `author`
-  field it credits the HF for a site article, and prints a `??` placeholder
-  for a link-out (whoever wrote the linked post isn't recorded in the front
-  matter).
-- The canonical URL is the item's `link` front-matter field if present
-  (link-out news items), otherwise `https://haskell.foundation/<route>.html`
-  mirroring `site.hs`'s route for that item — it isn't computed from the
-  actual Hakyll build.
+## Why the tool doesn't post for you
 
-## Channels to serve
+We decided against one script that posts everywhere:
 
-Forums:
-- Haskell Discourse
-- The Haskell subreddit (r/haskell)
+- Mastodon and Discourse have simple APIs. haskell-cafe is plain email, but
+  people on a mailing list notice an automated post, and it reads badly.
+- Twitter/X charges for posting through its API (about $100 a month).
+  LinkedIn needs an app review and permissions for the company page.
+- On Reddit, automated posts linking to your own site look like spam and
+  get caught by spam filters.
 
-Microblogs:
-- Twitter (X)
-- LinkedIn
-- Mastodon
+So such a script would mean API keys to manage, two awkward APIs to keep
+working, and posts that sound like a bot in places where tone matters.
 
-Mailing list:
-- haskell-cafe
-
-Newsletter:
-- [Haskell Weekly](https://github.com/haskellweekly/haskellweekly) — curated
-  in Git, so an entry is a pull request adding one Markdown list item to the
-  issue being assembled (`data/newsletter/<year>/issue-NNN.markdown`). Its
-  editors sort entries into the issue's sections.
-
-## Analysis — why not one "post everywhere" script
-
-The channels split into three tiers by how automatable they *should* be,
-which differs from how automatable they *can* be:
-
-- **Easy + appropriate**: Mastodon (trivial API, access token), Discourse
-  (clean REST API + key; HF already announces there), haskell-cafe (just
-  SMTP email — but a plain-text list with etiquette; a visibly automated
-  blast reads poorly).
-- **Possible but painful/costly**: Twitter/X (write API is now paid,
-  ~$100+/mo basic tier), LinkedIn (API needs app review + org-page
-  permissions, slow and awkward to maintain).
-- **Possible but socially risky**: Reddit (auto-posted self-links look
-  spammy, trip spam filters, cut against community norms).
-
-A single "post everywhere" script concentrates the worst APIs, adds
-key-management + maintenance burden, and risks damaging automated posts to
-community spaces where tone matters. Rejected.
-
-Haskell Weekly is the one channel where automation is an option: a pull request
-is reviewed by its editors before anything is published. If it ever becomes
-routine, opening that pull request could be automated (`gh pr create` against
-the current issue file).
+Haskell Weekly is the exception, since its editors review every pull
+request. If we suggest entries often, the tool could open the pull request
+itself with `gh pr create`.
