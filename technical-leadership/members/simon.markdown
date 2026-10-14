@@ -1,6 +1,6 @@
 ---
 name: Simon Marlow
-image: /assets/images/board-members/sm.png
+image: /assets/images/board-members/simonmarlow.png
 role: Board Liaison
 ---
 
