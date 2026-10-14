@@ -5,6 +5,7 @@
 
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
+import qualified Data.ByteString as BS
 import Data.List (sortOn, isPrefixOf)
 import Data.Maybe (fromMaybe, isJust)
 import Data.Ord (Down (..))
@@ -28,6 +29,7 @@ import Text.Pandoc as Pandoc (
     runPure,
     writePlain,
  )
+import Text.Pandoc.ImageSize (ImageSize (pxX, pxY), imageSize)
 
 import Debug.Trace (trace)
 
@@ -102,6 +104,7 @@ main = hakyllWith config $ do
 
     -- sponsors --------------------------------------------------------------------------------------------
     match "donations/sponsors/*.markdown" $ compile pandocCompiler
+    match "assets/images/sponsors/**" $ version logoBytes $ compile getResourceLBS
 
     -- in-kind donations -----------------------------------------------------------------------------------
     create ["donations/index.html"] $ do
@@ -508,9 +511,9 @@ or use the passed in Maybe title, if it is a Just, or "No title" if not.
 boilerPlateCtx :: Maybe String -> [Item String] -> Context String
 boilerPlateCtx mtitle sponsors =
     mconcat
-        [ listField "golds" defaultContext (ofMetadataField "level" "Gold" sponsors)
-        , listField "silvers" defaultContext (ofMetadataField "level" "Silver" sponsors)
-        , listField "bronzes" defaultContext (ofMetadataField "level" "Bronze" sponsors)
+        [ listField "golds" sponsorCtx (ofMetadataField "level" "Gold" sponsors)
+        , listField "silvers" sponsorCtx (ofMetadataField "level" "Silver" sponsors)
+        , listField "bronzes" sponsorCtx (ofMetadataField "level" "Bronze" sponsors)
         , field "title" $ \item -> do
             metadata <- getMetadata (itemIdentifier item)
             return $ fromMaybe (fromMaybe "No title" mtitle) $ lookupString "title" metadata
@@ -519,6 +522,38 @@ boilerPlateCtx mtitle sponsors =
             if null desc then noResult "Description empty" else pure (escapeHtml desc)
         , defaultContext
         ]
+
+-- | A single sponsor, as rendered in a logo row.
+sponsorCtx :: Context String
+sponsorCtx =
+    field "logoWidth" (fmap (show . pxX) . logoSize)
+        <> field "logoHeight" (fmap (show . pxY) . logoSize)
+        <> defaultContext
+
+{- | Browsers decode an image at its full size however small it is shown, and
+the footer puts every logo on every page. Export logos at 683 px wide, plus 200
+and 400 px for the @srcset@.
+-}
+maxLogoWidth :: Integer
+maxLogoWidth = 1000
+
+-- | The version of a sponsor image whose body is the file's contents, for
+-- 'logoSize' to 'load'.
+logoBytes :: String
+logoBytes = "bytes"
+
+-- | Intrinsic size of the file the @logo@ URL names, which must lie under
+-- @assets/images/sponsors/@. Fails the build if the format is unknown or the
+-- image is wider than 'maxLogoWidth'.
+logoSize :: Item a -> Compiler ImageSize
+logoSize item = do
+    path <- dropWhile (== '/') <$> getMetadataField' (itemIdentifier item) "logo"
+    image <- BS.toStrict <$> loadBody (setVersion (Just logoBytes) (fromFilePath path))
+    either (fail . ((path <> ": ") <>)) pure $ do
+        size <- either (Left . T.unpack) Right (imageSize defaultHakyllWriterOptions image)
+        if pxX size > maxLogoWidth
+            then Left $ show (pxX size) <> " px wide, more than " <> show maxLogoWidth <> " px"
+            else Right size
 
 -- affiliates ------------------------------------------------------------------------------------------
 
@@ -612,7 +647,7 @@ careersCtx reqs =
 
 hiringSponsorsCtx :: [Item String] -> Context String
 hiringSponsorsCtx sponsors =
-    listField "hiringsponsors" defaultContext (filterMetadataField "careersUrl" sponsors)
+    listField "hiringsponsors" sponsorCtx (filterMetadataField "careersUrl" sponsors)
         <> defaultContext
 
 -- Anouncements

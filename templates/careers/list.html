@@ -38,7 +38,7 @@ title: Careers
   <div class="mt-16 md:mt-24">
     <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 md:px-12">
       $for(hiringsponsors)$
-      <a href="$careersUrl$" target="_blank" class="block w-36 m-4"><img alt="$title$" src="$logo$" $if(srcset)$ srcset="$srcset$" $endif$></a>
+      <a href="$careersUrl$" target="_blank" class="block w-36 m-4"><img alt="$title$" src="$logo$" width="$logoWidth$" height="$logoHeight$" $if(srcset)$ srcset="$srcset$" sizes="9rem" $endif$></a>
       $endfor$
     </div>
   </div>
