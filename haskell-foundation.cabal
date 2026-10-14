@@ -6,6 +6,7 @@ cabal-version:      2.0
 executable site
   main-is:          site.hs
   build-depends:    base == 4.*
+                  , bytestring
                   , hakyll ^>= 4.14 || ^>= 4.15 || ^>= 4.16
                   , monadlist
                   , pandoc >=2.11 && <3.8
