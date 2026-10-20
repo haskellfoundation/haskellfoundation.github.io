@@ -10,9 +10,9 @@ summary: Second edition of the Haskell Foundation's North American hackathon
 The Haskell Foundation is proud to announce the second edition of AmeriHac, a two day
 Haskell hackathon in North America! [Jane Street](https://www.janestreet.com/) has kindly agreed to host the event again.
 
-The event will take place on Feb 6^th^ and Feb 7^th^ 2027, in downtown Manhattan. **Registration will open at a later date**.
+The event will take place on Feb 6^th^ and Feb 7^th^ 2027, in downtown Manhattan.
 
-More details will be added to this page as we get closer to the event.
+<a class="arrow-link" href="https://www.eventbrite.com/e/amerihac-2027-tickets-2003438356054">&gt;&gt; Register for AmeriHac 2027 here</a>
 
 ## Discord
 <!-- The discord invite link below doesn't have an expiry date -->
