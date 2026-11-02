@@ -26,7 +26,7 @@ The Haskell Foundation launched the Technical Leadership Committee, a new commit
 
 The second edition of our North American hackathon series, AmeriHac, is taking place Feb 6-7, 2027 in New York City, hosted by Jane Street.
 
-<a class="arrow-link" href="https://www.surveymonkey.com/r/3Z9D75V">&gt;&gt; Register for AmeriHac 2027 on Eventbrite</a>
+<a class="arrow-link" href="https://www.eventbrite.com/e/amerihac-2027-tickets-2003438356054">&gt;&gt; Register for AmeriHac 2027 on Eventbrite</a>
 
 The Haskell Foundation is currently assembling a slate of speakers to inspire Haskell hackers attending AmeriHac. Stay tuned!
 
