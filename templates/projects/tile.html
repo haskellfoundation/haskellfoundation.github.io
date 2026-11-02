@@ -10,9 +10,11 @@
   <div class="divide-y-2 divide-gray-200">
     <div class="flex items-center py-4 space-x-6">
       $if(leader0name)$
+      $if(leader0img)$
       <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
         <img src="/assets/images/$leader0img$" alt="$leader0name$">
       </div>
+      $endif$
       <div>
         <div class="font-medium">$leader0name$</div>
         $if(leader0mail)$<a class="block" href="mailto:$leader0mail$">$leader0mail$</a>$endif$
@@ -29,9 +31,11 @@
     </div>
     $if(leader1name)$
     <div class="flex items-center py-4 space-x-6">
+      $if(leader1img)$
       <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
         <img src="/assets/images/$leader1img$" alt="$leader1name$">
       </div>
+      $endif$
       <div>
         <div class="font-medium">$leader1name$</div>
         $if(leader1mail)$<a class="block" href="mailto:$leader1mail$">$leader1mail$</a>$endif$
@@ -40,9 +44,11 @@
     $endif$
     $if(leader2name)$
     <div class="flex items-center py-4 space-x-6">
+      $if(leader2img)$
       <div class="h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center">
         <img src="/assets/images/$leader2img$" alt="$leader2name$">
       </div>
+      $endif$
       <div>
         <div class="font-medium">$leader2name$</div>
         $if(leader2mail)$<a class="block" href="mailto:$leader2mail$">$leader2mail$</a>$endif$
