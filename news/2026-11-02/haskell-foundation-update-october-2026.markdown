@@ -1,5 +1,5 @@
 ---
-title: November 2026 Update
+title: October 2026 Update
 ---
 
 The Haskell Foundation is making an effort to communicate more often. It’s time to resurrect the monthly updates. We're aiming to have an update for the first Monday of every month.
