@@ -1,9 +1,9 @@
 ---
 name: Travis Whitaker
-email: travis@haskell.foundation
 title: Board Member
 executiveTeam: "False"
 tenureStart: 2026-11-02
+tenureEnd: 2026-11-11
 image: /assets/images/board-members/traviswhitaker.png
 committees:
 ---
