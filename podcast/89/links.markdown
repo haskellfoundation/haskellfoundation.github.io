@@ -1,0 +1,10 @@
+- [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)
+- [Real World Haskell](https://web.archive.org/web/20260310175111/https://book.realworldhaskell.org/)
+- [XMonad](https://xmonad.org/)
+- [Haskell Programming From First Principles](https://haskellbook.com/)
+- Haskell Foundation Stability Working Group
+  - [Announcement post](https://blog.haskell.org/stability-working-group/)
+  - [Git repo](https://github.com/haskellfoundation/stability)
+- [Flipstone](https://flipstone.com/)
+- [henforcer](https://github.com/flipstone/henforcer)
+- [Exfresso](https://exfresso.com/)
