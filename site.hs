@@ -6,6 +6,7 @@
 import Control.Monad (filterM, guard)
 import Control.Monad.ListM (sortByM)
 import qualified Data.ByteString as BS
+import Data.Functor.Identity (runIdentity)
 import Data.List (sortOn, isPrefixOf)
 import Data.Maybe (fromMaybe, isJust)
 import Data.Ord (Down (..))
@@ -24,12 +25,14 @@ import Text.Pandoc as Pandoc (
     Extension (Ext_tex_math_dollars),
     Pandoc (..),
     ReaderOptions (readerExtensions),
-    WriterOptions,
+    WriterOptions (writerTOCDepth, writerTableOfContents, writerTemplate),
     disableExtension,
     runPure,
     writePlain,
  )
 import Text.Pandoc.ImageSize (ImageSize (pxX, pxY), imageSize)
+import qualified Text.Pandoc.Templates as PandocTemplates
+import Text.Pandoc.Transforms (headerShift)
 
 import Debug.Trace (trace)
 
@@ -164,6 +167,21 @@ main = hakyllWith config $ do
     -- This committee is special in that it needs a space to report what projects it's currently running
     -- TODO: once there are funded projects, we should have a mechanism that lists
     -- them on this page
+    --
+    -- The vision is synced verbatim from another repository, so we need to adjust
+    -- some parts (e.g. header levels) to fit the site.
+    match "technical-leadership/vision.markdown" $
+        compile $ pandocCompilerWithTransform defaultHakyllReaderOptions defaultHakyllWriterOptions (headerShift 1)
+    match "technical-leadership/vision.markdown" $ version "toc" $
+        compile $
+            pandocCompilerWithTransform
+                defaultHakyllReaderOptions
+                defaultHakyllWriterOptions
+                    { writerTableOfContents = True
+                    , writerTOCDepth = 4
+                    , writerTemplate = Just tocOnlyTemplate
+                    }
+                (headerShift 1)
     match "technical-leadership/members/*.markdown" $ compile pandocCompiler
     create ["technical-leadership/index.html"] $ do
         route idRoute
@@ -171,7 +189,11 @@ main = hakyllWith config $ do
             sponsors <- buildBoilerplateCtx (Just "Technical Leadership Committee")
 
             (members :: [Item String]) <- sortTLCByRole =<< loadAll ("technical-leadership/members/*.markdown" .&&. hasNoVersion)
-            let tlcContext = listField "members" (metadataField <> defaultContext) (pure members) <> defaultContext
+            let tlcContext = mconcat [ field "vision" (\_ -> loadBody "technical-leadership/vision.markdown")
+                                     , field "vision-toc" (\_ -> loadBody (setVersion (Just "toc") "technical-leadership/vision.markdown"))
+                                     , listField "members" (metadataField <> defaultContext) (pure members)
+                                     , defaultContext
+                                     ]
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/technical-leadership/page.html" tlcContext
@@ -873,6 +895,15 @@ sortTLCByRole items = do
 --------------------------------------------------------------------------------------------------------
 -- Pandoc extensions -----------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
+
+{- | A pandoc template that renders nothing but the table of contents
+
+Used together with @writerTableOfContents@.
+-}
+tocOnlyTemplate :: PandocTemplates.Template T.Text
+tocOnlyTemplate =
+    either error id . runIdentity $
+        PandocTemplates.compileTemplate "toc-only" "$toc$"
 
 {- | Read a page render using pandoc, rendering its first paragraph as a plain string
 

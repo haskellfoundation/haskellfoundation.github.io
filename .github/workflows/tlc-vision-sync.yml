@@ -1,0 +1,38 @@
+name: Sync TLC vision
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # daily
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Fetch file
+        run: |
+          curl -fsSL \
+            "https://raw.githubusercontent.com/haskellfoundation/technical-leadership-committee/refs/heads/main/VISION.md" \
+            -o technical-leadership/vision.markdown
+
+      # The document has a header which we don't want
+      - name: Adapt file
+        run: |
+          sed -i '1{/^# /{N;/^# .*\n$/d}}' technical-leadership/vision.markdown
+
+      # Note that as per documentation, if no diff exists,
+      # then no pull request will be created.
+      #
+      # https://github.com/peter-evans/create-pull-request/tree/v8/#action-behaviour
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          branch: automated/sync-tlc-vision
+          commit-message: "Sync vision.markdown from TLC repo"
+          add-paths: technical-leadership/vision.markdown
+          title: 'Synchronize Technical Leadership Committee vision'
+          delete-branch: true
