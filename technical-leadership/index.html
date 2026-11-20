@@ -345,6 +345,139 @@
       Come back soon!
     </p>
   </div>
+
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-12 lg:px-16 py-16 md:py-24">
+    <h2 class="font-normal text-3xl md:text-4xl text-center">Vision</h2>
+    <div class="mt-10 md:mt-12 lg:mt-16 sm:px-8 md:px-12">
+      <div class="mx-auto prose md:prose-lg">
+        <div class="mb-8 p-4 bg-gray-100 border border-gray-300 rounded text-sm">
+          <div class="font-semibold">Jump to section</div>
+          <ul>
+<li><a href="#a-vision-of-productivity" id="toc-a-vision-of-productivity">A vision of productivity</a>
+<ul>
+<li><a href="#iteration-speed" id="toc-iteration-speed">Iteration speed</a></li>
+<li><a href="#debugging-and-profiling" id="toc-debugging-and-profiling">Debugging and profiling</a></li>
+<li><a href="#onboarding-and-devx" id="toc-onboarding-and-devx">Onboarding and DevX</a></li>
+</ul></li>
+<li><a href="#a-vision-of-a-secure-and-trustworthy-ecosystem" id="toc-a-vision-of-a-secure-and-trustworthy-ecosystem">A vision of a secure and trustworthy ecosystem</a></li>
+<li><a href="#a-vision-of-stability" id="toc-a-vision-of-stability">A vision of stability</a></li>
+<li><a href="#a-vision-of-a-flourishing-open-source-ecosystem" id="toc-a-vision-of-a-flourishing-open-source-ecosystem">A vision of a flourishing open source ecosystem</a></li>
+</ul>
+        </div>
+        <p>We believe that Haskell is awesome and that it can provide unique value to
+everyone, because it sits at an interesting intersection between human
+craftsmanship and machine automation:</p>
+<ul>
+<li>It is good for humans to write by hand: Type safety, powerful abstractions
+and referential transparency have enabled engineers all over the world
+in startups and big tech to deliver and maintain complex systems.</li>
+<li>It is good for responsible AI workflows: review is a significant bottleneck in
+modern AI-workflows and Haskell’s strengths heavily favor the reviewer.
+Additionally, the ability to quickly design eDSLs and express constraints
+where it matters allows to set up strong guardrails for code generation,
+without losing flexibility.</li>
+</ul>
+<p>There may be better languages for formal verification or for vibecoding, but
+there’s no better language for “human in the loop”. Haskell is where we
+maintain control of our work, build institutional knowledge and ship responsibly.</p>
+<p>We’re driven to improve Haskell for everyone:</p>
+<ol type="1">
+<li>Beginners: the onboarding experience must be our benchmark for usability</li>
+<li>Experts: enabling advanced workflows and improving productivity</li>
+<li>Industry: focussing on stability and scaling</li>
+</ol>
+<h3 id="a-vision-of-productivity">A vision of productivity</h3>
+<p>Imagine Haskell had the iteration speed of golang, the debugging capabilities
+of C# and the onboarding experience of rust. And all that while providing
+stronger guarantees and better performance!</p>
+<h4 id="iteration-speed">Iteration speed</h4>
+<p>Modern workflows require fast iteration times: compilation, interactive repl,
+remote dependency caching, CI and test integration. All of this affects both
+human and machine workflows.</p>
+<p>While Haskell scales well in terms of code complexity… it doesn’t scale well
+in terms of build times. As an example, GHC’s own CI has turnaround times of 6
+hours. We want to bring them down to 2.</p>
+<h4 id="debugging-and-profiling">Debugging and profiling</h4>
+<p>Instead of helplessly dumping logs and binaries into LLM chats, we envision
+deterministic tools that allow precise and ergonomic enquiries:</p>
+<ul>
+<li>live step-through debugging</li>
+<li>actually useful stack traces</li>
+<li>beautiful performance analysis reports</li>
+</ul>
+<p>And all of that in your editor/IDE as well as through powerful CLI and scripting interfaces, the latter enabling power users as well as LLM-driven debugging (natively, without requiring any custom adapters like MCP).</p>
+<p>Debugging must be fun again, without littering <code>Debug.Trace.trace</code> all over
+your codebase.</p>
+<p>Documentation and interactive exploration will assist newcomers in understanding all caveats
+of laziness and GHC and should clearly explain how to leverage these tools.</p>
+<h4 id="onboarding-and-devx">Onboarding and DevX</h4>
+<p>In these times of low frustration tolerance, we are going to build the best
+onboarding experience in the programming language ecosystem, because it is
+the ultimate benchmark for developer experience as a whole.</p>
+<ul>
+<li>installation so quick that you’re wondering whether the installer even worked</li>
+<li>documentation so comprehensive and accessible that you never get stuck</li>
+<li>tooling so intuitive that you don’t have to constantly ask for support</li>
+</ul>
+<p>This can only be done if we commit to unix principles, which we summarize as:</p>
+<ul>
+<li>write programs that do one thing and do it well</li>
+<li>write programs that work together</li>
+<li>write programs that are extensible</li>
+</ul>
+<p>Documentation should be a joy to read, written by humans, for humans.</p>
+<h3 id="a-vision-of-a-secure-and-trustworthy-ecosystem">A vision of a secure and trustworthy ecosystem</h3>
+<p>Security and trust don’t get established by accident. Once trust is lost,
+it’s often irrecoverably lost.</p>
+<p>To protect our community assets and reputation, we need to:</p>
+<ul>
+<li>have the fastest incident response time among language ecosystems</li>
+<li>have penetration testers go through our infrastructure regularly</li>
+<li>make end users aware of vulnerabilities and mitigations</li>
+<li>build a robust cryptography library stack</li>
+<li>harden our supply chain</li>
+</ul>
+<p>We should further support attempts to utilize or extend the strengths of the
+Haskell language to boost practical applications of secure design and architecture,
+such as <a href="https://hackage.haskell.org/package/lio">Information Flow Control</a> or
+<a href="https://hackage.haskell.org/package/mac">Mandatory Access Control</a>.
+We’re also monitoring the efforts of <a href="https://ghc.serokell.io/dh">dependent types</a>
+and <a href="https://ucsd-progsys.github.io/liquidhaskell/">liquidhaskell</a>.</p>
+<h3 id="a-vision-of-stability">A vision of stability</h3>
+<p>What if we could compile Haskell software that’s 10 years old with the latest
+GHC, without any source code changes?</p>
+<p>While this might seem like an impossible goal to achieve… embarking on that
+journey is going to get us closer to a robust, stable and predictable ecosystem
+anyway.</p>
+<p>The questions we need to answer along the way are:</p>
+<ul>
+<li>how can users opt out of breaking changes?</li>
+<li>how long can we keep support windows open?</li>
+<li>how can we make the upgrade experience better?</li>
+</ul>
+<p>Not only requires this investment in GHC and core tooling, but also potentially
+support community efforts to maintain stable package sets or coordinate ecosystem
+upgrades, make cabal more ergonomic for complex use cases, spearhead and
+support stability policies and gather data about what parts of the ecosystem
+cause churn.</p>
+<p>We want Haskell to not only be a choice for fast moving startups, but also for
+large or conservative companies that do not want their workflows or
+software stacks disrupted. Stability will benefit both of these types of users,
+reduce cost and friction and build a reputation for Haskell as a modern
+language with a predictable ecosystem.</p>
+<h3 id="a-vision-of-a-flourishing-open-source-ecosystem">A vision of a flourishing open source ecosystem</h3>
+<p>All of the above is an attempt to support the Haskell open source ecosystem
+that we love. We are committed to open source, its values and the social
+aspect of it. Collaboration is how we engage with and inspire each other.</p>
+<p>We want to enable all the maintainers and volunteers who keep this ecosystem
+alive, many of them unknown, doing their part on a Saturday evening
+at the other end of the world.</p>
+<p>We code because we love to ship products. But we also code, because we want
+to socialize, meet people and have a good time. We’re committed to both of
+these values.</p>
+      </div>
+    </div>
+  </div>
 </div>
     </div>
 
