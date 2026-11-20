@@ -9,6 +9,12 @@
   font-family: monospace;
 }
 
+/* The typography plugin wraps inline code in literal backticks; we don't want them. */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
@@ -110,16 +116,6 @@ h6 {
 .prose strong {
   color: #18181b;
   font-weight: 600;
-}
-
-.prose ol > li:before {
-  content: counter(list-item, var(--list-counter-style, decimal)) ".";
-  color: #71717a;
-  left: 0;
-}
-
-.prose ul > li:before {
-  background-color: #7e22ce;
 }
 
 .prose hr {
